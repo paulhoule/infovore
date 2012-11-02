@@ -1,0 +1,45 @@
+@prefix bk: <http://rdf.basekb.com/ns/> .
+@prefix bkbi: <http://rdf.basekb.com/internal/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+bk:common.topic.notable_for a bkbi:SuppressedProperty .
+bk:type.object.type bkbi:rewrittenAs rdf:type .
+
+bk:type.text bkbi:uses "text" .
+bk:type.key bkbi:uses "key" .
+bk:type.datetime bkbi:uses "datetime" .
+bk:type.uri bkbi:uses "uri" .
+bk:type.boolean bkbi:uses "boolean" .
+bk:type.rawstring bkbi:uses "rawstring" .
+bk:type.float bkbi:uses "float" .
+bk:type.int bkbi:uses "int" .
+
+
+bk:type.object bkbi:uses "object" .
+bk:type.type bkbi:uses "object" .
+bk:type.user bkbi:uses "object" .
+bk:type.permission bkbi:uses "object" .
+bk:type.usergroup bkbi:uses "object" .
+bk:type.content bkbi:uses "object" .
+bk:type.domain bkbi:uses "object" .
+bk:type.media_type bkbi:uses "object" .
+bk:type.content_import bkbi:uses "object" .
+bk:type.lang bkbi:uses "object" .
+bk:type.property bkbi:uses "object" .
+bk:type.text_encoding bkbi:uses "object" .
+bk:type.unit bkbi:uses "object" .
+bk:type.namespace bkbi:uses "object" .
+
+bk:type.extension bkbi:uses "UnsupportedType" .
+bk:type.enumeration bkbi:uses "UnsupportedType" .
+bk:type.attribution bkbi:uses "UnsupportedType" .
+
+bk:type.reflect bkbi:uses "UnsupportedType" .
+
+
+bk:type.id bkbi:uses "UnsupportedType" .
+bk:type.value bkbi:uses "UnsupportedType" .
+
+
+
+
