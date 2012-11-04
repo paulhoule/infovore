@@ -10,7 +10,6 @@
     <module>basekb-core</module>
     <module>basekb-reports</module>
     <module>hydroxide</module>
-    <module>inspector</module>
     <module>millipede</module>
     <module>hydroxide-apps</module>
   </modules>
