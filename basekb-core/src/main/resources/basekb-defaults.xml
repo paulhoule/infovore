@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+	<bean id="jenaSparqlProvider" class="com.ontology2.basekb.jena.RawConfiguration">
+		<constructor-arg><bean class="com.ontology2.basekb.jena.SparqlProtocol">
+			<constructor-arg><value>http://localhost:8890/sparql/</value></constructor-arg>
+		</bean></constructor-arg>
+	</bean>
+	<bean id="jenaIRIGrounder" class="com.ontology2.basekb.jena.JenaIRIGrounder">
+		<constructor-arg><ref bean="jenaSparqlProvider"/></constructor-arg>
+	</bean>
+	<bean id="jenaGroundedQueryFactory" class="com.ontology2.basekb.jena.GroundedQueryFactory">
+		<constructor-arg><ref bean="jenaIRIGrounder"/></constructor-arg>
+		<constructor-arg><util:map map-class="java.util.HashMap">
+			<entry key="basekb" value="http://rdf.basekb.com/ns/" />
+			<entry key="public" value="http://rdf.basekb.com/public/" />
+			<entry key="rdfs" value="http://www.w3.org/2000/01/rdf-schema#" />
+		</util:map></constructor-arg>
+	</bean>
+</beans>
