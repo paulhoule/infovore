@@ -17,6 +17,8 @@ import java.io.Reader;
 import java.io.Serializable;
 import java.util.zip.GZIPInputStream;
 
+import com.google.common.io.Files;
+
 //
 // Automatically handles file compression and charsets
 //
@@ -35,8 +37,9 @@ public class FileOpener {
 		return new PrintWriter(new OutputStreamWriter(createOutputStream(filename),"UTF-8"));
 	}
 	
-	public OutputStream createOutputStream(String filename) throws FileNotFoundException {
+	public OutputStream createOutputStream(String filename) throws IOException {
 		OutputStream stream;
+		Files.createParentDirs(new File(filename));
 		return new FileOutputStream(filename);
 	}
 

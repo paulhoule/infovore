@@ -25,13 +25,13 @@ import com.hp.hpl.jena.n3.turtle.parser.TurtleParser;
 
 public class PartitionsAndFiles {
 	public static SingleFileSource<FreebaseQuad> getRawQuads() throws Exception {
-		String filename=getInstanceDirectory()+"/freebase-datadump-quadruples.tsv.bz2";
+		String filename=getInputDirectory()+"/freebase-datadump-quadruples.tsv.bz2";
 		Codec<FreebaseQuad> c=new QuadCodec();
 		return new SingleFileSource<FreebaseQuad>(c,filename);
 	}
 	
 	public static SingleFileSource<String> getSimpleTopicDump() throws Exception {
-		String filename=getInstanceDirectory()+"/freebase-simple-topic-dump.tsv.bz2";
+		String filename=getInputDirectory()+"/freebase-simple-topic-dump.tsv.bz2";
 		return new SingleFileSource<String>(new IdentityCodec(),filename);
 	}
 	
@@ -106,19 +106,24 @@ public class PartitionsAndFiles {
 	}
 	
 	public static String getInstanceDirectory() {
-		return getDataDirectory()+"/current";
+		String instanceName="current";
+		Map<String,String> env=System.getenv();
+		if (env.containsKey("INFOVORE_INSTANCE")) {
+			return instanceName=env.get("INFOVORE_INSTANCE");
+		}
+		return getDataDirectory()+"/"+instanceName;
 	}
 	
 	public static String getInputDirectory() {
-		return getDataDirectory()+"/input";
+		return getInstanceDirectory()+"/input";
 	}
 	
 	public static String getWorkDirectory() {
-		return getDataDirectory()+"/work";
+		return getInstanceDirectory()+"/work";
 	}
 	
 	public static String getOutputDirectory() {
-		return getDataDirectory()+"/output";
+		return getInstanceDirectory()+"/output";
 	}
 	
 	private static String resolveFilename(String name) {
