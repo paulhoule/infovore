@@ -109,7 +109,7 @@ public class PartitionsAndFiles {
 		String instanceName="current";
 		Map<String,String> env=System.getenv();
 		if (env.containsKey("INFOVORE_INSTANCE")) {
-			return instanceName=env.get("INFOVORE_INSTANCE");
+			instanceName=env.get("INFOVORE_INSTANCE");
 		}
 		return getDataDirectory()+"/"+instanceName;
 	}
