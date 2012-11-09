@@ -6,4 +6,4 @@ BINDIR=$BASEDIR/target/appassembler/bin
 
 chmod +x $BINDIR/*
 
-export PATH=$PATH:$BASDIR/bin/:$BINDIR
+export PATH=$PATH:$BASEDIR/bin/:$BINDIR
