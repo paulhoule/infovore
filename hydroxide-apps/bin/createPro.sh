@@ -1,0 +1,12 @@
+#!/bin/sh
+
+partitionQuads
+sortQuads
+extractKeyRecords
+constructTurtleZero
+constructTurtleOne
+extractTurtleTwoFacts
+constructTurtleTwo
+constructTurtleThree
+proMergeApp
+proAssembler
