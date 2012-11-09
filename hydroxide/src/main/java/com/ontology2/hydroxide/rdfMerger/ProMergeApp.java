@@ -22,20 +22,20 @@ public class ProMergeApp {
 						PartitionsAndFiles.getTurtleThree()
 						,Node.createURI("http://rdf.basekb.com/internal/turtle3Graph")));
 
-		sources.add(
-				new RDFMerger.MergeSource(
-						PartitionsAndFiles.getSortedComments()
-						,Node.createURI("http://rdf.basekb.com/internal/commentGraph")));
+//		sources.add(
+//				new RDFMerger.MergeSource(
+//						PartitionsAndFiles.getSortedComments()
+//						,Node.createURI("http://rdf.basekb.com/internal/commentGraph")));
 		
-		sources.add(
-				new RDFMerger.MergeSource(
-						PartitionsAndFiles.getSortedHarvestedComments()
-						,Node.createURI("http://rdf.basekb.com/internal/harvestedCommentGraph")));
-		
-		sources.add(
-				new RDFMerger.MergeSource(
-						PartitionsAndFiles.getSortedKnownAs(), 
-						Node.createURI("http://rdf.basekb.com/internal/knownAsGraph")));
+//		sources.add(
+//				new RDFMerger.MergeSource(
+//						PartitionsAndFiles.getSortedHarvestedComments()
+//						,Node.createURI("http://rdf.basekb.com/internal/harvestedCommentGraph")));
+//		
+//		sources.add(
+//				new RDFMerger.MergeSource(
+//						PartitionsAndFiles.getSortedKnownAs(), 
+//						Node.createURI("http://rdf.basekb.com/internal/knownAsGraph")));
 		
 		MultiSource<String> merger=RDFMerger.create(sources);
 		Runner r=new Runner(merger,new Write(PartitionsAndFiles.getProInput().getLines()));

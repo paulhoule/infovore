@@ -1,5 +1,8 @@
 package com.ontology2.hydroxide.turtleThree;
 
+import java.io.InputStreamReader;
+import java.io.Reader;
+
 import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -24,8 +27,8 @@ public class ConstructTurtleThreeApp {
 		t2Model.read(new FileOpener().createReader(turtleTwo),"http://rdf.basekb.com/","TURTLE");
 		
 		Model t3Rulebox=ModelFactory.createDefaultModel();
-		String turtleThreeRulebox=PartitionsAndFiles.getTurtleThreeRuleboxFile();
-		t3Rulebox.read(new FileOpener().createReader(turtleThreeRulebox),"http://rdf.basekb.com/","TURTLE");
+		Reader r=new InputStreamReader(t0.getClass().getResourceAsStream("/turtle3Rulebox.ttl"));
+		t3Rulebox.read(r,"http://rdf.basekb.com/","TURTLE");
 		
 		RDFGrounder grounder=new RDFGrounder(t0);
 		t3Rulebox=grounder.ground(t3Rulebox);

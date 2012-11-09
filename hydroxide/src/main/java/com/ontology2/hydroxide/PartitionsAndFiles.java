@@ -48,24 +48,24 @@ public class PartitionsAndFiles {
 	}
 	
 	public static String getTurtleZeroFile() {
-		return getInstanceDirectory()+"/turtle0";
+		return getWorkDirectory()+"/turtle0";
 	}
 	
 	public static String getCommentCacheFile() {
-		return getDataDirectory()+"/commentCache";
+		return getWorkDirectory()+"/commentCache";
 	}
 	
 	
 	public static String getTurtleZeroRuleboxFile() {
-		return getInstanceDirectory() + "/ruleboxes/TurtleZeroRulebox.ttl";
+		return getWorkDirectory() + "/ruleboxes/TurtleZeroRulebox.ttl";
 	}
 	
 	public static String getNamespaceUsage() {
-		return getInstanceDirectory() + "/namespaceUsage.txt";
+		return getWorkDirectory() + "/namespaceUsage.txt";
 	}
 	
 	public static String getNamespaceList() {
-		return getInstanceDirectory() + "/namespaceList.txt";
+		return getWorkDirectory() + "/namespaceList.txt";
 	}
 	
 	public static TripleMultiFile getCore() {
@@ -85,32 +85,55 @@ public class PartitionsAndFiles {
 	}
 	
 	private static String _getBaseDirectory() {
+		Map<String,String> env=System.getenv();
+		if (env.containsKey("INFOVORE_BASE")) {
+			return env.get("INFOVORE_BASE");
+		}
+		
 		String osName=System.getProperty("os.name");
 		if (osName.startsWith("Windows")) {
-			return "Y:";
+			return "d:/infovore";
 		}
-		return "";
+		return "/invofore";
 	}
 
 	public static String getDataDirectory() {
-		return getBaseDirectory()+"/freebase";	
+		return getBaseDirectory()+"/data";	
 	}
 	
 	public static String getSourceDirectory() {
-		return getBaseDirectory()+"/infovore/";
+		return getBaseDirectory()+"/src";
 	}
 	
 	public static String getInstanceDirectory() {
-		return getDataDirectory()+"/latest";
+		return getDataDirectory()+"/current";
 	}
 	
-
+	public static String getInputDirectory() {
+		return getDataDirectory()+"/input";
+	}
+	
+	public static String getWorkDirectory() {
+		return getDataDirectory()+"/work";
+	}
+	
+	public static String getOutputDirectory() {
+		return getDataDirectory()+"/output";
+	}
+	
+	private static String resolveFilename(String name) {
+		if(name.startsWith("/")) {
+			return getInstanceDirectory()+name;
+		} else {
+			return getWorkDirectory()+"/"+name;
+		}
+	}
 	
 	private static LineMultiFile<FreebaseQuad> createMultiFile(String name,boolean compressed) {
 		PartitionOnSubject partitionFunction = getPartitionFunction();
 		Codec<FreebaseQuad> c=new QuadCodec();
 		return new LineMultiFile<FreebaseQuad>(
-				getInstanceDirectory()+"/"+name, 
+				resolveFilename(name), 
 				"quads", 
 				getCompressConfiguration(name,compressed) ? ".gz" : "", 
 				partitionFunction,
@@ -119,7 +142,7 @@ public class PartitionsAndFiles {
 	
 	private static TripleMultiFile createTripleMultiFile(String name,boolean compressed) {
 		return new TripleMultiFile(
-				getInstanceDirectory()+"/"+name, 
+				resolveFilename(name), 
 				"triples", 
 				getCompressConfiguration(name,compressed) ? ".nt.gz" : ".nt",
 				getTriplePartitionFunction());		
@@ -127,7 +150,7 @@ public class PartitionsAndFiles {
 	
 	private static NQuadsMultiFile createNQuadsMultiFile(String name,boolean compressed) {
 		return new NQuadsMultiFile(
-				getInstanceDirectory()+"/"+name, 
+				resolveFilename(name), 
 				"nquads", 
 				getCompressConfiguration(name,compressed) ? ".nq.gz" : ".nq",
 				getNQuadsPartitionFunction());		
@@ -135,7 +158,7 @@ public class PartitionsAndFiles {
 	
 	private static <T extends Serializable> SerializedMultiFile<T> createSerializedMultiFile(String name,boolean compressed) {
 		return new SerializedMultiFile<T>(
-				getInstanceDirectory()+"/"+name, 
+				resolveFilename(name), 
 				"objects", 
 				getCompressConfiguration(name,compressed) ? ".ser.gz" : ".ser",
 			    new DummyPartitionFunction<T>(1024));		
@@ -183,7 +206,7 @@ public class PartitionsAndFiles {
 	}
 	
 	public static String getTurtleOneRejectedFile() {
-		return getInstanceDirectory()+"/turtle1Rejected.quads";
+		return getOutputDirectory()+"/turtle1Rejected.quads";
 	}
 
 	public static TripleMultiFile getTurtleTwoFacts() {
@@ -200,10 +223,6 @@ public class PartitionsAndFiles {
 
 	public static MultiFile<FreebaseQuad> getTurtleThreeRejected() {
 		return createMultiFile("turtle3rejected",true);
-	}
-	
-	public static String getTurtleThreeRuleboxFile() {
-		return getSourceDirectory()+"hydroxide/src/main/resources/turtle3Rulebox.ttl";
 	}
 	
 	public static TripleMultiFile getKnownAs() {
@@ -235,11 +254,11 @@ public class PartitionsAndFiles {
 	}
 
 	public static TripleMultiFile getBaseKBLite() {
-		return createTripleMultiFile("baseKB",true);
+		return createTripleMultiFile("/output/baseKB",true);
 	}
 
 	public static TripleMultiFile getBaseKBPro() {
-		return createTripleMultiFile("baseKBPro",true);
+		return createTripleMultiFile("/output/baseKBPro",true);
 	}
 
 	public static NQuadsMultiFile getProInput() {
