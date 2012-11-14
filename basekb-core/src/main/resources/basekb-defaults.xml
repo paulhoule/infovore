@@ -18,6 +18,7 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 		<constructor-arg><util:map map-class="java.util.HashMap">
 			<entry key="basekb" value="http://rdf.basekb.com/ns/" />
 			<entry key="public" value="http://rdf.basekb.com/public/" />
+			<entry key="graph" value="http://rdf.basekb.com/graph/" />
 			<entry key="rdfs" value="http://www.w3.org/2000/01/rdf-schema#" />
 		</util:map></constructor-arg>
 	</bean>

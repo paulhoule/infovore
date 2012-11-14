@@ -47,7 +47,7 @@ public class JenaGroundedSparqlTest {
 		Query q=queryFactory.create(
 				"\r\n" + 
 				"select (count(distinct ?gender) as ?cnt) {\r\n" + 
-				"   graph public:baseKB {\r\n" + 
+				"   graph graph:baseKB {\r\n" + 
 				"      ?person basekb:people.person.gender ?gender\r\n" + 
 				"    }\r\n" + 
 				"}");
@@ -65,7 +65,7 @@ public class JenaGroundedSparqlTest {
 	public void testAirports() {
 		Query q=queryFactory.create( 
 				"select ?code ?name ?item {\r\n" + 
-				"   graph public:baseKB {\r\n" + 
+				"   graph graph:baseKB {\r\n" + 
 				"      ?item a basekb:aviation.airport .\r\n" + 
 				"      ?item rdfs:label ?name .\r\n" + 
 				"      ?item public:gravity ?gravity .\r\n" + 
@@ -97,7 +97,7 @@ public class JenaGroundedSparqlTest {
 	public void testMusicbrainzNamespace() {
 		Query q=queryFactory.create(
 				"ask {\r\n" + 
-				"   graph public:baseKB {\r\n" + 
+				"   graph graph:baseKB {\r\n" + 
 				"      basekb:authority.musicbrainz a basekb:type.namespace" +
 				"    }\r\n" + 
 				"}");
@@ -127,7 +127,7 @@ public class JenaGroundedSparqlTest {
 	public void testWikipediaEnNamespace() {
 		Query q=queryFactory.create(
 				"ask {\r\n" + 
-				"   graph public:baseKB {\r\n" + 
+				"   graph graph:baseKB {\r\n" + 
 				"      basekb:wikipedia.en a basekb:type.namespace" +
 				"    }\r\n" + 
 				"}");
@@ -139,7 +139,7 @@ public class JenaGroundedSparqlTest {
 	public void testAuthorityNamespace() {
 		Query q=queryFactory.create(
 				"ask {\r\n" + 
-				"   graph public:baseKB {\r\n" + 
+				"   graph graph:baseKB {\r\n" + 
 				"      basekb:authority a basekb:type.namespace" +
 				"    }\r\n" + 
 				"}");
@@ -150,7 +150,7 @@ public class JenaGroundedSparqlTest {
 	public void testQuery_1_1_1() {
 		Query q=queryFactory.create(
 				"select ?name {" + 
-				"   graph public:baseKB {" + 
+				"   graph graph:baseKB {" + 
 				"      ?director rdfs:label 'Sofia Coppola'@en ." +
 				"      ?director basekb:film.director.film ?film ." +
 				"      ?film rdfs:label ?name ." +
@@ -164,7 +164,7 @@ public class JenaGroundedSparqlTest {
 	public void testQuery_UntypedTopics() {
 		Query q=queryFactory.create(
 				"select (count(*) as ?cnt) {" + 
-				"   graph public:baseKB {" + 
+				"   graph graph:baseKB {" + 
 				"      ?item a basekb:common.topic ." + 
 				"      MINUS {" + 
 				"         ?item a ?otherType ." + 
@@ -187,7 +187,7 @@ public class JenaGroundedSparqlTest {
 	public void testJuly4Raw() {
 		Query q=queryFactory.create(
 				"select ?date { " + 
-				"   graph public:baseKB { " + 
+				"   graph graph:baseKB { " + 
 				"      basekb:m.09c7w0 basekb:m.035qyst ?date ." + 
 				"   }" + 
 				"}"
@@ -201,7 +201,7 @@ public class JenaGroundedSparqlTest {
 	public void testJuly4Grounded() {
 		Query q=queryFactory.create(
 				"select ?date { " + 
-				"   graph public:baseKB { " + 
+				"   graph graph:baseKB { " + 
 				"      basekb:en.united_states basekb:location.dated_location.date_founded ?date ." + 
 				"   }" + 
 				"}"
@@ -228,7 +228,7 @@ public class JenaGroundedSparqlTest {
 	public void testSchemaQuery() {
 		Query q=queryFactory.create(
 				"select ?label ?property ?range {" + 
-				"   graph public:baseKB {" + 
+				"   graph graph:baseKB {" + 
 				"      ?property basekb:type.property.schema basekb:people.person ." + 
 				"      OPTIONAL{" + 
 				"         ?property basekb:type.property.expected_type ?range ." + 
@@ -248,7 +248,7 @@ public class JenaGroundedSparqlTest {
 	public void testWikipediaLookup() {
 		Query q=queryFactory.create(
 				"select ?topic {" +
-				"	graph public:baseKB {" +
+				"	graph graph:baseKB {" +
 				"      ?topic basekb:wikipedia.en 'Urusei_Yatsura'" +
 				"   }" +
 				"}"

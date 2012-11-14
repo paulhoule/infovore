@@ -5,7 +5,7 @@ public class BaseIRI {
 	public static final String bkNs="http://rdf.basekb.com/ns/";
 	public static final String bkPublic="http://rdf.basekb.com/public/";
 	
-	public static final String bkGraph=bkPublic+"baseKB";
+	public static final String bkGraph="http://rdf.basekb.com/graph/baseKB";
 	public static final String rootNode=bkNs+"m.01";
 	public static final String guidPrefix=bkNs+"guid.";
 	

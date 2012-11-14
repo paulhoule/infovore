@@ -53,9 +53,9 @@ public class JenaTest extends TestCase {
 	@Test
 	public void testLoaded() {
 		Query q=queryFactory.create(
-				"prefix public: <http://rdf.basekb.com/public/>" +
+				"prefix graph: <http://rdf.basekb.com/graph/>" +
 				"" +
-				"ask { graph public:baseKB { ?s ?p ?o .} } "
+				"ask { graph graph:baseKB { ?s ?p ?o .} } "
 		);
 		
 		QueryExecution qe=sparql.create(q);
@@ -63,19 +63,6 @@ public class JenaTest extends TestCase {
 		assertTrue(result);
 	}
 
-	@Test
-	public void testLoadedSelect() {
-		Query q=queryFactory.create(
-				"prefix public: <http://rdf.basekb.com/public/>" +
-				"" +
-				"select ?g ?s ?p ?o { graph ?g { ?s ?p ?o .} } limit 1"
-		);
-		
-		QueryExecution qe=sparql.create(q);
-		ResultSet results=qe.execSelect();
-		assertTrue(results.hasNext());
-	}
-	
 	@Test
 	public void testNotLoaded() {
 		Query q=queryFactory.create(
@@ -89,42 +76,6 @@ public class JenaTest extends TestCase {
 		assertFalse(results.hasNext());
 	}
 	
-	@Test
-	public void testAirports() {
-		Query q=queryFactory.create(
-				"prefix basekb: <http://rdf.basekb.com/ns/>\r\n" + 
-				"prefix public: <http://rdf.basekb.com/public/>\r\n" + 
-				"prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\r\n" + 
-				"\r\n" + 
-				"select ?code ?name ?item {\r\n" + 
-				"   graph public:baseKB {\r\n" + 
-				"      ?type public:knownAs basekb:aviation.airport .\r\n" + 
-				"      ?iataP public:knownAs basekb:authority.iata .      \r\n" + 
-				"      ?item a ?type .\r\n" + 
-				"      ?item rdfs:label ?name .\r\n" + 
-				"      ?item public:gravity ?gravity .\r\n" + 
-				"      ?item ?iataP ?code . \r\n" + 
-				"      filter(lang(?name)='en')\r\n" + 
-				"    }\r\n" + 
-				"} order by desc(?gravity) limit 25");
-		
-		QueryExecution qe=sparql.create(q);
-		ResultSet results=qe.execSelect();
-		assertTrue(results.hasNext());
-		
-		String field="code";
-		Set<String> codes=Sets.newHashSet();
-		while(results.hasNext()) {
-			QuerySolution row=results.next();
-			String value=row.get(field).toString();
-			codes.add(value);
-		}
-		
-		assertEquals(25,codes.size());
-		assertTrue(codes.contains("LAX"));
-		assertTrue(codes.contains("JFK"));
-		assertTrue(codes.contains("LHR"));
-	}
 	
 	//
 	// test for massive breakage
