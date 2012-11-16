@@ -1,0 +1,81 @@
+This document explains the method that infovore uses to create :BaseKB Pro
+from the Freebase quad dump.
+
+What is :BaseKB Pro?
+
+:BaseKB Pro is a reconstruction of the Freebase graphd database that restores
+information that was scrambled in the official Freebase quad dump.  We're quite
+lucky that it's possible to perform this reconstruction by joining the quad
+dump against itself twice.
+
+SPARQL Queries against :BaseKB Pro work for the same reasons that queries work
+against Freebase -- at the individual triple level, there turns out to be almost
+no mismatch between Freebase and RDF. 
+
+As :BaseKB is a simple transformation,  it preserves important properties of
+Freebase,  such as the Unique Name Assumption.  Although UNA cannot hold
+across the whole linked data cloud,  when it applies to a particular
+graph,  SPARQL queries work a lot like SQL or MQL queries.  SPARQL queries
+work against :BaseKB for the same reason MQL queries work against the
+Freebase graph.
+
+Getting correct answers from SPARQL queries will be much more difficult against
+any Freebase export that does not respect the UNA,  and,  without a baseline
+demonstrating correct operation,  I'm concerned that people won't understand
+why.
+
+Why can't RDF queries be written against the quads?
+
+The first problem one encounters are that the quads are in a format that is
+superficially different from any RDF standard.  It's straightfoward,  however,
+to bring uads can be brought into correspondence with triples on a 1-1 basis if
+we deal with the problems discussed next.
+
+Freebase quads erase type information for the objects of triples.  This
+information must be restored if we wish to get correct answers from SPARQL
+queries.
+
+Type information can be restored,  however,  because the Freebase quad dump
+contains schema information.  This lets us infer the correct types.
+
+The difficulty then comes from finding the schema material in Freebase.
+Different names are used for predicates when they are in the predicate field
+as to opposed to when they are in the subject or object field.
+
+When these issues are resolved,  it's possible to run RDF queries against facts
+from Freebase
+
+How can this be done?
+
+The key is to solve these problems in the reverse of the order that they were
+discovered in.
+
+:BaseKB Pro can be thought of as a mythological turtle representing the world
+that stands on top of a stack of other turtles.  I discovered that this stack
+is finite,  not infinite.
+
+First we partition and sort the quads.  A rather large number of troublesome
+triples are removed or reversed in direction at this phase to help with the
+process described below.
+
+Turtle 0 is a replication of the name resolution system used by graphd.
+Infovore extracts name-related records and constructs a directed acyclic
+graph of namespace nodes in a JDBM database for rapid lookup later.
+
+Turtle 1 is in the same format as a Freebase quad dump.  To create turtle 1,
+all identifiers in Freebase are looked up against Turtle 0 and resolved to
+mid identifiers
+
+Turtle 2 is a processed version of the Freebase schema that can be easily
+be extracted by Turtle 1.  Turtle 2 is used to control the process that
+creates Turtle 3.
+
+Turtle 3 is created by infering,  for individual triples,  the object type
+information.  The system handles a few other details,  such as translating
+the language tags on text fields.
+
+:BaseKB Pro is produced by a further process of data enrichment.  In previous
+versions,  :BaseKB Pro has had triples merged in from other sources such as
+the simple topic dump and the name resolution process.
+
+
