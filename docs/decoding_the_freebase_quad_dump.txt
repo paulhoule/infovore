@@ -8,21 +8,22 @@ information that was scrambled in the official Freebase quad dump.  We're quite
 lucky that it's possible to perform this reconstruction by joining the quad
 dump against itself twice.
 
-SPARQL Queries against :BaseKB Pro work for the same reasons that queries work
-against Freebase -- at the individual triple level, there turns out to be almost
-no mismatch between Freebase and RDF. 
+SPARQL Queries against :BaseKB Pro work for the same reasons that MQL queries
+work against Freebase -- at the individual triple level, there turns out to be
+almost no mismatch between Freebase and RDF. 
 
 As :BaseKB is a simple transformation,  it preserves important properties of
 Freebase,  such as the Unique Name Assumption.  Although UNA cannot hold
 across the whole linked data cloud,  when it applies to a particular
-graph,  SPARQL queries work a lot like SQL or MQL queries.  SPARQL queries
-work against :BaseKB for the same reason MQL queries work against the
-Freebase graph.
+graph,  SPARQL queries work a lot like SQL or MQL queries.
 
 Getting correct answers from SPARQL queries will be much more difficult against
 any Freebase export that does not respect the UNA,  and,  without a baseline
 demonstrating correct operation,  I'm concerned that people won't understand
 why.
+
+Because graphd is a data wiki,  graphd contains additional metadata that is
+not available in the quad dump or :BaseKB Pro
 
 Why can't RDF queries be written against the quads?
 

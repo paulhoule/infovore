@@ -199,7 +199,7 @@ public class PartitionsAndFiles {
 		
 		Codec<FreebaseKeyRecord> codec=new FreebaseKeyRecord.Codec();
 		return new LineMultiFile<FreebaseKeyRecord>(
-				getInstanceDirectory()+"/keys", 
+				getWorkDirectory()+"/keys", 
 				"keys", 
 				".gz", 
 				partitionFunction,
@@ -219,7 +219,7 @@ public class PartitionsAndFiles {
 	}
 	
 	public static String getTurtleTwoFile() {
-		return getInstanceDirectory()+"/turtle2.ttl";
+		return getWorkDirectory()+"/turtle2.ttl";
 	}
 
 	public static TripleMultiFile getTurtleThree() {
@@ -255,11 +255,11 @@ public class PartitionsAndFiles {
 	}
 	
 	public static String getExpandedBlackListFile() {
-		return getInstanceDirectory()+"/expandedBlacklist.ser";
+		return getWorkDirectory()+"/expandedBlacklist.ser";
 	}
 
 	public static TripleMultiFile getBaseKBLite() {
-		return createTripleMultiFile("/output/baseKB",true);
+		return createTripleMultiFile("/output/baseKBLite",true);
 	}
 
 	public static TripleMultiFile getBaseKBPro() {

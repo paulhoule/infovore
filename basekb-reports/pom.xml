@@ -3,13 +3,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>basekb-tools</artifactId>
+    <artifactId>infovore</artifactId>
     <groupId>com.ontology2</groupId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
   </parent>
   <groupId>com.ontology2</groupId>
   <artifactId>basekb-reports</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <name>basekb-reports</name>
   <url>http://maven.apache.org</url>
   <properties>
@@ -19,7 +19,7 @@
     <dependency>
       <groupId>com.ontology2</groupId>
       <artifactId>basekb-core</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>1.0</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>

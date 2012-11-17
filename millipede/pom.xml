@@ -4,7 +4,7 @@
 
   <groupId>com.ontology2</groupId>
   <artifactId>millipede</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>jar</packaging>
 
   <name>millipede</name>
