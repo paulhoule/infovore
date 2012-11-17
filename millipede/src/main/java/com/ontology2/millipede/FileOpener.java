@@ -60,7 +60,8 @@ public class FileOpener {
 	public InputStream decompressWithExternalBzip(String filename) throws Exception {
 		String[] bzcatPaths={
 				"c:/cygwin/bin/bzcat.exe",
-				"/usr/bin/bzcat"
+				"/usr/bin/bzcat",
+				"/usr/bzcat"
 		};
 		
 		for(String bzcatPath:bzcatPaths) {
