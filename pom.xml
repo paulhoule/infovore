@@ -5,6 +5,7 @@
   <artifactId>infovore</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
+  <name>infovore</name>
   <modules>
     <module>basekb-apps</module>
     <module>basekb-core</module>
