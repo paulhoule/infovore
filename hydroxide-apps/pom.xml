@@ -10,7 +10,7 @@
   <groupId>com.ontology2</groupId>
   <artifactId>hydroxide-apps</artifactId>
   <version>1.0</version>
-  <name>hydroxide_bin</name>
+  <name>hydroxide-apps</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
