@@ -36,7 +36,7 @@ public class PartitionsAndFiles {
 	}
 	
 	public static MultiFile<FreebaseQuad> getPartioned() {
-		return createMultiFile("partioned",false);
+		return createMultiFile("partioned",true);
 	}
 	
 	public static LineMultiFile<FreebaseQuad> getSorted() {

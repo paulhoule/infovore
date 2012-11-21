@@ -15,8 +15,11 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.Serializable;
+import java.util.List;
 import java.util.zip.GZIPInputStream;
 
+import com.google.common.base.Splitter;
+import com.google.common.collect.Lists;
 import com.google.common.io.Files;
 
 //
@@ -58,11 +61,16 @@ public class FileOpener {
 	}
 	
 	public InputStream decompressWithExternalBzip(String filename) throws Exception {
-		String[] bzcatPaths={
-				"c:/cygwin/bin/bzcat.exe",
-				"/usr/bin/bzcat",
-				"/usr/bzcat"
-		};
+
+		List<String> bzcatPaths=Lists.newArrayList();
+		bzcatPaths.add("c:/cygwin/bin/bzcat.exe");
+		
+		String path=System.getenv("PATH");
+		Iterable<String> parts=Splitter.on(System.getProperty("path.separator")).split(path);
+		for(String dir:parts) {
+			bzcatPaths.add(dir+"/bzcat");
+			bzcatPaths.add(dir+"/bzcat.exe");
+		}
 		
 		for(String bzcatPath:bzcatPaths) {
 			if (new File(bzcatPath).canExecute()) {

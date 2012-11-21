@@ -40,7 +40,6 @@ public class ExpandBlacklistApp {
 
 		int pass=1;
 		logger.info("Pass:"+pass+" wl: "+whitelist.size()+" bl:"+blacklist.size()+" remaining links:"+pb.linkFrom.size());
-		System.out.println(pb.allNum.size());
 		while(pb.blacklisted>0) {
 			pass++;
 			PropagateBlacklist oldPb=pb;
@@ -80,14 +79,10 @@ public class ExpandBlacklistApp {
 		IntList linkTo=new IntArrayList();
 		int blacklisted=0;
 		
-		IntSet allNum=new IntOpenHashSet();
-		
 		public void process(IntList from,IntList to) {
 			for(int i=0;i<from.size();i++) {
 				int fromId=from.getInt(i);
 				int toId=to.getInt(i);
-				allNum.add(fromId);
-				allNum.add(toId);
 				
 				//
 				// nothing propagates to and from whitelisted nodes
