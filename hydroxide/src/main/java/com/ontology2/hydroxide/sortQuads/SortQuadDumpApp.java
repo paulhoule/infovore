@@ -19,7 +19,16 @@ public class SortQuadDumpApp {
 		
 		Sort<FreebaseQuad> millipede = new Sort<FreebaseQuad>(new QuadComparator(),new Write(out));
 		Runner<FreebaseQuad> runner = new Runner<FreebaseQuad>(in,millipede);
-		runner.setNThreads(PartitionsAndFiles.getNThreads());
+		
+		// XXX -- prevent sporadic OOM when we've got a huge number of
+		// hyperthreaded processors
+		
+		int nThreads=Runtime.getRuntime().availableProcessors();
+		if (nThreads>4) {
+			nThreads=4;
+		}
+		
+		runner.setNThreads(nThreads);
 		runner.run();
 	}
 
