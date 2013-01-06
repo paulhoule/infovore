@@ -1,5 +1,16 @@
-infovore
-========
+Overview
+--------
+
+If you're interested in creating :BaseKB from an old Freebase quad dump,
+get the [1.0](https://github.com/paulhoule/infovore/archive/v1.0.tar.gz) tag,
+which has been tested on current hardware.  You can also download a
+[pre-computed copy of :BaseKB](http://basekb.com/)
+
+Documentation for the Infovore tools can be found on the [Wiki](https://github.com/paulhoule/infovore/wiki)
+and [additional information](http://basekb.com/docs/) is available about :BaseKB. 
+
+Work is proceeding on the trunk on tools for processing the official Freebase RDF dump
+and other large RDF data sets.
 
 Purpose
 -------
