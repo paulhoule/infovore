@@ -6,8 +6,6 @@ import java.net.MalformedURLException;
 import org.junit.Test;
 
 import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.iri.IRI;
-import com.hp.hpl.jena.iri.IRIFactory;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;

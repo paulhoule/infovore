@@ -14,8 +14,6 @@ import com.hp.hpl.jena.datatypes.RDFDatatype;
 import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Triple;
-import com.hp.hpl.jena.iri.impl.IRIFactoryImpl;
-import com.hp.hpl.jena.iri.impl.IRIImpl;
 import com.hp.hpl.jena.n3.IRIResolver;
 import com.hp.hpl.jena.n3.JenaURIException;
 import com.hp.hpl.jena.rdf.model.Literal;

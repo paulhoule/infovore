@@ -6,11 +6,11 @@
 	<parent>
 		<groupId>com.ontology2</groupId>
 		<artifactId>infovore</artifactId>
-		<version>1.0</version>
+		<version>1.1-SNAPSHOT</version>
 	</parent>
 	<groupId>com.ontology2</groupId>
 	<artifactId>hydroxide-apps</artifactId>
-	<version>1.0</version>
+	<version>1.1-SNAPSHOT</version>
 	<name>hydroxide-apps</name>
 	<url>http://maven.apache.org</url>
 	<properties>
@@ -20,13 +20,13 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.ontology2</groupId>
 			<artifactId>hydroxide</artifactId>
-			<version>1.0</version>
+			<version>1.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 	<build>
