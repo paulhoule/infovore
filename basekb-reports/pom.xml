@@ -5,11 +5,11 @@
   <parent>
     <artifactId>infovore</artifactId>
     <groupId>com.ontology2</groupId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
   </parent>
   <groupId>com.ontology2</groupId>
   <artifactId>basekb-reports</artifactId>
-  <version>1.0</version>
+  <version>1.1-SNAHPSHOT</version>
   <name>basekb-reports</name>
   <url>http://maven.apache.org</url>
   <properties>
@@ -19,7 +19,7 @@
     <dependency>
       <groupId>com.ontology2</groupId>
       <artifactId>basekb-core</artifactId>
-      <version>1.0</version>
+      <version>1.1-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -30,7 +30,7 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>10.0.1</version>
+      <version>13.0.1</version>
       <scope>compile</scope>
     </dependency>
     <dependency>

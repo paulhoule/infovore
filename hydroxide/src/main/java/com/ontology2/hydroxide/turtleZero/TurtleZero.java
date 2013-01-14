@@ -9,9 +9,9 @@ import java.util.Properties;
 import org.apache.log4j.Logger;
 
 import com.google.common.base.Splitter;
-import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.ontology2.hydroxide.PartitionsAndFiles;
@@ -32,7 +32,7 @@ public class TurtleZero {
 	BTree duplicates;
 	BTree failed;
 	
-	Cache<String,String> superCache;
+	LoadingCache<String,String> superCache;
 	
 	static Logger logger=Logger.getLogger(TurtleZero.class);
 	
