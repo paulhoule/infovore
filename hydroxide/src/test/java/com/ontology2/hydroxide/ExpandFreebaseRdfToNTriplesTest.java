@@ -81,7 +81,7 @@ public class ExpandFreebaseRdfToNTriplesTest {
 		assertEquals(1,output.size());
 		assertEquals("<http://rdf.freebase.com/ns/aviation.aircraft.first_flight>",output.get(0).subject);
 		assertEquals("<http://rdf.freebase.com/ns/type.property.unique>",output.get(0).predicate);
-		assertEquals("true",output.get(0).predicate);
+		assertEquals("true",output.get(0).object);
 	}
 	
 	

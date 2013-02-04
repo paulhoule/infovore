@@ -40,7 +40,7 @@ public class JenaNodeTester {
 		assertTrue(true);
 	}
 	
-	@Test
+//	@Test
 	public void testBinding() {
 		Query q=QueryFactory.create(
 		    "SELECT ?dayName WHERE {"+ 

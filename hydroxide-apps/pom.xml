@@ -46,6 +46,10 @@
 							<name>hashId</name>
 						</program>
 						<program>
+						    <mainClass>com.ontology2.hydroxide.fbRdfPartitioner.PartitionFreebaseRDFApp</mainClass>
+						    <name>partitionFreebaseRDF</name>
+						</program>
+						<program>
 							<mainClass>com.ontology2.hydroxide.partitionQuads.PartitionQuadDumpApp</mainClass>
 							<name>partitionQuads</name>
 						</program>

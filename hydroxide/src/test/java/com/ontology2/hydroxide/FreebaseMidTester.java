@@ -12,7 +12,7 @@ public class FreebaseMidTester {
 		FreebaseQuad q1=new FreebaseQuad("/m/01","a",null,"b");
 		FreebaseQuad q2=new FreebaseQuad("/m/02","a",null,"b");
 		int result=new QuadComparator().compare(q1, q2);
-		assertEquals(0,result);
+		assertEquals(-1,result);
 	}
 	
 }

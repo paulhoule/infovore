@@ -116,6 +116,20 @@ public class PartitionsAndFiles {
 		return getDataDirectory()+"/"+instanceName;
 	}
 	
+	public static String getFreebaseFile() {
+		String instanceName=null;
+		Map<String,String> env=System.getenv();
+		if (env.containsKey("INFOVORE_FREEBASE_FILE")) {
+			instanceName=env.get("INFOVORE_FREEBASE_FILE");
+		}
+		
+		if (instanceName==null) {
+			throw new RuntimeException("Path to Freebase RDF dump not given in INFOVORE_FREEBASE_FILE environment variable.");
+		}
+		
+		return instanceName;
+	}
+	
 	public static String getInputDirectory() {
 		return getInstanceDirectory()+"/input";
 	}
@@ -307,7 +321,7 @@ public class PartitionsAndFiles {
 	}
 	
 	public static SingleFileSource<String> getRawTriples() throws Exception {
-		String filename=getInputDirectory()+"/freebase-rdf-2013-01-27-00-00.gz";
+		String filename=getFreebaseFile();
 		Codec<FreebaseQuad> c=new QuadCodec();
 		return SingleFileSource.createRaw(filename);		
 	}
