@@ -9,6 +9,7 @@ import java.util.*;
 
 import com.ontology2.millipede.Codec;
 import com.ontology2.millipede.FileOpener;
+import com.ontology2.millipede.IdentityCodec;
 
 public class SingleFileSource<T> implements Source<T> {
 	
@@ -39,6 +40,8 @@ public class SingleFileSource<T> implements Source<T> {
 		return codec.decode(output);
 	}
 	
-
+	public static SingleFileSource<String> createRaw(String filename) throws Exception {
+		return new SingleFileSource(new IdentityCodec(),filename);
+	}
 
 }

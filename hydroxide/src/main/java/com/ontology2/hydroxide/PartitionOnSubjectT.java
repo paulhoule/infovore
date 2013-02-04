@@ -36,8 +36,6 @@ public class PartitionOnSubjectT implements PartitionFunction<Triple> {
 		return (int) Math.abs(hashInt % count);
 	}
 
-	public static long hashArrayToInt(byte[] hashResult) {
-		return ByteBuffer.wrap(hashResult).getLong();
-	}
+
 
 }

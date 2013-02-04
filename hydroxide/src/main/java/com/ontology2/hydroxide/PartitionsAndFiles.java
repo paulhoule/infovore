@@ -15,6 +15,8 @@ import com.ontology2.millipede.NQuadsMultiFile;
 import com.ontology2.millipede.PartitionFunction;
 import com.ontology2.millipede.SerializedMultiFile;
 import com.ontology2.millipede.TripleMultiFile;
+import com.ontology2.millipede.sink.SingleFileSink;
+import com.ontology2.millipede.sink.Sink;
 import com.ontology2.millipede.source.SingleFileSource;
 
 import com.hp.hpl.jena.graph.Triple;
@@ -294,6 +296,22 @@ public class PartitionsAndFiles {
 		return createTripleMultiFile("sortedHarvestedComments",false);
 	}
 	
+	public static LineMultiFile<PrimitiveTriple> getPartitionedExpandedTriples() {
+		PartitionFunction<PrimitiveTriple> partitionFunction = new PartitionPrimitiveTripleOnSubject(1024);
+		return new LineMultiFile<PrimitiveTriple>(
+				resolveFilename("expandedRawFreebase") 
+				,"triples"
+				,getCompressConfiguration("expandedRawFreebase",true) ? ".gz" : "", 
+				partitionFunction,
+				new PrimitiveTripleCodec());		
+	}
+	
+	public static SingleFileSource<String> getRawTriples() throws Exception {
+		String filename=getInputDirectory()+"/freebase-rdf-2013-01-27-00-00.gz";
+		Codec<FreebaseQuad> c=new QuadCodec();
+		return SingleFileSource.createRaw(filename);		
+	}
+	
 	// TODO: the multipler factor is something that depends on the task and the job
 	// setting the thread count high will cause my Windows machine to get hosed and
 	// means I can't do other things.  On the other hand,  if the machine is a cloud
@@ -311,5 +329,10 @@ public class PartitionsAndFiles {
 
 	public static int getPartitionCount() {
 		return 1024;
+	}
+
+	public static Sink<String> getRawFreebaseRejected() throws Exception {
+		String filename=getWorkDirectory()+"/freebase-raw-rejected.tsv";
+		return new SingleFileSink<String>(new IdentityCodec(),filename);
 	}
 }
