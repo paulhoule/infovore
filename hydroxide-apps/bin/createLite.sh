@@ -1,3 +1,0 @@
-extractLinksAndLabels
-expandBlacklist
-removeBlacklisted
