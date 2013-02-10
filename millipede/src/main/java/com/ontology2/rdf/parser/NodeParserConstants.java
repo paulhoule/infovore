@@ -29,129 +29,119 @@ public interface NodeParserConstants {
   /** End of File. */
   int EOF = 0;
   /** RegularExpression Id. */
-  int PLING = 1;
+  int WS = 6;
   /** RegularExpression Id. */
-  int VBAR = 2;
+  int SINGLE_LINE_COMMENT = 7;
   /** RegularExpression Id. */
-  int CARROT = 3;
+  int KW_A = 8;
   /** RegularExpression Id. */
-  int FPATH = 4;
+  int PREFIX = 9;
   /** RegularExpression Id. */
-  int RPATH = 5;
+  int BASE = 10;
   /** RegularExpression Id. */
-  int WS = 11;
+  int TRUE = 11;
   /** RegularExpression Id. */
-  int SINGLE_LINE_COMMENT = 12;
+  int FALSE = 12;
   /** RegularExpression Id. */
-  int KW_A = 13;
+  int INTEGER = 13;
   /** RegularExpression Id. */
-  int PREFIX = 14;
+  int DECIMAL = 14;
   /** RegularExpression Id. */
-  int BASE = 15;
+  int DOUBLE = 15;
   /** RegularExpression Id. */
-  int TRUE = 16;
+  int EXPONENT = 16;
   /** RegularExpression Id. */
-  int FALSE = 17;
+  int QUOTE_3D = 17;
   /** RegularExpression Id. */
-  int INTEGER = 18;
+  int QUOTE_3S = 18;
   /** RegularExpression Id. */
-  int DECIMAL = 19;
+  int ECHAR = 19;
   /** RegularExpression Id. */
-  int DOUBLE = 20;
+  int STRING_LITERAL1 = 20;
   /** RegularExpression Id. */
-  int EXPONENT = 21;
+  int STRING_LITERAL2 = 21;
   /** RegularExpression Id. */
-  int QUOTE_3D = 22;
+  int STRING_LITERAL_LONG1 = 22;
   /** RegularExpression Id. */
-  int QUOTE_3S = 23;
+  int STRING_LITERAL_LONG2 = 23;
   /** RegularExpression Id. */
-  int ECHAR = 24;
+  int DIGITS = 24;
   /** RegularExpression Id. */
-  int STRING_LITERAL1 = 25;
+  int IRIref = 25;
   /** RegularExpression Id. */
-  int STRING_LITERAL2 = 26;
+  int PNAME_NS = 26;
   /** RegularExpression Id. */
-  int STRING_LITERAL_LONG1 = 27;
+  int PNAME_LN = 27;
   /** RegularExpression Id. */
-  int STRING_LITERAL_LONG2 = 28;
+  int BLANK_NODE_LABEL = 28;
   /** RegularExpression Id. */
-  int DIGITS = 29;
+  int VAR = 29;
   /** RegularExpression Id. */
-  int IRIref = 30;
+  int LANGTAG = 30;
   /** RegularExpression Id. */
-  int PNAME_NS = 31;
+  int A2Z = 31;
   /** RegularExpression Id. */
-  int PNAME_LN = 32;
+  int A2ZN = 32;
   /** RegularExpression Id. */
-  int BLANK_NODE_LABEL = 33;
+  int LPAREN = 33;
   /** RegularExpression Id. */
-  int VAR = 34;
+  int RPAREN = 34;
   /** RegularExpression Id. */
-  int LANGTAG = 35;
+  int NIL = 35;
   /** RegularExpression Id. */
-  int A2Z = 36;
+  int LBRACE = 36;
   /** RegularExpression Id. */
-  int A2ZN = 37;
+  int RBRACE = 37;
   /** RegularExpression Id. */
-  int LPAREN = 38;
+  int LBRACKET = 38;
   /** RegularExpression Id. */
-  int RPAREN = 39;
+  int RBRACKET = 39;
   /** RegularExpression Id. */
-  int NIL = 40;
+  int ANON = 40;
   /** RegularExpression Id. */
-  int LBRACE = 41;
+  int SEMICOLON = 41;
   /** RegularExpression Id. */
-  int RBRACE = 42;
+  int COMMA = 42;
   /** RegularExpression Id. */
-  int LBRACKET = 43;
+  int DOT = 43;
   /** RegularExpression Id. */
-  int RBRACKET = 44;
+  int EQ = 44;
   /** RegularExpression Id. */
-  int ANON = 45;
+  int ARROW = 45;
   /** RegularExpression Id. */
-  int SEMICOLON = 46;
+  int DOLLAR = 46;
   /** RegularExpression Id. */
-  int COMMA = 47;
+  int QMARK = 47;
   /** RegularExpression Id. */
-  int DOT = 48;
+  int TILDE = 48;
   /** RegularExpression Id. */
-  int EQ = 49;
+  int COLON = 49;
   /** RegularExpression Id. */
-  int ARROW = 50;
+  int STAR = 50;
   /** RegularExpression Id. */
-  int DOLLAR = 51;
+  int SLASH = 51;
   /** RegularExpression Id. */
-  int QMARK = 52;
+  int RSLASH = 52;
   /** RegularExpression Id. */
-  int TILDE = 53;
+  int BOM = 53;
   /** RegularExpression Id. */
-  int COLON = 54;
+  int DATATYPE = 54;
   /** RegularExpression Id. */
-  int STAR = 55;
+  int AT = 55;
   /** RegularExpression Id. */
-  int SLASH = 56;
+  int PN_CHARS_BASE = 56;
   /** RegularExpression Id. */
-  int RSLASH = 57;
+  int PN_CHARS_U = 57;
   /** RegularExpression Id. */
-  int BOM = 58;
+  int PN_CHARS = 58;
   /** RegularExpression Id. */
-  int DATATYPE = 59;
+  int PN_PREFIX = 59;
   /** RegularExpression Id. */
-  int AT = 60;
+  int PN_LOCAL = 60;
   /** RegularExpression Id. */
-  int PN_CHARS_BASE = 61;
+  int VARNAME = 61;
   /** RegularExpression Id. */
-  int PN_CHARS_U = 62;
-  /** RegularExpression Id. */
-  int PN_CHARS = 63;
-  /** RegularExpression Id. */
-  int PN_PREFIX = 64;
-  /** RegularExpression Id. */
-  int PN_LOCAL = 65;
-  /** RegularExpression Id. */
-  int VARNAME = 66;
-  /** RegularExpression Id. */
-  int UNKNOWN = 67;
+  int UNKNOWN = 62;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -159,11 +149,6 @@ public interface NodeParserConstants {
   /** Literal token values. */
   String[] tokenImage = {
     "<EOF>",
-    "\"!\"",
-    "\"|\"",
-    "\"^\"",
-    "\"->\"",
-    "\"<-\"",
     "\" \"",
     "\"\\t\"",
     "\"\\n\"",

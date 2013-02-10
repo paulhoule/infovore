@@ -22,514 +22,58 @@ package com.ontology2.rdf.parser;
 import com.hp.hpl.jena.n3.turtle.ParserBase ;
 import com.hp.hpl.jena.graph.* ;
 
+
+
 public class NodeParser extends ParserBase implements NodeParserConstants {
+    private Node nodeValue;
+    public Node getNodeValue() {
+        return nodeValue;
+    }
 
 // --- Entry point
   final public void parse() throws ParseException {
-    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-    case BOM:
-      jj_consume_token(BOM);
-      break;
-    default:
-      jj_la1[0] = jj_gen;
-      ;
-    }
-    label_1:
-    while (true) {
-      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case PREFIX:
-      case BASE:
-      case TRUE:
-      case FALSE:
-      case INTEGER:
-      case DECIMAL:
-      case DOUBLE:
-      case STRING_LITERAL1:
-      case STRING_LITERAL2:
-      case STRING_LITERAL_LONG1:
-      case STRING_LITERAL_LONG2:
-      case IRIref:
-      case PNAME_NS:
-      case PNAME_LN:
-      case BLANK_NODE_LABEL:
-      case VAR:
-      case LPAREN:
-      case NIL:
-      case LBRACE:
-      case LBRACKET:
-      case ANON:
-        ;
-        break;
-      default:
-        jj_la1[1] = jj_gen;
-        break label_1;
-      }
-      Statement();
-    }
+    GraphTerm();
     jj_consume_token(0);
   }
 
-  final public void Statement() throws ParseException {
-    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-    case PREFIX:
-    case BASE:
-      Directive();
-      break;
-    case TRUE:
-    case FALSE:
-    case INTEGER:
-    case DECIMAL:
-    case DOUBLE:
-    case STRING_LITERAL1:
-    case STRING_LITERAL2:
-    case STRING_LITERAL_LONG1:
-    case STRING_LITERAL_LONG2:
-    case IRIref:
-    case PNAME_NS:
-    case PNAME_LN:
-    case BLANK_NODE_LABEL:
-    case VAR:
-    case LPAREN:
-    case NIL:
-    case LBRACE:
-    case LBRACKET:
-    case ANON:
-      TriplesSameSubject();
-      break;
-    default:
-      jj_la1[2] = jj_gen;
-      jj_consume_token(-1);
-      throw new ParseException();
-    }
-    jj_consume_token(DOT);
-  }
-
-  final public void Directive() throws ParseException {
-                     Token t ; String iri ;
-    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-    case PREFIX:
-      jj_consume_token(PREFIX);
-      t = jj_consume_token(PNAME_NS);
-      iri = IRI_REF();
-      String s = fixupPrefix(t.image, t.beginLine, t.beginColumn) ;
-      setPrefix(t.beginLine, t.beginColumn, s, iri) ;
-      break;
-    case BASE:
-      t = jj_consume_token(BASE);
-      iri = IRI_REF();
-      setBase(iri, t.beginLine, t.beginColumn) ;
-      break;
-    default:
-      jj_la1[3] = jj_gen;
-      jj_consume_token(-1);
-      throw new ParseException();
-    }
-  }
-
-// ---- TRIPLES
-  final public void TriplesSameSubject() throws ParseException {
-                              Node s ;
-    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-    case TRUE:
-    case FALSE:
-    case INTEGER:
-    case DECIMAL:
-    case DOUBLE:
-    case STRING_LITERAL1:
-    case STRING_LITERAL2:
-    case STRING_LITERAL_LONG1:
-    case STRING_LITERAL_LONG2:
-    case IRIref:
-    case PNAME_NS:
-    case PNAME_LN:
-    case BLANK_NODE_LABEL:
-    case VAR:
-    case NIL:
-    case LBRACE:
-    case ANON:
-      s = VarOrTerm();
-      PropertyListNotEmpty(s);
-      break;
-    case LPAREN:
-    case LBRACKET:
-      // Any of the triple generating syntax elements
-        s = TriplesNode();
-      PropertyList(s);
-      break;
-    default:
-      jj_la1[4] = jj_gen;
-      jj_consume_token(-1);
-      throw new ParseException();
-    }
-  }
-
-  final public void PropertyList(Node s) throws ParseException {
-    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-    case KW_A:
-    case IRIref:
-    case PNAME_NS:
-    case PNAME_LN:
-    case EQ:
-    case ARROW:
-      PropertyListNotEmpty(s);
-      break;
-    default:
-      jj_la1[5] = jj_gen;
-      ;
-    }
-  }
-
-// Non-recursive for Turtle long PropertyList tests
-  final public void PropertyListNotEmpty(Node s) throws ParseException {
-                                      Node p ;
-    p = Verb();
-    ObjectList(s, p);
-    label_2:
-    while (true) {
-      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case SEMICOLON:
-        ;
-        break;
-      default:
-        jj_la1[6] = jj_gen;
-        break label_2;
-      }
-      jj_consume_token(SEMICOLON);
-      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case KW_A:
-      case IRIref:
-      case PNAME_NS:
-      case PNAME_LN:
-      case EQ:
-      case ARROW:
-        p = Verb();
-        ObjectList(s, p);
-        break;
-      default:
-        jj_la1[7] = jj_gen;
-        ;
-      }
-    }
-  }
-
-// Non-recursive for Turtle long PropertyList tests
-  final public void ObjectList(Node s, Node p) throws ParseException {
-                                   Node o ;
-    Object(s, p);
-    label_3:
-    while (true) {
-      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case COMMA:
-        ;
-        break;
-      default:
-        jj_la1[8] = jj_gen;
-        break label_3;
-      }
-      jj_consume_token(COMMA);
-      Object(s, p);
-    }
-  }
-
-  final public void Object(Node s, Node p) throws ParseException {
-                               Node o ;
-    o = GraphNode();
-    Triple t = new Triple(s,p,o) ;
-    emitTriple(token.beginLine, token.beginColumn, t) ;
-  }
-
-  final public Node Verb() throws ParseException {
-                Node p ; String iri ;
+  final public void GraphTerm() throws ParseException {
+                     String iri ;
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case IRIref:
     case PNAME_NS:
     case PNAME_LN:
       iri = IRIref();
-                      p = createNode(iri) ;
-      break;
-    case KW_A:
-      jj_consume_token(KW_A);
-              p = nRDFtype ;
-      break;
-    case EQ:
-      jj_consume_token(EQ);
-        p = nOwlSameAs ;
-        if ( strictTurtle )
-          throwParseException("= (owl:sameAs) not legal in Turtle",
-                          token.beginLine, token.beginColumn ) ;
-      break;
-    case ARROW:
-      jj_consume_token(ARROW);
-        p = nLogImplies ;
-        if ( strictTurtle )
-          throwParseException("=> (log:implies) not legal in Turtle",
-                          token.beginLine, token.beginColumn ) ;
-      break;
-    default:
-      jj_la1[9] = jj_gen;
-      jj_consume_token(-1);
-      throw new ParseException();
-    }
-    {if (true) return p ;}
-    throw new Error("Missing return statement in function");
-  }
-
-// -------- Triple expansions
-
-// Anything that can stand in a node slot and which is
-// a number of triples
-  final public Node TriplesNode() throws ParseException {
-                       Node n ;
-    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-    case LPAREN:
-      n = Collection();
-                     {if (true) return n ;}
-      break;
-    case LBRACKET:
-      n = BlankNodePropertyList();
-                                {if (true) return n ;}
-      break;
-    default:
-      jj_la1[10] = jj_gen;
-      jj_consume_token(-1);
-      throw new ParseException();
-    }
-    throw new Error("Missing return statement in function");
-  }
-
-  final public Node BlankNodePropertyList() throws ParseException {
-    jj_consume_token(LBRACKET);
-      Node n = createBNode() ;
-    PropertyListNotEmpty(n);
-    jj_consume_token(RBRACKET);
-      {if (true) return n ;}
-    throw new Error("Missing return statement in function");
-  }
-
-// ------- RDF collections
-
-// Code not as SPARQL/ARQ because of output ordering.
-  final public Node Collection() throws ParseException {
-      Node listHead = nRDFnil ; Node lastCell = null ; Node n ;
-    jj_consume_token(LPAREN);
-    label_4:
-    while (true) {
-      Node cell = createBNode() ;
-      if ( listHead == nRDFnil )
-         listHead = cell ;
-      if ( lastCell != null )
-        emitTriple(token.beginLine, token.beginColumn,
-                   new Triple(lastCell, nRDFrest,  cell)) ;
-      n = GraphNode();
-      emitTriple(token.beginLine, token.beginColumn,
-                 new Triple(cell, nRDFfirst,  n)) ;
-      lastCell = cell ;
-      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case TRUE:
-      case FALSE:
-      case INTEGER:
-      case DECIMAL:
-      case DOUBLE:
-      case STRING_LITERAL1:
-      case STRING_LITERAL2:
-      case STRING_LITERAL_LONG1:
-      case STRING_LITERAL_LONG2:
-      case IRIref:
-      case PNAME_NS:
-      case PNAME_LN:
-      case BLANK_NODE_LABEL:
-      case VAR:
-      case LPAREN:
-      case NIL:
-      case LBRACE:
-      case LBRACKET:
-      case ANON:
-        ;
-        break;
-      default:
-        jj_la1[11] = jj_gen;
-        break label_4;
-      }
-    }
-    jj_consume_token(RPAREN);
-     if ( lastCell != null )
-       emitTriple(token.beginLine, token.beginColumn,
-                  new Triple(lastCell, nRDFrest,  nRDFnil)) ;
-     {if (true) return listHead ;}
-    throw new Error("Missing return statement in function");
-  }
-
-// -------- Nodes in a graph pattern or template
-  final public Node GraphNode() throws ParseException {
-                     Node n ;
-    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-    case TRUE:
-    case FALSE:
-    case INTEGER:
-    case DECIMAL:
-    case DOUBLE:
-    case STRING_LITERAL1:
-    case STRING_LITERAL2:
-    case STRING_LITERAL_LONG1:
-    case STRING_LITERAL_LONG2:
-    case IRIref:
-    case PNAME_NS:
-    case PNAME_LN:
-    case BLANK_NODE_LABEL:
-    case VAR:
-    case NIL:
-    case LBRACE:
-    case ANON:
-      n = VarOrTerm();
-                    {if (true) return n ;}
-      break;
-    case LPAREN:
-    case LBRACKET:
-      n = TriplesNode();
-                      {if (true) return n ;}
-      break;
-    default:
-      jj_la1[12] = jj_gen;
-      jj_consume_token(-1);
-      throw new ParseException();
-    }
-    throw new Error("Missing return statement in function");
-  }
-
-  final public Node VarOrTerm() throws ParseException {
-                    Node n = null ;
-    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-    case VAR:
-      n = Var();
-      break;
-    case TRUE:
-    case FALSE:
-    case INTEGER:
-    case DECIMAL:
-    case DOUBLE:
-    case STRING_LITERAL1:
-    case STRING_LITERAL2:
-    case STRING_LITERAL_LONG1:
-    case STRING_LITERAL_LONG2:
-    case IRIref:
-    case PNAME_NS:
-    case PNAME_LN:
-    case BLANK_NODE_LABEL:
-    case NIL:
-    case ANON:
-      n = GraphTerm();
-      break;
-    case LBRACE:
-      n = Formula();
-      break;
-    default:
-      jj_la1[13] = jj_gen;
-      jj_consume_token(-1);
-      throw new ParseException();
-    }
-    {if (true) return n ;}
-    throw new Error("Missing return statement in function");
-  }
-
-  final public Node Formula() throws ParseException {
-                  Token t ;
-    t = jj_consume_token(LBRACE);
-                   startFormula(t.beginLine, t.beginColumn) ;
-    TriplesSameSubject();
-    label_5:
-    while (true) {
-      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case DOT:
-        ;
-        break;
-      default:
-        jj_la1[14] = jj_gen;
-        break label_5;
-      }
-      jj_consume_token(DOT);
-      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case TRUE:
-      case FALSE:
-      case INTEGER:
-      case DECIMAL:
-      case DOUBLE:
-      case STRING_LITERAL1:
-      case STRING_LITERAL2:
-      case STRING_LITERAL_LONG1:
-      case STRING_LITERAL_LONG2:
-      case IRIref:
-      case PNAME_NS:
-      case PNAME_LN:
-      case BLANK_NODE_LABEL:
-      case VAR:
-      case LPAREN:
-      case NIL:
-      case LBRACE:
-      case LBRACKET:
-      case ANON:
-        TriplesSameSubject();
-        break;
-      default:
-        jj_la1[15] = jj_gen;
-        ;
-      }
-    }
-    t = jj_consume_token(RBRACE);
-                   endFormula(t.beginLine, t.beginColumn) ;
-        {if (true) return null ;}
-    throw new Error("Missing return statement in function");
-  }
-
-  final public Node Var() throws ParseException {
-               Token t ;
-    t = jj_consume_token(VAR);
-      {if (true) return createVariable(t.image, t.beginLine, t.beginColumn) ;}
-    throw new Error("Missing return statement in function");
-  }
-
-  final public Node GraphTerm() throws ParseException {
-                     Node n ; String iri ;
-    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-    case IRIref:
-    case PNAME_NS:
-    case PNAME_LN:
-      iri = IRIref();
-                      {if (true) return createNode(iri) ;}
+                      nodeValue=createNode(iri) ;
       break;
     case STRING_LITERAL1:
     case STRING_LITERAL2:
     case STRING_LITERAL_LONG1:
     case STRING_LITERAL_LONG2:
-      n = RDFLiteral();
-                          {if (true) return n ;}
+      nodeValue = RDFLiteral();
       break;
     case INTEGER:
     case DECIMAL:
     case DOUBLE:
       // Cleaner sign handling in Turtle.
-        n = NumericLiteral();
-                          {if (true) return n ;}
+        nodeValue = NumericLiteral();
       break;
     case TRUE:
     case FALSE:
-      n = BooleanLiteral();
-                          {if (true) return n ;}
+      nodeValue = BooleanLiteral();
       break;
     case BLANK_NODE_LABEL:
     case ANON:
-      n = BlankNode();
-                          {if (true) return n ;}
+      nodeValue = BlankNode();
       break;
     case NIL:
       jj_consume_token(NIL);
-           {if (true) return nRDFnil ;}
+           nodeValue=nRDFnil ;
       break;
     default:
-      jj_la1[16] = jj_gen;
+      jj_la1[0] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
-    throw new Error("Missing return statement in function");
   }
 
 // ---- Basic terms
@@ -549,7 +93,7 @@ public class NodeParser extends ParserBase implements NodeParserConstants {
                  {if (true) return createLiteralDouble(t.image) ;}
       break;
     default:
-      jj_la1[17] = jj_gen;
+      jj_la1[1] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -576,13 +120,13 @@ public class NodeParser extends ParserBase implements NodeParserConstants {
         dt = IRIref();
         break;
       default:
-        jj_la1[18] = jj_gen;
+        jj_la1[2] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
       break;
     default:
-      jj_la1[19] = jj_gen;
+      jj_la1[3] = jj_gen;
       ;
     }
       {if (true) return createLiteral(lex, lang, dt) ;}
@@ -600,7 +144,7 @@ public class NodeParser extends ParserBase implements NodeParserConstants {
       t = AnyDirective();
       break;
     default:
-      jj_la1[20] = jj_gen;
+      jj_la1[4] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -618,7 +162,7 @@ public class NodeParser extends ParserBase implements NodeParserConstants {
       t = jj_consume_token(BASE);
       break;
     default:
-      jj_la1[21] = jj_gen;
+      jj_la1[5] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -637,7 +181,7 @@ public class NodeParser extends ParserBase implements NodeParserConstants {
              {if (true) return XSD_FALSE ;}
       break;
     default:
-      jj_la1[22] = jj_gen;
+      jj_la1[6] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -664,7 +208,7 @@ public class NodeParser extends ParserBase implements NodeParserConstants {
                                  lex = stripQuotes3(t.image) ;
       break;
     default:
-      jj_la1[23] = jj_gen;
+      jj_la1[7] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -686,7 +230,7 @@ public class NodeParser extends ParserBase implements NodeParserConstants {
                          {if (true) return iri ;}
       break;
     default:
-      jj_la1[24] = jj_gen;
+      jj_la1[8] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -705,7 +249,7 @@ public class NodeParser extends ParserBase implements NodeParserConstants {
       {if (true) return resolvePName(t.image, t.beginLine, t.beginColumn) ;}
       break;
     default:
-      jj_la1[25] = jj_gen;
+      jj_la1[9] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -724,7 +268,7 @@ public class NodeParser extends ParserBase implements NodeParserConstants {
            {if (true) return createBNode() ;}
       break;
     default:
-      jj_la1[26] = jj_gen;
+      jj_la1[10] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -747,23 +291,18 @@ public class NodeParser extends ParserBase implements NodeParserConstants {
   public Token jj_nt;
   private int jj_ntk;
   private int jj_gen;
-  final private int[] jj_la1 = new int[27];
+  final private int[] jj_la1 = new int[11];
   static private int[] jj_la1_0;
   static private int[] jj_la1_1;
-  static private int[] jj_la1_2;
   static {
       jj_la1_init_0();
       jj_la1_init_1();
-      jj_la1_init_2();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0x0,0xde1fc000,0xde1fc000,0xc000,0xde1f0000,0xc0002000,0x0,0xc0002000,0x0,0xc0002000,0x0,0xde1f0000,0xde1f0000,0xde1f0000,0x0,0xde1f0000,0xde1f0000,0x1c0000,0xc000,0xc000,0xc000,0xc000,0x30000,0x1e000000,0xc0000000,0x80000000,0x0,};
+      jj_la1_0 = new int[] {0x1ef0f800,0xe000,0x40000600,0x40000600,0x40000600,0x600,0x1800,0xf00000,0xe000000,0xc000000,0x10000000,};
    }
    private static void jj_la1_init_1() {
-      jj_la1_1 = new int[] {0x4000000,0x2b47,0x2b47,0x0,0x2b47,0x60001,0x4000,0x60001,0x8000,0x60001,0x840,0x2b47,0x2b47,0x2307,0x10000,0x2b47,0x2103,0x0,0x8000008,0x8000008,0x8,0x0,0x0,0x0,0x1,0x1,0x2002,};
-   }
-   private static void jj_la1_init_2() {
-      jj_la1_2 = new int[] {0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,};
+      jj_la1_1 = new int[] {0x108,0x0,0x400000,0x400000,0x0,0x0,0x0,0x0,0x0,0x0,0x100,};
    }
 
   /** Constructor with InputStream. */
@@ -777,7 +316,7 @@ public class NodeParser extends ParserBase implements NodeParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 27; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 11; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -791,7 +330,7 @@ public class NodeParser extends ParserBase implements NodeParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 27; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 11; i++) jj_la1[i] = -1;
   }
 
   /** Constructor. */
@@ -801,7 +340,7 @@ public class NodeParser extends ParserBase implements NodeParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 27; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 11; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -811,7 +350,7 @@ public class NodeParser extends ParserBase implements NodeParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 27; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 11; i++) jj_la1[i] = -1;
   }
 
   /** Constructor with generated Token Manager. */
@@ -820,7 +359,7 @@ public class NodeParser extends ParserBase implements NodeParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 27; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 11; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -829,7 +368,7 @@ public class NodeParser extends ParserBase implements NodeParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 27; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 11; i++) jj_la1[i] = -1;
   }
 
   private Token jj_consume_token(int kind) throws ParseException {
@@ -880,12 +419,12 @@ public class NodeParser extends ParserBase implements NodeParserConstants {
   /** Generate ParseException. */
   public ParseException generateParseException() {
     jj_expentries.clear();
-    boolean[] la1tokens = new boolean[68];
+    boolean[] la1tokens = new boolean[63];
     if (jj_kind >= 0) {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
     }
-    for (int i = 0; i < 27; i++) {
+    for (int i = 0; i < 11; i++) {
       if (jj_la1[i] == jj_gen) {
         for (int j = 0; j < 32; j++) {
           if ((jj_la1_0[i] & (1<<j)) != 0) {
@@ -894,13 +433,10 @@ public class NodeParser extends ParserBase implements NodeParserConstants {
           if ((jj_la1_1[i] & (1<<j)) != 0) {
             la1tokens[32+j] = true;
           }
-          if ((jj_la1_2[i] & (1<<j)) != 0) {
-            la1tokens[64+j] = true;
-          }
         }
       }
     }
-    for (int i = 0; i < 68; i++) {
+    for (int i = 0; i < 63; i++) {
       if (la1tokens[i]) {
         jj_expentry = new int[1];
         jj_expentry[0] = i;

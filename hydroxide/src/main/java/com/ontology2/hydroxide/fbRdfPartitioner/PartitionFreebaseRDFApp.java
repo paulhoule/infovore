@@ -18,7 +18,7 @@ import com.ontology2.millipede.sink.ProgressReportingSink;
 import com.ontology2.millipede.sink.Sink;
 import com.ontology2.millipede.source.SingleFileSource;
 
-public class PartitionFreebaseRDFApp extends CommandLineApplication {
+public class PartitionFreebaseRDFApp extends CommandLineApplication  {
 
 	public PartitionFreebaseRDFApp(String[] arguments) {
 		super(arguments);
@@ -44,9 +44,6 @@ public class PartitionFreebaseRDFApp extends CommandLineApplication {
 				PrimitiveTriple.hasPredicate("<http://rdf.freebase.com/ns/type.type.expected_by>"),
 				PrimitiveTriple.hasPredicate("<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>")
 		));
-		
-
-		
 		
 		Partitioner<PrimitiveTriple> p=new Partitioner<PrimitiveTriple>(output);
 		Sink<PrimitiveTriple> filter=new PrimitiveTripleReverser(p

@@ -1,5 +1,6 @@
 package com.ontology2.rdf;
 
+import java.io.StringReader;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -20,6 +21,8 @@ import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.ontology2.rdf.parser.NodeParser;
+import com.ontology2.rdf.parser.ParseException;
 
 public class JenaUtil {
 	
@@ -120,4 +123,10 @@ public class JenaUtil {
 	public static void appendConstruct(Model theModel,String queryString) {
 		appendConstruct(theModel,queryString,theModel,null);
 	}
+	
+	public static Node ParseNode(String lexicalForm) throws ParseException {
+		NodeParser parser=new NodeParser(new StringReader(lexicalForm));
+		parser.parse();
+		return parser.getNodeValue();
+	};
 }

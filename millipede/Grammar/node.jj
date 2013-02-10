@@ -59,203 +59,41 @@ package com.ontology2.rdf.parser;
 import com.hp.hpl.jena.n3.turtle.ParserBase ;
 import com.hp.hpl.jena.graph.* ;
 
+
+
 public class NodeParser extends ParserBase
 {
+    private Node nodeValue;
+    public Node getNodeValue() {
+    	return nodeValue;
+    }
 }
+
 PARSER_END(NodeParser)
 
 // --- Entry point
 
 void parse() : {}
 {
-  (<BOM>)?
-  (Statement())* <EOF>
-}
-
-void Statement() : {}
-{
-  (Directive() | TriplesSameSubject() )
-  <DOT>
-}
-
-void Directive() : { Token t ; String iri ; }
-{
-    // Note that @prefix looks like a LANTAG
-    <PREFIX> t = <PNAME_NS> iri = IRI_REF()
-    { String s = fixupPrefix(t.image, t.beginLine, t.beginColumn) ;
-      setPrefix(t.beginLine, t.beginColumn, s, iri) ; }
- |
-    t = <BASE> iri = IRI_REF()
-    { setBase(iri, t.beginLine, t.beginColumn) ; }
-}
-
-// -------- PATH
-TOKEN: 
-{
-   < PLING:    "!" >
- | < VBAR:     "|" >
- | < CARROT:   "^" >
- | < FPATH:    "->" >
- | < RPATH:    "<-" >
-}
-
-// ---- TRIPLES
-
-void TriplesSameSubject() : { Node s ; } 
-{
-  s = VarOrTerm()       // Emit Triple checks it's a valid triple.
-  PropertyListNotEmpty(s) 
-|
-  // Any of the triple generating syntax elements
-  s = TriplesNode()
-  PropertyList(s)
+  GraphTerm() <EOF>
 }
 
 
-void PropertyList(Node s) : { }
+void GraphTerm() : { String iri ; }
 {
-  ( PropertyListNotEmpty(s) ) ?
-}
-
-// Non-recursive for Turtle long PropertyList tests
-void PropertyListNotEmpty(Node s) : { Node p ; }
-{
-  p = Verb()
-  ObjectList(s, p)
-  (<SEMICOLON> (p = Verb() ObjectList(s, p))? )*
-}
-
-// Non-recursive for Turtle long PropertyList tests
-void ObjectList(Node s, Node p): { Node o ; } 
-{
-  Object(s, p)
-  ( <COMMA> Object(s, p) )*
-}
-
-void Object(Node s, Node p): { Node o ; }
-{
-  o = GraphNode() 
-  { Triple t = new Triple(s,p,o) ; 
-    emitTriple(token.beginLine, token.beginColumn, t) ; }  
-}
-
-Node Verb() : { Node p ; String iri ;}
-{
-   ( iri = IRIref() { p = createNode(iri) ; }
-   | <KW_A> { p = nRDFtype ; }
-   | <EQ>
-      { p = nOwlSameAs ;
-        if ( strictTurtle )
-          throwParseException("= (owl:sameAs) not legal in Turtle",
-                          token.beginLine, token.beginColumn ) ;
-     }
-   | <ARROW> 
-      { p = nLogImplies ;
-        if ( strictTurtle )
-          throwParseException("=> (log:implies) not legal in Turtle",
-                          token.beginLine, token.beginColumn ) ;
-      }
-    )
-  { return p ; }
-}
-
-// -------- Triple expansions
-
-// Anything that can stand in a node slot and which is
-// a number of triples
-
-Node TriplesNode() : { Node n ; }
-{
-  n = Collection() { return n ; }
- |
-  n = BlankNodePropertyList() { return n ; }
-}
-
-Node BlankNodePropertyList() : { }
-{
-  <LBRACKET> 
-    { Node n = createBNode() ; }
-  PropertyListNotEmpty(n)
-  <RBRACKET>
-    { return n ; }
-}
-
-
-// ------- RDF collections
-
-// Code not as SPARQL/ARQ because of output ordering.
-Node Collection() : 
-    { Node listHead = nRDFnil ; Node lastCell = null ; Node n ; }
-{
-  <LPAREN> 
-  (
-    { Node cell = createBNode() ;
-      if ( listHead == nRDFnil )
-         listHead = cell ;
-      if ( lastCell != null )
-        emitTriple(token.beginLine, token.beginColumn,
-                   new Triple(lastCell, nRDFrest,  cell)) ;
-    }
-    n = GraphNode()
-    {
-      emitTriple(token.beginLine, token.beginColumn,
-                 new Triple(cell, nRDFfirst,  n)) ;      
-      lastCell = cell ;
-    }
-  ) +
-  // Not * here - "()" is handled separately.
-  <RPAREN>
-   { if ( lastCell != null )
-       emitTriple(token.beginLine, token.beginColumn,
-                  new Triple(lastCell, nRDFrest,  nRDFnil)) ;
-     return listHead ; }
-}
-
-// -------- Nodes in a graph pattern or template
-
-Node GraphNode() : { Node n ; }
-{
-  n = VarOrTerm() { return n ; }
- |
-  n = TriplesNode() { return n ; }
-}
-
-Node VarOrTerm() : {Node n = null ; }
-{
-  ( n = Var() | n = GraphTerm() | n = Formula() )
-  { return n ; }
-}
-
-Node Formula() : {Token t ; }
-{
-    t = <LBRACE> { startFormula(t.beginLine, t.beginColumn) ; }
-    TriplesSameSubject()
-    ( <DOT> (TriplesSameSubject())? )*
-    t = <RBRACE> { endFormula(t.beginLine, t.beginColumn) ; }
-      { return null ; }
-}
-
-Node Var() : { Token t ;}
-{
-    t = <VAR> 
-    { return createVariable(t.image, t.beginLine, t.beginColumn) ; }
-}
-
-Node GraphTerm() : { Node n ; String iri ; }
-{
-  iri = IRIref()    { return createNode(iri) ; }
+  iri = IRIref()    { nodeValue=createNode(iri) ; }
 | 
-  n = RDFLiteral()      { return n ; }
+  nodeValue = RDFLiteral()
 |
   // Cleaner sign handling in Turtle.
-  n = NumericLiteral()  { return n ; }
+  nodeValue = NumericLiteral()
 |
-  n = BooleanLiteral()  { return n ; }
+  nodeValue = BooleanLiteral()
 |
-  n = BlankNode()       { return n ; }   
+  nodeValue = BlankNode()   
 |
-//  <LPAREN> <RPAREN>     { return nRDFnil ; }
-  <NIL>  { return nRDFnil ; }
+//  <LPAREN> <RPAREN>     { nodeValue=nRDFnil ; }
+  <NIL>  { nodeValue=nRDFnil ; }
 }
 // ---- Basic terms
 

@@ -349,4 +349,18 @@ public class PartitionsAndFiles {
 		String filename=getWorkDirectory()+"/freebase-raw-rejected.tsv";
 		return new SingleFileSink<String>(new IdentityCodec(),filename);
 	}
+
+	public static TripleMultiFile getBaseKBLime() {
+		return createTripleMultiFile("/output/baseKBLime",true);
+	}
+
+	public static LineMultiFile<PrimitiveTriple> getBaseKBLimeRejected() {
+		PartitionFunction<PrimitiveTriple> partitionFunction = new PartitionPrimitiveTripleOnSubject(1024);
+		return new LineMultiFile<PrimitiveTriple>(
+				resolveFilename("baseKBLimeRejected") 
+				,"triples"
+				,getCompressConfiguration("baseKBLimeRejected",true) ? ".gz" : "", 
+				partitionFunction,
+				new PrimitiveTripleCodec());	
+	}
 }
