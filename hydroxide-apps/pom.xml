@@ -50,6 +50,10 @@
 						    <name>partitionFreebaseRDF</name>
 						</program>
 					</programs>
+					    <program>
+						    <mainClass>com.ontology2.hydroxide.parallelSuperEyeball.ParallelSuperEyeballApp</mainClass>
+						    <name>parallelSuperEyeball</name>
+						</program>
 				</configuration>
 				<executions>
 					<execution>
