@@ -351,7 +351,7 @@ public class PartitionsAndFiles {
 	}
 
 	public static TripleMultiFile getBaseKBLime() {
-		return createTripleMultiFile("/output/baseKBLime",true);
+		return createTripleMultiFile("baseKBLime",true);
 	}
 
 	public static LineMultiFile<PrimitiveTriple> getBaseKBLimeRejected() {

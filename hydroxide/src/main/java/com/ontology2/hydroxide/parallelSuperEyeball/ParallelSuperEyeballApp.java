@@ -40,12 +40,12 @@ public class ParallelSuperEyeballApp extends CommandLineApplication {
 
 				@Override
 				public void accept(PrimitiveTriple obj) throws Exception {
-					try {
+					try {					
 						Node_URI subject=(Node_URI) JenaUtil.ParseNode(obj.subject);
 						Node_URI predicate=(Node_URI) JenaUtil.ParseNode(obj.predicate);
 						Node object=JenaUtil.ParseNode(obj.object);
 						acceptBin.accept(new Triple(subject,predicate,object));
-					} catch(Exception e) {
+					} catch(Throwable e) {
 						rejectBin.accept(obj);
 					}
 				}
