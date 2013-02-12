@@ -49,11 +49,11 @@
 						    <mainClass>com.ontology2.hydroxide.fbRdfPartitioner.PartitionFreebaseRDFApp</mainClass>
 						    <name>partitionFreebaseRDF</name>
 						</program>
-					</programs>
-					    <program>
+						<program>
 						    <mainClass>com.ontology2.hydroxide.parallelSuperEyeball.ParallelSuperEyeballApp</mainClass>
 						    <name>parallelSuperEyeball</name>
 						</program>
+					</programs>
 				</configuration>
 				<executions>
 					<execution>
