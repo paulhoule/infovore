@@ -4,11 +4,13 @@ import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import com.ontology2.hydroxide.ExpandFreebaseRdfToNTriples;
 import com.ontology2.hydroxide.FreebaseQuad;
-import com.ontology2.hydroxide.PartitionPrimitiveTripleOnSubject;
 import com.ontology2.hydroxide.PartitionOnSubject;
 import com.ontology2.hydroxide.PartitionsAndFiles;
-import com.ontology2.hydroxide.PrimitiveTriple;
-import com.ontology2.hydroxide.PrimitiveTripleReverser;
+import com.ontology2.hydroxide.primitiveTriples.PartitionPrimitiveTripleOnSubject;
+import com.ontology2.hydroxide.primitiveTriples.PrimitiveTriple;
+import com.ontology2.hydroxide.primitiveTriples.PrimitiveTriplePredicateRewriter;
+import com.ontology2.hydroxide.primitiveTriples.PrimitiveTripleReverser;
+import com.ontology2.hydroxide.primitiveTriples.PrimitiveTripleTap;
 import com.ontology2.millipede.LineMultiFile;
 import com.ontology2.millipede.Partitioner;
 import com.ontology2.millipede.Plumbing;
@@ -42,16 +44,23 @@ public class PartitionFreebaseRDFApp extends CommandLineApplication  {
 		Predicate<PrimitiveTriple> tripleFilter=Predicates.not(Predicates.or(
 				PrimitiveTriple.hasPredicate("<http://rdf.freebase.com/ns/type.type.instance>"),
 				PrimitiveTriple.hasPredicate("<http://rdf.freebase.com/ns/type.type.expected_by>"),
-				PrimitiveTriple.hasPredicate("<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>")
+				Predicates.and(
+						PrimitiveTriple.hasPredicate("<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>"),
+						PrimitiveTriple.objectMatchesPrefix("<http://rdf.freebase.com")
+				)
 		));
 		
 		Partitioner<PrimitiveTriple> p=new Partitioner<PrimitiveTriple>(output);
+				
 		Sink<PrimitiveTriple> filter=new PrimitiveTripleReverser(p
 				,"http://rdf.freebase.com/ns/type.permission.controls"
 				,"http://rdf.freebase.com/ns/m.0j2r9sk");
 		filter=new PrimitiveTripleReverser(filter
 				,"http://rdf.freebase.com/ns/dataworld.gardening_hint.replaced_by"
 				,"http://rdf.freebase.com/ns/m.0j2r8t8");
+		filter=new PrimitiveTriplePredicateRewriter(filter,
+				"<http://rdf.freebase.com/ns/type.object.type>",
+				"<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>");
 		
 		filter=new FilterSink<PrimitiveTriple>(filter, tripleFilter);
 		ExpandFreebaseRdfToNTriples expand=new ExpandFreebaseRdfToNTriples(filter,rejects);

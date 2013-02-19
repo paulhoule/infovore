@@ -49,9 +49,10 @@ public class Runner<InT> {
 		}
 		threadPool.shutdown();
 		threadPool.awaitTermination(365L, TimeUnit.DAYS);
-		if (null!=innerException)
+		if (null!=innerException) {
+			logger.warn("Failure in segment "+failedSegment,innerException);
 			throw new Exception("Failure in segment "+failedSegment,innerException);
-		
+		}
 		List<Object> obj=Lists.newArrayListWithCapacity(input.getPartitionCount());
 		for(Future f:futures) {
 			obj.add(f.get());

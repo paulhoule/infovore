@@ -1,4 +1,4 @@
-package com.ontology2.hydroxide;
+package com.ontology2.hydroxide.primitiveTriples;
 
 import org.apache.commons.codec.digest.DigestUtils;
 

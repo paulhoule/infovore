@@ -1,4 +1,4 @@
-package com.ontology2.hydroxide;
+package com.ontology2.hydroxide.primitiveTriples;
 
 import com.ontology2.millipede.sink.Sink;
 
@@ -18,7 +18,7 @@ public class PrimitiveTripleReverser implements Sink<PrimitiveTriple> {
 		if(from.equals(obj.predicate)) {
 			innerSink.accept(new PrimitiveTriple(
 					obj.object,
-					obj.predicate,
+					to,
 					obj.subject	
 			));
 		} else {

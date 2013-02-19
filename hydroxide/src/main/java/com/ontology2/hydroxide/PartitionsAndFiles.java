@@ -4,6 +4,9 @@ import java.io.Reader;
 import java.io.Serializable;
 import java.util.Map;
 
+import com.ontology2.hydroxide.primitiveTriples.PartitionPrimitiveTripleOnSubject;
+import com.ontology2.hydroxide.primitiveTriples.PrimitiveTriple;
+import com.ontology2.hydroxide.primitiveTriples.PrimitiveTripleCodec;
 import com.ontology2.hydroxide.turtleZero.FreebaseKeyRecord;
 import com.ontology2.millipede.Codec;
 import com.ontology2.millipede.DummyPartitionFunction;
