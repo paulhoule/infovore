@@ -4,9 +4,6 @@ import java.io.Reader;
 import java.io.Serializable;
 import java.util.Map;
 
-import com.ontology2.hydroxide.primitiveTriples.PartitionPrimitiveTripleOnSubject;
-import com.ontology2.hydroxide.primitiveTriples.PrimitiveTriple;
-import com.ontology2.hydroxide.primitiveTriples.PrimitiveTripleCodec;
 import com.ontology2.hydroxide.turtleZero.FreebaseKeyRecord;
 import com.ontology2.millipede.Codec;
 import com.ontology2.millipede.DummyPartitionFunction;
@@ -18,9 +15,13 @@ import com.ontology2.millipede.NQuadsMultiFile;
 import com.ontology2.millipede.PartitionFunction;
 import com.ontology2.millipede.SerializedMultiFile;
 import com.ontology2.millipede.TripleMultiFile;
+import com.ontology2.millipede.primitiveTriples.PartitionPrimitiveTripleOnSubject;
+import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
+import com.ontology2.millipede.primitiveTriples.PrimitiveTripleCodec;
 import com.ontology2.millipede.sink.SingleFileSink;
 import com.ontology2.millipede.sink.Sink;
 import com.ontology2.millipede.source.SingleFileSource;
+import com.ontology2.millipede.triples.PartitionOnSubjectT;
 
 import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.rdf.model.Model;
@@ -365,5 +366,9 @@ public class PartitionsAndFiles {
 				,getCompressConfiguration("baseKBLimeRejected",true) ? ".gz" : "", 
 				partitionFunction,
 				new PrimitiveTripleCodec());	
+	}
+
+	public static TripleMultiFile getBaseKBFsr() {
+		return createTripleMultiFile("baseKB_FSR",true);
 	}
 }

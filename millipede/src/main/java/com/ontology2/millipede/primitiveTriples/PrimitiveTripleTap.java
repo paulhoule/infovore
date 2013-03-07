@@ -1,4 +1,4 @@
-package com.ontology2.hydroxide.primitiveTriples;
+package com.ontology2.millipede.primitiveTriples;
 
 import com.ontology2.millipede.sink.Sink;
 
