@@ -5,7 +5,7 @@ import com.google.common.base.Predicates;
 import com.ontology2.hydroxide.ExpandFreebaseRdfToNTriples;
 import com.ontology2.hydroxide.FreebaseQuad;
 import com.ontology2.hydroxide.PartitionOnSubject;
-import com.ontology2.hydroxide.PartitionsAndFiles;
+import com.ontology2.hydroxide.files.PartitionsAndFiles;
 import com.ontology2.millipede.LineMultiFile;
 import com.ontology2.millipede.Partitioner;
 import com.ontology2.millipede.Plumbing;
@@ -68,5 +68,6 @@ public class PartitionFreebaseRDFApp extends CommandLineApplication  {
 		ProgressReportingSink prs=new ProgressReportingSink(expand);
 		Plumbing.flow(input,prs);
 	}
+
 
 }

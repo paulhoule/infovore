@@ -17,8 +17,6 @@ import com.ontology2.millipede.sink.Sink;
 
 public class ExpandFreebaseRdfToNTriples implements Sink<String> {
 
-
-
 	final Sink<PrimitiveTriple> acceptSink;
 	final Sink<String> rejectSink;
 	final Map<String,String> prefixMap = Maps.newHashMap();
@@ -123,12 +121,6 @@ public class ExpandFreebaseRdfToNTriples implements Sink<String> {
 		
 		return parts;
 	} 
-	
-	public static class InvalidPrefixException extends Exception {
-	}
-	
-	public static class InvalidNodeException extends Exception {
-	}
 	
 	@Override
 	public void close() throws Exception {

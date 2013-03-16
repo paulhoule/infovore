@@ -13,7 +13,7 @@ import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.vocabulary.OWL;
 import com.ontology2.basekb.BaseIRI;
 import com.ontology2.hydroxide.BKBPublic;
-import com.ontology2.hydroxide.PartitionsAndFiles;
+import com.ontology2.hydroxide.files.PartitionsAndFiles;
 import com.ontology2.millipede.FileOpener;
 import com.ontology2.millipede.Partitioner;
 import com.ontology2.millipede.TripleMultiFile;

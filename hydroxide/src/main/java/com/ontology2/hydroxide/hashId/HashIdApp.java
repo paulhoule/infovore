@@ -1,7 +1,8 @@
 package com.ontology2.hydroxide.hashId;
 
 import static com.ontology2.basekb.StatelessIdFunctions.*;
-import com.ontology2.hydroxide.PartitionsAndFiles;
+
+import com.ontology2.hydroxide.files.PartitionsAndFiles;
 
 public class HashIdApp {
 	public static void main(String[] args) {

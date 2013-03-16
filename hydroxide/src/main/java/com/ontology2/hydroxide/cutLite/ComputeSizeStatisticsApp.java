@@ -3,7 +3,7 @@ package com.ontology2.hydroxide.cutLite;
 import java.util.List;
 
 import com.hp.hpl.jena.graph.Triple;
-import com.ontology2.hydroxide.PartitionsAndFiles;
+import com.ontology2.hydroxide.files.PartitionsAndFiles;
 import com.ontology2.millipede.TripleMultiFile;
 import com.ontology2.millipede.pop.Millipede;
 import com.ontology2.millipede.pop.Runner;

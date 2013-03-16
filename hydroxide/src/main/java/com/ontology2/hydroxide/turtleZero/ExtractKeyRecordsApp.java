@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
 
 
 import com.ontology2.hydroxide.FreebaseQuad;
-import com.ontology2.hydroxide.PartitionsAndFiles;
+import com.ontology2.hydroxide.files.PartitionsAndFiles;
 import com.ontology2.millipede.MultiFile;
 import com.ontology2.millipede.Plumbing;
 import com.ontology2.millipede.pop.Millipede;

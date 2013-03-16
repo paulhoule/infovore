@@ -1,6 +1,6 @@
 package com.ontology2.hydroxide.extractOtherComments;
 
-import com.ontology2.hydroxide.PartitionsAndFiles;
+import com.ontology2.hydroxide.files.PartitionsAndFiles;
 import com.ontology2.hydroxide.rdfMerger.SortLineOnSubject;
 import com.ontology2.millipede.MultiFile;
 import com.ontology2.millipede.pop.Runner;

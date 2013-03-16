@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.ontology2.hydroxide.FreebaseQuad;
-import com.ontology2.hydroxide.PartitionsAndFiles;
+import com.ontology2.hydroxide.files.PartitionsAndFiles;
 import com.ontology2.hydroxide.turtleZero.ExtractKeyRecordsApp.ExtractKeyRecords;
 import com.ontology2.millipede.LineMultiFile;
 import com.ontology2.millipede.MultiFile;

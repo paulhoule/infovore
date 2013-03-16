@@ -7,7 +7,7 @@ import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.vocabulary.RDFS;
 import com.ontology2.hydroxide.FreebaseQuad;
-import com.ontology2.hydroxide.PartitionsAndFiles;
+import com.ontology2.hydroxide.files.PartitionsAndFiles;
 import com.ontology2.millipede.Partitioner;
 import com.ontology2.millipede.TripleMultiFile;
 import com.ontology2.millipede.source.SingleFileSource;

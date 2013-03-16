@@ -7,7 +7,7 @@ import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.ontology2.hydroxide.FreebaseQuad;
-import com.ontology2.hydroxide.PartitionsAndFiles;
+import com.ontology2.hydroxide.files.PartitionsAndFiles;
 import com.ontology2.hydroxide.turtleTwo.ExtractTurtleTwoFactsApp.ExtractTurtleTwoFacts;
 import com.ontology2.hydroxide.turtleZero.RDFGrounder;
 import com.ontology2.hydroxide.turtleZero.TurtleZero;

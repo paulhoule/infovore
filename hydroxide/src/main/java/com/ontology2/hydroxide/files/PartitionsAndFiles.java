@@ -1,9 +1,13 @@
-package com.ontology2.hydroxide;
+package com.ontology2.hydroxide.files;
 
 import java.io.Reader;
 import java.io.Serializable;
 import java.util.Map;
 
+import com.ontology2.hydroxide.FreebaseQuad;
+import com.ontology2.hydroxide.PartitionOnSubject;
+import com.ontology2.hydroxide.PartitionOnSubjectNQ;
+import com.ontology2.hydroxide.QuadCodec;
 import com.ontology2.hydroxide.turtleZero.FreebaseKeyRecord;
 import com.ontology2.millipede.Codec;
 import com.ontology2.millipede.DummyPartitionFunction;
@@ -146,7 +150,7 @@ public class PartitionsAndFiles {
 		return getInstanceDirectory()+"/output";
 	}
 	
-	private static String resolveFilename(String name) {
+	static String resolveFilename(String name) {
 		if(name.startsWith("/")) {
 			return getInstanceDirectory()+name;
 		} else {
@@ -189,7 +193,7 @@ public class PartitionsAndFiles {
 			    new DummyPartitionFunction<T>(1024));		
 	}
 	
-	private static boolean getCompressConfiguration(String name,boolean compressedDefault) {
+	static boolean getCompressConfiguration(String name,boolean compressedDefault) {
 		String keyVar="COMPRESS_"+name;
 		
 		Map<String,String> env=System.getenv();
@@ -326,7 +330,6 @@ public class PartitionsAndFiles {
 	
 	public static SingleFileSource<String> getRawTriples() throws Exception {
 		String filename=getFreebaseFile();
-		Codec<FreebaseQuad> c=new QuadCodec();
 		return SingleFileSource.createRaw(filename);		
 	}
 	
@@ -353,6 +356,7 @@ public class PartitionsAndFiles {
 		String filename=getWorkDirectory()+"/freebase-raw-rejected.tsv";
 		return new SingleFileSink<String>(new IdentityCodec(),filename);
 	}
+	
 
 	public static TripleMultiFile getBaseKBLime() {
 		return createTripleMultiFile("baseKBLime",true);

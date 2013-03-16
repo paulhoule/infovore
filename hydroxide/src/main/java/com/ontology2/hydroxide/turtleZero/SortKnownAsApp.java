@@ -1,8 +1,8 @@
 package com.ontology2.hydroxide.turtleZero;
 
 import com.ontology2.hydroxide.FreebaseQuad;
-import com.ontology2.hydroxide.PartitionsAndFiles;
 import com.ontology2.hydroxide.QuadComparator;
+import com.ontology2.hydroxide.files.PartitionsAndFiles;
 import com.ontology2.hydroxide.rdfMerger.SortLineOnSubject;
 import com.ontology2.millipede.MultiFile;
 import com.ontology2.millipede.pop.Runner;

@@ -11,7 +11,7 @@ import it.unimi.dsi.fastutil.ints.IntSet;
 
 import com.ontology2.millipede.FileOpener;
 import com.ontology2.millipede.SerializedMultiFile;
-import com.ontology2.hydroxide.PartitionsAndFiles;
+import com.ontology2.hydroxide.files.PartitionsAndFiles;
 
 import static com.ontology2.basekb.StatelessIdFunctions.*;
 

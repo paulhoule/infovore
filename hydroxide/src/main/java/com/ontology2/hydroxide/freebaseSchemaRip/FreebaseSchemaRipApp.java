@@ -1,7 +1,7 @@
 package com.ontology2.hydroxide.freebaseSchemaRip;
 
 import com.hp.hpl.jena.graph.Triple;
-import com.ontology2.hydroxide.PartitionsAndFiles;
+import com.ontology2.hydroxide.files.PartitionsAndFiles;
 import com.ontology2.hydroxide.parallelSuperEyeball.ParallelSuperEyeballApp;
 import com.ontology2.hydroxide.parallelSuperEyeball.ParallelSuperEyeballApp.SortGoodAndBadTriples;
 import com.ontology2.millipede.LineMultiFile;

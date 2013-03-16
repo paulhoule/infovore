@@ -6,7 +6,7 @@ import com.google.common.collect.Lists;
 import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.sparql.core.Quad;
 import com.ontology2.hydroxide.FreebaseQuad;
-import com.ontology2.hydroxide.PartitionsAndFiles;
+import com.ontology2.hydroxide.files.PartitionsAndFiles;
 import com.ontology2.hydroxide.turtleZero.TurtleZero;
 import com.ontology2.millipede.MultiFile;
 import com.ontology2.millipede.NQuadsMultiFile;

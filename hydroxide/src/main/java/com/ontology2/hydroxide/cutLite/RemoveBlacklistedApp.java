@@ -6,8 +6,8 @@ import it.unimi.dsi.fastutil.ints.IntSets;
 
 import com.hp.hpl.jena.graph.Triple;
 import com.ontology2.hydroxide.BKBPublic;
-import com.ontology2.hydroxide.PartitionsAndFiles;
 import com.ontology2.hydroxide.cutLite.ExtractLinksAndLabelsApp.ExtractLinksAndLabels;
+import com.ontology2.hydroxide.files.PartitionsAndFiles;
 import com.ontology2.millipede.FileOpener;
 import com.ontology2.millipede.TripleMultiFile;
 import com.ontology2.millipede.pop.Millipede;

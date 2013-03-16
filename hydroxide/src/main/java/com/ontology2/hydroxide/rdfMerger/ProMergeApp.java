@@ -3,7 +3,7 @@ package com.ontology2.hydroxide.rdfMerger;
 import java.util.List;
 
 import com.google.common.collect.Lists;
-import com.ontology2.hydroxide.PartitionsAndFiles;
+import com.ontology2.hydroxide.files.PartitionsAndFiles;
 import com.ontology2.hydroxide.rdfMerger.RDFMerger.MergeSource;
 import com.ontology2.millipede.MultiFile;
 import com.ontology2.millipede.MultiSource;
