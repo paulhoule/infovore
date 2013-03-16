@@ -1,5 +1,6 @@
 package com.ontology2.hydroxide.parallelSuperEyeball;
 
+import com.google.common.cache.LoadingCache;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
@@ -35,15 +36,16 @@ public class ParallelSuperEyeballApp extends CommandLineApplication {
 				throws Exception {
 			final Sink<Triple> acceptBin=accepted.createSink(segmentNumber);
 			final Sink<PrimitiveTriple> rejectBin=rejected.createSink(segmentNumber);
+			final LoadingCache<String,Node> nodeParser=JenaUtil.createNodeParseCache();
 			
 			return new Sink<PrimitiveTriple>() {
 
 				@Override
 				public void accept(PrimitiveTriple obj) throws Exception {
 					try {					
-						Node_URI subject=(Node_URI) JenaUtil.ParseNode(obj.subject);
-						Node_URI predicate=(Node_URI) JenaUtil.ParseNode(obj.predicate);
-						Node object=JenaUtil.ParseNode(obj.object);
+						Node_URI subject=(Node_URI) nodeParser.get(obj.subject);
+						Node_URI predicate=(Node_URI) nodeParser.get(obj.predicate);
+						Node object=nodeParser.get(obj.object);
 						acceptBin.accept(new Triple(subject,predicate,object));
 					} catch(Throwable e) {
 						rejectBin.accept(obj);
@@ -54,8 +56,7 @@ public class ParallelSuperEyeballApp extends CommandLineApplication {
 				public void close() throws Exception {
 					acceptBin.close();
 					rejectBin.close();
-				}
-				
+				}			
 			};
 		}
 
@@ -85,7 +86,5 @@ public class ParallelSuperEyeballApp extends CommandLineApplication {
 		Runner<PrimitiveTriple> runner = new Runner<PrimitiveTriple>(input,pipeline);
 		runner.setNThreads(PartitionsAndFiles.getNThreads());
 		runner.run();
-	}
-
-	
+	}	
 }

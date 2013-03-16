@@ -38,20 +38,8 @@
 					<extraJvmArguments>-Xmx1500m</extraJvmArguments> 
 					<programs>
 						<program>
-							<mainClass>com.ontology2.hydroxide.LiveTurtle.App</mainClass>
-							<name>liveturtle</name>
-						</program>
-						<program>
-							<mainClass>com.ontology2.hydroxide.hashId.HashIdApp</mainClass>
-							<name>hashId</name>
-						</program>
-						<program>
-						    <mainClass>com.ontology2.hydroxide.fbRdfPartitioner.PartitionFreebaseRDFApp</mainClass>
-						    <name>partitionFreebaseRDF</name>
-						</program>
-						<program>
-						    <mainClass>com.ontology2.hydroxide.parallelSuperEyeball.ParallelSuperEyeballApp</mainClass>
-						    <name>parallelSuperEyeball</name>
+						    <mainClass>com.ontology2.hydroxide.shell.InfovoreShell</mainClass>
+						    <name>infovore</name>
 						</program>
 					</programs>
 				</configuration>

@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.hp.hpl.jena.graph.Node;
@@ -122,6 +125,15 @@ public class JenaUtil {
 	
 	public static void appendConstruct(Model theModel,String queryString) {
 		appendConstruct(theModel,queryString,theModel,null);
+	}
+	
+	public static LoadingCache<String,Node> createNodeParseCache() throws ParseException {
+		return CacheBuilder.newBuilder().maximumSize(100000).build(
+				new CacheLoader<String,Node> () {
+					public Node load(String that) throws Exception {
+						return ParseNode(that);
+					}
+				});
 	}
 	
 	public static Node ParseNode(String lexicalForm) throws ParseException {

@@ -22,4 +22,8 @@ public abstract class CommandLineApplication implements Runnable {
 
 	protected abstract void _run() throws Exception;
 	
+	public String[] getArguments() {
+		return arguments;
+	}
+	
 }
