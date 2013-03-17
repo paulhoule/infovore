@@ -6,6 +6,7 @@ import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
 import com.ontology2.hydroxide.FreebaseQuad;
 import com.ontology2.hydroxide.fbRdfPartitioner.PartitionFreebaseRDFApp;
+import com.ontology2.hydroxide.files.InputFileConstellation;
 import com.ontology2.hydroxide.files.PartitionsAndFiles;
 import com.ontology2.hydroxide.turtleOne.ConstructTurtleOneApp.ConstructTurtleOne;
 import com.ontology2.millipede.LineMultiFile;
@@ -24,7 +25,7 @@ public class ParallelSuperEyeballApp extends CommandLineApplication {
 
 		private final TripleMultiFile accepted;
 		private final LineMultiFile<PrimitiveTriple> rejected;
-
+		
 		public SortGoodAndBadTriples(TripleMultiFile accepted,
 				LineMultiFile<PrimitiveTriple> rejected) {
 			this.accepted=accepted;
@@ -61,13 +62,19 @@ public class ParallelSuperEyeballApp extends CommandLineApplication {
 		}
 
 	}
+
+	private InputFileConstellation files;
+	
+	public void setFiles(InputFileConstellation files) {
+		this.files=files;
+	}
 	
 	@Override
 	protected void _run(String[] args) throws Exception {
 		PartitionPrimitiveTripleOnSubject partitionFunction=new PartitionPrimitiveTripleOnSubject(1024);	
-		LineMultiFile<PrimitiveTriple> input=PartitionsAndFiles.getPartitionedExpandedTriples();
-		TripleMultiFile accepted=PartitionsAndFiles.getBaseKBLime();
-		LineMultiFile<PrimitiveTriple> rejected=PartitionsAndFiles.getBaseKBLimeRejected();
+		LineMultiFile<PrimitiveTriple> input=files.getPartitionedExpandedTriples();
+		TripleMultiFile accepted=files.getDestination();
+		LineMultiFile<PrimitiveTriple> rejected=files.getDestinationRejected();
 		
 		if(accepted.testExists() || rejected.testExists()) {
 			throw new Exception("Destination files already exist");	

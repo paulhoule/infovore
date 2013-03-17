@@ -169,7 +169,7 @@ public class PartitionsAndFiles {
 				c);		
 	}
 	
-	private static TripleMultiFile createTripleMultiFile(String name,boolean compressed) {
+	static TripleMultiFile createTripleMultiFile(String name,boolean compressed) {
 		return new TripleMultiFile(
 				resolveFilename(name), 
 				"triples", 
