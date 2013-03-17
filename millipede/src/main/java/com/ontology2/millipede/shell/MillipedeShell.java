@@ -2,29 +2,38 @@ package com.ontology2.millipede.shell;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
+import org.springframework.beans.factory.BeanNotOfRequiredTypeException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 
 import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Lists;
 import com.google.common.collect.SetMultimap;
 import com.google.common.reflect.ClassPath;
 import com.google.common.reflect.ClassPath.ClassInfo;
 
 public class MillipedeShell extends CommandLineApplication {
+	
 	private static Log logger = LogFactory.getLog(MillipedeShell.class);
-	public MillipedeShell(String[] arguments) {
-		super(arguments);
+	public MillipedeShell() {
+		context=new ClassPathXmlApplicationContext(getApplicationContextPath().toArray(new String[] {}));
 	}
 
-	public static void main(String[] args) throws IOException {
-		new MillipedeShell(args).run();
+	public List<String> getApplicationContextPath() {
+		return Lists.newArrayList("com/ontology2/millipede/shell/applicationContext.xml");
 	}
-
+	
+	private ApplicationContext context;
 	@Override
-	protected void _run() throws Exception {
-		SetMultimap<String, ClassInfo> appClasses = getAppClasses();
+	protected void _run(String[] arguments) throws Exception {
+
 		if(arguments.length<2) {
 			usage();
 		}
@@ -35,24 +44,18 @@ public class MillipedeShell extends CommandLineApplication {
 		if(!action.equals("run")) {
 			usage();
 		}
-		
-		
+			
 		String appName=application+"App";
-		Set<ClassInfo> classes=appClasses.get(appName);
-		
-		if(classes.size()==0)
-			throw new Exception("Couldn't find any class with name ["+appName+"]");
-		
-		if (classes.size()>1) {
-			throw new Exception("Found more than one class named ["+appName+"]");
-		}
+		CommandLineApplication app=null;
+		try {
+			app = context.getBean(appName,CommandLineApplication.class);
+		} catch(BeanNotOfRequiredTypeException | NoSuchBeanDefinitionException ex) {
+			die("Application ["+application+"] not found");
+		};
 		
 		String[] innerArguments=
 				arguments.length<3 ? new String[0] : Arrays.copyOfRange(arguments, 2, arguments.length);
-		Class<CommandLineApplication> clazz=(Class<CommandLineApplication>) classes.iterator().next().load();
-		Constructor<CommandLineApplication> c=clazz.getConstructor(String[].class);
-		CommandLineApplication app=c.newInstance((Object) innerArguments);
-		app.run();
+		app.run(innerArguments);
 	}
 
 	

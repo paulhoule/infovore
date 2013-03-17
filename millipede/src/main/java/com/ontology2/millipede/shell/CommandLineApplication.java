@@ -3,27 +3,23 @@ package com.ontology2.millipede.shell;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-public abstract class CommandLineApplication implements Runnable {
-	final String[] arguments;
+public abstract class CommandLineApplication {
 	private static Log logger = LogFactory.getLog(CommandLineApplication.class);
-	
-	public CommandLineApplication(String[] arguments) {
-		this.arguments=arguments;
-	}
 
-	@Override
-	public void run() {
+	public void run(String[] arguments) {
 		try {
-			_run();
+			_run(arguments);
 		} catch(Exception e) {
 			logger.error(e);
 		}
 	}
 
-	protected abstract void _run() throws Exception;
+	protected abstract void _run(String[] arguments) throws Exception;
 	
-	public String[] getArguments() {
-		return arguments;
+	
+	protected void die(String message) {
+		System.err.println(message);
+		System.exit(-1);
 	}
 	
 }

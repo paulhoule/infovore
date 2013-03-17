@@ -21,17 +21,9 @@ import com.ontology2.millipede.sink.Sink;
 import com.ontology2.millipede.source.SingleFileSource;
 
 public class PartitionFreebaseRDFApp extends CommandLineApplication  {
-
-	public PartitionFreebaseRDFApp(String[] arguments) {
-		super(arguments);
-	}
-
-	public static void main(String[] args) {
-		new PartitionFreebaseRDFApp(args).run();
-	}
 	
 	@Override
-	protected void _run() throws Exception {
+	protected void _run(String[] args) throws Exception {
 		PartitionPrimitiveTripleOnSubject partitionFunction=new PartitionPrimitiveTripleOnSubject(1024);
 		
 		LineMultiFile<PrimitiveTriple> output=PartitionsAndFiles.getPartitionedExpandedTriples();

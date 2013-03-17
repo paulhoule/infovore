@@ -50,17 +50,9 @@ public class FreebaseSchemaRipApp
 		}
 
 	}
-
-	public FreebaseSchemaRipApp(String[] arguments) {
-		super(arguments);
-	}
-
-	public static void main(String[] args) {
-		new FreebaseSchemaRipApp(args).run();
-	}
 	
 	@Override
-	protected void _run() throws Exception {
+	protected void _run(String[] args) throws Exception {
 		PartitionPrimitiveTripleOnSubject partitionFunction=new PartitionPrimitiveTripleOnSubject(1024);	
 		TripleMultiFile input=PartitionsAndFiles.getBaseKBLime();
 		TripleMultiFile output=PartitionsAndFiles.getBaseKBFsr();

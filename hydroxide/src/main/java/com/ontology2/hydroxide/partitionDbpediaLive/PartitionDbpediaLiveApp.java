@@ -22,12 +22,8 @@ import com.ontology2.millipede.source.SingleFileSource;
 
 public class PartitionDbpediaLiveApp extends CommandLineApplication {
 
-	public PartitionDbpediaLiveApp(String[] arguments) {
-		super(arguments);
-	}
-
 	@Override
-	protected void _run() throws Exception {
+	protected void _run(String[] args) throws Exception {
 		PartitionPrimitiveTripleOnSubject partitionFunction=new PartitionPrimitiveTripleOnSubject(1024);
 		InputFileConstellation files=new DbpediaLiveConstellation();
 		LineMultiFile<PrimitiveTriple> output=files.getPartitionedExpandedTriples();

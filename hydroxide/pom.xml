@@ -38,8 +38,8 @@
     </dependency>
     <dependency>
         <groupId>org.springframework</groupId>
-        <artifactId>spring-core</artifactId>
-        <version>3.1.0.RELEASE</version>
+        <artifactId>spring-context</artifactId>
+        <version>3.2.1.RELEASE</version>
     </dependency>
     <dependency>
         <groupId>com.ontology2</groupId>

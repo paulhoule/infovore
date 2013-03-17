@@ -16,7 +16,7 @@ public class TestInfovoreShell {
 	
 	@Test
 	public void test() throws IOException {
-		String[] arguments = {"run","ShellTest"};
+		String[] arguments = {"run","shellTest"};
 		assertFalse(ShellTestApp.getGotHit());
 		InfovoreShell.main(arguments);
 		assertTrue(ShellTestApp.getGotHit());	
@@ -25,7 +25,7 @@ public class TestInfovoreShell {
 	
 	@Test
 	public void testArgs() throws IOException {
-		String[] arguments = {"run","ShellTest","panic","in","detroit"};
+		String[] arguments = {"run","shellTest","panic","in","detroit"};
 		assertFalse(ShellTestApp.getGotHit());
 		InfovoreShell.main(arguments);
 		assertTrue(ShellTestApp.getGotHit());	
@@ -37,7 +37,7 @@ public class TestInfovoreShell {
 	
 	@Test
 	public void testSingleArg() throws IOException {
-		String[] arguments = {"run","ShellTest","one"};
+		String[] arguments = {"run","shellTest","one"};
 		assertFalse(ShellTestApp.getGotHit());
 		InfovoreShell.main(arguments);
 		assertTrue(ShellTestApp.getGotHit());	

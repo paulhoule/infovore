@@ -61,17 +61,9 @@ public class ParallelSuperEyeballApp extends CommandLineApplication {
 		}
 
 	}
-
-	public ParallelSuperEyeballApp(String[] arguments) {
-		super(arguments);
-	}
-
-	public static void main(String[] args) {
-		new ParallelSuperEyeballApp(args).run();
-	}
 	
 	@Override
-	protected void _run() throws Exception {
+	protected void _run(String[] args) throws Exception {
 		PartitionPrimitiveTripleOnSubject partitionFunction=new PartitionPrimitiveTripleOnSubject(1024);	
 		LineMultiFile<PrimitiveTriple> input=PartitionsAndFiles.getPartitionedExpandedTriples();
 		TripleMultiFile accepted=PartitionsAndFiles.getBaseKBLime();
