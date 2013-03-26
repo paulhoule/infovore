@@ -14,7 +14,11 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.zip.GZIPOutputStream;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import com.google.common.io.Files;
+import com.ontology2.millipede.shell.CommandLineApplication;
 import com.ontology2.millipede.sink.Sink;
 import com.ontology2.millipede.source.CodecSource;
 import com.ontology2.millipede.source.Source;
@@ -25,6 +29,7 @@ abstract public class MultiFile<T> implements MultiSource<T> {
 	protected final String nameBase;
 	protected final String nameExtension;
 	protected final PartitionFunction<T> f;
+	private static Log logger = LogFactory.getLog(MultiFile.class);
 
 	public MultiFile(String directory, String nameBase, String nameExtension,
 			PartitionFunction<T> f) {

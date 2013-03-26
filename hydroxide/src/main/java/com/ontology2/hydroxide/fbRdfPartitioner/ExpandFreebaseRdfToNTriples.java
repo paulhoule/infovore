@@ -1,4 +1,4 @@
-package com.ontology2.hydroxide;
+package com.ontology2.hydroxide.fbRdfPartitioner;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -9,8 +9,11 @@ import org.apache.commons.logging.LogFactory;
 import com.google.api.client.util.Strings;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.ontology2.hydroxide.InvalidNodeException;
+import com.ontology2.hydroxide.InvalidPrefixException;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.millipede.shell.CommandLineApplication;
 import com.ontology2.millipede.sink.Sink;
@@ -19,7 +22,9 @@ public class ExpandFreebaseRdfToNTriples implements Sink<String> {
 
 	final Sink<PrimitiveTriple> acceptSink;
 	final Sink<String> rejectSink;
-	final Map<String,String> prefixMap = Maps.newHashMap();
+	
+	ImmutableMap.Builder<String,String> prefixBuilder=new ImmutableMap.Builder<String,String>();
+	ImmutableMap<String,String> prefixMap = ImmutableMap.of();
 	final static Splitter lineSplitter = Splitter.on("\t").limit(3);
 	final static Splitter iriSplitter = Splitter.on(":").limit(2);
 	
@@ -38,7 +43,10 @@ public class ExpandFreebaseRdfToNTriples implements Sink<String> {
 		if(obj.startsWith("@prefix")) {
 			try {
 				List<String> parts=splitPrefixDeclaration(obj);
-				prefixMap.put(parts.get(1),parts.get(2));
+				if(!prefixMap.containsKey(parts.get(1))) {
+					prefixBuilder.put(parts.get(1),parts.get(2));
+					prefixMap=prefixBuilder.build();
+				}
 			} catch(InvalidPrefixException ex) {
 				logger.warn("Invalid prefix declaration: "+obj);
 				rejectSink.accept(obj);

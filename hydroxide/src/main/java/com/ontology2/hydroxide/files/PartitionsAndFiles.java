@@ -1,5 +1,6 @@
 package com.ontology2.hydroxide.files;
 
+import java.io.File;
 import java.io.Reader;
 import java.io.Serializable;
 import java.util.Map;
@@ -34,20 +35,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.n3.turtle.parser.TurtleParser;
 
 public class PartitionsAndFiles {
-	public static SingleFileSource<FreebaseQuad> getRawQuads() throws Exception {
-		String filename=getInputDirectory()+"/freebase-datadump-quadruples.tsv.bz2";
-		Codec<FreebaseQuad> c=new QuadCodec();
-		return new SingleFileSource<FreebaseQuad>(c,filename);
-	}
 	
-	public static SingleFileSource<String> getSimpleTopicDump() throws Exception {
-		String filename=getInputDirectory()+"/freebase-simple-topic-dump.tsv.bz2";
-		return new SingleFileSource<String>(new IdentityCodec(),filename);
-	}
-	
-	public static MultiFile<FreebaseQuad> getPartioned() {
-		return createMultiFile("partioned",true);
-	}
 	
 	public static LineMultiFile<FreebaseQuad> getSorted() {
 		return createMultiFile("sorted",true);
@@ -60,11 +48,6 @@ public class PartitionsAndFiles {
 	public static String getTurtleZeroFile() {
 		return getWorkDirectory()+"/turtle0";
 	}
-	
-	public static String getCommentCacheFile() {
-		return getWorkDirectory()+"/commentCache";
-	}
-	
 	
 	public static String getTurtleZeroRuleboxFile() {
 		return getWorkDirectory() + "/ruleboxes/TurtleZeroRulebox.ttl";
@@ -100,11 +83,8 @@ public class PartitionsAndFiles {
 			return env.get("INFOVORE_BASE");
 		}
 		
-		String osName=System.getProperty("os.name");
-		if (osName.startsWith("Windows")) {
-			return "d:/infovore";
-		}
-		return "/invofore";
+		File homeDirectory=new File(System.getProperty("user.home"));
+		return new File(homeDirectory,"infovoreStorage").getAbsolutePath();
 	}
 
 	public static String getDataDirectory() {
@@ -116,30 +96,12 @@ public class PartitionsAndFiles {
 	}
 	
 	public static String getInstanceDirectory() {
-		String instanceName="current";
+		String instanceName="default";
 		Map<String,String> env=System.getenv();
 		if (env.containsKey("INFOVORE_INSTANCE")) {
 			instanceName=env.get("INFOVORE_INSTANCE");
 		}
 		return getDataDirectory()+"/"+instanceName;
-	}
-	
-	public static String getFreebaseFile() {
-		String instanceName=null;
-		Map<String,String> env=System.getenv();
-		if (env.containsKey("INFOVORE_FREEBASE_FILE")) {
-			instanceName=env.get("INFOVORE_FREEBASE_FILE");
-		}
-		
-		if (instanceName==null) {
-			throw new RuntimeException("Path to Freebase RDF dump not given in INFOVORE_FREEBASE_FILE environment variable.");
-		}
-		
-		return instanceName;
-	}
-	
-	public static String getInputDirectory() {
-		return getInstanceDirectory()+"/input";
 	}
 	
 	public static String getWorkDirectory() {
@@ -151,11 +113,7 @@ public class PartitionsAndFiles {
 	}
 	
 	static String resolveFilename(String name) {
-		if(name.startsWith("/")) {
-			return getInstanceDirectory()+name;
-		} else {
-			return getWorkDirectory()+"/"+name;
-		}
+		return getInstanceDirectory()+"/"+name;
 	}
 	
 	private static LineMultiFile<FreebaseQuad> createMultiFile(String name,boolean compressed) {
@@ -297,41 +255,6 @@ public class PartitionsAndFiles {
 	public static TripleMultiFile getSortedKnownAs() {
 		return createTripleMultiFile("sortedKnownAs",true);
 	}
-		
-	public static TripleMultiFile getRawComments() {
-		return createTripleMultiFile("rawComments",true);
-	}
-
-	public static TripleMultiFile getSortedComments() {
-		return createTripleMultiFile("sortedComments",true);
-	}
-
-	public static TripleMultiFile getMissingArticles() {
-		return createTripleMultiFile("missingArticles",false);
-	}
-
-	public static TripleMultiFile getHarvestedComments() {
-		return createTripleMultiFile("harvestedComments",false);
-	}
-
-	public static TripleMultiFile getSortedHarvestedComments() {
-		return createTripleMultiFile("sortedHarvestedComments",false);
-	}
-	
-	public static LineMultiFile<PrimitiveTriple> getPartitionedExpandedTriples() {
-		PartitionFunction<PrimitiveTriple> partitionFunction = new PartitionPrimitiveTripleOnSubject(1024);
-		return new LineMultiFile<PrimitiveTriple>(
-				resolveFilename("expandedRawFreebase") 
-				,"triples"
-				,getCompressConfiguration("expandedRawFreebase",true) ? ".gz" : "", 
-				partitionFunction,
-				new PrimitiveTripleCodec());		
-	}
-	
-	public static SingleFileSource<String> getRawTriples() throws Exception {
-		String filename=getFreebaseFile();
-		return SingleFileSource.createRaw(filename);		
-	}
 	
 	// TODO: the multipler factor is something that depends on the task and the job
 	// setting the thread count high will cause my Windows machine to get hosed and
@@ -360,16 +283,6 @@ public class PartitionsAndFiles {
 
 	public static TripleMultiFile getBaseKBLime() {
 		return createTripleMultiFile("baseKBLime",true);
-	}
-
-	public static LineMultiFile<PrimitiveTriple> getBaseKBLimeRejected() {
-		PartitionFunction<PrimitiveTriple> partitionFunction = new PartitionPrimitiveTripleOnSubject(1024);
-		return new LineMultiFile<PrimitiveTriple>(
-				resolveFilename("baseKBLimeRejected") 
-				,"triples"
-				,getCompressConfiguration("baseKBLimeRejected",true) ? ".gz" : "", 
-				partitionFunction,
-				new PrimitiveTripleCodec());	
 	}
 
 	public static TripleMultiFile getBaseKBFsr() {

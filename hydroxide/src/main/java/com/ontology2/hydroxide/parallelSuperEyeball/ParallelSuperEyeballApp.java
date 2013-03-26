@@ -8,6 +8,7 @@ import com.ontology2.hydroxide.FreebaseQuad;
 import com.ontology2.hydroxide.fbRdfPartitioner.PartitionFreebaseRDFApp;
 import com.ontology2.hydroxide.files.InputFileConstellation;
 import com.ontology2.hydroxide.files.PartitionsAndFiles;
+import com.ontology2.hydroxide.files.StandardFileConstellation;
 import com.ontology2.hydroxide.turtleOne.ConstructTurtleOneApp.ConstructTurtleOne;
 import com.ontology2.millipede.LineMultiFile;
 import com.ontology2.millipede.TripleMultiFile;
@@ -62,15 +63,22 @@ public class ParallelSuperEyeballApp extends CommandLineApplication {
 		}
 
 	}
-
-	private InputFileConstellation files;
-	
-	public void setFiles(InputFileConstellation files) {
-		this.files=files;
-	}
 	
 	@Override
 	protected void _run(String[] args) throws Exception {
+
+		if(args.length<1) {
+			die("parallelSuperEyeball [project name]");
+		}
+	
+		for(String project:args) {
+			pseOneProject(project);
+		}
+	}
+
+	private void pseOneProject(String projectName) throws Exception {
+		StandardFileConstellation files = new StandardFileConstellation(projectName);
+
 		PartitionPrimitiveTripleOnSubject partitionFunction=new PartitionPrimitiveTripleOnSubject(1024);	
 		LineMultiFile<PrimitiveTriple> input=files.getPartitionedExpandedTriples();
 		TripleMultiFile accepted=files.getDestination();

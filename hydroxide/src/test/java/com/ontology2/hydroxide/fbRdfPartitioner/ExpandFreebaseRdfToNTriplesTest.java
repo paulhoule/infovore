@@ -1,10 +1,12 @@
-package com.ontology2.hydroxide;
+package com.ontology2.hydroxide.fbRdfPartitioner;
 
 import static org.junit.Assert.*;
 
-import com.ontology2.hydroxide.ExpandFreebaseRdfToNTriples;
-import static com.ontology2.hydroxide.ExpandFreebaseRdfToNTriples.splitPrefixDeclaration;
-import static com.ontology2.hydroxide.ExpandFreebaseRdfToNTriples.splitTriple;
+import com.ontology2.hydroxide.InvalidPrefixException;
+import com.ontology2.hydroxide.fbRdfPartitioner.ExpandFreebaseRdfToNTriples;
+
+import static com.ontology2.hydroxide.fbRdfPartitioner.ExpandFreebaseRdfToNTriples.splitPrefixDeclaration;
+import static com.ontology2.hydroxide.fbRdfPartitioner.ExpandFreebaseRdfToNTriples.splitTriple;
 
 import java.util.List;
 

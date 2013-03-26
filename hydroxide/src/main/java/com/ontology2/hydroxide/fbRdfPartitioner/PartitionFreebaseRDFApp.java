@@ -2,10 +2,11 @@ package com.ontology2.hydroxide.fbRdfPartitioner;
 
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
-import com.ontology2.hydroxide.ExpandFreebaseRdfToNTriples;
 import com.ontology2.hydroxide.FreebaseQuad;
 import com.ontology2.hydroxide.PartitionOnSubject;
+import com.ontology2.hydroxide.files.InputFileConstellation;
 import com.ontology2.hydroxide.files.PartitionsAndFiles;
+import com.ontology2.hydroxide.files.StandardFileConstellation;
 import com.ontology2.millipede.LineMultiFile;
 import com.ontology2.millipede.Partitioner;
 import com.ontology2.millipede.Plumbing;
@@ -24,11 +25,18 @@ public class PartitionFreebaseRDFApp extends CommandLineApplication  {
 	
 	@Override
 	protected void _run(String[] args) throws Exception {
-		PartitionPrimitiveTripleOnSubject partitionFunction=new PartitionPrimitiveTripleOnSubject(1024);
+		if(args.length<1) {
+			die("partitionFreebaseRDF [input filename]");
+		}
 		
-		LineMultiFile<PrimitiveTriple> output=PartitionsAndFiles.getPartitionedExpandedTriples();
-		Sink<String> rejects=PartitionsAndFiles.getRawFreebaseRejected();
-		SingleFileSource<String> input=PartitionsAndFiles.getRawTriples();
+		String inputFilename=args[0];
+		PartitionPrimitiveTripleOnSubject partitionFunction=new PartitionPrimitiveTripleOnSubject(1024);
+		SingleFileSource<String> input=SingleFileSource.createRaw(inputFilename);
+		
+		InputFileConstellation files=new StandardFileConstellation("baseKBLime");
+		LineMultiFile<PrimitiveTriple> output=files.getPartitionedExpandedTriples();
+		Sink<String> rejects=files.getRawRejected();
+
 		if(output.testExists()) {
 			throw new Exception("Destination files already exist");	
 		}

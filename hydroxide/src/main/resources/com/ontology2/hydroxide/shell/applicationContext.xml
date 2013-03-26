@@ -11,10 +11,5 @@
 		<context:include-filter type="assignable" expression="com.ontology2.millipede.shell.CommandLineApplication" />
 		<context:exclude-filter type="assignable" expression="com.ontology2.millipede.shell.MillipedeShell" />
     </context:component-scan>
-    
-    <bean id="pseDbpediaLiveApp" class="com.ontology2.hydroxide.parallelSuperEyeball.ParallelSuperEyeballApp">
-    	<property name="files"><bean class="com.ontology2.hydroxide.files.DbpediaLiveConstellation"/></property>
-    </bean>
-
 </beans>
  
