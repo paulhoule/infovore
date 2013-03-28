@@ -12,7 +12,7 @@
     <module>basekb-reports</module>
     <module>hydroxide</module>
     <module>millipede</module>
-    <module>hydroxide-apps</module>
+    <module>infovore-apps</module>
   </modules>
   <build><plugins>
    <plugin>
