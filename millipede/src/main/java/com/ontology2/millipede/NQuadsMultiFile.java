@@ -11,42 +11,51 @@ import com.ontology2.millipede.sink.Sink;
 
 public class NQuadsMultiFile extends MultiFile<Quad> {
 
+	private final class QuadSink implements org.openjena.atlas.lib.Sink<Quad> {
+		private final Sink<Quad> destination;
+		public long count=0;
+
+		private QuadSink(Sink<Quad> destination) {
+			this.destination = destination;
+		}
+
+		@Override
+		public void close() {
+		}
+
+		@Override
+		public void send(Quad item) {
+			try {
+				destination.accept(item);
+				count++;
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
+		}
+
+		@Override
+		public void flush() {
+		}
+	}
+
 	public NQuadsMultiFile(String directory, String nameBase,
 			String nameExtension, PartitionFunction<Quad> f) {
 		super(directory, nameBase, nameExtension, f);
 	}
 
 	@Override
-	public void pushBin(int binNumber, final Sink<Quad> destination) throws Exception {
+	public long pushBin(int binNumber, final Sink<Quad> destination) throws Exception {
 		InputStream r=createInputStream(binNumber);
+		QuadSink sink = new QuadSink(destination);
+		LangRIOT parser=RiotReader.createParserNQuads(r, sink);
 		try {
-			LangRIOT parser=RiotReader.createParserNQuads(r, new org.openjena.atlas.lib.Sink<Quad>() {
-
-				@Override
-				public void close() {
-				}
-
-				@Override
-				public void send(Quad item) {
-					try {
-						destination.accept(item);
-					} catch (Exception e) {
-						throw new RuntimeException(e);
-					}
-				}
-
-				@Override
-				public void flush() {
-				}
-				
-			});
-			
 			parser.parse();
 			destination.close();
 		} finally {
 			r.close();
 		}
 		
+		return sink.count;
 	}
 
 	@Override

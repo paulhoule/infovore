@@ -23,8 +23,8 @@ public class PullTransformer<S,T> implements PullMultiSource<T> {
 	}
 
 	@Override
-	public void pushBin(int binNumber, Sink<T> destination) throws Exception {
-		Plumbing.flow(createSource(binNumber), destination);
+	public long pushBin(int binNumber, Sink<T> destination) throws Exception {
+		return Plumbing.flow(createSource(binNumber), destination);
 	}
 
 	@Override

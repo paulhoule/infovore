@@ -7,6 +7,7 @@ public class JenaTripleSink implements TurtleEventHandler {
 
 	private final Sink<Triple> innerSink;
 	private final boolean abortOnFail;
+	private long count;
 	
 	public JenaTripleSink(Sink<Triple> innerSink) {
 		this(innerSink,true);
@@ -40,6 +41,10 @@ public class JenaTripleSink implements TurtleEventHandler {
 
 	@Override
 	public void startFormula(int arg0, int arg1) {
+	}
+
+	public long getCount() {
+		return count++;
 	}
 
 }

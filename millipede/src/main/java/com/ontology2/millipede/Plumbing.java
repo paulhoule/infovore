@@ -15,11 +15,14 @@ import com.ontology2.millipede.source.LineSource;
 import com.ontology2.millipede.source.Source;
 
 public class Plumbing {
-	public static <T> void flow(Source<T> input,Sink<T> output) throws Exception {
+	public static <T> long flow(Source<T> input,Sink<T> output) throws Exception {
+		long count=0;
 		while(input.hasMoreElements()) {
 			output.accept(input.nextElement());
+			count++;
 		}
 		output.close();
+		return count;
 	}
 	
 	public static <T> void flow(Iterator<T> input,Sink<T> output) throws Exception {

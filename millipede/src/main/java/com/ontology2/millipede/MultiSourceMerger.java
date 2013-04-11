@@ -25,13 +25,13 @@ public class MultiSourceMerger<T> implements MultiSource<T> {
 	}
 
 	@Override
-	public void pushBin(int binNumber, Sink<T> destination) throws Exception {
+	public long pushBin(int binNumber, Sink<T> destination) throws Exception {
 		List<Source<T>> innerSources=Lists.newArrayList();
 		for(PullMultiSource<T> s:sources) {
 			innerSources.add(s.createSource(binNumber));
 		}
 		Source<T> mergeSource=new OrderedMergeSource(innerSources,comparisonFunction);
-		Plumbing.flow(mergeSource,destination);
+		return Plumbing.flow(mergeSource,destination);
 	}
 
 }

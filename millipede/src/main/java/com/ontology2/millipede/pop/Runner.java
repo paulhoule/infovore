@@ -4,6 +4,8 @@ import com.google.common.collect.Lists;
 import com.ontology2.millipede.MultiFile;
 import com.ontology2.millipede.MultiSource;
 import com.ontology2.millipede.Plumbing;
+import com.ontology2.millipede.counters.Counter;
+import com.ontology2.millipede.counters.SimpleCounter;
 import com.ontology2.millipede.sink.Accumulator;
 import com.ontology2.millipede.sink.Sink;
 import com.ontology2.millipede.source.Source;
@@ -18,12 +20,15 @@ public class Runner<InT> {
 	
 	final MultiSource<InT> input;
 	final Millipede<InT> millipede;
+	final private Counter inputFacts=new SimpleCounter();
 	
 	int nThreads=0;
 
 	protected ExecutorService threadPool;
 	protected int failedSegment=-1;
 	protected Exception innerException=null;
+	
+	
 	
 	public Runner(
 			MultiSource<InT> input,

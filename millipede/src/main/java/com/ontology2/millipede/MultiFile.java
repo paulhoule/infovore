@@ -71,7 +71,7 @@ abstract public class MultiFile<T> implements MultiSource<T> {
 			throw new IllegalArgumentException("Bin Number ["+binNumber+"] is out of range");
 	}
 
-	abstract public void pushBin(int binNumber,Sink<T> destination) throws Exception;
+	abstract public long pushBin(int binNumber,Sink<T> destination) throws Exception;
 	
 	abstract public Sink<T> createSink(int binNumber) throws Exception;
 

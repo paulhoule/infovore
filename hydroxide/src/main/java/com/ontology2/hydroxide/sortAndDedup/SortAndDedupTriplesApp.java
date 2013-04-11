@@ -10,8 +10,10 @@ import com.hp.hpl.jena.graph.Triple;
 import com.ontology2.hydroxide.files.StandardFileConstellation;
 import com.ontology2.millipede.LineMultiFile;
 import com.ontology2.millipede.TripleMultiFile;
+import com.ontology2.millipede.pop.Millipede;
 import com.ontology2.millipede.pop.Runner;
 import com.ontology2.millipede.pop.Sort;
+import com.ontology2.millipede.pop.Uniq;
 import com.ontology2.millipede.pop.Write;
 import com.ontology2.millipede.primitiveTriples.PartitionPrimitiveTripleOnSubject;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
@@ -38,7 +40,12 @@ public class SortAndDedupTriplesApp extends CommandLineApplication {
 		TripleMultiFile input=files.getDestination();
 		TripleMultiFile sorted=files.getSorted();
 		
-		Sort<Triple> millipede = new Sort<Triple>(Triples.comparator(),new Write(sorted));
+		Uniq<Triple> uniq = new Uniq<Triple>(new Write<Triple>(sorted));
+		Millipede<Triple> millipede = new Sort<Triple>(
+				Triples.comparator()
+			    ,uniq
+		);
+					
 		Runner<Triple> runner = new Runner<Triple>(input,millipede);
 
 		int nThreads=Runtime.getRuntime().availableProcessors();
@@ -48,6 +55,8 @@ public class SortAndDedupTriplesApp extends CommandLineApplication {
 
 		runner.setNThreads(nThreads);
 		runner.run();
+		
+		System.out.println(uniq.getDuplicatesCount());
 	}
 
 

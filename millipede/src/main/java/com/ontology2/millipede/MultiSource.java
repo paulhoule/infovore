@@ -4,5 +4,5 @@ import com.ontology2.millipede.sink.Sink;
 
 public interface MultiSource<T> {
 	public int getPartitionCount();
-	public void pushBin(int binNumber,Sink<T> destination) throws Exception;
+	public long pushBin(int binNumber,Sink<T> destination) throws Exception;
 }

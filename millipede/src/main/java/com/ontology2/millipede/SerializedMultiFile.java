@@ -25,16 +25,20 @@ public class SerializedMultiFile<T extends Serializable> extends MultiFile<T> {
 	}
 	
 	@Override
-	public void pushBin(int binNumber, Sink<T> destination) throws Exception {
+	public long pushBin(int binNumber, Sink<T> destination) throws Exception {
+		int count=0;
 		ObjectInputStream input=new ObjectInputStream(createInputStream(binNumber));
 		try {
 			while(true) {
 				destination.accept((T) input.readObject());
+				count++;
 			}
 		} catch(EOFException eofEx) {
 		} finally {
 			input.close();
 		}
+		
+		return count;
 	}
 
 	@Override

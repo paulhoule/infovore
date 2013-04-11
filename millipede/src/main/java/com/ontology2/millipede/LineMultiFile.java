@@ -31,9 +31,9 @@ public class LineMultiFile<T> extends MultiFile<T> implements PullMultiSource<T>
 		return new LineSink(createWriter(binNumber));
 	}
 	
-	public void pushBin(int binNumber,Sink<T> destination) throws Exception {
+	public long pushBin(int binNumber,Sink<T> destination) throws Exception {
 		Source<T> source = createSource(binNumber);
-		Plumbing.flow(source, destination);
+		return Plumbing.flow(source, destination);
 	}
 	
 	public Sink<T> createSink(int binNumber) throws Exception {

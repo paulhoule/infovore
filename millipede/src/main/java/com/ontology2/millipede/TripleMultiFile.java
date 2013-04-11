@@ -29,12 +29,14 @@ public class TripleMultiFile extends MultiFile<Triple> {
 
 
 	@Override
-	public void pushBin(int binNumber, Sink<Triple> destination)
+	public long pushBin(int binNumber, Sink<Triple> destination)
 			throws Exception {
 		TurtleParser parser=new TurtleParser(createReader(binNumber));
-		parser.setEventHandler(new JenaTripleSink(destination));
+		JenaTripleSink jenaTripleSink = new JenaTripleSink(destination);
+		parser.setEventHandler(jenaTripleSink);
 		parser.parse();
 		destination.close();
+		return jenaTripleSink.getCount();
 	}
 	
 	public void fillJenaModel(Model m) throws Exception {
