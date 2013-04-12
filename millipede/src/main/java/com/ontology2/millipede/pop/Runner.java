@@ -26,7 +26,7 @@ public class Runner<InT> {
 
 	protected ExecutorService threadPool;
 	protected int failedSegment=-1;
-	protected Exception innerException=null;
+	protected Throwable innerException=null;
 	
 	
 	
@@ -80,7 +80,7 @@ public class Runner<InT> {
 			if(segment instanceof Accumulator) {
 				return ((Accumulator) segment).getResult();
 			}
-		} catch(Exception e) {
+		} catch(Throwable e) {
 			synchronized(this) {
 				if (failedSegment==-1) {
 					failedSegment=segmentNumber;
