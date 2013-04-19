@@ -17,7 +17,9 @@ public class SingleFileSource<T> implements Source<T> {
 	InputStream stream;
 	BufferedReader reader;
 	String nextLine;
-
+	long count;
+	long chars;
+	
 	public SingleFileSource(Codec<T> codec,String filename) throws Exception {
 		this.codec=codec;
 		
@@ -37,11 +39,24 @@ public class SingleFileSource<T> implements Source<T> {
 	public T nextElement() throws Exception {
 		String output=nextLine;
 		nextLine=reader.readLine();
+
+		if (nextLine!=null) {
+			count++;
+			chars += nextLine.length();
+		}
+
 		return codec.decode(output);
 	}
 	
 	public static SingleFileSource<String> createRaw(String filename) throws Exception {
 		return new SingleFileSource(new IdentityCodec(),filename);
 	}
-
+	
+	public long getCount() {
+		return count;
+	}
+	
+	public long getChars() {
+		return chars;
+	}
 }

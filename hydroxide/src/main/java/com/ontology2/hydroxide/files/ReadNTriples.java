@@ -20,6 +20,9 @@ public class ReadNTriples implements Sink<String> {
 	private static Log logger = LogFactory.getLog(ReadNTriples.class);
 	final static Pattern tripleRegex = Pattern.compile("\\s*(<[^>]*>)\\s+(<[^>]*>)\\s+(.*?)\\s*[.]");
 	final static Pattern commentRegex = Pattern.compile("\\s*#.*");
+	long countValid;
+	long countInvalid;
+	long countComments;
 	
 	public ReadNTriples(Sink<PrimitiveTriple> acceptSink,Sink<String> rejectSink) {
 		this.acceptSink = acceptSink;
@@ -36,10 +39,14 @@ public class ReadNTriples implements Sink<String> {
 			String[] parts = splitTriple(obj);
 			if(parts.length==3) {
 				acceptSink.accept(new PrimitiveTriple(parts[0],parts[1],parts[2]));
+				countValid++;
+			} else {
+				countComments++;
 			}
 		} catch(InvalidNodeException ex) {
 			logger.warn("Invalid triple: "+obj);
 			rejectSink.accept(obj);
+			countInvalid++;
 			return;					
 		}
 	}
@@ -62,6 +69,17 @@ public class ReadNTriples implements Sink<String> {
 		}
 
 		return new String[] {m.group(1),m.group(2),m.group(3)};			
-
 	}
+
+	public long getCountValid() {
+		return countValid;
+	}
+
+	public long getCountInvalid() {
+		return countInvalid;
+	}
+
+	public long getCountComments() {
+		return countComments;
+	}	
 }

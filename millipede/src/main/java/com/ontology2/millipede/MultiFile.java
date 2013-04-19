@@ -123,4 +123,8 @@ abstract public class MultiFile<T> implements MultiSource<T> {
 				new InputStreamReader(stream,"UTF-8")
 				);
 	}
+	
+	public File summaryFile() {
+		return new File(directory,"summary.ttl");
+	};
 }

@@ -59,4 +59,5 @@ public class StandardFileConstellation extends InputFileConstellation {
 	public TripleMultiFile getSorted() {
 		return PartitionsAndFiles.createTripleMultiFile(internalName+"/sorted",true);
 	}
+	
 }
