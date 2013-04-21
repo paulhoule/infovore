@@ -26,8 +26,12 @@ public class ExpandFreebaseRdfToNTriples implements Sink<String> {
 	ImmutableMap<String,String> prefixMap = ImmutableMap.of();
 	final static Splitter lineSplitter = Splitter.on("\t").limit(3);
 	final static Splitter iriSplitter = Splitter.on(":").limit(2);
-	
+
 	private static Log logger = LogFactory.getLog(ExpandFreebaseRdfToNTriples.class);
+	
+	private long prefixDeclCount=0;
+	private long grosslyMalformedCount=0;
+	private long rawAcceptedCount=0;
 	
 	public ExpandFreebaseRdfToNTriples(Sink<PrimitiveTriple> acceptSink,Sink<String> rejectSink) {
 		this.acceptSink = acceptSink;
@@ -42,6 +46,7 @@ public class ExpandFreebaseRdfToNTriples implements Sink<String> {
 		if(obj.startsWith("@prefix")) {
 			try {
 				List<String> parts=splitPrefixDeclaration(obj);
+				prefixDeclCount++;
 				if(!prefixMap.containsKey(parts.get(1))) {
 					prefixBuilder.put(parts.get(1),parts.get(2));
 					prefixMap=prefixBuilder.build();
@@ -55,7 +60,9 @@ public class ExpandFreebaseRdfToNTriples implements Sink<String> {
 			try {
 				List<String> parts = expandTripleParts(obj);
 				acceptSink.accept(new PrimitiveTriple(parts.get(0),parts.get(1),parts.get(2)));
+				rawAcceptedCount++;
 			} catch(InvalidNodeException ex) {
+				grosslyMalformedCount++;
 				logger.warn("Invalid triple: "+obj);
 				rejectSink.accept(obj);
 				return;				
@@ -135,4 +142,16 @@ public class ExpandFreebaseRdfToNTriples implements Sink<String> {
 		rejectSink.close();
 	}
 
+
+	public long getPrefixDeclCount() {
+		return prefixDeclCount;
+	}
+
+	public long getGrosslyMalformedCount() {
+		return grosslyMalformedCount;
+	}
+	
+	public long getRawAcceptedCount() {
+		return rawAcceptedCount++;
+	}
 }

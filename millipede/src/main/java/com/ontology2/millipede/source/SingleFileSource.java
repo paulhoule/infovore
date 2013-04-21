@@ -1,5 +1,6 @@
 package com.ontology2.millipede.source;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -13,7 +14,8 @@ import com.ontology2.millipede.IdentityCodec;
 
 public class SingleFileSource<T> implements Source<T> {
 	
-	private Codec<T> codec;
+	private final Codec<T> codec;
+	private final File file;
 	InputStream stream;
 	BufferedReader reader;
 	String nextLine;
@@ -22,6 +24,7 @@ public class SingleFileSource<T> implements Source<T> {
 	
 	public SingleFileSource(Codec<T> codec,String filename) throws Exception {
 		this.codec=codec;
+		this.file=new File(filename).getAbsoluteFile();
 		
 		FileOpener opener=new FileOpener();
 		stream=opener.createInputStream(filename);
@@ -58,5 +61,9 @@ public class SingleFileSource<T> implements Source<T> {
 	
 	public long getChars() {
 		return chars;
+	}
+	
+	public File getFile() {
+		return file;
 	}
 }

@@ -96,12 +96,17 @@ public class PartitionsAndFiles {
 	}
 	
 	public static String getInstanceDirectory() {
+		String instanceName = getInstanceName();
+		return getDataDirectory()+"/"+instanceName;
+	}
+
+	public static String getInstanceName() {
 		String instanceName="default";
 		Map<String,String> env=System.getenv();
 		if (env.containsKey("INFOVORE_INSTANCE")) {
 			instanceName=env.get("INFOVORE_INSTANCE");
 		}
-		return getDataDirectory()+"/"+instanceName;
+		return instanceName;
 	}
 	
 	public static String getWorkDirectory() {

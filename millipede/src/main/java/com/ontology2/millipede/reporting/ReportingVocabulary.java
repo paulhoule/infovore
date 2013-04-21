@@ -1,6 +1,9 @@
 package com.ontology2.millipede.reporting;
+import java.io.File;
+
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.ontology2.millipede.uuid.ResourceSupplier;
 import com.ontology2.millipede.uuid.UUIDSupplier;
@@ -18,31 +21,39 @@ public class ReportingVocabulary {
 	}
 	
 	public Property inputTripleCount() {
-		return that.createProperty("http://rdf.ontology2.com/infovore/inputTripleCount");
+		return property("inputTripleCount");
 	};
 	
 	public Property  outputTripleCount() {
-		return that.createProperty("http://rdf.ontology2.com/infovore/outputTripleCount");
+		return property("outputTripleCount");
 	}
 	
 	public Property inputCharactersCount() {
-		return that.createProperty("http://rdf.ontology2.com/infovore/inputCharacterCount");
+		return property("inputCharacterCount");
 	}
 	
 	public Resource processingStage() {
-		return that.createResource("http://rdf.ontology2.com/infovore/ProcessingStage");
+		return resource("ProcessingStage");
+	}
+	
+	public Resource Job() {
+		return resource("Job");
+	}
+	
+	public Property flowsTo() {
+		return property("flowsTo");
 	}
 	
 	public Property implementedBy() {
-		return that.createProperty("http://rdf.ontology2.com/infovore/implementedBy");
+		return property("implementedBy");
 	}
 	
 	public Property grosslyMalformedFacts() {
-		return that.createProperty("http://rdf.ontology2.com/infovore/grosslyMalformedFacts");
+		return property("grosslyMalformedFacts");
 	}
 	
 	public Property commentCount() {
-		return that.createProperty("http://rdf.ontology2.com/infovore/commentCount");
+		return property("commentCount");
 	}
 	
 	public Resource something() {
@@ -53,4 +64,36 @@ public class ReportingVocabulary {
 		return that.createResource("urn:java:"+o.getClass().getCanonicalName());
 	};
 	
+	protected Property property(String url) {
+		return that.createProperty("http://rdf.ontology2.com/infovore/"+url);
+	}
+	
+	protected Resource resource(String url) {
+		return that.createResource("http://rdf.ontology2.com/infovore/"+url);
+	}
+
+	public Resource File() {
+		return resource("File");
+	}
+
+	public Property path() {
+		return property("fromPath");
+	}
+
+	public Resource file(File file) {
+		return that.createResource(file.toURI().toString());
+	}
+
+	public Property fromInstance() {
+		return property("fromInstance");
+	}
+
+	public Property prefixDeclCount() {
+		return property("prefixDeclCount");
+	}
+
+	public Property rawAcceptedCount() {
+		return property("rawAcceptedCount");
+	}
+
 }

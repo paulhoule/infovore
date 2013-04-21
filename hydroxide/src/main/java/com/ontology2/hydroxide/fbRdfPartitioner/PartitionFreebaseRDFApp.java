@@ -7,6 +7,7 @@ import com.ontology2.hydroxide.PartitionOnSubject;
 import com.ontology2.hydroxide.files.InputFileConstellation;
 import com.ontology2.hydroxide.files.PartitionsAndFiles;
 import com.ontology2.hydroxide.files.StandardFileConstellation;
+import com.ontology2.hydroxide.partitionNTriplesApp.InfovoreApplication;
 import com.ontology2.millipede.LineMultiFile;
 import com.ontology2.millipede.Partitioner;
 import com.ontology2.millipede.Plumbing;
@@ -21,25 +22,24 @@ import com.ontology2.millipede.sink.ProgressReportingSink;
 import com.ontology2.millipede.sink.Sink;
 import com.ontology2.millipede.source.SingleFileSource;
 
-public class PartitionFreebaseRDFApp extends CommandLineApplication  {
+public class PartitionFreebaseRDFApp extends InfovoreApplication  {
 	
 	@Override
 	protected void _run(String[] args) throws Exception {
 		if(args.length<1) {
-			die("partitionFreebaseRDF [input filename]");
+			die("partitionFreebaseRDF [input filename] [output filename?]");
 		}
 		
 		String inputFilename=args[0];
+		String outputProject=args.length>1 ? args[1] : "baseKBLime"; 
 		PartitionPrimitiveTripleOnSubject partitionFunction=new PartitionPrimitiveTripleOnSubject(1024);
 		SingleFileSource<String> input=SingleFileSource.createRaw(inputFilename);
 		
-		InputFileConstellation files=new StandardFileConstellation("baseKBLime");
+		InputFileConstellation files=new StandardFileConstellation(outputProject);
 		LineMultiFile<PrimitiveTriple> output=files.getPartitionedExpandedTriples();
 		Sink<String> rejects=files.getRawRejected();
 
-		if(output.testExists()) {
-			throw new Exception("Destination files already exist");	
-		}
+		dontOverwrite(output);
 		
 		Predicate<PrimitiveTriple> tripleFilter=Predicates.not(Predicates.or(
 				PrimitiveTriple.hasPredicate("<http://rdf.freebase.com/ns/type.type.instance>"),
@@ -66,8 +66,17 @@ public class PartitionFreebaseRDFApp extends CommandLineApplication  {
 		ExpandFreebaseRdfToNTriples expand=new ExpandFreebaseRdfToNTriples(filter,rejects);
 
 		ProgressReportingSink prs=new ProgressReportingSink(expand);
-		Plumbing.flow(input,prs);
+		long inputCount=Plumbing.flow(input,prs);
+		
+		identifySelf();
+		identifyInputFile(input);
+		
+		me.addLiteral(v.inputTripleCount(),inputCount);
+		me.addLiteral(v.outputTripleCount(),p.getFactCount());
+		me.addLiteral(v.grosslyMalformedFacts(),expand.getGrosslyMalformedCount());
+		me.addLiteral(v.prefixDeclCount(), expand.getPrefixDeclCount());
+		me.addLiteral(v.rawAcceptedCount(), expand.getRawAcceptedCount());
+		
+		writeSummaryFile(output);
 	}
-
-
 }

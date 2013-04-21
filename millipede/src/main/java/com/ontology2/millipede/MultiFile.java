@@ -48,6 +48,10 @@ abstract public class MultiFile<T> implements MultiSource<T> {
 		return f;
 	}
 
+	public String getFileName() {
+		return directory;
+	};
+	
 	public String getFileName(int binNumber) {
 		testBinNumber(binNumber);
 		
