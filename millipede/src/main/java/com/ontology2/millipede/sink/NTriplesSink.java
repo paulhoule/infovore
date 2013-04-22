@@ -6,8 +6,9 @@ import java.io.Writer;
 import org.openjena.riot.out.SinkTripleOutput;
 
 import com.hp.hpl.jena.graph.Triple;
+import com.hp.hpl.jena.rdf.model.Model;
 
-public class NTriplesSink implements Sink<Triple> {
+public class NTriplesSink extends EmptyReportSink<Triple> {
 
 	private final SinkTripleOutput innerSink;
 	private final OutputStream stream;
@@ -23,8 +24,9 @@ public class NTriplesSink implements Sink<Triple> {
 	}
 
 	@Override
-	public void close() throws Exception {
+	public Model close() throws Exception {
 		innerSink.close();
 		stream.close();
+		return super.close();
 	}
 }

@@ -1,8 +1,10 @@
 package com.ontology2.millipede.primitiveTriples;
 
+import com.hp.hpl.jena.rdf.model.Model;
+import com.ontology2.millipede.sink.EmptyReportSink;
 import com.ontology2.millipede.sink.Sink;
 
-public class PrimitiveTriplePredicateRewriter implements Sink<PrimitiveTriple> {
+public class PrimitiveTriplePredicateRewriter extends EmptyReportSink<PrimitiveTriple> {
 	private final Sink<PrimitiveTriple> innerSink;
 	private final String from;
 	private final String to;
@@ -27,8 +29,9 @@ public class PrimitiveTriplePredicateRewriter implements Sink<PrimitiveTriple> {
 	}
 
 	@Override
-	public void close() throws Exception {
+	public Model close() throws Exception {
 		innerSink.close();
+		return super.close();
 	}
 
 

@@ -1,8 +1,9 @@
 package com.ontology2.millipede.pop;
 
+import com.hp.hpl.jena.rdf.model.Model;
 import com.ontology2.millipede.counters.CounterFace;
 import com.ontology2.millipede.counters.SimpleCounter;
-import com.ontology2.millipede.sink.NonClosingSink;
+import com.ontology2.millipede.sink.EmptyReportSink;
 import com.ontology2.millipede.sink.Sink;
 
 public class Uniq<T> implements Millipede<T> {
@@ -19,7 +20,7 @@ public class Uniq<T> implements Millipede<T> {
 	public Sink<T> createSegment(final int segmentNumber) throws Exception {
 		final Sink outputSink=output.createSegment(segmentNumber);
 		final CounterFace duplicatesFace=duplicates.getFace(segmentNumber);
-		return new Sink<T>() {
+		return new EmptyReportSink<T>() {
 			T last=null;
 					
 			@Override
@@ -33,8 +34,9 @@ public class Uniq<T> implements Millipede<T> {
 			}
 
 			@Override
-			public void close() throws Exception {
+			public Model close() throws Exception {
 				outputSink.close();
+				return super.close();
 			}
 		};
 	}

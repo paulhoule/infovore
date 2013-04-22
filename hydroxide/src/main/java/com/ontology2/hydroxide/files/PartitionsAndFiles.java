@@ -9,7 +9,6 @@ import com.ontology2.hydroxide.FreebaseQuad;
 import com.ontology2.hydroxide.PartitionOnSubject;
 import com.ontology2.hydroxide.PartitionOnSubjectNQ;
 import com.ontology2.hydroxide.QuadCodec;
-import com.ontology2.hydroxide.turtleZero.FreebaseKeyRecord;
 import com.ontology2.millipede.Codec;
 import com.ontology2.millipede.DummyPartitionFunction;
 import com.ontology2.millipede.FileOpener;
@@ -178,19 +177,6 @@ public class PartitionsAndFiles {
 	
 	private static PartitionOnSubjectNQ getNQuadsPartitionFunction() {
 		return new PartitionOnSubjectNQ(1024);
-	}
-
-	public static LineMultiFile<FreebaseKeyRecord> keyFile() {
-		PartitionFunction<FreebaseKeyRecord> partitionFunction =
-			new DummyPartitionFunction<FreebaseKeyRecord>(1024);
-		
-		Codec<FreebaseKeyRecord> codec=new FreebaseKeyRecord.Codec();
-		return new LineMultiFile<FreebaseKeyRecord>(
-				getWorkDirectory()+"/keys", 
-				"keys", 
-				".gz", 
-				partitionFunction,
-				codec);		
 	}
 
 	public static MultiFile<FreebaseQuad> getTurtleOne() {

@@ -1,8 +1,10 @@
 package com.ontology2.millipede.primitiveTriples;
 
+import com.hp.hpl.jena.rdf.model.Model;
+import com.ontology2.millipede.sink.EmptyReportSink;
 import com.ontology2.millipede.sink.Sink;
 
-public class PrimitiveTripleTap implements Sink<PrimitiveTriple> {
+public class PrimitiveTripleTap extends EmptyReportSink<PrimitiveTriple> {
 	Sink<PrimitiveTriple> innerSink;
 
 	public PrimitiveTripleTap(Sink<PrimitiveTriple> innerSink) {
@@ -16,8 +18,9 @@ public class PrimitiveTripleTap implements Sink<PrimitiveTriple> {
 	}
 
 	@Override
-	public void close() throws Exception {
+	public Model close() throws Exception {
 		innerSink.close();
+		return super.close();
 	}
 
 }

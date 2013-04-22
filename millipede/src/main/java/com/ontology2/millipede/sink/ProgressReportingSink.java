@@ -1,5 +1,7 @@
 package com.ontology2.millipede.sink;
 
+import com.hp.hpl.jena.rdf.model.Model;
+
 
 public class ProgressReportingSink<S> implements Sink<S> {
 
@@ -20,9 +22,8 @@ public class ProgressReportingSink<S> implements Sink<S> {
 	}
 
 	@Override
-	public void close() throws Exception {
-		innerSink.close();
-		
+	public Model close() throws Exception {
+		return innerSink.close();
 	}
 
 }

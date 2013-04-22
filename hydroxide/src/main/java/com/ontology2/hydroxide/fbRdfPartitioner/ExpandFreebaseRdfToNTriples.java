@@ -11,13 +11,15 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.hp.hpl.jena.rdf.model.Model;
 import com.ontology2.hydroxide.InvalidNodeException;
 import com.ontology2.hydroxide.InvalidPrefixException;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.millipede.shell.CommandLineApplication;
+import com.ontology2.millipede.sink.EmptyReportSink;
 import com.ontology2.millipede.sink.Sink;
 
-public class ExpandFreebaseRdfToNTriples implements Sink<String> {
+public class ExpandFreebaseRdfToNTriples extends EmptyReportSink<String> {
 
 	final Sink<PrimitiveTriple> acceptSink;
 	final Sink<String> rejectSink;
@@ -137,9 +139,10 @@ public class ExpandFreebaseRdfToNTriples implements Sink<String> {
 	} 
 	
 	@Override
-	public void close() throws Exception {
+	public Model close() throws Exception {
 		acceptSink.close();
 		rejectSink.close();
+		return super.close();
 	}
 
 

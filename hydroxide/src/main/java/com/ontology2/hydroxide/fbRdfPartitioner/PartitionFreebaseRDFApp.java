@@ -62,8 +62,8 @@ public class PartitionFreebaseRDFApp extends InfovoreApplication  {
 				"<http://rdf.freebase.com/ns/type.object.type>",
 				"<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>");
 		
-		filter=new FilterSink<PrimitiveTriple>(filter, tripleFilter);
-		ExpandFreebaseRdfToNTriples expand=new ExpandFreebaseRdfToNTriples(filter,rejects);
+		FilterSink f2=new FilterSink<PrimitiveTriple>(filter, tripleFilter);
+		ExpandFreebaseRdfToNTriples expand=new ExpandFreebaseRdfToNTriples(f2,rejects);
 
 		ProgressReportingSink prs=new ProgressReportingSink(expand);
 		long inputCount=Plumbing.flow(input,prs);
@@ -76,6 +76,7 @@ public class PartitionFreebaseRDFApp extends InfovoreApplication  {
 		me.addLiteral(v.grosslyMalformedFacts(),expand.getGrosslyMalformedCount());
 		me.addLiteral(v.prefixDeclCount(), expand.getPrefixDeclCount());
 		me.addLiteral(v.rawAcceptedCount(), expand.getRawAcceptedCount());
+		me.addLiteral(v.refusedCount(), f2.getRejectedCount());
 		
 		writeSummaryFile(output);
 	}

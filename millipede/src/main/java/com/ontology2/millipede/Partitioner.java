@@ -4,10 +4,12 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.hp.hpl.jena.rdf.model.Model;
 import com.ontology2.millipede.counters.Counter;
+import com.ontology2.millipede.sink.EmptyReportSink;
 import com.ontology2.millipede.sink.Sink;
 
-public class Partitioner<T> implements Sink<T> {
+public class Partitioner<T> extends EmptyReportSink<T> {
 	public MultiFile<T> mf;
 	public List<Sink<T>> sinks;
 	private long factCount;
@@ -29,11 +31,12 @@ public class Partitioner<T> implements Sink<T> {
 	}
 
 	@Override
-	public void close() throws Exception {
+	public Model close() throws Exception {
 		final int count = mf.getPartitionFunction().getPartitionCount();
 		for(int i=0;i<count;i++) {
 			sinks.get(i).close();
 		}
+		return super.close();
 	};
 	
 	public long getFactCount() {

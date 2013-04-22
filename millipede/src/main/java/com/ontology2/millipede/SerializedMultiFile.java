@@ -1,11 +1,14 @@
 package com.ontology2.millipede;
 
 import java.io.EOFException;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
+import com.hp.hpl.jena.rdf.model.Model;
+import com.ontology2.millipede.sink.EmptyReportSink;
 import com.ontology2.millipede.sink.Sink;
 
 public class SerializedMultiFile<T extends Serializable> extends MultiFile<T> {
@@ -44,7 +47,7 @@ public class SerializedMultiFile<T extends Serializable> extends MultiFile<T> {
 	@Override
 	public Sink<T> createSink(int binNumber) throws Exception {
 		final ObjectOutputStream output=new ObjectOutputStream(createOutputStream(binNumber));
-		return new Sink<T>() {
+		return new EmptyReportSink<T>() {
 
 			@Override
 			public void accept(T obj) throws Exception {
@@ -52,8 +55,9 @@ public class SerializedMultiFile<T extends Serializable> extends MultiFile<T> {
 			}
 
 			@Override
-			public void close() throws Exception {
+			public com.hp.hpl.jena.rdf.model.Model close() throws Exception {
 				output.close();
+				return super.close();
 			}
 		};
 	}

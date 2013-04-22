@@ -9,12 +9,14 @@ import org.apache.commons.logging.LogFactory;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
+import com.hp.hpl.jena.rdf.model.Model;
 import com.ontology2.hydroxide.InvalidNodeException;
 import com.ontology2.hydroxide.fbRdfPartitioner.ExpandFreebaseRdfToNTriples;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
+import com.ontology2.millipede.sink.EmptyReportSink;
 import com.ontology2.millipede.sink.Sink;
 
-public class ReadNTriples implements Sink<String> {
+public class ReadNTriples extends EmptyReportSink<String> {
 	final Sink<PrimitiveTriple> acceptSink;
 	final Sink<String> rejectSink;
 	private static Log logger = LogFactory.getLog(ReadNTriples.class);
@@ -52,9 +54,10 @@ public class ReadNTriples implements Sink<String> {
 	}
 
 	@Override
-	public void close() throws Exception {
+	public Model close() throws Exception {
 		acceptSink.close();
 		rejectSink.close();
+		return super.close();
 	}
 
 	static String[] splitTriple(String obj) throws InvalidNodeException {

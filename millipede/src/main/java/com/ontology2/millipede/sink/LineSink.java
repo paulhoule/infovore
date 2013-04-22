@@ -2,8 +2,10 @@ package com.ontology2.millipede.sink;
 
 import java.io.PrintWriter;
 
+import com.hp.hpl.jena.rdf.model.Model;
 
-public class LineSink implements Sink<String> {
+
+public class LineSink extends EmptyReportSink<String> implements Sink<String> {
 
 	private PrintWriter writer;
 
@@ -18,8 +20,9 @@ public class LineSink implements Sink<String> {
 	}
 
 	@Override
-	public void close() throws Exception {
+	public Model close() throws Exception {
 		writer.close();
+		return super.close();
 	}
 	
 }

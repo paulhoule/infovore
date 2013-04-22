@@ -1,6 +1,8 @@
 package com.ontology2.millipede.sink;
 
-public abstract class GroupingSink<T> implements Sink<T> {
+import com.hp.hpl.jena.rdf.model.Model;
+
+public abstract class GroupingSink<T> extends EmptyReportSink<T> implements Sink<T> {
 
 	private Object groupKey=null;
 	
@@ -24,9 +26,10 @@ public abstract class GroupingSink<T> implements Sink<T> {
 	
 	@Override
 	
-	public final void close() throws Exception {
+	public final Model close() throws Exception {
 		closeGroup();
 		close$();
+		return super.close();
 	}
 	
 	abstract protected void close$() throws Exception;

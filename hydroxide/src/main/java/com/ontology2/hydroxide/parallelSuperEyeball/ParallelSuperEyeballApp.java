@@ -4,12 +4,13 @@ import com.google.common.cache.LoadingCache;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
+import com.hp.hpl.jena.rdf.model.Model;
 import com.ontology2.hydroxide.FreebaseQuad;
 import com.ontology2.hydroxide.fbRdfPartitioner.PartitionFreebaseRDFApp;
 import com.ontology2.hydroxide.files.InputFileConstellation;
 import com.ontology2.hydroxide.files.PartitionsAndFiles;
 import com.ontology2.hydroxide.files.StandardFileConstellation;
-import com.ontology2.hydroxide.turtleOne.ConstructTurtleOneApp.ConstructTurtleOne;
+
 import com.ontology2.millipede.LineMultiFile;
 import com.ontology2.millipede.TripleMultiFile;
 import com.ontology2.millipede.pop.Millipede;
@@ -17,6 +18,7 @@ import com.ontology2.millipede.pop.Runner;
 import com.ontology2.millipede.primitiveTriples.PartitionPrimitiveTripleOnSubject;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.millipede.shell.CommandLineApplication;
+import com.ontology2.millipede.sink.EmptyReportSink;
 import com.ontology2.millipede.sink.Sink;
 import com.ontology2.rdf.JenaUtil;
 
@@ -40,7 +42,7 @@ public class ParallelSuperEyeballApp extends CommandLineApplication {
 			final Sink<PrimitiveTriple> rejectBin=rejected.createSink(segmentNumber);
 			final LoadingCache<String,Node> nodeParser=JenaUtil.createNodeParseCache();
 			
-			return new Sink<PrimitiveTriple>() {
+			return new EmptyReportSink<PrimitiveTriple>() {
 
 				@Override
 				public void accept(PrimitiveTriple obj) throws Exception {
@@ -55,9 +57,10 @@ public class ParallelSuperEyeballApp extends CommandLineApplication {
 				}
 
 				@Override
-				public void close() throws Exception {
+				public Model close() throws Exception {
 					acceptBin.close();
 					rejectBin.close();
+					return super.close();
 				}			
 			};
 		}

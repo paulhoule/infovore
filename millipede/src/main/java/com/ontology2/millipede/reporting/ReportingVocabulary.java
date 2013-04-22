@@ -96,4 +96,8 @@ public class ReportingVocabulary {
 		return property("rawAcceptedCount");
 	}
 
+	public Property refusedCount() {
+		return property("refused");
+	}
+
 }

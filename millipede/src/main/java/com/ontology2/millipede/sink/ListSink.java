@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
-public class ListSink<T> extends NonClosingSink<T> {
+public class ListSink<T> extends EmptyReportSink<T> {
 	
 	List<T> innerList=Lists.newArrayList();
 
