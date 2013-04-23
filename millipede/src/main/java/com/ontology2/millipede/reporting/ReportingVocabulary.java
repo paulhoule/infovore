@@ -20,6 +20,14 @@ public class ReportingVocabulary {
 		return that.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
 	}
 	
+	protected Property property(String url) {
+		return that.createProperty("http://rdf.ontology2.com/infovore/"+url);
+	}
+	
+	protected Resource resource(String url) {
+		return that.createResource("http://rdf.ontology2.com/infovore/"+url);
+	}
+	
 	public Property inputTripleCount() {
 		return property("inputTripleCount");
 	};
@@ -63,14 +71,6 @@ public class ReportingVocabulary {
 	public Resource asClass(Object o) {
 		return that.createResource("urn:java:"+o.getClass().getCanonicalName());
 	};
-	
-	protected Property property(String url) {
-		return that.createProperty("http://rdf.ontology2.com/infovore/"+url);
-	}
-	
-	protected Resource resource(String url) {
-		return that.createResource("http://rdf.ontology2.com/infovore/"+url);
-	}
 
 	public Resource File() {
 		return resource("File");
@@ -97,7 +97,15 @@ public class ReportingVocabulary {
 	}
 
 	public Property refusedCount() {
-		return property("refused");
+		return property("refusedCount");
+	}
+	
+	public Property isThe() {
+		return property("isThe");
+	}
+	
+	public Resource SubjectOfThisGraph() {
+		return resource("SubjectOfThisGraph");
 	}
 
 }
