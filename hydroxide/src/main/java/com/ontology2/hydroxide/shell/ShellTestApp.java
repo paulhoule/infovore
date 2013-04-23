@@ -1,8 +1,8 @@
 package com.ontology2.hydroxide.shell;
 
-import com.ontology2.millipede.shell.SpringCommandLineApplication;
+import com.ontology2.millipede.shell.CommandLineApplication;
 
-public class ShellTestApp extends SpringCommandLineApplication {
+public class ShellTestApp extends CommandLineApplication {
 	static boolean gotHit=false;
 	static String[] lastArguments;
 	
