@@ -1,9 +1,8 @@
-package com.ontology2.millipede.sink;
+package com.ontology2.millipede.reporting;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
-import com.ontology2.millipede.reporting.ReportingVocabulary;
 
 public class ReportingCloseImplementation {
 	private final Object client;

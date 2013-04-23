@@ -11,15 +11,17 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.ontology2.hydroxide.files.PartitionsAndFiles;
 import com.ontology2.millipede.LineMultiFile;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
+import com.ontology2.millipede.reporting.ReportingCloseImplementation;
 import com.ontology2.millipede.reporting.ReportingVocabulary;
 import com.ontology2.millipede.shell.CommandLineApplication;
 import com.ontology2.millipede.source.SingleFileSource;
 
 public abstract class InfovoreApplication extends CommandLineApplication {
 
-	protected final Model summary = ModelFactory.createDefaultModel();
-	protected final ReportingVocabulary v = new ReportingVocabulary(summary);
-	protected final Resource me = v.something();
+	private final ReportingCloseImplementation modelSource = new ReportingCloseImplementation(this);
+	protected final Model summary = modelSource.summary;
+	protected final ReportingVocabulary v = modelSource.v;
+	protected final Resource me = modelSource.me;
 	
 	public void dontOverwrite(LineMultiFile<?> output) throws Exception {
 		if(output.testExists()) {
