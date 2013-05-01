@@ -68,7 +68,7 @@ public class PartitionFreebaseRDFApp extends InfovoreApplication  {
 		ProgressReportingSink prs=new ProgressReportingSink(expand);
 		long inputCount=Plumbing.flow(input,prs);
 		
-		identifySelf();
+		initializeModel();
 		identifyInputFile(input);
 		
 		me.addLiteral(v.inputTripleCount(),inputCount);

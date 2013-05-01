@@ -16,6 +16,8 @@ public class ReportingCloseImplementation {
 	public final Resource me = v.something();
 
 	public Model close() throws Exception {
+		me.addProperty(v.isThe(),v.SubjectOfThisGraph());
+		me.addProperty(v.implementedBy(),v.asClass(client));
 		return summary;
 	}
 }

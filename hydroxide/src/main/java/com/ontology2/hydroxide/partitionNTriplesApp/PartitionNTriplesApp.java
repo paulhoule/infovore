@@ -51,8 +51,7 @@ public class PartitionNTriplesApp extends InfovoreApplication {
 		ReadNTriples cleaner=new ReadNTriples(p,rejects);
 		ProgressReportingSink prs=new ProgressReportingSink(cleaner);
 		long inputCount=Plumbing.flow(input,prs);
-
-		identifySelf();
+		me.addProperty(v.a(),v.Job());
 		identifyInputFile(input);
 		
 		me.addLiteral(v.grosslyMalformedFacts(),cleaner.getCountInvalid());

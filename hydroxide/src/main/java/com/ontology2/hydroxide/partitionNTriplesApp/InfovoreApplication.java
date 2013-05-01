@@ -37,10 +37,10 @@ public abstract class InfovoreApplication extends CommandLineApplication {
 		summary.add(inputFile,v.flowsTo(),me);
 		summary.add(summary.createLiteralStatement(me,v.inputCharactersCount(),input.getChars()));
 	}
-
-	public void identifySelf() {
+	
+	public void initializeModel() throws Exception {
+		modelSource.close();
 		summary.add(me,v.a(),v.Job());
-		summary.add(me,v.implementedBy(),v.asClass(this));
 	}
 
 	public void writeSummaryFile(LineMultiFile<PrimitiveTriple> output) throws FileNotFoundException,
