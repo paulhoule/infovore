@@ -3,6 +3,8 @@ import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.apache.commons.logging.Log;
@@ -34,16 +36,33 @@ public class MillipedeShell extends CommandLineApplication {
 	@Override
 	protected void _run(String[] arguments) throws Exception {
 
-		if(arguments.length<2) {
+		if(arguments.length==0) {
 			usage();
 		}
 		
 		String action=arguments[0];
-		String application=arguments[1];
-		
-		if(!action.equals("run")) {
-			usage();
+		if(action.equals("run")) {
+			runAction(arguments);
+		} else if(action.equals("list")) {
+			listAction(arguments);			
 		}
+		
+
+	}
+
+	private void listAction(String[] arguments) {
+		Map<String, CommandLineApplication> all = context.getBeansOfType(CommandLineApplication.class);
+		for(Entry<String, CommandLineApplication> that:all.entrySet()) {
+			String beanName=that.getKey();
+			if(beanName.endsWith("App")) {
+				String appName=beanName.substring(0, beanName.length()-3);
+				System.out.println(appName);
+			}
+		}
+	}
+
+	public void runAction(String[] arguments) {
+		String application=arguments[1];
 			
 		String appName=application+"App";
 		CommandLineApplication app=null;
