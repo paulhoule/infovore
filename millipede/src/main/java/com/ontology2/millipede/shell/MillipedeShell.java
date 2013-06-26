@@ -88,7 +88,8 @@ public class MillipedeShell extends CommandLineApplication {
 	private void usage() {
 		System.out.println("usage:");
 		System.out.println();
-		System.out.println(getShellName()+" <action> <application> ...");
+		System.out.println(getShellName()+" list");
+		System.out.println(getShellName()+" run <application> ...");
 		System.out.println();
 		System.out.println("<action> = run");
 		System.out.println("<application> the shell appends 'App' to this name and searches for a like");
