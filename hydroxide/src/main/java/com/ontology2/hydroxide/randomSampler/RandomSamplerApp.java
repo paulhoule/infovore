@@ -29,8 +29,9 @@ public class RandomSamplerApp extends InfovoreApplication {
 			
 			@Override
 			public void accept(String obj) throws Exception {
+				double uniformDeviate = generator.nextDouble();
 				if (obj.startsWith("@")
-						|| generator.nextDouble()<probability)
+						|| uniformDeviate<probability)
 					output.accept(obj);
 			}
 		};
