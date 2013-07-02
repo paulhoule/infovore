@@ -35,7 +35,7 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>appassembler-maven-plugin</artifactId>
 				<configuration>
-					<extraJvmArguments>-Xmx5000m</extraJvmArguments> 
+					<extraJvmArguments>-Xmx12000m</extraJvmArguments> 
 					<programs>
 						<program>
 						    <mainClass>com.ontology2.hydroxide.shell.InfovoreShell</mainClass>
