@@ -15,6 +15,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.Serializable;
+import java.lang.ProcessBuilder.Redirect;
 import java.util.List;
 import java.util.zip.GZIPInputStream;
 
@@ -61,23 +62,16 @@ public class FileOpener {
 	}
 	
 	public InputStream decompressWithExternalBzip(String filename) throws Exception {
-
-		List<String> bzcatPaths=Lists.newArrayList();
-		bzcatPaths.add("c:/cygwin/bin/bzcat.exe");
-		
-		String path=System.getenv("PATH");
-		Iterable<String> parts=Splitter.on(System.getProperty("path.separator")).split(path);
-		for(String dir:parts) {
-			bzcatPaths.add(dir+"/bzcat");
-			bzcatPaths.add(dir+"/bzcat.exe");
-		}
-		
-		for(String bzcatPath:bzcatPaths) {
+		for(String bzcatPath:searchWidelyForCommand("bzip2")) {
 			if (new File(bzcatPath).canExecute()) {
-				Process p=Runtime.getRuntime().exec(new String[] {
+				Process p=new ProcessBuilder(new String[] {
 						bzcatPath,
-						filename
-				});
+						"-c",
+						"-d",
+						"-"
+				})
+				.redirectInput(new File(filename))
+				.start();
 				
 				return p.getInputStream();
 			}
@@ -86,6 +80,37 @@ public class FileOpener {
 		throw new Exception("Could not find a working copy of bzip");
 	}
 
+	public OutputStream compressWithExternalBzip(String filename) throws Exception {
+		for(String bzipPath:searchWidelyForCommand("bzip2")) {
+			if (new File(bzipPath).canExecute()) {
+				Process p=new ProcessBuilder(new String[] {
+						bzipPath,
+						"-c",
+						"-"
+				}).redirectOutput(new File(filename))
+				.redirectInput(Redirect.PIPE)
+				.start();
+				
+				return p.getOutputStream();
+			}
+		}
+		
+		throw new Exception("Could not find a working copy of bzip");
+	}
+
+	public List<String> searchWidelyForCommand(String cmd) {
+		List<String> paths=Lists.newArrayList();
+		paths.add("c:/cygwin/bin/"+cmd+".exe");
+		String path=System.getenv("PATH");
+		Iterable<String> parts=Splitter.on(System.getProperty("path.separator")).split(path);
+		for(String dir:parts) {
+			paths.add(dir+"/"+cmd);
+			paths.add(dir+"/"+cmd+".exe");
+		}
+		
+		return paths;
+	}
+	
 	public ObjectOutputStream createObjectOutputStream(String filename) throws IOException {
 		return new ObjectOutputStream(createOutputStream(filename));
 	}
