@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -29,6 +30,8 @@ import com.google.common.io.Files;
 
 public class FileOpener {
 	
+	private static final String BZIP2 = "pbzip2";
+
 	public BufferedReader createBufferedReader(String filename) throws Exception {
 		return new BufferedReader(createReader(filename));
 	}
@@ -62,7 +65,7 @@ public class FileOpener {
 	}
 	
 	public InputStream decompressWithExternalBzip(String filename) throws Exception {
-		for(String bzcatPath:searchWidelyForCommand("bzip2")) {
+		for(String bzcatPath:searchWidelyForCommand(BZIP2)) {
 			if (new File(bzcatPath).canExecute()) {
 				Process p=new ProcessBuilder(new String[] {
 						bzcatPath,
@@ -81,9 +84,9 @@ public class FileOpener {
 	}
 
 	public OutputStream compressWithExternalBzip(String filename) throws Exception {
-		for(String bzipPath:searchWidelyForCommand("bzip2")) {
+		for(String bzipPath:searchWidelyForCommand(BZIP2)) {
 			if (new File(bzipPath).canExecute()) {
-				Process p=new ProcessBuilder(new String[] {
+				final Process p=new ProcessBuilder(new String[] {
 						bzipPath,
 						"-c",
 						"-"
@@ -91,7 +94,19 @@ public class FileOpener {
 				.redirectInput(Redirect.PIPE)
 				.start();
 				
-				return p.getOutputStream();
+				return new FilterOutputStream(p.getOutputStream()) {
+
+					@Override
+					public void close() throws IOException {
+						super.close();
+						try {
+							p.waitFor();
+						} catch (InterruptedException e) {
+							new RuntimeException(e);
+						}
+
+					}
+				};
 			}
 		}
 		
