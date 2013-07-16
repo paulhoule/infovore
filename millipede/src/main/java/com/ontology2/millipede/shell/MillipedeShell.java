@@ -68,9 +68,11 @@ public class MillipedeShell extends CommandLineApplication {
 		CommandLineApplication app=null;
 		try {
 			app = context.getBean(appName,CommandLineApplication.class);
-		} catch(BeanNotOfRequiredTypeException | NoSuchBeanDefinitionException ex) {
+		} catch(BeanNotOfRequiredTypeException ex) {
 			die("Application ["+application+"] not found");
-		};
+		} catch(NoSuchBeanDefinitionException ex) {
+			die("Application ["+application+"] not found");
+		} ;
 		
 		String[] innerArguments=
 				arguments.length<3 ? new String[0] : Arrays.copyOfRange(arguments, 2, arguments.length);
