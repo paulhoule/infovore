@@ -38,7 +38,7 @@ public class PrimitiveTriple {
 		buff.append(this.predicate);
 		buff.append("\t");
 		buff.append(this.object);
-		buff.append(" .\n");
+		buff.append(".\n");
 		return buff.toString();
 	}
 	

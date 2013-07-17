@@ -114,7 +114,7 @@ public class ExpandFreebaseRdfToNTriples extends EmptyReportSink<String> {
 	}
 	
 
-	static List<String> splitPrefixDeclaration(String obj) throws InvalidPrefixException {
+	public static List<String> splitPrefixDeclaration(String obj) throws InvalidPrefixException {
 		List<String> parts=Lists.newArrayList(Splitter.on(" ").split(obj));
 		if (parts.size()!=3) {
 			throw new InvalidPrefixException();
