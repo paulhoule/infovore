@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapred.MapReduceBase;
 import org.apache.hadoop.mapred.Mapper;
@@ -15,7 +16,6 @@ import org.apache.hadoop.mapred.lib.ChainMapper;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
-import com.hp.hpl.jena.graph.query.regexptrees.Text;
 import com.ontology2.hydroxide.InvalidNodeException;
 import com.ontology2.hydroxide.InvalidPrefixException;
 import com.ontology2.millipede.Codec;
@@ -72,7 +72,7 @@ public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWrita
 	public void map(LongWritable k, Text v,
 			OutputCollector<Text, Text> out, Reporter meta) throws IOException {
 		
-		String line=v.getString();
+		String line=v.toString();
 		
 		try {
 			List<String> parts = expandTripleParts(line);
@@ -87,7 +87,7 @@ public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWrita
 
 	private void accept(OutputCollector<Text, Text> out,
 			PrimitiveTriple primitiveTriple) throws IOException {
-			out.collect(Text.create(primitiveTriple.subject), Text.create(ptCodec.encode(primitiveTriple)));
+			out.collect(new Text(primitiveTriple.subject), new Text(ptCodec.encode(primitiveTriple)));
 	}
 
 	//
