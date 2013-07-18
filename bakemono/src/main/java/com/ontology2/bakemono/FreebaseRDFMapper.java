@@ -32,8 +32,6 @@ import com.ontology2.millipede.sink.Sink;
 
 import org.apache.commons.logging.Log;
 
-import static com.ontology2.hydroxide.fbRdfPartitioner.ExpandFreebaseRdfToNTriples.splitPrefixDeclaration;
-
 //import static com.ontology2.hydroxide.fbRdfPartitioner.ExpandFreebaseRdfToNTriples.*;
 
 public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWritable,Text,Text,Text> {
@@ -131,7 +129,7 @@ public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWrita
 	// 
 	//
 	
-	private List<String> expandTripleParts(String line) throws InvalidNodeException {
+	List<String> expandTripleParts(String line) throws InvalidNodeException {
 		List<String> parts=splitTriple(line);
 		
 		parts.set(0,expandIRINode(parts.get(0)));
@@ -170,5 +168,29 @@ public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWrita
 		
 		return string;
 	}
+	
+	public static List<String> splitPrefixDeclaration(String obj) throws InvalidPrefixException {
+		List<String> parts=Lists.newArrayList(Splitter.on(" ").split(obj));
+		if (parts.size()!=3) {
+			throw new InvalidPrefixException();
+		}
+		
+		String prefix=parts.get(1);
+		String mapsTo=parts.get(2);	
+		
+		if (!prefix.endsWith(":")) {
+			throw new InvalidPrefixException();
+		}
+		
+		parts.set(1, prefix.substring(0, prefix.length()-1));
+
+		if (!mapsTo.startsWith("<") || !mapsTo.endsWith(">.")) {
+			throw new InvalidPrefixException();
+		}
+		
+		parts.set(2, mapsTo.substring(1, mapsTo.length()-2));
+		
+		return parts;
+	} 
 
 }
