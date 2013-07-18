@@ -1,5 +1,7 @@
 package com.ontology2.hydroxide.fbRdfPartitioner;
 
+import com.google.common.base.Function;
+import com.google.common.base.Functions;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import com.ontology2.hydroxide.FreebaseQuad;
@@ -18,6 +20,7 @@ import com.ontology2.millipede.primitiveTriples.PrimitiveTripleReverser;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTripleTap;
 import com.ontology2.millipede.shell.CommandLineApplication;
 import com.ontology2.millipede.sink.FilterSink;
+import com.ontology2.millipede.sink.FunctionSink;
 import com.ontology2.millipede.sink.ProgressReportingSink;
 import com.ontology2.millipede.sink.Sink;
 import com.ontology2.millipede.source.SingleFileSource;
@@ -41,27 +44,12 @@ public class PartitionFreebaseRDFApp extends InfovoreApplication  {
 
 		dontOverwrite(output);
 		
-		Predicate<PrimitiveTriple> tripleFilter=Predicates.not(Predicates.or(
-				PrimitiveTriple.hasPredicate("<http://rdf.freebase.com/ns/type.type.instance>"),
-				PrimitiveTriple.hasPredicate("<http://rdf.freebase.com/ns/type.type.expected_by>"),
-				Predicates.and(
-						PrimitiveTriple.hasPredicate("<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>"),
-						PrimitiveTriple.objectMatchesPrefix("<http://rdf.freebase.com")
-				)
-		));
-		
+		Predicate<PrimitiveTriple> tripleFilter=acceptTheseTriples();	
 		Partitioner<PrimitiveTriple> p=new Partitioner<PrimitiveTriple>(output);
 				
-		Sink<PrimitiveTriple> filter=new PrimitiveTripleReverser(p
-				,"http://rdf.freebase.com/ns/type.permission.controls"
-				,"http://rdf.freebase.com/ns/m.0j2r9sk");
-		filter=new PrimitiveTripleReverser(filter
-				,"http://rdf.freebase.com/ns/dataworld.gardening_hint.replaced_by"
-				,"http://rdf.freebase.com/ns/m.0j2r8t8");
-		filter=new PrimitiveTriplePredicateRewriter(filter,
-				"<http://rdf.freebase.com/ns/type.object.type>",
-				"<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>");
+		Function<PrimitiveTriple,PrimitiveTriple> f=tripleRewritingFunction();
 		
+		Sink<PrimitiveTriple> filter=new FunctionSink(f,p);
 		FilterSink f2=new FilterSink<PrimitiveTriple>(filter, tripleFilter);
 		ExpandFreebaseRdfToNTriples expand=new ExpandFreebaseRdfToNTriples(f2,rejects);
 
@@ -79,5 +67,29 @@ public class PartitionFreebaseRDFApp extends InfovoreApplication  {
 		me.addLiteral(v.refusedCount(), f2.getRejectedCount());
 		
 		writeSummaryFile(output);
+	}
+
+	public static Predicate <PrimitiveTriple> acceptTheseTriples() {
+		return Predicates.not(Predicates.or(
+				PrimitiveTriple.hasPredicate("<http://rdf.freebase.com/ns/type.type.instance>"),
+				PrimitiveTriple.hasPredicate("<http://rdf.freebase.com/ns/type.type.expected_by>"),
+				Predicates.and(
+						PrimitiveTriple.hasPredicate("<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>"),
+						PrimitiveTriple.objectMatchesPrefix("<http://rdf.freebase.com")
+				)
+		));
+	}
+
+	public static Function<PrimitiveTriple, PrimitiveTriple> tripleRewritingFunction() {
+		return Functions.compose(Functions.compose(
+		new PrimitiveTripleReverser(
+				"<http://rdf.freebase.com/ns/type.permission.controls>"
+				,"<http://rdf.freebase.com/ns/m.0j2r9sk>")
+		,new PrimitiveTripleReverser(
+				"<http://rdf.freebase.com/ns/dataworld.gardening_hint.replaced_by>"
+				,"<http://rdf.freebase.com/ns/m.0j2r8t8>"))
+		,new PrimitiveTriplePredicateRewriter(
+				"<http://rdf.freebase.com/ns/type.object.type>",
+				"<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>"));
 	}
 }

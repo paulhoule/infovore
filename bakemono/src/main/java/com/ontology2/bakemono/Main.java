@@ -25,6 +25,7 @@ public class Main {
 		conf.setOutputKeyClass(Text.class);  
 		conf.setOutputValueClass(Text.class);  
 		conf.setMapperClass(FreebaseRDFMapper.class);
+		conf.setNumReduceTasks(0);
 		conf.setInputFormat(TextInputFormat.class);  
 		conf.setOutputFormat(TextOutputFormat.class);
 		

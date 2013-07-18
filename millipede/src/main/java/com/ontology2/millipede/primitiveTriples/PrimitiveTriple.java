@@ -42,4 +42,13 @@ public class PrimitiveTriple {
 		return buff.toString();
 	}
 	
+	public String poPairAsString() {
+		StringBuffer buff=new StringBuffer();
+		buff.append(this.predicate);
+		buff.append("\t");
+		buff.append(this.object);
+		buff.append(".");
+		return buff.toString();		
+	}
+	
 }

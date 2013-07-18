@@ -13,14 +13,22 @@ import org.apache.hadoop.mapred.OutputCollector;
 import org.apache.hadoop.mapred.Reporter;
 import org.apache.hadoop.mapred.lib.ChainMapper;
 
+import com.google.common.base.Function;
+import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.ontology2.hydroxide.InvalidNodeException;
 import com.ontology2.hydroxide.InvalidPrefixException;
+import com.ontology2.hydroxide.fbRdfPartitioner.PartitionFreebaseRDFApp;
 import com.ontology2.millipede.Codec;
+import com.ontology2.millipede.Partitioner;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTripleCodec;
+import com.ontology2.millipede.primitiveTriples.PrimitiveTriplePredicateRewriter;
+import com.ontology2.millipede.primitiveTriples.PrimitiveTripleReverser;
+import com.ontology2.millipede.sink.Sink;
 
 import org.apache.commons.logging.Log;
 
@@ -33,6 +41,8 @@ public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWrita
 	ImmutableMap.Builder<String,String> prefixBuilder=new ImmutableMap.Builder<String,String>();
 	ImmutableMap<String,String> prefixMap = ImmutableMap.of();
 	Codec<PrimitiveTriple> ptCodec=new PrimitiveTripleCodec();
+	private Predicate<PrimitiveTriple> tripleFilter;
+	private Function<PrimitiveTriple, PrimitiveTriple> rewritingFunction;
 	
 	public void declarePrefix(String obj) {
 		if(obj.startsWith("@prefix")) {
@@ -55,6 +65,8 @@ public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWrita
 	}
 
 	
+//	Predicate<PrimitiveTriple> tripleFilter
+	
 	@Override
 	public void configure(JobConf job) {
 		declarePrefix("@prefix ns: <http://rdf.freebase.com/ns/>.");
@@ -63,21 +75,44 @@ public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWrita
 		declarePrefix("@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.");
 		declarePrefix("@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.");
 		declarePrefix("@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.");		
+		
+		
+		tripleFilter=PartitionFreebaseRDFApp.acceptTheseTriples();
+		rewritingFunction=PartitionFreebaseRDFApp.tripleRewritingFunction();
+		
 	}
 
 	final static Splitter lineSplitter = Splitter.on("\t").limit(3);
 	final static Splitter iriSplitter = Splitter.on(":").limit(2);
+	private Sink<PrimitiveTriple> rewriter;
 	
 	@Override
 	public void map(LongWritable k, Text v,
 			OutputCollector<Text, Text> out, Reporter meta) throws IOException {
 		
 		String line=v.toString();
+		if (line.startsWith("@prefix")) {
+			meta.incrCounter(FreebasePrefilterCounter.PREFIX_DECL, 1);
+			return;
+		}
 		
 		try {
 			List<String> parts = expandTripleParts(line);
-			accept(out,new PrimitiveTriple(parts.get(0),parts.get(1),parts.get(2)));
+			line.getBytes();
+			PrimitiveTriple triple=new PrimitiveTriple(parts.get(0),parts.get(1),parts.get(2));
+
+			
+			if(tripleFilter.apply(triple)) {
+				triple=rewritingFunction.apply(triple);
+				accept(out,triple);
+				meta.incrCounter(FreebasePrefilterCounter.ACCEPTED,1);
+			} else {
+				meta.incrCounter(FreebasePrefilterCounter.IGNORED, 1);
+			}
+			
+
 		} catch(InvalidNodeException ex) {
+			meta.incrCounter(FreebasePrefilterCounter.ILL_FORMED,1);
 			logger.warn("Invalid triple: "+line);
 //			rejectSink.accept(obj);
 		}
@@ -85,9 +120,10 @@ public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWrita
 		return;				
 	}
 
+	
 	private void accept(OutputCollector<Text, Text> out,
 			PrimitiveTriple primitiveTriple) throws IOException {
-			out.collect(new Text(primitiveTriple.subject), new Text(ptCodec.encode(primitiveTriple)));
+			out.collect(new Text(primitiveTriple.subject), new Text(primitiveTriple.poPairAsString()));
 	}
 
 	//
