@@ -5,10 +5,6 @@ import java.io.Reader;
 import java.io.Serializable;
 import java.util.Map;
 
-import com.ontology2.hydroxide.FreebaseQuad;
-import com.ontology2.hydroxide.PartitionOnSubject;
-import com.ontology2.hydroxide.PartitionOnSubjectNQ;
-import com.ontology2.hydroxide.QuadCodec;
 import com.ontology2.millipede.Codec;
 import com.ontology2.millipede.DummyPartitionFunction;
 import com.ontology2.millipede.FileOpener;
@@ -35,10 +31,6 @@ import com.hp.hpl.jena.n3.turtle.parser.TurtleParser;
 
 public class PartitionsAndFiles {
 	
-	
-	public static LineMultiFile<FreebaseQuad> getSorted() {
-		return createMultiFile("sorted",true);
-	}
 	
 	public static TripleMultiFile getKeyStructure() {
 		return createTripleMultiFile("keyStructure",true);
@@ -120,16 +112,6 @@ public class PartitionsAndFiles {
 		return getInstanceDirectory()+"/"+name;
 	}
 	
-	private static LineMultiFile<FreebaseQuad> createMultiFile(String name,boolean compressed) {
-		PartitionOnSubject partitionFunction = getPartitionFunction();
-		Codec<FreebaseQuad> c=new QuadCodec();
-		return new LineMultiFile<FreebaseQuad>(
-				resolveFilename(name), 
-				"quads", 
-				getCompressConfiguration(name,compressed) ? ".gz" : "", 
-				partitionFunction,
-				c);		
-	}
 	
 	static TripleMultiFile createTripleMultiFile(String name,boolean compressed) {
 		return new TripleMultiFile(
@@ -138,14 +120,6 @@ public class PartitionsAndFiles {
 				getCompressConfiguration(name,compressed) ? ".nt.gz" : ".nt",
 				getTriplePartitionFunction());		
 	}
-	
-	private static NQuadsMultiFile createNQuadsMultiFile(String name,boolean compressed) {
-		return new NQuadsMultiFile(
-				resolveFilename(name), 
-				"nquads", 
-				getCompressConfiguration(name,compressed) ? ".nq.gz" : ".nq",
-				getNQuadsPartitionFunction());		
-	}	
 	
 	private static <T extends Serializable> SerializedMultiFile<T> createSerializedMultiFile(String name,boolean compressed) {
 		return new SerializedMultiFile<T>(
@@ -166,22 +140,11 @@ public class PartitionsAndFiles {
 		String value=env.get(keyVar);
 		return Boolean.parseBoolean(value);
 	}
-
-	private static PartitionOnSubject getPartitionFunction() {
-		return new PartitionOnSubject(1024);
-	}
 	
 	private static PartitionOnSubjectT getTriplePartitionFunction() {
 		return new PartitionOnSubjectT(1024);
 	}
-	
-	private static PartitionOnSubjectNQ getNQuadsPartitionFunction() {
-		return new PartitionOnSubjectNQ(1024);
-	}
 
-	public static MultiFile<FreebaseQuad> getTurtleOne() {
-		return createMultiFile("turtle1",true);
-	}
 	
 	public static String getTurtleOneRejectedFile() {
 		return getOutputDirectory()+"/turtle1Rejected.quads";
@@ -199,9 +162,6 @@ public class PartitionsAndFiles {
 		return createTripleMultiFile("turtle3",true);
 	}
 
-	public static MultiFile<FreebaseQuad> getTurtleThreeRejected() {
-		return createMultiFile("turtle3rejected",true);
-	}
 	
 	public static TripleMultiFile getKnownAs() {
 		return createTripleMultiFile("knownAs",false);
@@ -237,10 +197,6 @@ public class PartitionsAndFiles {
 
 	public static TripleMultiFile getBaseKBPro() {
 		return createTripleMultiFile("/output/baseKBPro",true);
-	}
-
-	public static NQuadsMultiFile getProInput() {
-		return createNQuadsMultiFile("proInput",true);
 	}
 
 	public static TripleMultiFile getSortedKnownAs() {
