@@ -7,7 +7,6 @@
   <packaging>pom</packaging>
   <name>infovore</name>
   <modules>
-    <module>basekb-core</module>
     <module>hydroxide</module>
     <module>millipede</module>
     <module>infovore-apps</module>
