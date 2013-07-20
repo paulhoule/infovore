@@ -6,7 +6,6 @@ import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.ontology2.hydroxide.FreebaseQuad;
-import com.ontology2.hydroxide.fbRdfPartitioner.PartitionFreebaseRDFApp;
 import com.ontology2.hydroxide.files.InputFileConstellation;
 import com.ontology2.hydroxide.files.PartitionsAndFiles;
 import com.ontology2.hydroxide.files.StandardFileConstellation;

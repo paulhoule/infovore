@@ -11,7 +11,6 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.ontology2.hydroxide.InvalidNodeException;
-import com.ontology2.hydroxide.fbRdfPartitioner.ExpandFreebaseRdfToNTriples;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.millipede.sink.EmptyReportSink;
 import com.ontology2.millipede.sink.Sink;

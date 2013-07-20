@@ -3,6 +3,7 @@ package com.ontology2.bakemono;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.compress.GzipCodec;
 import org.apache.hadoop.io.compress.BZip2Codec;
 import org.apache.hadoop.mapred.FileInputFormat;
 import org.apache.hadoop.mapred.FileOutputFormat;
@@ -13,6 +14,7 @@ import org.apache.hadoop.mapred.RunningJob;
 import org.apache.hadoop.mapred.TextInputFormat;
 import org.apache.hadoop.mapred.TextOutputFormat;
 import org.apache.hadoop.mapred.lib.ChainMapper;
+import org.apache.hadoop.mapred.lib.HashPartitioner;
 import org.apache.hadoop.util.Tool;
 
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
@@ -25,14 +27,15 @@ public class Main {
 		conf.setOutputKeyClass(Text.class);  
 		conf.setOutputValueClass(Text.class);  
 		conf.setMapperClass(FreebaseRDFMapper.class);
-		conf.setNumReduceTasks(0);
+		conf.setNumReduceTasks((int) Math.round(conf.getNumMapTasks()*1.75));
+		conf.setPartitionerClass(HashPartitioner.class);
 		conf.setInputFormat(TextInputFormat.class);  
 		conf.setOutputFormat(TextOutputFormat.class);
-		
-		FileInputFormat.addInputPath(conf,new Path("/005percent.bz2"));
-		FileOutputFormat.setOutputPath(conf,new Path("/ntriples.bz2"));
+		conf.setMapOutputCompressorClass(GzipCodec.class);
+		FileInputFormat.addInputPath(conf,new Path("/5percent.bz2"));
+		FileOutputFormat.setOutputPath(conf,new Path("/ntriples.gz"));
 		FileOutputFormat.setCompressOutput(conf, true);
-		FileOutputFormat.setOutputCompressorClass(conf, BZip2Codec.class);
+		FileOutputFormat.setOutputCompressorClass(conf, GzipCodec.class);
 		RunningJob job=JobClient.runJob(conf);
 		job.waitForCompletion();
 		System.exit(job.getJobState());

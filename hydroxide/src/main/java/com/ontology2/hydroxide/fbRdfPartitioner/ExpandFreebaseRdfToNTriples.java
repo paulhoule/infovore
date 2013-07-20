@@ -19,6 +19,7 @@ import com.ontology2.millipede.shell.CommandLineApplication;
 import com.ontology2.millipede.sink.EmptyReportSink;
 import com.ontology2.millipede.sink.Sink;
 
+/*
 public class ExpandFreebaseRdfToNTriples extends EmptyReportSink<String> {
 
 	final Sink<PrimitiveTriple> acceptSink;
@@ -158,3 +159,4 @@ public class ExpandFreebaseRdfToNTriples extends EmptyReportSink<String> {
 		return rawAcceptedCount++;
 	}
 }
+*/

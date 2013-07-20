@@ -7,7 +7,6 @@ import org.apache.jena.iri.IRI;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import com.hp.hpl.jena.rdf.model.Property;
-import com.ontology2.hydroxide.fbRdfPartitioner.ExpandFreebaseRdfToNTriples;
 import com.ontology2.hydroxide.files.DbpediaLiveConstellation;
 import com.ontology2.hydroxide.files.InputFileConstellation;
 import com.ontology2.hydroxide.files.ReadNTriples;

@@ -14,6 +14,7 @@ import org.apache.hadoop.mapred.Reporter;
 import org.apache.hadoop.mapred.lib.ChainMapper;
 
 import com.google.common.base.Function;
+import com.google.common.base.Functions;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import com.google.common.base.Splitter;
@@ -21,7 +22,6 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.ontology2.hydroxide.InvalidNodeException;
 import com.ontology2.hydroxide.InvalidPrefixException;
-import com.ontology2.hydroxide.fbRdfPartitioner.PartitionFreebaseRDFApp;
 import com.ontology2.millipede.Codec;
 import com.ontology2.millipede.Partitioner;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
@@ -75,8 +75,8 @@ public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWrita
 		declarePrefix("@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.");		
 		
 		
-		tripleFilter=PartitionFreebaseRDFApp.acceptTheseTriples();
-		rewritingFunction=PartitionFreebaseRDFApp.tripleRewritingFunction();
+		tripleFilter=acceptTheseTriples();
+		rewritingFunction=tripleRewritingFunction();
 		
 	}
 
@@ -192,5 +192,31 @@ public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWrita
 		
 		return parts;
 	} 
+	
+	public static Predicate <PrimitiveTriple> acceptTheseTriples() {
+		return Predicates.not(Predicates.or(
+				PrimitiveTriple.hasPredicate("<http://rdf.freebase.com/ns/type.type.instance>"),
+				PrimitiveTriple.hasPredicate("<http://rdf.freebase.com/ns/type.type.expected_by>"),
+				Predicates.and(
+						PrimitiveTriple.hasPredicate("<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>"),
+						PrimitiveTriple.objectMatchesPrefix("<http://rdf.freebase.com")
+				)
+		));
+	}
 
+
+	public static Function<PrimitiveTriple, PrimitiveTriple> tripleRewritingFunction() {
+		return Functions.compose(Functions.compose(
+		new PrimitiveTripleReverser(
+				"<http://rdf.freebase.com/ns/type.permission.controls>"
+				,"<http://rdf.freebase.com/ns/m.0j2r9sk>")
+		,new PrimitiveTripleReverser(
+				"<http://rdf.freebase.com/ns/dataworld.gardening_hint.replaced_by>"
+				,"<http://rdf.freebase.com/ns/m.0j2r8t8>"))
+		,new PrimitiveTriplePredicateRewriter(
+				"<http://rdf.freebase.com/ns/type.object.type>",
+				"<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>"));
+	}
+
+	
 }
