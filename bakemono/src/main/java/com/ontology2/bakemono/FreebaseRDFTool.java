@@ -31,18 +31,24 @@ public class FreebaseRDFTool implements Tool {
 
 	@Override
 	public int run(String[] arg0) throws Exception {
+		if(arg0.length!=2)
+			Main.errorCausedByUser("You must specify both input and output paths");
+		
+		String input=arg0[0];
+		String output=arg0[1];
+		
 		JobConf conf = new JobConf(configuration,FreebaseRDFTool.class);
 		conf.setJobName("prefilter");  
 		conf.setOutputKeyClass(Text.class);  
 		conf.setOutputValueClass(Text.class);  
 		conf.setMapperClass(FreebaseRDFMapper.class);
-		conf.setNumReduceTasks((int) Math.round(conf.getNumMapTasks()*1.75));
+		conf.setNumReduceTasks((int) 0);
 		conf.setPartitionerClass(HashPartitioner.class);
 		conf.setInputFormat(TextInputFormat.class);  
 		conf.setOutputFormat(TextOutputFormat.class);
 		conf.setMapOutputCompressorClass(GzipCodec.class);
-		FileInputFormat.addInputPath(conf,new Path("/5percent.bz2"));
-		FileOutputFormat.setOutputPath(conf,new Path("/ntriples.gz"));
+		FileInputFormat.addInputPath(conf,new Path(input));
+		FileOutputFormat.setOutputPath(conf,new Path(output));
 		FileOutputFormat.setCompressOutput(conf, true);
 		FileOutputFormat.setOutputCompressorClass(conf, GzipCodec.class);
 		RunningJob job=JobClient.runJob(conf);
