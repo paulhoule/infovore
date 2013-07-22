@@ -7,6 +7,8 @@ import org.apache.hadoop.mapred.lib.HashPartitioner;
 import org.apache.hadoop.mapred.lib.IdentityReducer;
 import org.junit.Test;
 
+import com.ontology2.bakemono.Main.IncorrectUsageException;
+
 public class MainTest {
 
 	@Test
@@ -19,5 +21,46 @@ public class MainTest {
 	public void whatIsTheDefaultPartitioner() {
 		JobConf conf = new JobConf(Main.class);
 		assertEquals(HashPartitioner.class,conf.getPartitionerClass());	
+	}
+	
+	@Test(expected=IncorrectUsageException.class)
+	public void bombsOutIfNoArguments() throws IncorrectUsageException {
+		Main main=new Main(new String[0]);
+		main.parseArguments();
+	}
+	
+	@Test(expected=IncorrectUsageException.class) 
+	public void bombsOutWithAribitraryArgument() throws IncorrectUsageException {
+		Main main=new Main(new String[] {"pulverize"});
+		main.parseArguments();
+	}
+	
+	@Test
+	public void acceptsRunCommand() throws IncorrectUsageException {
+		Main main=new Main(new String[] {"run","freebaseRDFPrefilter"});
+		main.parseArguments();
+		assertEquals("freebaseRDFPrefilter",main.getToolName());
+		assertTrue(main.getToolArgs().isEmpty());
+	}
+	
+	@Test
+	public void acceptsRunCommandWithArguments() throws IncorrectUsageException {
+		Main main=new Main(new String[] {"run","freebaseRDFPrefilter", "123", "the", "crew", "is", "called", "BDP"});
+		main.parseArguments();
+		assertEquals("freebaseRDFPrefilter",main.getToolName());
+		assertEquals(main.getToolArgs().size(),6);
+		assertEquals("called",main.getToolArgs().get(4));
+	}
+	
+	@Test(expected=IncorrectUsageException.class)
+	public void ButRunNeedsAnArgument() throws IncorrectUsageException {
+		Main main=new Main(new String[] {"run"});
+		main.parseArguments();
+	}
+	
+	@Test(expected=IncorrectUsageException.class)
+	public void AndNotJustAnyArgument() throws IncorrectUsageException {
+		Main main=new Main(new String[] {"run","frumpkins"});
+		main.parseArguments();
 	}
 }
