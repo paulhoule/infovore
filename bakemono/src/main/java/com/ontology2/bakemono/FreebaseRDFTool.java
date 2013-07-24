@@ -40,7 +40,7 @@ public class FreebaseRDFTool implements Tool {
 		
 		if(input.startsWith("s3n://") && input.endsWith(".bz2")) {
 			FsShell fs=new FsShell(configuration);
-			String newPath="hdfs:/input.bz2";
+			String newPath="/input.bz2";
 			fs.run(new String[] {"-cp",input,newPath});
 			input=newPath;
 		}
