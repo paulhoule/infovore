@@ -127,7 +127,7 @@ public class JenaUtil {
 		appendConstruct(theModel,queryString,theModel,null);
 	}
 	
-	public static LoadingCache<String,Node> createNodeParseCache() throws ParseException {
+	public static LoadingCache<String,Node> createNodeParseCache() {
 		return CacheBuilder.newBuilder().maximumSize(100000).build(
 				new CacheLoader<String,Node> () {
 					public Node load(String that) throws Exception {

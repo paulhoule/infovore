@@ -1,6 +1,7 @@
 package com.ontology2.bakemono;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.compress.GzipCodec;
 import org.apache.hadoop.mapred.FileInputFormat;
@@ -11,6 +12,7 @@ import org.apache.hadoop.mapred.RunningJob;
 import org.apache.hadoop.mapred.TextInputFormat;
 import org.apache.hadoop.mapred.TextOutputFormat;
 import org.apache.hadoop.mapred.lib.HashPartitioner;
+import org.apache.hadoop.mapred.lib.MultipleOutputs;
 import org.apache.hadoop.util.Tool;
 
 public class PSE3Tool implements Tool {
@@ -45,6 +47,9 @@ public class PSE3Tool implements Tool {
 		conf.setInputFormat(TextInputFormat.class);  
 		conf.setOutputFormat(TextOutputFormat.class);
 		conf.setMapOutputCompressorClass(GzipCodec.class);
+		
+	    MultipleOutputs.addNamedOutput(conf, "rejected", TextOutputFormat.class, TextOutputFormat.class, Text.class);
+		 
 		FileInputFormat.addInputPath(conf,new Path(input));
 		FileOutputFormat.setOutputPath(conf,new Path(output));
 		FileOutputFormat.setCompressOutput(conf, true);
