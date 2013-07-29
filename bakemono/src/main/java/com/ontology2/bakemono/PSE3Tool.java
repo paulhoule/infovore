@@ -15,6 +15,8 @@ import org.apache.hadoop.mapred.lib.HashPartitioner;
 import org.apache.hadoop.mapred.lib.MultipleOutputs;
 import org.apache.hadoop.util.Tool;
 
+import com.ontology2.bakemono.jena.STripleOutputFormat;
+
 public class PSE3Tool implements Tool {
 
 	private Configuration conf;
@@ -45,7 +47,7 @@ public class PSE3Tool implements Tool {
 		conf.setNumReduceTasks(0);
 		conf.setPartitionerClass(HashPartitioner.class);
 		conf.setInputFormat(TextInputFormat.class);  
-		conf.setOutputFormat(TextOutputFormat.class);
+		conf.setOutputFormat(STripleOutputFormat.class);
 		conf.setMapOutputCompressorClass(GzipCodec.class);
 		
 	    MultipleOutputs.addNamedOutput(conf, "rejected", TextOutputFormat.class, TextOutputFormat.class, Text.class);

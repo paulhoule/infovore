@@ -24,19 +24,19 @@ public class MainTest {
 	}
 	
 	@Test(expected=IncorrectUsageException.class)
-	public void bombsOutIfNoArguments() throws IncorrectUsageException {
+	public void bombsOutIfNoArguments() throws Exception {
 		Main main=new Main(new String[0]);
 		main.parseArguments();
 	}
 	
 	@Test(expected=IncorrectUsageException.class) 
-	public void bombsOutWithAribitraryArgument() throws IncorrectUsageException {
+	public void bombsOutWithAribitraryArgument() throws Exception {
 		Main main=new Main(new String[] {"pulverize"});
 		main.parseArguments();
 	}
 	
 	@Test
-	public void acceptsRunCommand() throws IncorrectUsageException {
+	public void acceptsRunCommand() throws Exception {
 		Main main=new Main(new String[] {"run","freebaseRDFPrefilter"});
 		main.parseArguments();
 		assertEquals("freebaseRDFPrefilter",main.getToolName());
@@ -44,7 +44,7 @@ public class MainTest {
 	}
 	
 	@Test
-	public void acceptsRunCommandWithArguments() throws IncorrectUsageException {
+	public void acceptsRunCommandWithArguments() throws Exception {
 		Main main=new Main(new String[] {"run","freebaseRDFPrefilter", "123", "the", "crew", "is", "called", "BDP"});
 		main.parseArguments();
 		assertEquals("freebaseRDFPrefilter",main.getToolName());
@@ -53,13 +53,13 @@ public class MainTest {
 	}
 	
 	@Test(expected=IncorrectUsageException.class)
-	public void ButRunNeedsAnArgument() throws IncorrectUsageException {
+	public void ButRunNeedsAnArgument() throws Exception {
 		Main main=new Main(new String[] {"run"});
 		main.parseArguments();
 	}
 	
 	@Test(expected=IncorrectUsageException.class)
-	public void AndNotJustAnyArgument() throws IncorrectUsageException {
+	public void AndNotJustAnyArgument() throws Exception {
 		Main main=new Main(new String[] {"run","frumpkins"});
 		main.parseArguments();
 	}

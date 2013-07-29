@@ -1,7 +1,9 @@
 package com.ontology2.bakemono;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -38,6 +40,11 @@ public class Main implements Runnable {
 		}
 
 	}
+	
+	Map<String,Class> myApps=new HashMap<String,Class>() {{
+		put("freebaseRDFPrefilter",FreebaseRDFTool.class);
+		put("pse3",PSE3Tool.class);
+	}};
 
 	final List<String> args;
 
@@ -76,7 +83,7 @@ public class Main implements Runnable {
 	//
 	
 
-	void parseArguments() throws IncorrectUsageException {
+	void parseArguments() throws Exception {
 		if(args.isEmpty())
 			errorCausedByUser("you didn't specify any arguments");
 		
@@ -87,10 +94,11 @@ public class Main implements Runnable {
 			errorCausedByUser("the run command requires at least one argument,  the name of a tool");
 		
 		toolName=args.get(1);
-		if(!toolName.equals("freebaseRDFPrefilter"))
-			errorCausedByUser("the run command can run only one tool,  the freebaseRDFPrefilter");
+		if(!myApps.containsKey(toolName))
+			errorCausedByUser("you specified a command not supported by the bakemono tool");
 		
-		tool=new FreebaseRDFTool();
+		Class clazz=myApps.get(toolName);
+		tool=(Tool) clazz.newInstance();
 		toolArgs=Lists.newArrayList(Iterables.skip(args, 2));
 	}
 	

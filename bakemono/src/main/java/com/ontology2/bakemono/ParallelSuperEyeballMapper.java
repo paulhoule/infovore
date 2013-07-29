@@ -15,16 +15,17 @@ import com.google.common.cache.LoadingCache;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
+import com.ontology2.bakemono.jena.NodePair;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.rdf.JenaUtil;
 
-public class ParallelSuperEyeballMapper extends MapReduceBase implements Mapper<LongWritable,Text,Text,Text> {
+public class ParallelSuperEyeballMapper extends MapReduceBase implements Mapper<LongWritable,Text,Node,NodePair> {
 	private static org.apache.commons.logging.Log logger = LogFactory.getLog(ParallelSuperEyeballMapper.class);
 	final LoadingCache<String,Node> nodeParser=JenaUtil.createNodeParseCache();
 	
 	@Override
 	public void map(LongWritable arg0, Text arg1,
-			OutputCollector<Text, Text> arg2, Reporter arg3) throws IOException {
+			OutputCollector<Node, NodePair> arg2, Reporter arg3) throws IOException {
 		PrimitiveTriple row3=new PrimitiveTriple("a","b","c");
 		try {					
 
