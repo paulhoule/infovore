@@ -38,7 +38,6 @@ public class FreebaseRDFTool implements Tool {
 		String input=arg0[0];
 		String output=arg0[1];
 		
-		
 		JobConf conf = new JobConf(configuration,FreebaseRDFTool.class);
 		conf.setJobName("prefilter");  
 		conf.setOutputKeyClass(Text.class);  

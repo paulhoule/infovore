@@ -32,8 +32,6 @@ import com.ontology2.millipede.sink.Sink;
 
 import org.apache.commons.logging.Log;
 
-//import static com.ontology2.hydroxide.fbRdfPartitioner.ExpandFreebaseRdfToNTriples.*;
-
 public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWritable,Text,Text,Text> {
 	private static org.apache.commons.logging.Log logger = LogFactory.getLog(FreebaseRDFMapper.class);
 	ImmutableMap.Builder<String,String> prefixBuilder=new ImmutableMap.Builder<String,String>();
@@ -61,9 +59,6 @@ public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWrita
 	public void close() throws IOException {
 		super.close();
 	}
-
-	
-//	Predicate<PrimitiveTriple> tripleFilter
 	
 	@Override
 	public void configure(JobConf job) {
@@ -112,7 +107,6 @@ public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWrita
 		} catch(InvalidNodeException ex) {
 			meta.incrCounter(FreebasePrefilterCounter.ILL_FORMED,1);
 			logger.warn("Invalid triple: "+line);
-//			rejectSink.accept(obj);
 		}
 		
 		return;				
@@ -123,11 +117,6 @@ public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWrita
 			PrimitiveTriple primitiveTriple) throws IOException {
 			out.collect(new Text(primitiveTriple.subject), new Text(primitiveTriple.poPairAsString()));
 	}
-
-	//
-	// functions here have been cut-and-pasted from the old version
-	// 
-	//
 	
 	List<String> expandTripleParts(String line) throws InvalidNodeException {
 		List<String> parts=splitTriple(line);
