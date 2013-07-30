@@ -8,11 +8,9 @@ import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.compress.CompressionCodec;
 import org.apache.hadoop.io.compress.GzipCodec;
-import org.apache.hadoop.mapred.FileOutputFormat;
-import org.apache.hadoop.mapred.JobConf;
-import org.apache.hadoop.mapred.OutputFormat;
-import org.apache.hadoop.mapred.RecordWriter;
 import org.apache.hadoop.mapred.Reporter;
+import org.apache.hadoop.mapreduce.*;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Progressable;
 import org.apache.hadoop.util.ReflectionUtils;
 import org.openjena.riot.out.SinkTripleOutput;
@@ -22,7 +20,7 @@ import com.hp.hpl.jena.graph.Triple;
 
 public class STripleOutputFormat extends FileOutputFormat<Node_URI, NodePair> {
 
-	public class TripleRecordWriter implements RecordWriter<Node_URI, NodePair> {
+	public class TripleRecordWriter extends RecordWriter<Node_URI, NodePair> {
 
 		private final DataOutputStream innerOutput;
 		private final SinkTripleOutput innerSink;
@@ -41,40 +39,36 @@ public class STripleOutputFormat extends FileOutputFormat<Node_URI, NodePair> {
 		}
 		
 		@Override
-		public void close(Reporter reporter) throws IOException {
+		public void close(TaskAttemptContext context) throws IOException,
+				InterruptedException {
 			innerSink.close();
+			
 		}
 
 	}
 
 	@Override
-	public RecordWriter<Node_URI, NodePair> getRecordWriter(FileSystem ignored, JobConf job,
-			String name, Progressable progress) throws IOException {
-		boolean isCompressed = getCompressOutput(job);
-		   
+	public RecordWriter<Node_URI, NodePair> getRecordWriter(TaskAttemptContext ctx) throws IOException {
+		boolean isCompressed = getCompressOutput(ctx);
+
 		if (!isCompressed) {
-			Path file = FileOutputFormat.getTaskOutputPath(job, name);
-			FileSystem fs = file.getFileSystem(job);
-			FSDataOutputStream fileOut = fs.create(file, progress);
+		    Path file = getDefaultWorkFile(ctx, ".nt");
+		    FileSystem fs = file.getFileSystem(ctx.getConfiguration());
+			FSDataOutputStream fileOut = fs.create(file, false);
 			return new TripleRecordWriter(fileOut);
 		} else {
 			Class<? extends CompressionCodec> codecClass =
-					getOutputCompressorClass(job, GzipCodec.class);
+					getOutputCompressorClass(ctx, GzipCodec.class);
 	
-			CompressionCodec codec = ReflectionUtils.newInstance(codecClass, job);
-			Path file =  FileOutputFormat.getTaskOutputPath(job, 
-	                    name + codec.getDefaultExtension());
-			FileSystem fs = file.getFileSystem(job);
-			FSDataOutputStream fileOut = fs.create(file, progress);
+			CompressionCodec codec = ReflectionUtils.newInstance(codecClass, ctx.getConfiguration());
+			Path file =  getDefaultWorkFile(ctx, ".nt"+codec.getDefaultExtension());
+			FileSystem fs = file.getFileSystem(ctx.getConfiguration());
+			FSDataOutputStream fileOut = fs.create(file, false);
 			return new TripleRecordWriter(new DataOutputStream(codec.createOutputStream(fileOut)));
 		}
 
 	}
 
-	@Override
-	public void checkOutputSpecs(FileSystem ignored, JobConf job)
-			throws IOException {
-		super.checkOutputSpecs(ignored,job);
-	}
+
 
 }

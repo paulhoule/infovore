@@ -5,14 +5,11 @@ import java.io.IOException;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapred.JobConf;
-import org.apache.hadoop.mapred.MapReduceBase;
-import org.apache.hadoop.mapred.Mapper;
-import org.apache.hadoop.mapred.OutputCollector;
-import org.apache.hadoop.mapred.Reporter;
-import org.apache.hadoop.mapred.lib.MultipleOutputs;
-import com.google.common.cache.LoadingCache;
+import org.apache.hadoop.mapreduce.*;
+import org.apache.hadoop.mapreduce.Mapper.Context;
+import org.apache.hadoop.mapreduce.lib.output.MultipleOutputs;
 
+import com.google.common.cache.LoadingCache;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
@@ -20,22 +17,33 @@ import com.ontology2.bakemono.jena.NodePair;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.rdf.JenaUtil;
 
-public class ParallelSuperEyeballMapper extends MapReduceBase implements Mapper<LongWritable,Text,Node,NodePair> {
+public class ParallelSuperEyeballMapper extends Mapper<LongWritable,Text,Node,NodePair> {
 	private static org.apache.commons.logging.Log logger = LogFactory.getLog(ParallelSuperEyeballMapper.class);
 	final LoadingCache<String,Node> nodeParser=JenaUtil.createNodeParseCache();
+	private MultipleOutputs mos;
+	
 
 	@Override
-	public void map(LongWritable arg0, Text arg1,
-			OutputCollector<Node, NodePair> arg2, Reporter arg3) throws IOException {
+	protected void setup(Context context) throws IOException,
+			InterruptedException {
+		super.setup(context);
+		mos=new MultipleOutputs(context);
+	}
+
+
+	@Override
+	public void map(LongWritable arg0, Text arg1, Context c) throws IOException, InterruptedException {
 		PrimitiveTriple row3=new PrimitiveTriple("a","b","c");
 		try {					
 			Node_URI subject=(Node_URI) nodeParser.get(row3.subject);
 			Node_URI predicate=(Node_URI) nodeParser.get(row3.predicate);
 			Node object=nodeParser.get(row3.object);
 			Triple realTriple=new Triple(subject,predicate,object);
-			arg2.collect(realTriple.getSubject(),new NodePair(realTriple.getPredicate(),realTriple.getObject()));
+			c.write(realTriple.getSubject(),new NodePair(realTriple.getPredicate(),realTriple.getObject()));
 		} catch(Throwable e) {
-//			arg2.collect(new Text(row3.subject),new Text(row3.predicate+"\t"+row3.object));
+			mos.write("rejected",
+					new Text(row3.subject),
+					new Text(row3.predicate+"\t"+row3.object));
 		}
 	}
 	
