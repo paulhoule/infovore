@@ -5,8 +5,14 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.compress.GzipCodec;
 import org.apache.hadoop.mapreduce.*;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.mapreduce.lib.output.MultipleOutputs;
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 
+import com.hp.hpl.jena.graph.Node;
+import com.hp.hpl.jena.reasoner.rulesys.impl.TempNodeCache.NodePair;
 import com.ontology2.bakemono.jena.STripleOutputFormat;
 
 public class PSE3Tool implements Tool {
@@ -36,7 +42,12 @@ public class PSE3Tool implements Tool {
 		job.setMapperClass(ParallelSuperEyeballMapper.class);
 		job.setNumReduceTasks(0);
 		job.setOutputFormatClass(STripleOutputFormat.class);
-		return 1;
+		job.setOutputKeyClass(Node.class);
+		job.setOutputValueClass(NodePair.class);
+		FileInputFormat.addInputPath(job, new Path(input));
+		FileOutputFormat.setOutputPath(job, new Path(output));
+		MultipleOutputs.addNamedOutput(job, "accepted", TextOutputFormat.class, Text.class, Text.class);
+		return job.waitForCompletion(true) ? 0 :1;
 		
 //		JobConf conf = new JobConf(this.conf,PSE3Tool.class);
 //		conf.setJobName("pseTriples");  
