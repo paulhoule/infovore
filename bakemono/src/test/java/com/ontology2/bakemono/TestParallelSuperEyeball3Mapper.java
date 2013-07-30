@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class TestParallelSuperEyeball3Mapper {
 
-	ParallelSuperEyeballMapper pse3mapper;
+	PS3Mapper pse3mapper;
 	
 	@Before
 	public void setUp() {
-		pse3mapper=new ParallelSuperEyeballMapper();
+		pse3mapper=new PS3Mapper();
 	};
 	
 	@Test

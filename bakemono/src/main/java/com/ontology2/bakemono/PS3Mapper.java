@@ -19,8 +19,8 @@ import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTripleCodec;
 import com.ontology2.rdf.JenaUtil;
 
-public class ParallelSuperEyeballMapper extends Mapper<LongWritable,Text,Node,NodePair> {
-	private static org.apache.commons.logging.Log logger = LogFactory.getLog(ParallelSuperEyeballMapper.class);
+public class PS3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
+	private static org.apache.commons.logging.Log logger = LogFactory.getLog(PS3Mapper.class);
 	final LoadingCache<String,Node> nodeParser=JenaUtil.createNodeParseCache();
 	private MultipleOutputs mos;
 	final static PrimitiveTripleCodec p3Codec=new PrimitiveTripleCodec();
