@@ -2,7 +2,9 @@ package com.ontology2.bakemono;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.SequenceFile.CompressionType;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.compress.CompressionCodec;
 import org.apache.hadoop.io.compress.GzipCodec;
 import org.apache.hadoop.mapreduce.*;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
@@ -37,6 +39,10 @@ public class PSE3Tool implements Tool {
 		String input=arg0[0];
 		String output=arg0[1];
 		
+		conf.set("mapreduce.output.compress","true");
+		conf.set("mapreduce.output.compression.type",CompressionType.BLOCK.toString());
+		conf.set("mapreduce.output.compression.codec",GzipCodec.class.getCanonicalName());
+		
 		Job job=new Job(conf,"pse3");
 		job.setJarByClass(PSE3Tool.class);
 		job.setMapperClass(ParallelSuperEyeballMapper.class);
@@ -46,29 +52,9 @@ public class PSE3Tool implements Tool {
 		job.setOutputValueClass(NodePair.class);
 		FileInputFormat.addInputPath(job, new Path(input));
 		FileOutputFormat.setOutputPath(job, new Path(output));
-		MultipleOutputs.addNamedOutput(job, "accepted", TextOutputFormat.class, Text.class, Text.class);
+		MultipleOutputs.addNamedOutput(job, "rejected", TextOutputFormat.class, Text.class, Text.class);
 		return job.waitForCompletion(true) ? 0 :1;
 		
-//		JobConf conf = new JobConf(this.conf,PSE3Tool.class);
-//		conf.setJobName("pseTriples");  
-//		conf.setOutputKeyClass(Text.class);  
-//		conf.setOutputValueClass(Text.class);  
-//		conf.setMapperClass(ParallelSuperEyeballMapper.class);
-//		conf.setNumReduceTasks(0);
-//		conf.setPartitionerClass(HashPartitioner.class);
-//		conf.setInputFormat(TextInputFormat.class);  
-//		conf.setOutputFormat(STripleOutputFormat.class);
-//		conf.setMapOutputCompressorClass(GzipCodec.class);
-//		
-//	    MultipleOutputs.addNamedOutput(conf, "rejected", TextOutputFormat.class, TextOutputFormat.class, Text.class);
-//		 
-//		FileInputFormat.addInputPath(conf,new Path(input));
-//		FileOutputFormat.setOutputPath(conf,new Path(output));
-//		FileOutputFormat.setCompressOutput(conf, true);
-//		FileOutputFormat.setOutputCompressorClass(conf, GzipCodec.class);
-//		RunningJob job=JobClient.runJob(conf);
-//		job.waitForCompletion();
-//		return job.getJobState();
 	}
 
 }

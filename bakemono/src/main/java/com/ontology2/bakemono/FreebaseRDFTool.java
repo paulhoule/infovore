@@ -43,7 +43,7 @@ public class FreebaseRDFTool implements Tool {
 		conf.setOutputKeyClass(Text.class);  
 		conf.setOutputValueClass(Text.class);  
 		conf.setMapperClass(FreebaseRDFMapper.class);
-		conf.setNumReduceTasks(500);
+		conf.setNumReduceTasks(50);
 		conf.setPartitionerClass(HashPartitioner.class);
 		conf.setInputFormat(TextInputFormat.class);  
 		conf.setOutputFormat(TextOutputFormat.class);
