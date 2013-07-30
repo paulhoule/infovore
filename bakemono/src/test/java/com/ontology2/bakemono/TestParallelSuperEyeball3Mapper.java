@@ -16,8 +16,7 @@ public class TestParallelSuperEyeball3Mapper {
 	};
 	
 	@Test
-	public void test() {
-		assertNotNull(pse3mapper);
+	public void testSimpleCase() {
 	}
 
 }
