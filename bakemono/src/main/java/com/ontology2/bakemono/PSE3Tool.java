@@ -45,7 +45,7 @@ public class PSE3Tool implements Tool {
 		
 		Job job=new Job(conf,"pse3");
 		job.setJarByClass(PSE3Tool.class);
-		job.setMapperClass(PS3Mapper.class);
+		job.setMapperClass(PSE3Mapper.class);
 		job.setNumReduceTasks(0);
 		job.setOutputFormatClass(STripleOutputFormat.class);
 		job.setOutputKeyClass(Node.class);

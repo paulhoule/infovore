@@ -17,4 +17,9 @@ public class PrimaryKeyValueAcceptor<K,V> implements KeyValueAcceptor<K,V> {
 		innerContext.write(k,v);
 	}
 
+	@Override
+	public void close() {
+	}
+	
+
 }

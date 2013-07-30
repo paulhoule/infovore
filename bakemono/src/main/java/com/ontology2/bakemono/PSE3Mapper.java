@@ -19,17 +19,21 @@ import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTripleCodec;
 import com.ontology2.rdf.JenaUtil;
 
-public class PS3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
-	private static org.apache.commons.logging.Log logger = LogFactory.getLog(PS3Mapper.class);
+public class PSE3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
+	private static org.apache.commons.logging.Log logger = LogFactory.getLog(PSE3Mapper.class);
 	final LoadingCache<String,Node> nodeParser=JenaUtil.createNodeParseCache();
 	private MultipleOutputs mos;
 	final static PrimitiveTripleCodec p3Codec=new PrimitiveTripleCodec();
+	
+	KeyValueAcceptor<Node,NodePair> accepted;
+	KeyValueAcceptor<Text,Text> rejected;
 
 	@Override
 	protected void setup(Context context) throws IOException,
 			InterruptedException {
 		super.setup(context);
-		mos=new MultipleOutputs(context);
+		accepted=new PrimaryKeyValueAcceptor(context);
+		rejected=new NamedKeyValueAcceptor(context,"rejected");
 	}
 
 
@@ -41,9 +45,9 @@ public class PS3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
 			Node_URI predicate=(Node_URI) nodeParser.get(row3.predicate);
 			Node object=nodeParser.get(row3.object);
 			Triple realTriple=new Triple(subject,predicate,object);
-			c.write(realTriple.getSubject(),new NodePair(realTriple.getPredicate(),realTriple.getObject()));
+			accepted.write(realTriple.getSubject(),new NodePair(realTriple.getPredicate(),realTriple.getObject()));
 		} catch(Throwable e) {
-			mos.write("rejected",
+			rejected.write(
 					new Text(row3.subject),
 					new Text(row3.predicate+"\t"+row3.object+"."));
 		}
@@ -54,7 +58,8 @@ public class PS3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
 	protected void cleanup(org.apache.hadoop.mapreduce.Mapper.Context context)
 			throws IOException, InterruptedException {
 		super.cleanup(context);
-		mos.close();
+		accepted.close();
+		rejected.close();
 	}
 	
 }

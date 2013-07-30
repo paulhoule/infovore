@@ -23,6 +23,8 @@ public class NamedKeyValueAcceptor<K,V> implements KeyValueAcceptor<K,V> {
 		mos.write(name,k,v);
 	}
 	
-	
-	
+	@Override
+	public void close() throws IOException, InterruptedException {
+		mos.close();
+	};
 }
