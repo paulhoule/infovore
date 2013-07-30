@@ -39,9 +39,9 @@ public class PSE3Tool implements Tool {
 		String input=arg0[0];
 		String output=arg0[1];
 		
-		conf.set("mapreduce.output.compress","true");
-		conf.set("mapreduce.output.compression.type",CompressionType.BLOCK.toString());
-		conf.set("mapreduce.output.compression.codec",GzipCodec.class.getCanonicalName());
+		conf.set("mapred.output.compress","true");
+		conf.set("mapred.output.compression.type",CompressionType.BLOCK.toString());
+		conf.set("mapred.output.compression.codec",GzipCodec.class.getCanonicalName());
 		
 		Job job=new Job(conf,"pse3");
 		job.setJarByClass(PSE3Tool.class);
