@@ -2,6 +2,7 @@ package com.ontology2.bakemono.jena;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 
 import org.apache.hadoop.fs.FSDataOutputStream;
 import org.apache.hadoop.fs.FileSystem;
@@ -19,6 +20,8 @@ import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
 
 public class STripleOutputFormat extends FileOutputFormat<Node_URI, NodePair> {
+
+	private DataOutputStream innerStream;
 
 	public class TripleRecordWriter extends RecordWriter<Node_URI, NodePair> {
 
@@ -42,7 +45,7 @@ public class STripleOutputFormat extends FileOutputFormat<Node_URI, NodePair> {
 		public void close(TaskAttemptContext context) throws IOException,
 				InterruptedException {
 			innerSink.close();
-			
+			innerStream.close();
 		}
 
 	}
@@ -64,7 +67,8 @@ public class STripleOutputFormat extends FileOutputFormat<Node_URI, NodePair> {
 			Path file =  getDefaultWorkFile(ctx, ".nt"+codec.getDefaultExtension());
 			FileSystem fs = file.getFileSystem(ctx.getConfiguration());
 			FSDataOutputStream fileOut = fs.create(file, false);
-			return new TripleRecordWriter(new DataOutputStream(codec.createOutputStream(fileOut)));
+			innerStream = new DataOutputStream(codec.createOutputStream(fileOut));
+			return new TripleRecordWriter(innerStream);
 		}
 
 	}

@@ -45,7 +45,7 @@ public class ParallelSuperEyeballMapper extends Mapper<LongWritable,Text,Node,No
 		} catch(Throwable e) {
 			mos.write("rejected",
 					new Text(row3.subject),
-					new Text(row3.predicate+"\t"+row3.object));
+					new Text(row3.predicate+"\t"+row3.object+"."));
 		}
 	}
 
