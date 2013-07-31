@@ -11,6 +11,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapred.OutputCollector;
 import org.apache.hadoop.mapred.Reporter;
+import org.apache.hadoop.mapreduce.Mapper.Context;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,13 +29,14 @@ public class TestFreebaseRDFMapper {
 	private FreebaseRDFMapper mapper;
 	private OutputCollector<Text, Text> out;
 	private Reporter meta;
+	private Context context;
 	
 	@Before
 	public void setup() {
 		mapper = new FreebaseRDFMapper();
-		mapper.configure(new JobConf());
 		out=mock(OutputCollector.class);
 		meta=mock(Reporter.class);
+		context=mock(Context.class);
 	}
 	
 	@Test
@@ -82,23 +84,23 @@ public class TestFreebaseRDFMapper {
 		
 	}
 	
-	@Test public  void rejectsCompleteGarbage() throws IOException {		
-		mapper.map(new LongWritable(1L), new Text("Furkle murkle yurkle urkle"), out, meta);
+	@Test public  void rejectsCompleteGarbage() throws IOException, InterruptedException {		
+		mapper.map(new LongWritable(1L), new Text("Furkle murkle yurkle urkle"), context);
 		verify(meta).incrCounter(FreebasePrefilterCounter.ILL_FORMED, 1L);
 		verifyNoMoreInteractions(meta);
 		verifyNoMoreInteractions(out);
 	}
 	
-	@Test public  void ignoresPrefixDeclarations() throws IOException {		
-		mapper.map(new LongWritable(1L), new Text("@prefix foo: <http://bar.com/>."), out, meta);
+	@Test public  void ignoresPrefixDeclarations() throws IOException, InterruptedException {		
+		mapper.map(new LongWritable(1L), new Text("@prefix foo: <http://bar.com/>."), context);
 		verify(meta).incrCounter(FreebasePrefilterCounter.PREFIX_DECL, 1L);
 		verifyNoMoreInteractions(meta);
 		verifyNoMoreInteractions(out);
 	}
 	
-	@Test public void acceptsOrdinaryTriples() throws IOException {		
+	@Test public void acceptsOrdinaryTriples() throws IOException, InterruptedException {		
 		String ordinaryTriple="ns:aviation.aircraft.first_flight\tns:type.property.unique\ttrue.";
-		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), out, meta);
+		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), context);
 		verify(meta).incrCounter(FreebasePrefilterCounter.ACCEPTED, 1L);
 		verify(out).collect(
 				new Text("<http://rdf.freebase.com/ns/aviation.aircraft.first_flight>"),
@@ -107,17 +109,17 @@ public class TestFreebaseRDFMapper {
 		verifyNoMoreInteractions(out);
 	}
 	
-	@Test public void rejectsMostATriples() throws IOException {		
+	@Test public void rejectsMostATriples() throws IOException, InterruptedException {		
 		String ordinaryTriple="ns:aviation.aircraft.first_flight\trdf:type\tns:anythingInsideFreebase.";
-		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), out, meta);
+		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), context);
 		verify(meta).incrCounter(FreebasePrefilterCounter.IGNORED, 1L);
 		verifyNoMoreInteractions(meta);
 		verifyNoMoreInteractions(out);
 	}
 	
-	@Test public void acceptsForeignATriples() throws IOException {		
+	@Test public void acceptsForeignATriples() throws IOException, InterruptedException {		
 		String ordinaryTriple="ns:aviation.aircraft.first_flight\trdf:type\towl:Thing.";
-		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), out, meta);
+		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), context);
 		verify(meta).incrCounter(FreebasePrefilterCounter.ACCEPTED, 1L);
 		verifyNoMoreInteractions(meta);
 		verify(out).collect(
@@ -126,35 +128,34 @@ public class TestFreebaseRDFMapper {
 		verifyNoMoreInteractions(out);
 	}
 	
-	@Test public void reject() throws IOException {		
+	@Test public void reject() throws IOException, InterruptedException {		
 		String ordinaryTriple="ns:aviation.aircraft.first_flight\tns:type.type.instance\towl:Thing.";
-		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), out, meta);
+		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), context);
 		String anotherTriple="ns:aviation.aircraft.first_flight\tns:type.type.expected_by\towl:Thing.";
 		verify(meta).incrCounter(FreebasePrefilterCounter.IGNORED, 1L);
-		verify(meta).incrCounter(FreebasePrefilterCounter.IGNORED, 1L);
 		verifyNoMoreInteractions(meta);
 		verifyNoMoreInteractions(out);
 	}
 	
-	@Test public void ignoreTypeTypeInstance() throws IOException {		
+	@Test public void ignoreTypeTypeInstance() throws IOException, InterruptedException {		
 		String ordinaryTriple="ns:aviation.aircraft.first_flight\tns:type.type.instance\towl:Thing.";
-		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), out, meta);
+		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), context);
 		verify(meta).incrCounter(FreebasePrefilterCounter.IGNORED, 1L);
 		verifyNoMoreInteractions(meta);
 		verifyNoMoreInteractions(out);
 	}
 	
-	@Test public void ignoreTypeTypeExpectedBy() throws IOException {		
+	@Test public void ignoreTypeTypeExpectedBy() throws IOException, InterruptedException {		
 		String ordinaryTriple="ns:aviation.aircraft.first_flight\tns:type.type.expected_by\towl:Thing.";
-		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), out, meta);
+		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), context);
 		verify(meta).incrCounter(FreebasePrefilterCounter.IGNORED, 1L);
 		verifyNoMoreInteractions(meta);
 		verifyNoMoreInteractions(out);
 	}
 	
-	@Test public void weUseNativePredicateForAMostly() throws IOException {		
+	@Test public void weUseNativePredicateForAMostly() throws IOException, InterruptedException {		
 		String ordinaryTriple="ns:aviation.aircraft.first_flight\tns:type.object.type\tns:whatever.";
-		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), out, meta);
+		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), context);
 		verify(meta).incrCounter(FreebasePrefilterCounter.ACCEPTED, 1L);
 		verify(out).collect(
 				new Text("<http://rdf.freebase.com/ns/aviation.aircraft.first_flight>"),
@@ -163,9 +164,9 @@ public class TestFreebaseRDFMapper {
 		verifyNoMoreInteractions(out);
 	}
 	
-	@Test public void weReverseRedirects() throws IOException {		
+	@Test public void weReverseRedirects() throws IOException, InterruptedException {		
 		String ordinaryTriple="ns:A\tns:dataworld.gardening_hint.replaced_by\tns:B.";
-		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), out, meta);
+		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), context);
 		verify(meta).incrCounter(FreebasePrefilterCounter.ACCEPTED, 1L);
 		verify(out).collect(
 				new Text("<http://rdf.freebase.com/ns/B>"),
@@ -174,9 +175,9 @@ public class TestFreebaseRDFMapper {
 		verifyNoMoreInteractions(out);
 	}
 	
-	@Test public void weReversePermissions() throws IOException {		
+	@Test public void weReversePermissions() throws IOException, InterruptedException {		
 		String ordinaryTriple="ns:A\tns:type.permission.controls\tns:B.";
-		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), out, meta);
+		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), context);
 		verify(meta).incrCounter(FreebasePrefilterCounter.ACCEPTED, 1L);
 		verify(out).collect(
 				new Text("<http://rdf.freebase.com/ns/B>"),
@@ -185,10 +186,6 @@ public class TestFreebaseRDFMapper {
 		verifyNoMoreInteractions(out);
 	}
 	
-	@After
-	public void tearDown() throws IOException {
-		mapper.close();
-	}
 
 
 }

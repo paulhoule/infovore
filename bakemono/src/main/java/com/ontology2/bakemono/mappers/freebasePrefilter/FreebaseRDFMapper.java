@@ -6,12 +6,7 @@ import java.util.List;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapred.JobConf;
-import org.apache.hadoop.mapred.MapReduceBase;
-import org.apache.hadoop.mapred.Mapper;
-import org.apache.hadoop.mapred.OutputCollector;
-import org.apache.hadoop.mapred.Reporter;
-import org.apache.hadoop.mapred.lib.ChainMapper;
+import org.apache.hadoop.mapreduce.*;
 
 import com.google.common.base.Function;
 import com.google.common.base.Functions;
@@ -32,7 +27,7 @@ import com.ontology2.millipede.sink.Sink;
 
 import org.apache.commons.logging.Log;
 
-public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWritable,Text,Text,Text> {
+public class FreebaseRDFMapper extends Mapper<LongWritable,Text,Text,Text> {
 	private static org.apache.commons.logging.Log logger = LogFactory.getLog(FreebaseRDFMapper.class);
 	ImmutableMap.Builder<String,String> prefixBuilder=new ImmutableMap.Builder<String,String>();
 	ImmutableMap<String,String> prefixMap = ImmutableMap.of();
@@ -55,13 +50,9 @@ public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWrita
 		}
 	}
 	
-	@Override
-	public void close() throws IOException {
-		super.close();
-	}
 	
 	@Override
-	public void configure(JobConf job) {
+	public void setup(Context job) {
 		declarePrefix("@prefix ns: <http://rdf.freebase.com/ns/>.");
 		declarePrefix("@prefix key: <http://rdf.freebase.com/key/>.");
 		declarePrefix("@prefix owl: <http://www.w3.org/2002/07/owl#>.");
@@ -80,12 +71,11 @@ public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWrita
 	private Sink<PrimitiveTriple> rewriter;
 	
 	@Override
-	public void map(LongWritable k, Text v,
-			OutputCollector<Text, Text> out, Reporter meta) throws IOException {
+	public void map(LongWritable k, Text v,Context c) throws IOException, InterruptedException {
 		
 		String line=v.toString();
 		if (line.startsWith("@prefix")) {
-			meta.incrCounter(FreebasePrefilterCounter.PREFIX_DECL, 1);
+			c.getCounter(FreebasePrefilterCounter.PREFIX_DECL).increment(1L);
 			return;
 		}
 		
@@ -97,15 +87,15 @@ public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWrita
 			
 			if(tripleFilter.apply(triple)) {
 				triple=rewritingFunction.apply(triple);
-				accept(out,triple);
-				meta.incrCounter(FreebasePrefilterCounter.ACCEPTED,1);
+				accept(c,triple);
+				c.getCounter(FreebasePrefilterCounter.ACCEPTED).increment(1L);
 			} else {
-				meta.incrCounter(FreebasePrefilterCounter.IGNORED, 1);
+				c.getCounter(FreebasePrefilterCounter.IGNORED).increment(1L);
 			}
 			
 
 		} catch(InvalidNodeException ex) {
-			meta.incrCounter(FreebasePrefilterCounter.ILL_FORMED,1);
+			c.getCounter(FreebasePrefilterCounter.ILL_FORMED).increment(1L);
 			logger.warn("Invalid triple: "+line);
 		}
 		
@@ -113,9 +103,9 @@ public class FreebaseRDFMapper extends MapReduceBase implements Mapper<LongWrita
 	}
 
 	
-	private void accept(OutputCollector<Text, Text> out,
-			PrimitiveTriple primitiveTriple) throws IOException {
-			out.collect(new Text(primitiveTriple.subject), new Text(primitiveTriple.poPairAsString()));
+	private void accept(Context out,
+			PrimitiveTriple primitiveTriple) throws IOException, InterruptedException {
+			out.write(new Text(primitiveTriple.subject), new Text(primitiveTriple.poPairAsString()));
 	}
 	
 	List<String> expandTripleParts(String line) throws InvalidNodeException {

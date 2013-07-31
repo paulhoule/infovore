@@ -41,6 +41,10 @@ public class PSE3Tool implements Tool {
 		String input=arg0[0];
 		String output=arg0[1];
 		
+		//
+		// looks like "mapreduce" looks to "mapred" for these parameters
+		//
+		
 		conf.set("mapred.output.compress","true");
 		conf.set("mapred.output.compression.type",CompressionType.BLOCK.toString());
 		conf.set("mapred.output.compression.codec",GzipCodec.class.getCanonicalName());

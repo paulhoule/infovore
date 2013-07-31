@@ -4,15 +4,14 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FsShell;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.SequenceFile.CompressionType;
 import org.apache.hadoop.io.compress.GzipCodec;
-import org.apache.hadoop.mapred.FileInputFormat;
-import org.apache.hadoop.mapred.FileOutputFormat;
-import org.apache.hadoop.mapred.JobClient;
 import org.apache.hadoop.mapred.JobConf;
-import org.apache.hadoop.mapred.RunningJob;
-import org.apache.hadoop.mapred.TextInputFormat;
-import org.apache.hadoop.mapred.TextOutputFormat;
-import org.apache.hadoop.mapred.lib.HashPartitioner;
+import org.apache.hadoop.mapreduce.*;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 
 import com.ontology2.bakemono.Main;
@@ -41,23 +40,27 @@ public class FreebaseRDFTool implements Tool {
 		String input=arg0[0];
 		String output=arg0[1];
 		
-		JobConf conf = new JobConf(configuration,FreebaseRDFTool.class);
-		conf.setJobName("prefilter");  
-		conf.setOutputKeyClass(Text.class);  
-		conf.setOutputValueClass(Text.class);  
-		conf.setMapperClass(FreebaseRDFMapper.class);
-		conf.setNumReduceTasks(50);
-		conf.setPartitionerClass(HashPartitioner.class);
-		conf.setInputFormat(TextInputFormat.class);  
-		conf.setOutputFormat(TextOutputFormat.class);
-		conf.setMapOutputCompressorClass(GzipCodec.class);
-		FileInputFormat.addInputPath(conf,new Path(input));
-		FileOutputFormat.setOutputPath(conf,new Path(output));
-		FileOutputFormat.setCompressOutput(conf, true);
-		FileOutputFormat.setOutputCompressorClass(conf, GzipCodec.class);
-		RunningJob job=JobClient.runJob(conf);
-		job.waitForCompletion();
-		return job.getJobState();
+//		configuration.set("mapred.output.compress","true");
+//		configuration.set("mapred.output.compression.type",CompressionType.BLOCK.toString());
+//		configuration.set("mapred.output.compression.codec",GzipCodec.class.getCanonicalName());
+		
+		
+		Job job = new Job(configuration,"prefilter");
+		job.setJarByClass(FreebaseRDFTool.class);		
+		job.setMapperClass(FreebaseRDFMapper.class);
+		
+		job.setOutputKeyClass(Text.class);  
+		job.setOutputValueClass(Text.class);  
+
+		job.setNumReduceTasks(0);
+		job.setInputFormatClass(TextInputFormat.class);  
+		job.setOutputFormatClass(TextOutputFormat.class);
+
+		FileInputFormat.addInputPath(job,new Path(input));
+		FileOutputFormat.setOutputPath(job,new Path(output));
+		FileOutputFormat.setCompressOutput(job, true);
+		FileOutputFormat.setOutputCompressorClass(job, GzipCodec.class);
+		return job.waitForCompletion(true) ? 0 :1;
 	}
 
 }
