@@ -22,7 +22,8 @@ import com.ontology2.rdf.JenaUtil;
 public class PSE3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
 	private static org.apache.commons.logging.Log logger = LogFactory.getLog(PSE3Mapper.class);
 	final LoadingCache<String,Node> nodeParser=JenaUtil.createNodeParseCache();
-	private MultipleOutputs mos;
+	
+	MultipleOutputs mos;
 	final static PrimitiveTripleCodec p3Codec=new PrimitiveTripleCodec();
 	
 	KeyValueAcceptor<Node,NodePair> accepted;
