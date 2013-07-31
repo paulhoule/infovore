@@ -9,7 +9,6 @@
   <modules>
     <module>hydroxide</module>
     <module>millipede</module>
-    <module>infovore-apps</module>
     <module>bakemono</module>
   </modules>
   <build><plugins>
