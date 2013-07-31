@@ -26,7 +26,7 @@ public class TestPSE3Mapper {
 	PSE3Mapper pse3mapper;
 	
 	@Before
-	public void setUp() {
+	public void setup() {
 		pse3mapper=new PSE3Mapper();
 		pse3mapper.mos=mock(MultipleOutputs.class);
 		pse3mapper.accepted=mock(KeyValueAcceptor.class);
@@ -66,7 +66,7 @@ public class TestPSE3Mapper {
 	@Test
 	public void rejectsABadTriple() throws IOException, InterruptedException {
 		pse3mapper.map(
-				new LongWritable(944L),
+				new LongWritable(24562L),
 				new Text("<http://example.com/A>\t<http://example.com/B>\t\"2001-06\"^^xsd:datetime."),
 				mock(Context.class));
 		

@@ -23,9 +23,14 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
 	private static org.apache.commons.logging.Log logger = LogFactory.getLog(PSE3Mapper.class);
 	final LoadingCache<String,Node> nodeParser=JenaUtil.createNodeParseCache();
 	
-	MultipleOutputs mos;
 	final static PrimitiveTripleCodec p3Codec=new PrimitiveTripleCodec();
 	
+	//
+	// all of these are deliberately in the default scope so that the test classes
+	// can mess with them
+	//
+	
+	MultipleOutputs mos;
 	KeyValueAcceptor<Node,NodePair> accepted;
 	KeyValueAcceptor<Text,Text> rejected;
 
