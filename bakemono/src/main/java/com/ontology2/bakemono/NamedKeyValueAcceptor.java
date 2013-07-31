@@ -7,15 +7,12 @@ import org.apache.hadoop.mapreduce.lib.output.MultipleOutputs;
 
 public class NamedKeyValueAcceptor<K,V> implements KeyValueAcceptor<K,V> {
 
-	private final Context innerContext;  // will this ALWAYS be valid?
 	private final String name;
+	private final MultipleOutputs mos;
 	
-	private MultipleOutputs mos;
-	
-	public NamedKeyValueAcceptor(Context innerContext, String name) {
-		this.innerContext = innerContext;
+	public NamedKeyValueAcceptor(final MultipleOutputs mos, final String name) {
 		this.name = name;
-		mos=new MultipleOutputs(innerContext);
+		this.mos=mos;
 	}
 
 	@Override

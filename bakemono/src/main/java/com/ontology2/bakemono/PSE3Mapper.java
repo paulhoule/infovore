@@ -32,10 +32,10 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
 	protected void setup(Context context) throws IOException,
 			InterruptedException {
 		super.setup(context);
+		mos=new MultipleOutputs(context);
 		accepted=new PrimaryKeyValueAcceptor(context);
-		rejected=new NamedKeyValueAcceptor(context,"rejected");
+		rejected=new NamedKeyValueAcceptor(mos,"rejected");
 	}
-
 
 	@Override
 	public void map(LongWritable arg0, Text arg1, Context c) throws IOException, InterruptedException {
@@ -58,8 +58,7 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
 	protected void cleanup(org.apache.hadoop.mapreduce.Mapper.Context context)
 			throws IOException, InterruptedException {
 		super.cleanup(context);
-		accepted.close();
-		rejected.close();
+		mos.close();
 	}
 	
 }
