@@ -21,7 +21,7 @@ import com.ontology2.bakemono.jena.NodePair;
 
 
 
-public class TestParallelSuperEyeball3Mapper {
+public class TestPSE3Mapper {
 
 	PSE3Mapper pse3mapper;
 	
