@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import org.apache.hadoop.mapreduce.Mapper.Context;
 
+import com.ontology2.bakemono.abstractions.KeyValueAcceptor;
+
 
 public class PrimaryKeyValueAcceptor<K,V> implements KeyValueAcceptor<K,V> {
 

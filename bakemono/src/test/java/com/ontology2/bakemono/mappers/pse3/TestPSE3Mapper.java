@@ -17,7 +17,7 @@ import org.apache.hadoop.mapreduce.lib.output.MultipleOutputs;
 import org.apache.hadoop.mapreduce.Mapper.Context;
 
 import com.hp.hpl.jena.graph.Node_URI;
-import com.ontology2.bakemono.KeyValueAcceptor;
+import com.ontology2.bakemono.abstractions.KeyValueAcceptor;
 import com.ontology2.bakemono.jena.NodePair;
 import com.ontology2.bakemono.mappers.pse3.PSE3Mapper;
 

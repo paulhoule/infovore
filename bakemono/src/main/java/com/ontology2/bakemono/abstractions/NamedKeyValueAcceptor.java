@@ -1,4 +1,4 @@
-package com.ontology2.bakemono;
+package com.ontology2.bakemono.abstractions;
 
 import java.io.IOException;
 

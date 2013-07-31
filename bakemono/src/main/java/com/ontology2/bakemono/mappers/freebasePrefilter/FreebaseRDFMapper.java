@@ -75,7 +75,7 @@ public class FreebaseRDFMapper extends Mapper<LongWritable,Text,Text,Text> {
 		
 		String line=v.toString();
 		if (line.startsWith("@prefix")) {
-			c.getCounter(FreebasePrefilterCounter.PREFIX_DECL).increment(1L);
+			incrementCounter(c,FreebasePrefilterCounter.PREFIX_DECL,1L);
 			return;
 		}
 		
@@ -88,20 +88,25 @@ public class FreebaseRDFMapper extends Mapper<LongWritable,Text,Text,Text> {
 			if(tripleFilter.apply(triple)) {
 				triple=rewritingFunction.apply(triple);
 				accept(c,triple);
-				c.getCounter(FreebasePrefilterCounter.ACCEPTED).increment(1L);
+				incrementCounter(c,FreebasePrefilterCounter.ACCEPTED,1L);
 			} else {
-				c.getCounter(FreebasePrefilterCounter.IGNORED).increment(1L);
+				incrementCounter(c,FreebasePrefilterCounter.IGNORED,1L);
 			}
 			
-
 		} catch(InvalidNodeException ex) {
-			c.getCounter(FreebasePrefilterCounter.ILL_FORMED).increment(1L);
+			incrementCounter(c,FreebasePrefilterCounter.IGNORED,1L);
 			logger.warn("Invalid triple: "+line);
 		}
 		
 		return;				
 	}
 
+	private void incrementCounter(Context context,Enum <?> counterId,long amount) {
+		Counter counter=context.getCounter(counterId);
+		if(counter!=null) {
+			counter.increment(amount);
+		};
+	};
 	
 	private void accept(Context out,
 			PrimitiveTriple primitiveTriple) throws IOException, InterruptedException {
