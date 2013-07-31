@@ -70,11 +70,12 @@ public class TestPSE3Mapper {
 				new Text("<http://example.com/A>\t<http://example.com/B>\t\"2001-06\"^^xsd:datetime."),
 				mock(Context.class));
 		
-		verifyNoMoreInteractions(pse3mapper.accepted);
 		verify(pse3mapper.rejected).write(
 				new Text("<http://example.com/A>"),
 				new Text("<http://example.com/B>\t\"2001-06\"^^xsd:datetime.")
 		);
+		
+		verifyNoMoreInteractions(pse3mapper.accepted);
 		verifyNoMoreInteractions(pse3mapper.rejected);
 	}
 	
