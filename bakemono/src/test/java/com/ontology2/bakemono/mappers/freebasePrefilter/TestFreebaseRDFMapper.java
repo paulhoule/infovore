@@ -137,39 +137,34 @@ public class TestFreebaseRDFMapper {
 		verifyNoMoreInteractions(context);
 	}
 	
-//	@Test public void weUseNativePredicateForAMostly() throws IOException, InterruptedException {		
-//		String ordinaryTriple="ns:aviation.aircraft.first_flight\tns:type.object.type\tns:whatever.";
-//		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), context);
-//		verify(meta).incrCounter(FreebasePrefilterCounter.ACCEPTED, 1L);
-//		verify(out).collect(
-//				new Text("<http://rdf.freebase.com/ns/aviation.aircraft.first_flight>"),
-//				new Text("<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>\t<http://rdf.freebase.com/ns/whatever>."));
-//		verifyNoMoreInteractions(meta);
-//		verifyNoMoreInteractions(out);
-//	}
-//	
-//	@Test public void weReverseRedirects() throws IOException, InterruptedException {		
-//		String ordinaryTriple="ns:A\tns:dataworld.gardening_hint.replaced_by\tns:B.";
-//		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), context);
-//		verify(meta).incrCounter(FreebasePrefilterCounter.ACCEPTED, 1L);
-//		verify(out).collect(
-//				new Text("<http://rdf.freebase.com/ns/B>"),
-//				new Text("<http://rdf.freebase.com/ns/m.0j2r8t8>\t<http://rdf.freebase.com/ns/A>."));
-//		verifyNoMoreInteractions(meta);
-//		verifyNoMoreInteractions(out);
-//	}
-//	
-//	@Test public void weReversePermissions() throws IOException, InterruptedException {		
-//		String ordinaryTriple="ns:A\tns:type.permission.controls\tns:B.";
-//		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), context);
-//		verify(meta).incrCounter(FreebasePrefilterCounter.ACCEPTED, 1L);
-//		verify(out).collect(
-//				new Text("<http://rdf.freebase.com/ns/B>"),
-//				new Text("<http://rdf.freebase.com/ns/m.0j2r9sk>\t<http://rdf.freebase.com/ns/A>."));
-//		verifyNoMoreInteractions(meta);
-//		verifyNoMoreInteractions(out);
-//	}
+	@Test public void usuallyTypeObjectTypeRewritesToA() throws IOException, InterruptedException {		
+		String ordinaryTriple="ns:aviation.aircraft.first_flight\tns:type.object.type\tns:whatever.";
+		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), context);
+		verify(context).getCounter(FreebasePrefilterCounter.ACCEPTED);
+		verify(context).write(
+				new Text("<http://rdf.freebase.com/ns/aviation.aircraft.first_flight>"),
+				new Text("<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>\t<http://rdf.freebase.com/ns/whatever>."));
+		verifyNoMoreInteractions(context);
+	}
 	
-
-
+	@Test public void weReverseRedirects() throws IOException, InterruptedException {		
+		String ordinaryTriple="ns:A\tns:dataworld.gardening_hint.replaced_by\tns:B.";
+		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), context);
+		verify(context).getCounter(FreebasePrefilterCounter.ACCEPTED);
+		verify(context).write(
+				new Text("<http://rdf.freebase.com/ns/B>"),
+				new Text("<http://rdf.freebase.com/ns/m.0j2r8t8>\t<http://rdf.freebase.com/ns/A>."));
+		verifyNoMoreInteractions(context);
+	}
+	
+	@Test public void weReversePermissions() throws IOException, InterruptedException {		
+		String ordinaryTriple="ns:A\tns:type.permission.controls\tns:B.";
+		mapper.map(new LongWritable(1L), new Text(ordinaryTriple), context);
+		verify(context).getCounter(FreebasePrefilterCounter.ACCEPTED);
+		verify(context).write(
+				new Text("<http://rdf.freebase.com/ns/B>"),
+				new Text("<http://rdf.freebase.com/ns/m.0j2r9sk>\t<http://rdf.freebase.com/ns/A>."));
+		verifyNoMoreInteractions(context);
+	}
+	
 }
