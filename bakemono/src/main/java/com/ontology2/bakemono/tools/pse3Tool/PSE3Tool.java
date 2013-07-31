@@ -1,4 +1,4 @@
-package com.ontology2.bakemono;
+package com.ontology2.bakemono.tools.pse3Tool;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
@@ -15,7 +15,9 @@ import org.apache.hadoop.util.Tool;
 
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.reasoner.rulesys.impl.TempNodeCache.NodePair;
+import com.ontology2.bakemono.Main;
 import com.ontology2.bakemono.jena.STripleOutputFormat;
+import com.ontology2.bakemono.mappers.pse3.PSE3Mapper;
 
 public class PSE3Tool implements Tool {
 

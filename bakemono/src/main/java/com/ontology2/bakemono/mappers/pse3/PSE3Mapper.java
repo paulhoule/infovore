@@ -1,4 +1,4 @@
-package com.ontology2.bakemono;
+package com.ontology2.bakemono.mappers.pse3;
 
 import java.io.IOException;
 
@@ -14,6 +14,9 @@ import com.google.common.cache.LoadingCache;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
+import com.ontology2.bakemono.KeyValueAcceptor;
+import com.ontology2.bakemono.NamedKeyValueAcceptor;
+import com.ontology2.bakemono.PrimaryKeyValueAcceptor;
 import com.ontology2.bakemono.jena.NodePair;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTripleCodec;

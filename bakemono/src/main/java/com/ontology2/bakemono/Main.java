@@ -28,6 +28,8 @@ import org.apache.hadoop.util.ToolRunner;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
+import com.ontology2.bakemono.tools.freebasePrefilter.FreebaseRDFTool;
+import com.ontology2.bakemono.tools.pse3Tool.PSE3Tool;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.millipede.shell.CommandLineApplication;
 
@@ -118,7 +120,7 @@ public class Main implements Runnable {
 		return toolArgs;
 	}
 	
-	static IncorrectUsageException errorCausedByUser(String error) throws IncorrectUsageException {
+	public static IncorrectUsageException errorCausedByUser(String error) throws IncorrectUsageException {
 		throw new IncorrectUsageException(error);
 	}
 	

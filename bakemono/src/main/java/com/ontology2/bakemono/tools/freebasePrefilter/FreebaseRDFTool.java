@@ -1,4 +1,4 @@
-package com.ontology2.bakemono;
+package com.ontology2.bakemono.tools.freebasePrefilter;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FsShell;
@@ -14,6 +14,9 @@ import org.apache.hadoop.mapred.TextInputFormat;
 import org.apache.hadoop.mapred.TextOutputFormat;
 import org.apache.hadoop.mapred.lib.HashPartitioner;
 import org.apache.hadoop.util.Tool;
+
+import com.ontology2.bakemono.Main;
+import com.ontology2.bakemono.mappers.freebasePrefilter.FreebaseRDFMapper;
 
 public class FreebaseRDFTool implements Tool {
 
