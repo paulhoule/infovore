@@ -5,41 +5,41 @@ import java.util.Map;
 import com.google.common.collect.Maps;
 
 public class SimpleCounter implements Counter {
-	private final class SimpleCounterFace implements CounterFace {
-		long count=0;
+    private final class SimpleCounterFace implements CounterFace {
+        long count=0;
 
-		@Override
-		public void add(long amount) {
-			count++;
-		}
-		
-		long getCount() {
-			return count;
-		}
-	}
+        @Override
+        public void add(long amount) {
+            count++;
+        }
 
-	Map<Integer,SimpleCounterFace> faces=Maps.newHashMap();
-	
-	public CounterFace getFace(int binNumber) {
-		if (!faces.containsKey(binNumber)) {
-			faces.put(binNumber,_getFace(binNumber));
-		}
-		
-		return faces.get(binNumber);
-	}
+        long getCount() {
+            return count;
+        }
+    }
 
-	private SimpleCounterFace _getFace(int binNumber) {
-		return new SimpleCounterFace();
-	}
+    Map<Integer,SimpleCounterFace> faces=Maps.newHashMap();
 
-	@Override
-	public long getCount() {
-		long count=0;
-		for(SimpleCounterFace f:faces.values()) {
-			count+=f.getCount();
-		}
-		return count;
-	}
+    public CounterFace getFace(int binNumber) {
+        if (!faces.containsKey(binNumber)) {
+            faces.put(binNumber,_getFace(binNumber));
+        }
+
+        return faces.get(binNumber);
+    }
+
+    private SimpleCounterFace _getFace(int binNumber) {
+        return new SimpleCounterFace();
+    }
+
+    @Override
+    public long getCount() {
+        long count=0;
+        for(SimpleCounterFace f:faces.values()) {
+            count+=f.getCount();
+        }
+        return count;
+    }
 
 
 }

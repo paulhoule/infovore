@@ -8,17 +8,17 @@ import com.hp.hpl.jena.rdf.model.Resource;
 
 public class ResourceSupplier implements Supplier<Resource> {
 
-	private final Supplier<Node> innerSupplier;
-	private final Model m;
+    private final Supplier<Node> innerSupplier;
+    private final Model m;
 
-	public ResourceSupplier(Model m,Supplier<Node> innerSupplier) {
-		this.m=m;
-		this.innerSupplier=innerSupplier;
-	}
-	
-	@Override
-	public Resource get() {
-		return m.wrapAsResource(innerSupplier.get());
-	}
+    public ResourceSupplier(Model m,Supplier<Node> innerSupplier) {
+        this.m=m;
+        this.innerSupplier=innerSupplier;
+    }
+
+    @Override
+    public Resource get() {
+        return m.wrapAsResource(innerSupplier.get());
+    }
 
 }

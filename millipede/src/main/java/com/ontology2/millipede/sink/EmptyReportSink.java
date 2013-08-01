@@ -4,6 +4,6 @@ import com.ontology2.millipede.reporting.ReportingObjectImpl;
 
 
 public abstract class EmptyReportSink<S> 
-	extends ReportingObjectImpl 
-	implements Sink<S> 
-	{}
+extends ReportingObjectImpl 
+implements Sink<S> 
+{}

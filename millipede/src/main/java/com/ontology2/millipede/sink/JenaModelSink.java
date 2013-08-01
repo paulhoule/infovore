@@ -5,14 +5,14 @@ import com.hp.hpl.jena.rdf.model.Model;
 
 public class JenaModelSink extends EmptyReportSink<Triple> implements Sink<Triple> {
 
-	private final Model model;
-	public JenaModelSink(Model model) {
-		this.model=model;
-	}
-	
-	@Override
-	public void accept(Triple t) throws Exception {
-		model.getGraph().add(t);		
-	}
+    private final Model model;
+    public JenaModelSink(Model model) {
+        this.model=model;
+    }
+
+    @Override
+    public void accept(Triple t) throws Exception {
+        model.getGraph().add(t);		
+    }
 
 }

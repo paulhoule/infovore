@@ -13,11 +13,11 @@ public class MultiFileTester {
 				".nt.gz",
 				stub,
 				new NullCodec());
-		
+
 		String name=mf.getFileName(5);
 		assertEquals(name,"/testdirectory/baseName5.nt.gz");
 	}
-	
+
 	@Test
 	public void testNaming0002() {
 		PartitionFunction stub=new StubPartitionFunction(999);
@@ -27,11 +27,11 @@ public class MultiFileTester {
 				".nt.gz",
 				stub,
 				new NullCodec());
-		
+
 		String name=mf.getFileName(5);
 		assertEquals(name,"/testdirectory/baseName005.nt.gz");
 	}
-	
+
 	@Test
 	public void testNaming0003() {
 		PartitionFunction stub=new StubPartitionFunction(1000);
@@ -41,11 +41,11 @@ public class MultiFileTester {
 				".nt.gz",
 				stub,
 				new NullCodec());
-		
+
 		String name=mf.getFileName(5);
 		assertEquals(name,"/testdirectory/baseName005.nt.gz");
 	}
-	
+
 	@Test
 	public void testNaming0004() {
 		PartitionFunction stub=new StubPartitionFunction(1001);
@@ -55,7 +55,7 @@ public class MultiFileTester {
 				".nt.gz",
 				stub,
 				new NullCodec());
-		
+
 		String name=mf.getFileName(5);
 		assertEquals(name,"/testdirectory/baseName0005.nt.gz");
 	}
@@ -69,9 +69,9 @@ public class MultiFileTester {
 				".nt.gz",
 				stub,
 				new NullCodec());
-		
+
 		String name=mf.getFileName(1001);
 	}
-	
+
 }
-*/
+ */

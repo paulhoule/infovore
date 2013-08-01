@@ -31,24 +31,24 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-        <groupId>com.google.guava</groupId>
-        <artifactId>guava</artifactId>
-        <version>14.0.1</version>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>14.0.1</version>
     </dependency>
     <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-context</artifactId>
-        <version>3.2.3.RELEASE</version>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>3.2.3.RELEASE</version>
     </dependency>
     <dependency>
-        <groupId>com.ontology2</groupId>
-        <artifactId>millipede</artifactId>
-        <version>2.0-SNAPSHOT</version>
+      <groupId>com.ontology2</groupId>
+      <artifactId>millipede</artifactId>
+      <version>2.0-SNAPSHOT</version>
     </dependency>
     <dependency>
-        <groupId>commons-codec</groupId>
-        <artifactId>commons-codec</artifactId>
-        <version>1.8</version>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.8</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jena</groupId>
@@ -56,32 +56,32 @@
       <version>2.9.3</version>
     </dependency>
     <dependency>
-    	<groupId>jdbm</groupId>
-    	<artifactId>jdbm</artifactId>
-    	<version>1.0</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
+      <groupId>jdbm</groupId>
+      <artifactId>jdbm</artifactId>
+      <version>1.0</version>
+      <type>jar</type>
+      <scope>compile</scope>
     </dependency>
     <dependency>
-    	<groupId>it.unimi.dsi</groupId>
-    	<artifactId>fastutil</artifactId>
-    	<version>6.4.4</version>
+      <groupId>it.unimi.dsi</groupId>
+      <artifactId>fastutil</artifactId>
+      <version>6.4.4</version>
     </dependency>
     <dependency>
-		<groupId>com.google.code.guice</groupId>
-		<artifactId>guice</artifactId>
-		<version>1.0</version>
-   </dependency>
+      <groupId>com.google.code.guice</groupId>
+      <artifactId>guice</artifactId>
+      <version>1.0</version>
+    </dependency>
     <dependency>
-	  <groupId>com.google.code.findbugs</groupId>
-	  <artifactId>jsr305</artifactId>
-	  <version>1.3.9</version>
-	</dependency>  
-   <dependency>
-    <groupId>org.apache.httpcomponents</groupId>
-    <artifactId>httpclient</artifactId>
-    <version>4.2.5</version>
-    <scope>compile</scope>
-  </dependency>
-  </dependencies> 
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>jsr305</artifactId>
+      <version>1.3.9</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.2.5</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
 </project>

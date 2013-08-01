@@ -5,21 +5,21 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 
 public class ReportingObjectImpl implements ReportingObject {
-	private final ReportingCloseImplementation impl;
-	
-	public ReportingObjectImpl() {
-		impl = new ReportingCloseImplementation(this);
-		summary=impl.summary;
-		v = new ReportingVocabulary(impl.summary);
-		me=impl.me;
-	}
+    private final ReportingCloseImplementation impl;
 
-	protected final Model summary;
-	protected final ReportingVocabulary v;
-	protected final Resource me;
+    public ReportingObjectImpl() {
+        impl = new ReportingCloseImplementation(this);
+        summary=impl.summary;
+        v = new ReportingVocabulary(impl.summary);
+        me=impl.me;
+    }
 
-	public Model close() throws Exception {
-		return impl.close();
-	}
+    protected final Model summary;
+    protected final ReportingVocabulary v;
+    protected final Resource me;
+
+    public Model close() throws Exception {
+        return impl.close();
+    }
 
 }

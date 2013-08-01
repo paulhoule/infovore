@@ -15,19 +15,19 @@ import com.ontology2.millipede.shell.MillipedeShell;
 
 public class InfovoreShell extends MillipedeShell{
 
-	@Override
-	public String getShellName() {
-		return "infovore";
-	}
-	
-	@Override
-	public List<String> getApplicationContextPath() {
-		List<String> that=Lists.newArrayList("com/ontology2/millipede/shell/applicationContext.xml");
-		that.add("com/ontology2/hydroxide/shell/applicationContext.xml");
-		return that;
-	}
-	
-	public static void main(String[] args) {
-		new InfovoreShell().run(args);
-	}
+    @Override
+    public String getShellName() {
+        return "infovore";
+    }
+
+    @Override
+    public List<String> getApplicationContextPath() {
+        List<String> that=Lists.newArrayList("com/ontology2/millipede/shell/applicationContext.xml");
+        that.add("com/ontology2/hydroxide/shell/applicationContext.xml");
+        return that;
+    }
+
+    public static void main(String[] args) {
+        new InfovoreShell().run(args);
+    }
 }

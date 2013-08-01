@@ -11,26 +11,26 @@ import com.ontology2.millipede.Util;
 
 public class PartitionOnSubjectT implements PartitionFunction<Triple> {
 
-	final int count;
-	
-	public PartitionOnSubjectT(int count) {
-		this.count = count;
-	}
+    final int count;
 
-	@Override
-	public int getPartitionCount() {
-		// TODO Auto-generated method stub
-		return count;
-	}
-	@Override
-	
-	public int bin(Triple t) {
-		Node subject=t.getSubject();
-		String value=subject.toString();
-		byte[] hashResult=DigestUtils.md5("<"+value+">");
-		long hashInt = Util.hashArrayToInt(hashResult);
-		return (int) Math.abs(hashInt % count);
-	}
+    public PartitionOnSubjectT(int count) {
+        this.count = count;
+    }
+
+    @Override
+    public int getPartitionCount() {
+        // TODO Auto-generated method stub
+        return count;
+    }
+    @Override
+
+    public int bin(Triple t) {
+        Node subject=t.getSubject();
+        String value=subject.toString();
+        byte[] hashResult=DigestUtils.md5("<"+value+">");
+        long hashInt = Util.hashArrayToInt(hashResult);
+        return (int) Math.abs(hashInt % count);
+    }
 
 
 

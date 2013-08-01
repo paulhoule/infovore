@@ -6,15 +6,15 @@ import java.util.List;
 import com.google.common.collect.Lists;
 
 public class ListSink<T> extends EmptyReportSink<T> {
-	
-	List<T> innerList=Lists.newArrayList();
 
-	@Override
-	public void accept(T obj) throws Exception {
-		innerList.add(obj);
-	}
+    List<T> innerList=Lists.newArrayList();
 
-	public List<T> getContent() {
-		return Collections.unmodifiableList(innerList);
-	};
+    @Override
+    public void accept(T obj) throws Exception {
+        innerList.add(obj);
+    }
+
+    public List<T> getContent() {
+        return Collections.unmodifiableList(innerList);
+    };
 }

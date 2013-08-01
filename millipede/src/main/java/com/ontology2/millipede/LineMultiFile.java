@@ -16,36 +16,36 @@ import com.ontology2.millipede.source.LineSource;
 import com.ontology2.millipede.source.Source;
 
 public class LineMultiFile<T> extends MultiFile<T> implements PullMultiSource<T> {
-	private final Codec codec;
+    private final Codec codec;
 
-	public LineMultiFile(String directory,String nameBase,String nameExtension,PartitionFunction<T> f,Codec codec) {
-		super(directory,nameBase,nameExtension,f);
-		this.codec=codec;
-	};
-	
-	public Codec<T> getCodec() {
-		return codec;
-	}
-	
-	protected LineSink createLineSink(int binNumber) throws Exception {
-		return new LineSink(createWriter(binNumber));
-	}
-	
-	public long pushBin(int binNumber,Sink<T> destination) throws Exception {
-		Source<T> source = createSource(binNumber);
-		return Plumbing.flow(source, destination);
-	}
-	
-	public Sink<T> createSink(int binNumber) throws Exception {
-		return new CodecSink(codec,createLineSink(binNumber));
-	}
-	
-	
-	public Source<T> createSource(int binNumber) throws Exception {
-		return new CodecSource<T>(codec,createLineSource(binNumber));
-	}
+    public LineMultiFile(String directory,String nameBase,String nameExtension,PartitionFunction<T> f,Codec codec) {
+        super(directory,nameBase,nameExtension,f);
+        this.codec=codec;
+    };
 
-	private LineSource createLineSource(int binNumber) throws Exception {
-		return new LineSource(createReader(binNumber));
-	}
+    public Codec<T> getCodec() {
+        return codec;
+    }
+
+    protected LineSink createLineSink(int binNumber) throws Exception {
+        return new LineSink(createWriter(binNumber));
+    }
+
+    public long pushBin(int binNumber,Sink<T> destination) throws Exception {
+        Source<T> source = createSource(binNumber);
+        return Plumbing.flow(source, destination);
+    }
+
+    public Sink<T> createSink(int binNumber) throws Exception {
+        return new CodecSink(codec,createLineSink(binNumber));
+    }
+
+
+    public Source<T> createSource(int binNumber) throws Exception {
+        return new CodecSource<T>(codec,createLineSource(binNumber));
+    }
+
+    private LineSource createLineSource(int binNumber) throws Exception {
+        return new LineSource(createReader(binNumber));
+    }
 }

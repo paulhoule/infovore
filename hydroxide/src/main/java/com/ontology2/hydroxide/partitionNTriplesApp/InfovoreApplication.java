@@ -18,36 +18,36 @@ import com.ontology2.millipede.source.SingleFileSource;
 
 public abstract class InfovoreApplication extends CommandLineApplication {
 
-	private final ReportingCloseImplementation modelSource = new ReportingCloseImplementation(this);
-	protected final Model summary = modelSource.summary;
-	protected final ReportingVocabulary v = modelSource.v;
-	protected final Resource me = modelSource.me;
-	
-	public void dontOverwrite(LineMultiFile<?> output) throws Exception {
-		if(output.testExists()) {
-			throw new Exception("Destination files already exist at ["+output.getFileName()+"]");	
-		}
-	}
+    private final ReportingCloseImplementation modelSource = new ReportingCloseImplementation(this);
+    protected final Model summary = modelSource.summary;
+    protected final ReportingVocabulary v = modelSource.v;
+    protected final Resource me = modelSource.me;
 
-	public void identifyInputFile(SingleFileSource<String> input) {
-		Resource inputFile=v.something();
-		summary.add(inputFile,v.a(),v.File());
-		summary.add(inputFile,v.path(),v.file(input.getFile()));
-		summary.add(summary.createLiteralStatement(inputFile,v.fromInstance(),PartitionsAndFiles.getInstanceName()));
-		summary.add(inputFile,v.flowsTo(),me);
-		summary.add(summary.createLiteralStatement(me,v.inputCharactersCount(),input.getChars()));
-	}
-	
-	public void initializeModel() throws Exception {
-		modelSource.close();
-		summary.add(me,v.a(),v.Job());
-	}
+    public void dontOverwrite(LineMultiFile<?> output) throws Exception {
+        if(output.testExists()) {
+            throw new Exception("Destination files already exist at ["+output.getFileName()+"]");	
+        }
+    }
 
-	public void writeSummaryFile(LineMultiFile<PrimitiveTriple> output) throws FileNotFoundException,
-			IOException {
-				OutputStream ttlOut = new FileOutputStream(output.summaryFile());
-				summary.write(ttlOut,"TURTLE");
-				ttlOut.close();
-			}
+    public void identifyInputFile(SingleFileSource<String> input) {
+        Resource inputFile=v.something();
+        summary.add(inputFile,v.a(),v.File());
+        summary.add(inputFile,v.path(),v.file(input.getFile()));
+        summary.add(summary.createLiteralStatement(inputFile,v.fromInstance(),PartitionsAndFiles.getInstanceName()));
+        summary.add(inputFile,v.flowsTo(),me);
+        summary.add(summary.createLiteralStatement(me,v.inputCharactersCount(),input.getChars()));
+    }
+
+    public void initializeModel() throws Exception {
+        modelSource.close();
+        summary.add(me,v.a(),v.Job());
+    }
+
+    public void writeSummaryFile(LineMultiFile<PrimitiveTriple> output) throws FileNotFoundException,
+    IOException {
+        OutputStream ttlOut = new FileOutputStream(output.summaryFile());
+        summary.write(ttlOut,"TURTLE");
+        ttlOut.close();
+    }
 
 }

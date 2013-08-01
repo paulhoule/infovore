@@ -7,16 +7,16 @@ import com.ontology2.millipede.sink.Sink;
 
 public class Sort<T> implements Millipede<T> {
 
-	private final Comparator<? super T> comparator;
-	private final Millipede<T> output;
-	
-	public Sort(Comparator<? super T> comparator,Millipede<T> output) {
-		this.comparator = comparator;
-		this.output = output;
-	}
+    private final Comparator<? super T> comparator;
+    private final Millipede<T> output;
 
-	@Override
-	public Sink<T> createSegment(int segmentNumber) throws Exception {
-		return new SortSegment<T>(comparator,output.createSegment(segmentNumber));
-	}
+    public Sort(Comparator<? super T> comparator,Millipede<T> output) {
+        this.comparator = comparator;
+        this.output = output;
+    }
+
+    @Override
+    public Sink<T> createSegment(int segmentNumber) throws Exception {
+        return new SortSegment<T>(comparator,output.createSegment(segmentNumber));
+    }
 }

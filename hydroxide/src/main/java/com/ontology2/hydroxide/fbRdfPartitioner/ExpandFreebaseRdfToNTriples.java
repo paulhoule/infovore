@@ -24,18 +24,18 @@ public class ExpandFreebaseRdfToNTriples extends EmptyReportSink<String> {
 
 	final Sink<PrimitiveTriple> acceptSink;
 	final Sink<String> rejectSink;
-	
+
 	ImmutableMap.Builder<String,String> prefixBuilder=new ImmutableMap.Builder<String,String>();
 	ImmutableMap<String,String> prefixMap = ImmutableMap.of();
 	final static Splitter lineSplitter = Splitter.on("\t").limit(3);
 	final static Splitter iriSplitter = Splitter.on(":").limit(2);
 
 	private static Log logger = LogFactory.getLog(ExpandFreebaseRdfToNTriples.class);
-	
+
 	private long prefixDeclCount=0;
 	private long grosslyMalformedCount=0;
 	private long rawAcceptedCount=0;
-	
+
 	public ExpandFreebaseRdfToNTriples(Sink<PrimitiveTriple> acceptSink,Sink<String> rejectSink) {
 		this.acceptSink = acceptSink;
 		this.rejectSink = rejectSink;
@@ -45,7 +45,7 @@ public class ExpandFreebaseRdfToNTriples extends EmptyReportSink<String> {
 	public void accept(String obj) throws Exception {
 		if (obj.isEmpty())
 			return;
-		
+
 		if(obj.startsWith("@prefix")) {
 			try {
 				List<String> parts=splitPrefixDeclaration(obj);
@@ -71,12 +71,12 @@ public class ExpandFreebaseRdfToNTriples extends EmptyReportSink<String> {
 				return;				
 			}
 		}
-		
+
 	}
 
 	List<String> expandTripleParts(String obj) throws InvalidNodeException {
 		List<String> parts=splitTriple(obj);
-		
+
 		parts.set(0,expandIRINode(parts.get(0)));
 		parts.set(1,expandIRINode(parts.get(1)));
 		parts.set(2,expandAnyNode(parts.get(2)));
@@ -87,7 +87,7 @@ public class ExpandFreebaseRdfToNTriples extends EmptyReportSink<String> {
 		if (!obj.endsWith(".")) {
 			throw new InvalidNodeException();
 		}
-		
+
 		obj=obj.substring(0,obj.length()-1);
 		List<String> parts=Lists.newArrayList(lineSplitter.split(obj));
 		if (parts.size()!=3) {
@@ -95,50 +95,50 @@ public class ExpandFreebaseRdfToNTriples extends EmptyReportSink<String> {
 		}
 		return parts;
 	}
-	
+
 	public String expandIRINode(String string) throws InvalidNodeException {
 		List<String> parts=Lists.newArrayList(iriSplitter.split(string));
 		if (prefixMap.containsKey(parts.get(0))) {
 			return "<"+prefixMap.get(parts.get(0))+parts.get(1)+">";
 		}
-		
+
 		throw new InvalidNodeException();
 	}
-	
+
 	public String expandAnyNode(String string) {
 		List<String> parts=Lists.newArrayList(iriSplitter.split(string));
 		if (prefixMap.containsKey(parts.get(0))) {
 			return "<"+prefixMap.get(parts.get(0))+parts.get(1)+">";
 		}
-		
+
 		return string;
 	}
-	
+
 
 	public static List<String> splitPrefixDeclaration(String obj) throws InvalidPrefixException {
 		List<String> parts=Lists.newArrayList(Splitter.on(" ").split(obj));
 		if (parts.size()!=3) {
 			throw new InvalidPrefixException();
 		}
-		
+
 		String prefix=parts.get(1);
 		String mapsTo=parts.get(2);	
-		
+
 		if (!prefix.endsWith(":")) {
 			throw new InvalidPrefixException();
 		}
-		
+
 		parts.set(1, prefix.substring(0, prefix.length()-1));
 
 		if (!mapsTo.startsWith("<") || !mapsTo.endsWith(">.")) {
 			throw new InvalidPrefixException();
 		}
-		
+
 		parts.set(2, mapsTo.substring(1, mapsTo.length()-2));
-		
+
 		return parts;
 	} 
-	
+
 	@Override
 	public Model close() throws Exception {
 		acceptSink.close();
@@ -154,9 +154,9 @@ public class ExpandFreebaseRdfToNTriples extends EmptyReportSink<String> {
 	public long getGrosslyMalformedCount() {
 		return grosslyMalformedCount;
 	}
-	
+
 	public long getRawAcceptedCount() {
 		return rawAcceptedCount++;
 	}
 }
-*/
+ */

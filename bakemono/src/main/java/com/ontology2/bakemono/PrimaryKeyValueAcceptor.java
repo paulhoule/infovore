@@ -9,19 +9,19 @@ import com.ontology2.bakemono.abstractions.KeyValueAcceptor;
 
 public class PrimaryKeyValueAcceptor<K,V> implements KeyValueAcceptor<K,V> {
 
-	private final Context innerContext;  // will this ALWAYS be valid?
-	
-	public PrimaryKeyValueAcceptor(Context innerContext) {
-		this.innerContext = innerContext;
-	}
+    private final Context innerContext;  // will this ALWAYS be valid?
 
-	public void write(K k, V v) throws IOException, InterruptedException {
-		innerContext.write(k,v);
-	}
+    public PrimaryKeyValueAcceptor(Context innerContext) {
+        this.innerContext = innerContext;
+    }
 
-	@Override
-	public void close() {
-	}
-	
+    public void write(K k, V v) throws IOException, InterruptedException {
+        innerContext.write(k,v);
+    }
+
+    @Override
+    public void close() {
+    }
+
 
 }

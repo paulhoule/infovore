@@ -6,8 +6,8 @@ import com.hp.hpl.jena.sparql.core.Quad;
 import com.ontology2.millipede.sink.GroupingSink;
 
 public abstract class NQuadsGroupOnSubject extends GroupingSink<Quad> {
-	@Override
-	protected Node computeGroupKey(Quad q) {
-		return q.getSubject();
-	}
+    @Override
+    protected Node computeGroupKey(Quad q) {
+        return q.getSubject();
+    }
 }

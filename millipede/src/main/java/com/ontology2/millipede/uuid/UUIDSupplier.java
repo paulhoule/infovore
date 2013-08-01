@@ -8,9 +8,9 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.google.common.base.Supplier;
 
 public class UUIDSupplier implements Supplier<Node> {
-	@Override
-	public Node get() {
-		return Node.createURI("urn:uuid:"+UUID.randomUUID().toString());
-	}
+    @Override
+    public Node get() {
+        return Node.createURI("urn:uuid:"+UUID.randomUUID().toString());
+    }
 
 }

@@ -9,10 +9,10 @@ import com.ontology2.millipede.FileOpener;
 
 public class SingleFileSink<T> extends CodecSink {
 
-	public SingleFileSink(Codec<T> codec, String filename) throws Exception {
-		super(codec, new LineSink(new FileOpener().createWriter(filename)));
-		// TODO Auto-generated constructor stub
-	}
+    public SingleFileSink(Codec<T> codec, String filename) throws Exception {
+        super(codec, new LineSink(new FileOpener().createWriter(filename)));
+        // TODO Auto-generated constructor stub
+    }
 
 
 }

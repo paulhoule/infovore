@@ -15,45 +15,45 @@ import com.ontology2.millipede.sink.Sink;
 import com.ontology2.millipede.source.Source;
 
 public class TripleMultiFile extends MultiFile<Triple> {
-	static Logger logger = Logger.getLogger(Runner.class);
-	
-	public TripleMultiFile(String directory, String nameBase,
-			String nameExtension, PartitionFunction<Triple> f) {
-		super(directory, nameBase, nameExtension, f);
-	}
+    static Logger logger = Logger.getLogger(Runner.class);
 
-	@Override
-	public Sink<Triple> createSink(int binNumber) throws Exception {
-		return new NTriplesSink(createOutputStream(binNumber));
-	}
+    public TripleMultiFile(String directory, String nameBase,
+            String nameExtension, PartitionFunction<Triple> f) {
+        super(directory, nameBase, nameExtension, f);
+    }
+
+    @Override
+    public Sink<Triple> createSink(int binNumber) throws Exception {
+        return new NTriplesSink(createOutputStream(binNumber));
+    }
 
 
-	@Override
-	public long pushBin(int binNumber, Sink<Triple> destination)
-			throws Exception {
-		TurtleParser parser=new TurtleParser(createReader(binNumber));
-		JenaTripleSink jenaTripleSink = new JenaTripleSink(destination);
-		parser.setEventHandler(jenaTripleSink);
-		parser.parse();
-		destination.close();
-		return jenaTripleSink.getCount();
-	}
-	
-	public void fillJenaModel(Model m) throws Exception {
-		JenaModelSink sink=new JenaModelSink(m);
-		for(int i=0;i<getPartitionFunction().getPartitionCount();i++) {
-			pushBin(i,sink);
-		}
-	}
-	
-	// Return raw strings
-	
-	public LineMultiFile<String> getLines() {
-		return new LineMultiFile<String>(
-				directory,
-				nameBase,
-				nameExtension,
-				new DummyPartitionFunction(getPartitionCount()),
-				new IdentityCodec());
-	}
+    @Override
+    public long pushBin(int binNumber, Sink<Triple> destination)
+            throws Exception {
+        TurtleParser parser=new TurtleParser(createReader(binNumber));
+        JenaTripleSink jenaTripleSink = new JenaTripleSink(destination);
+        parser.setEventHandler(jenaTripleSink);
+        parser.parse();
+        destination.close();
+        return jenaTripleSink.getCount();
+    }
+
+    public void fillJenaModel(Model m) throws Exception {
+        JenaModelSink sink=new JenaModelSink(m);
+        for(int i=0;i<getPartitionFunction().getPartitionCount();i++) {
+            pushBin(i,sink);
+        }
+    }
+
+    // Return raw strings
+
+    public LineMultiFile<String> getLines() {
+        return new LineMultiFile<String>(
+                directory,
+                nameBase,
+                nameExtension,
+                new DummyPartitionFunction(getPartitionCount()),
+                new IdentityCodec());
+    }
 }

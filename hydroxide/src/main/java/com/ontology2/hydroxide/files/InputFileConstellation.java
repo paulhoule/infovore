@@ -7,8 +7,8 @@ import com.ontology2.millipede.sink.Sink;
 import com.ontology2.millipede.source.SingleFileSource;
 
 public abstract class InputFileConstellation {
-	abstract public LineMultiFile<PrimitiveTriple> getPartitionedExpandedTriples() throws Exception;
-	abstract public Sink<String> getRawRejected() throws Exception;
-	abstract public TripleMultiFile getDestination() throws Exception;
-	abstract public LineMultiFile<PrimitiveTriple> getDestinationRejected() throws Exception;
+    abstract public LineMultiFile<PrimitiveTriple> getPartitionedExpandedTriples() throws Exception;
+    abstract public Sink<String> getRawRejected() throws Exception;
+    abstract public TripleMultiFile getDestination() throws Exception;
+    abstract public LineMultiFile<PrimitiveTriple> getDestinationRejected() throws Exception;
 }

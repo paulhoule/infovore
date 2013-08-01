@@ -1,4 +1,4 @@
-<!-- thanks : http://blog.mafr.de/2010/07/24/maven-hadoop-job/ --> 
+<!-- thanks : http://blog.mafr.de/2010/07/24/maven-hadoop-job/ -->
 <assembly>
   <id>job</id>
   <formats>

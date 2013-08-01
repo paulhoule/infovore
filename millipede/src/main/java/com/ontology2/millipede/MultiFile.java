@@ -25,110 +25,110 @@ import com.ontology2.millipede.source.Source;
 
 abstract public class MultiFile<T> implements MultiSource<T> {
 
-	protected final String directory;
-	protected final String nameBase;
-	protected final String nameExtension;
-	protected final PartitionFunction<T> f;
-	private static Log logger = LogFactory.getLog(MultiFile.class);
+    protected final String directory;
+    protected final String nameBase;
+    protected final String nameExtension;
+    protected final PartitionFunction<T> f;
+    private static Log logger = LogFactory.getLog(MultiFile.class);
 
-	public MultiFile(String directory, String nameBase, String nameExtension,
-			PartitionFunction<T> f) {
-		super();
-		this.directory = directory;
-		this.nameBase = nameBase;
-		this.nameExtension = nameExtension;
-		this.f = f;
-	}
+    public MultiFile(String directory, String nameBase, String nameExtension,
+            PartitionFunction<T> f) {
+        super();
+        this.directory = directory;
+        this.nameBase = nameBase;
+        this.nameExtension = nameExtension;
+        this.f = f;
+    }
 
-	public int getPartitionCount() {
-		return getPartitionFunction().getPartitionCount();
-	}
-	
-	public PartitionFunction<T> getPartitionFunction() {
-		return f;
-	}
+    public int getPartitionCount() {
+        return getPartitionFunction().getPartitionCount();
+    }
 
-	public String getFileName() {
-		return directory;
-	};
-	
-	public String getFileName(int binNumber) {
-		testBinNumber(binNumber);
-		
-		int length=(int) ceil(log10(f.getPartitionCount()));
-		return String.format(
-		    "%s/%s%0"+length+"d%s",
-		    directory,
-		    nameBase,
-		    binNumber,
-		    nameExtension
-	    );
-	}
+    public PartitionFunction<T> getPartitionFunction() {
+        return f;
+    }
 
-	public boolean testExists() {
-		String testFile=getFileName(0);
-		return new File(testFile).exists();
-	}
+    public String getFileName() {
+        return directory;
+    };
 
-	private void testBinNumber(int binNumber) {
-		if (binNumber<0 || binNumber>=f.getPartitionCount())
-			throw new IllegalArgumentException("Bin Number ["+binNumber+"] is out of range");
-	}
+    public String getFileName(int binNumber) {
+        testBinNumber(binNumber);
 
-	abstract public long pushBin(int binNumber,Sink<T> destination) throws Exception;
-	
-	abstract public Sink<T> createSink(int binNumber) throws Exception;
+        int length=(int) ceil(log10(f.getPartitionCount()));
+        return String.format(
+                "%s/%s%0"+length+"d%s",
+                directory,
+                nameBase,
+                binNumber,
+                nameExtension
+                );
+    }
 
-	protected OutputStream createOutputStream(int binNumber) throws Exception {
-		String fileName = getFileName(binNumber);
-		Files.createParentDirs(new File(fileName));
-		
-		OutputStream stream=new FileOutputStream(fileName);
-		if(fileName.endsWith(".gz")) {
-			stream=new GZIPOutputStream(stream);
-		}
-		return stream;
-	}
+    public boolean testExists() {
+        String testFile=getFileName(0);
+        return new File(testFile).exists();
+    }
 
-	protected PrintWriter createWriter(int binNumber) throws Exception {
-		final OutputStream stream=createOutputStream(binNumber);
-		OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
-		return new PrintWriter(osw) {
-	        public void close() {
-	            super.close();
-	            try {
-	                stream.close();
-	            } catch (IOException e) {
-	                e.printStackTrace();
-	            }
-	        }
-	
-	
-	        public void flush() {
-	            super.flush();
-	            try {
-	                stream.flush();
-	            } catch (IOException e) {
-	                e.printStackTrace();
-	            }
-	        }			
-		};
-	}
+    private void testBinNumber(int binNumber) {
+        if (binNumber<0 || binNumber>=f.getPartitionCount())
+            throw new IllegalArgumentException("Bin Number ["+binNumber+"] is out of range");
+    }
 
-	protected InputStream createInputStream(int binNumber) throws Exception {
-		String fileName = getFileName(binNumber);
-		Files.createParentDirs(new File(fileName));
-		return (new FileOpener()).createInputStream(fileName);
-	}
+    abstract public long pushBin(int binNumber,Sink<T> destination) throws Exception;
 
-	protected BufferedReader createReader(int binNumber) throws Exception {
-		InputStream stream=createInputStream(binNumber);
-		return new BufferedReader(
-				new InputStreamReader(stream,"UTF-8")
-				);
-	}
-	
-	public File summaryFile() {
-		return new File(directory,"summary.ttl");
-	};
+    abstract public Sink<T> createSink(int binNumber) throws Exception;
+
+    protected OutputStream createOutputStream(int binNumber) throws Exception {
+        String fileName = getFileName(binNumber);
+        Files.createParentDirs(new File(fileName));
+
+        OutputStream stream=new FileOutputStream(fileName);
+        if(fileName.endsWith(".gz")) {
+            stream=new GZIPOutputStream(stream);
+        }
+        return stream;
+    }
+
+    protected PrintWriter createWriter(int binNumber) throws Exception {
+        final OutputStream stream=createOutputStream(binNumber);
+        OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
+        return new PrintWriter(osw) {
+            public void close() {
+                super.close();
+                try {
+                    stream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+
+            public void flush() {
+                super.flush();
+                try {
+                    stream.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }			
+        };
+    }
+
+    protected InputStream createInputStream(int binNumber) throws Exception {
+        String fileName = getFileName(binNumber);
+        Files.createParentDirs(new File(fileName));
+        return (new FileOpener()).createInputStream(fileName);
+    }
+
+    protected BufferedReader createReader(int binNumber) throws Exception {
+        InputStream stream=createInputStream(binNumber);
+        return new BufferedReader(
+                new InputStreamReader(stream,"UTF-8")
+                );
+    }
+
+    public File summaryFile() {
+        return new File(directory,"summary.ttl");
+    };
 }

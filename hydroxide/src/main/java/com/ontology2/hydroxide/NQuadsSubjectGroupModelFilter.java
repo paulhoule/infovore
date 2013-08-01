@@ -9,16 +9,16 @@ import com.hp.hpl.jena.sparql.core.DatasetGraphFactory;
 import com.hp.hpl.jena.sparql.core.Quad;
 
 public abstract class NQuadsSubjectGroupModelFilter extends NQuadsGroupOnSubject {
-	protected DatasetGraph model;
+    protected DatasetGraph model;
 
-	@Override
-	protected void openGroup() throws Exception {
-		model=DatasetGraphFactory.createMem();
-	}
+    @Override
+    protected void openGroup() throws Exception {
+        model=DatasetGraphFactory.createMem();
+    }
 
-	@Override
-	protected void acceptItem(Quad q) throws Exception {
-		model.add(q);
-	}
+    @Override
+    protected void acceptItem(Quad q) throws Exception {
+        model.add(q);
+    }
 
 }
