@@ -16,7 +16,7 @@ public class NamedKeyValueAcceptor<K,V> implements KeyValueAcceptor<K,V> {
     }
 
     @Override
-    public void write(K k, V v) throws IOException, InterruptedException {
+    public void write(K k, V v,Context c) throws IOException, InterruptedException {
         mos.write(name,k,v);
     }
 
@@ -27,6 +27,6 @@ public class NamedKeyValueAcceptor<K,V> implements KeyValueAcceptor<K,V> {
     //
 
     @Override
-    public void close() throws IOException, InterruptedException {
+    public void close(Context c) throws IOException, InterruptedException {
     };
 }

@@ -51,31 +51,35 @@ public class TestPSE3Mapper {
 
     @Test
     public void acceptsAGoodTriple() throws IOException, InterruptedException {
+        Context mockContext=mock(Context.class);
         pse3mapper.map(
                 new LongWritable(944L),
                 new Text("<http://example.com/A>\t<http://example.com/B>\t<http://example.com/C>."),
-                mock(Context.class));
+                mockContext);
         verifyNoMoreInteractions(pse3mapper.rejected);
         verify(pse3mapper.accepted).write(
-                Node_URI.createURI("http://example.com/A"),
-                new NodePair(
-                        Node_URI.createURI("http://example.com/B"),
-                        Node_URI.createURI("http://example.com/C")
-                        ));
+                Node_URI.createURI("http://example.com/A")
+                ,new NodePair(
+                        Node_URI.createURI("http://example.com/B")
+                        ,Node_URI.createURI("http://example.com/C")
+                        )
+                ,mockContext);
         verifyNoMoreInteractions(pse3mapper.accepted);
     }
 
     @Test
     public void rejectsABadTriple() throws IOException, InterruptedException {
+        Context mockContext=mock(Context.class);
         pse3mapper.map(
                 new LongWritable(24562L),
                 new Text("<http://example.com/A>\t<http://example.com/B>\t\"2001-06\"^^xsd:datetime."),
-                mock(Context.class));
+                mockContext);
 
         verify(pse3mapper.rejected).write(
-                new Text("<http://example.com/A>"),
-                new Text("<http://example.com/B>\t\"2001-06\"^^xsd:datetime.")
-                );
+                new Text("<http://example.com/A>")
+                ,new Text("<http://example.com/B>\t\"2001-06\"^^xsd:datetime.")
+                ,mockContext
+        );
 
         verifyNoMoreInteractions(pse3mapper.accepted);
         verifyNoMoreInteractions(pse3mapper.rejected);
@@ -83,7 +87,6 @@ public class TestPSE3Mapper {
 
     @After
     public void tearDown() {
-
     }
 
 }

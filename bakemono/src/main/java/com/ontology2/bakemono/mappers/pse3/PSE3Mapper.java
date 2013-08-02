@@ -14,9 +14,9 @@ import com.google.common.cache.LoadingCache;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
-import com.ontology2.bakemono.PrimaryKeyValueAcceptor;
 import com.ontology2.bakemono.abstractions.KeyValueAcceptor;
 import com.ontology2.bakemono.abstractions.NamedKeyValueAcceptor;
+import com.ontology2.bakemono.abstractions.PrimaryKeyValueAcceptor;
 import com.ontology2.bakemono.jena.NodePair;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTripleCodec;
@@ -54,11 +54,11 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
             Node_URI predicate=(Node_URI) nodeParser.get(row3.predicate);
             Node object=nodeParser.get(row3.object);
             Triple realTriple=new Triple(subject,predicate,object);
-            accepted.write(realTriple.getSubject(),new NodePair(realTriple.getPredicate(),realTriple.getObject()));
+            accepted.write(realTriple.getSubject(),new NodePair(realTriple.getPredicate(),realTriple.getObject()),c);
         } catch(Throwable e) {
             rejected.write(
                     new Text(row3.subject),
-                    new Text(row3.predicate+"\t"+row3.object+"."));
+                    new Text(row3.predicate+"\t"+row3.object+"."),c);
         }
     }
 
