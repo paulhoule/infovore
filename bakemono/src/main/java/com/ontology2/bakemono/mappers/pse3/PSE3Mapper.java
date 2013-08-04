@@ -56,9 +56,9 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
             Triple realTriple=new Triple(subject,predicate,object);
             accepted.write(realTriple.getSubject(),new NodePair(realTriple.getPredicate(),realTriple.getObject()),c);
         } catch(Throwable e) {
-            rejected.write(
-                    new Text(row3.subject),
-                    new Text(row3.predicate+"\t"+row3.object+"."),c);
+ //           rejected.write(
+ //                   new Text(row3.subject),
+ //                   new Text(row3.predicate+"\t"+row3.object+"."),c);
         }
     }
 

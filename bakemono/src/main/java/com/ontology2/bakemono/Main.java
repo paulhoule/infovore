@@ -36,7 +36,7 @@ import com.ontology2.millipede.shell.CommandLineApplication;
 public class Main implements Runnable {
     private static Log logger = LogFactory.getLog(Main.class);
 
-    static class IncorrectUsageException extends Exception {
+    public static class IncorrectUsageException extends Exception {
         public IncorrectUsageException(String message) {
             super(message);
         }
