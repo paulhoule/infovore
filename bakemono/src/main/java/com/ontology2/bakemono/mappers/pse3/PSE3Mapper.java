@@ -54,15 +54,29 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
             Node_URI predicate=(Node_URI) nodeParser.get(row3.predicate);
             Node object=nodeParser.get(row3.object);
             Triple realTriple=new Triple(subject,predicate,object);
-            c.getCounter(PSE3Counters.ACCEPTED).increment(1);
+            incrementCounter(c,PSE3Counters.ACCEPTED,1);
             accepted.write(realTriple.getSubject(),new NodePair(realTriple.getPredicate(),realTriple.getObject()),c);
         } catch(Throwable e) {
-            c.getCounter(PSE3Counters.REJECTED).increment(1);
+            incrementCounter(c,PSE3Counters.REJECTED,1);
             rejected.write(
                     new Text(row3.subject),
                     new Text(row3.predicate+"\t"+row3.object+"."),c);
         }
     }
+
+    //
+    // this code prevents failing test because the mock object Context we are passing back
+    // always returns null from getCounter...  With a more sophisticated mock object perhaps
+    // the system will produce individual mocks for each counter so we can watch what
+    // happens with counters
+    //
+    
+    private void incrementCounter(Context context,Enum <?> counterId,long amount) {
+        Counter counter=context.getCounter(counterId);
+        if(counter!=null) {
+            counter.increment(amount);
+        };
+    };
 
 
     @Override
