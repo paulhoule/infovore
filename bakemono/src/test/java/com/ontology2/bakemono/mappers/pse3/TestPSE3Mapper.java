@@ -30,24 +30,14 @@ public class TestPSE3Mapper {
     @Before
     public void setup() {
         pse3mapper=new PSE3Mapper();
-        pse3mapper.mos=mock(MultipleOutputs.class);
         pse3mapper.accepted=mock(KeyValueAcceptor.class);
-        pse3mapper.rejected=mock(KeyValueAcceptor.class);
     }
 
     @Test
     public void touchlessAtInitalization() {
-        verifyNoMoreInteractions(pse3mapper.mos);
         verifyNoMoreInteractions(pse3mapper.accepted);
-        verifyNoMoreInteractions(pse3mapper.rejected);
     }
 
-    @Test
-    public void closesMosOnShutdown() throws IOException, InterruptedException {
-        pse3mapper.cleanup(mock(Context.class));
-        verify(pse3mapper.mos).close();
-        verifyNoMoreInteractions(pse3mapper.mos);
-    }
 
     @Test
     public void acceptsAGoodTriple() throws IOException, InterruptedException {
@@ -56,7 +46,7 @@ public class TestPSE3Mapper {
                 new LongWritable(944L),
                 new Text("<http://example.com/A>\t<http://example.com/B>\t<http://example.com/C>."),
                 mockContext);
-        verifyNoMoreInteractions(pse3mapper.rejected);
+
         verify(pse3mapper.accepted).write(
                 Node_URI.createURI("http://example.com/A")
                 ,new NodePair(
@@ -75,14 +65,9 @@ public class TestPSE3Mapper {
                 new Text("<http://example.com/A>\t<http://example.com/B>\t\"2001-06\"^^xsd:datetime."),
                 mockContext);
 
-        verify(pse3mapper.rejected).write(
-                new Text("<http://example.com/A>")
-                ,new Text("<http://example.com/B>\t\"2001-06\"^^xsd:datetime.")
-                ,mockContext
-        );
+        verify(mockContext).getCounter(PSE3Counters.REJECTED);
 
         verifyNoMoreInteractions(pse3mapper.accepted);
-        verifyNoMoreInteractions(pse3mapper.rejected);
     }
 
     @After

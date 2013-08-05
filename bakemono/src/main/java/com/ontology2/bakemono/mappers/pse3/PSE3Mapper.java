@@ -33,17 +33,13 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
     // can mess with them
     //
 
-    MultipleOutputs mos;
     KeyValueAcceptor<Node,NodePair> accepted;
-    KeyValueAcceptor<Text,Text> rejected;
 
     @Override
     protected void setup(Context context) throws IOException,
     InterruptedException {
         super.setup(context);
-        mos=new MultipleOutputs(context);
         accepted=new PrimaryKeyValueAcceptor(context);
-        rejected=new NamedKeyValueAcceptor(mos,"rejected");
     }
 
     @Override
@@ -58,9 +54,6 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
             accepted.write(realTriple.getSubject(),new NodePair(realTriple.getPredicate(),realTriple.getObject()),c);
         } catch(Throwable e) {
             incrementCounter(c,PSE3Counters.REJECTED,1);
-            rejected.write(
-                    new Text(row3.subject),
-                    new Text(row3.predicate+"\t"+row3.object+"."),c);
         }
     }
 
@@ -83,7 +76,6 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
     protected void cleanup(org.apache.hadoop.mapreduce.Mapper.Context context)
             throws IOException, InterruptedException {
         super.cleanup(context);
-        mos.close();
     }
 
 }
