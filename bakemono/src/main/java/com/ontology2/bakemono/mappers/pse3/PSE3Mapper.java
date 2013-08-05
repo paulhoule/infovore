@@ -54,11 +54,13 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
             Node_URI predicate=(Node_URI) nodeParser.get(row3.predicate);
             Node object=nodeParser.get(row3.object);
             Triple realTriple=new Triple(subject,predicate,object);
+            c.getCounter(PSE3Counters.ACCEPTED).increment(1);
             accepted.write(realTriple.getSubject(),new NodePair(realTriple.getPredicate(),realTriple.getObject()),c);
         } catch(Throwable e) {
- //           rejected.write(
- //                   new Text(row3.subject),
- //                   new Text(row3.predicate+"\t"+row3.object+"."),c);
+            c.getCounter(PSE3Counters.REJECTED).increment(1);
+            rejected.write(
+                    new Text(row3.subject),
+                    new Text(row3.predicate+"\t"+row3.object+"."),c);
         }
     }
 
