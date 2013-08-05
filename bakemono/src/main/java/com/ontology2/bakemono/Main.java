@@ -97,7 +97,7 @@ public class Main implements Runnable {
 
         toolName=args.get(1);
         if(!myApps.containsKey(toolName))
-            errorCausedByUser("you specified a command not supported by the bakemono tool");
+            errorCausedByUser("you specified a tool not supported by the bakemono system");
 
         Class clazz=myApps.get(toolName);
         tool=(Tool) clazz.newInstance();
