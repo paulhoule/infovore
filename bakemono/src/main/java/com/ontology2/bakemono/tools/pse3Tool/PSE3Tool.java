@@ -15,6 +15,7 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 
 import com.hp.hpl.jena.graph.Node;
+import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.reasoner.rulesys.impl.TempNodeCache.NodePair;
 import com.ontology2.bakemono.Main;
 import com.ontology2.bakemono.jena.SPOTripleOutputFormat;
@@ -62,10 +63,10 @@ public class PSE3Tool implements Tool {
             job.setNumReduceTasks(50);
             
             job.setMapOutputKeyClass(WritableTriple.class);
-            job.setMapOutputValueClass(WritableTriple.class);
+            job.setMapOutputValueClass(LongWritable.class);
             
             job.setOutputFormatClass(SPOTripleOutputFormat.class);
-            job.setOutputKeyClass(WritableTriple.class);
+            job.setOutputKeyClass(Triple.class);
             job.setOutputValueClass(LongWritable.class);
             FileInputFormat.addInputPath(job, new Path(input));
             FileOutputFormat.setOutputPath(job, new Path(output));
