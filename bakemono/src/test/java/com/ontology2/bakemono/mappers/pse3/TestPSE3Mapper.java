@@ -20,6 +20,7 @@ import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
 import com.ontology2.bakemono.abstractions.KeyValueAcceptor;
 import com.ontology2.bakemono.jena.NodePair;
+import com.ontology2.bakemono.jena.WritableTriple;
 import com.ontology2.bakemono.mappers.pse3.PSE3Mapper;
 
 
@@ -49,7 +50,7 @@ public class TestPSE3Mapper {
                 mockContext);
 
         verify(pse3mapper.accepted).write(
-                new Triple(
+                new WritableTriple(
                         Node_URI.createURI("http://example.com/A")
                         ,Node_URI.createURI("http://example.com/B")
                         ,Node_URI.createURI("http://example.com/C")

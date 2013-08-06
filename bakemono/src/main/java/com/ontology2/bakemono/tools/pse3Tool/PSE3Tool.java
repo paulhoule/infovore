@@ -20,6 +20,7 @@ import com.ontology2.bakemono.Main;
 import com.ontology2.bakemono.jena.SPOTripleOutputFormat;
 import com.ontology2.bakemono.jena.STripleOutputFormat;
 import com.ontology2.bakemono.jena.TripleComparator;
+import com.ontology2.bakemono.jena.WritableTriple;
 import com.ontology2.bakemono.mappers.pse3.PSE3Mapper;
 import com.ontology2.bakemono.reducers.uniq.Uniq;
 
@@ -60,10 +61,12 @@ public class PSE3Tool implements Tool {
             job.setReducerClass(Uniq.class);
             job.setNumReduceTasks(50);
             
-//            job.setGroupingComparatorClass(TripleComparator.class);
+            job.setMapOutputKeyClass(WritableTriple.class);
+            job.setMapOutputValueClass(WritableTriple.class);
+            
             job.setOutputFormatClass(SPOTripleOutputFormat.class);
-            job.setOutputKeyClass(Node.class);
-            job.setOutputValueClass(NodePair.class);
+            job.setOutputKeyClass(WritableTriple.class);
+            job.setOutputValueClass(LongWritable.class);
             FileInputFormat.addInputPath(job, new Path(input));
             FileOutputFormat.setOutputPath(job, new Path(output));
             return job.waitForCompletion(true) ? 0 :1;

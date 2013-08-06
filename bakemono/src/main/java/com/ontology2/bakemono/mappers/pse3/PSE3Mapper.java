@@ -18,11 +18,12 @@ import com.ontology2.bakemono.abstractions.KeyValueAcceptor;
 import com.ontology2.bakemono.abstractions.NamedKeyValueAcceptor;
 import com.ontology2.bakemono.abstractions.PrimaryKeyValueAcceptor;
 import com.ontology2.bakemono.jena.NodePair;
+import com.ontology2.bakemono.jena.WritableTriple;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTripleCodec;
 import com.ontology2.rdf.JenaUtil;
 
-public class PSE3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
+public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWritable> {
     private static org.apache.commons.logging.Log logger = LogFactory.getLog(PSE3Mapper.class);
     final LoadingCache<String,Node> nodeParser=JenaUtil.createNodeParseCache();
 
@@ -33,7 +34,7 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
     // can mess with them
     //
 
-    KeyValueAcceptor<Triple,LongWritable> accepted;
+    KeyValueAcceptor<WritableTriple,LongWritable> accepted;
 
     @Override
     protected void setup(Context context) throws IOException,
@@ -51,7 +52,7 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
             Node object=nodeParser.get(row3.object);
             Triple realTriple=new Triple(subject,predicate,object);
             incrementCounter(c,PSE3Counters.ACCEPTED,1);
-            accepted.write(realTriple,new LongWritable(1),c);
+            accepted.write(new WritableTriple(realTriple),new LongWritable(1),c);
         } catch(Throwable e) {
             incrementCounter(c,PSE3Counters.REJECTED,1);
         }
