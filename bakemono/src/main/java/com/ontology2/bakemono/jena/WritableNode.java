@@ -24,6 +24,13 @@ public class WritableNode implements Writable {
     final static int GENERAL_LITERAL=2;
     private TypeMapper typeLookup=TypeMapper.getInstance();
     
+    // try to write this when this is null and you're in trouble,  this is only
+    // intended for use if you wish to read
+    
+    public WritableNode() {
+        innerNode=null;
+    }
+    
     public WritableNode(Node n) {
         innerNode=n;
     }
