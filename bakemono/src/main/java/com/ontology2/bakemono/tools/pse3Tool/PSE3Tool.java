@@ -17,8 +17,11 @@ import org.apache.hadoop.util.Tool;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.reasoner.rulesys.impl.TempNodeCache.NodePair;
 import com.ontology2.bakemono.Main;
+import com.ontology2.bakemono.jena.SPOTripleOutputFormat;
 import com.ontology2.bakemono.jena.STripleOutputFormat;
+import com.ontology2.bakemono.jena.TripleComparator;
 import com.ontology2.bakemono.mappers.pse3.PSE3Mapper;
+import com.ontology2.bakemono.reducers.uniq.Uniq;
 
 public class PSE3Tool implements Tool {
 
@@ -54,13 +57,15 @@ public class PSE3Tool implements Tool {
             Job job=new Job(conf,"pse3");
             job.setJarByClass(PSE3Tool.class);
             job.setMapperClass(PSE3Mapper.class);
-            job.setNumReduceTasks(0);
-            job.setOutputFormatClass(STripleOutputFormat.class);
+            job.setReducerClass(Uniq.class);
+            job.setNumReduceTasks(50);
+            
+//            job.setGroupingComparatorClass(TripleComparator.class);
+            job.setOutputFormatClass(SPOTripleOutputFormat.class);
             job.setOutputKeyClass(Node.class);
             job.setOutputValueClass(NodePair.class);
             FileInputFormat.addInputPath(job, new Path(input));
             FileOutputFormat.setOutputPath(job, new Path(output));
-            MultipleOutputs.addNamedOutput(job, "rejected", TextOutputFormat.class, Text.class, Text.class);
             return job.waitForCompletion(true) ? 0 :1;
         } catch(Main.IncorrectUsageException iue) {
             return 2;

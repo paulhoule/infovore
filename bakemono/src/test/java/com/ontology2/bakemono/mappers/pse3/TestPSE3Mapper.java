@@ -17,6 +17,7 @@ import org.apache.hadoop.mapreduce.lib.output.MultipleOutputs;
 import org.apache.hadoop.mapreduce.Mapper.Context;
 
 import com.hp.hpl.jena.graph.Node_URI;
+import com.hp.hpl.jena.graph.Triple;
 import com.ontology2.bakemono.abstractions.KeyValueAcceptor;
 import com.ontology2.bakemono.jena.NodePair;
 import com.ontology2.bakemono.mappers.pse3.PSE3Mapper;
@@ -48,11 +49,12 @@ public class TestPSE3Mapper {
                 mockContext);
 
         verify(pse3mapper.accepted).write(
-                Node_URI.createURI("http://example.com/A")
-                ,new NodePair(
-                        Node_URI.createURI("http://example.com/B")
+                new Triple(
+                        Node_URI.createURI("http://example.com/A")
+                        ,Node_URI.createURI("http://example.com/B")
                         ,Node_URI.createURI("http://example.com/C")
-                        )
+                 )
+                ,new LongWritable(1)
                 ,mockContext);
         verifyNoMoreInteractions(pse3mapper.accepted);
     }

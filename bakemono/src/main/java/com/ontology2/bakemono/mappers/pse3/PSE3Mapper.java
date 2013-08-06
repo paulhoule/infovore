@@ -33,7 +33,7 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
     // can mess with them
     //
 
-    KeyValueAcceptor<Node,NodePair> accepted;
+    KeyValueAcceptor<Triple,LongWritable> accepted;
 
     @Override
     protected void setup(Context context) throws IOException,
@@ -51,7 +51,7 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,Node,NodePair> {
             Node object=nodeParser.get(row3.object);
             Triple realTriple=new Triple(subject,predicate,object);
             incrementCounter(c,PSE3Counters.ACCEPTED,1);
-            accepted.write(realTriple.getSubject(),new NodePair(realTriple.getPredicate(),realTriple.getObject()),c);
+            accepted.write(realTriple,new LongWritable(1),c);
         } catch(Throwable e) {
             incrementCounter(c,PSE3Counters.REJECTED,1);
         }

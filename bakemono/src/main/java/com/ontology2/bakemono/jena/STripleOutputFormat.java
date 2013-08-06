@@ -16,63 +16,16 @@ import org.apache.hadoop.util.Progressable;
 import org.apache.hadoop.util.ReflectionUtils;
 import org.openjena.riot.out.SinkTripleOutput;
 
+import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
 
-public class STripleOutputFormat extends FileOutputFormat<Node_URI, NodePair> {
-
-    private DataOutputStream innerStream;
-
-    public class TripleRecordWriter extends RecordWriter<Node_URI, NodePair> {
-
-        private final DataOutputStream innerOutput;
-        private final SinkTripleOutput innerSink;
-
-        public TripleRecordWriter(DataOutputStream innerOutput) {
-            this.innerOutput=innerOutput;
-            this.innerSink = new SinkTripleOutput(innerOutput);
-        }
-        @Override
-        public void write(Node_URI key, NodePair value) throws IOException {
-            this.innerSink.send((makeTriple(key,value)));
-        }
-
-        private Triple makeTriple(Node_URI key, NodePair value) {
-            return new Triple(key,value.getOne(),value.getTwo());
-        }
-
-        @Override
-        public void close(TaskAttemptContext context) throws IOException,
-        InterruptedException {
-            innerSink.close();
-            innerStream.close();
-        }
-
-    }
+public class STripleOutputFormat extends TripleOutputFormat<Node,NodePair> {
 
     @Override
-    public RecordWriter<Node_URI, NodePair> getRecordWriter(TaskAttemptContext ctx) throws IOException {
-        boolean isCompressed = getCompressOutput(ctx);
-
-        if (!isCompressed) {
-            Path file = getDefaultWorkFile(ctx, ".nt");
-            FileSystem fs = file.getFileSystem(ctx.getConfiguration());
-            FSDataOutputStream fileOut = fs.create(file, false);
-            return new TripleRecordWriter(fileOut);
-        } else {
-            Class<? extends CompressionCodec> codecClass =
-                    getOutputCompressorClass(ctx, GzipCodec.class);
-
-            CompressionCodec codec = ReflectionUtils.newInstance(codecClass, ctx.getConfiguration());
-            Path file =  getDefaultWorkFile(ctx, ".nt"+codec.getDefaultExtension());
-            FileSystem fs = file.getFileSystem(ctx.getConfiguration());
-            FSDataOutputStream fileOut = fs.create(file, false);
-            innerStream = new DataOutputStream(codec.createOutputStream(fileOut));
-            return new TripleRecordWriter(innerStream);
-        }
-
+    protected Triple makeTriple(Node key, NodePair value) {
+        // TODO Auto-generated method stub
+        return new Triple(key,value.getOne(),value.getTwo());
     }
-
-
 
 }
