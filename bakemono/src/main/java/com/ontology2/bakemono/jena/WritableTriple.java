@@ -69,4 +69,8 @@ public class WritableTriple implements WritableComparable {
         return tc.compare(this.getTriple(), ((WritableTriple) that).getTriple());
     }
 
+    @Override
+    public int hashCode() {
+        return getTriple().hashCode();
+    }
 }

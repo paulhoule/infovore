@@ -79,4 +79,16 @@ public class WritableNode implements Writable {
         return innerNode;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return (obj instanceof WritableNode)
+                ? ((WritableNode) obj).getNode().equals(getNode())
+                : false;
+    }
+
+    @Override
+    public int hashCode() {
+        return getNode().hashCode();
+    }
+
 }
