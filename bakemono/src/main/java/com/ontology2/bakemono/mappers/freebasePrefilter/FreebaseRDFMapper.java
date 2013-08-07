@@ -190,17 +190,20 @@ public class FreebaseRDFMapper extends Mapper<LongWritable,Text,Text,Text> {
 
 
     public static Function<PrimitiveTriple, PrimitiveTriple> tripleRewritingFunction() {
-        return Functions.compose(Functions.compose(
+        return Functions.compose(Functions.compose(Functions.compose(
                 new PrimitiveTripleReverser(
                         "<http://rdf.freebase.com/ns/type.permission.controls>"
                         ,"<http://rdf.freebase.com/ns/m.0j2r9sk>")
                 ,new PrimitiveTripleReverser(
                         "<http://rdf.freebase.com/ns/dataworld.gardening_hint.replaced_by>"
                         ,"<http://rdf.freebase.com/ns/m.0j2r8t8>"))
-                        ,new PrimitiveTriplePredicateRewriter(
-                                "<http://rdf.freebase.com/ns/type.object.type>",
-                                "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>"));
+                ,new PrimitiveTriplePredicateRewriter(
+                        "<http://rdf.freebase.com/ns/type.object.type>",
+                        "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>"))
+                ,new PrimitiveTripleTypeRewriter(
+                        "xsd:datatype",
+                        "<http://rdf.ontology2.com/freebaseDate>"
+                        ));
     }
-
 
 }

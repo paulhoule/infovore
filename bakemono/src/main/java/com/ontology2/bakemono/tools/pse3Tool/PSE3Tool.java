@@ -56,7 +56,7 @@ public class PSE3Tool implements Tool {
             job.setJarByClass(PSE3Tool.class);
             job.setMapperClass(PSE3Mapper.class);
             job.setReducerClass(Uniq.class);
-            job.setNumReduceTasks(50);
+            job.setNumReduceTasks(500);
             
             job.setMapOutputKeyClass(WritableTriple.class);
             job.setMapOutputValueClass(LongWritable.class);
