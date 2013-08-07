@@ -1,4 +1,4 @@
-package com.ontology2.bakemono.mappers.freebasePrefilter;
+package com.ontology2.millipede.primitiveTriples;
 
 import static org.junit.Assert.*;
 
@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import com.google.common.base.Function;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
+import com.ontology2.millipede.primitiveTriples.PrimitiveTripleTypeRewriter;
 
 public class PrimitiveTripleTypeRewriterTest {
 

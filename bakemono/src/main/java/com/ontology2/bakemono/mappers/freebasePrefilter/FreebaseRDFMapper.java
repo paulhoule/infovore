@@ -23,6 +23,7 @@ import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTripleCodec;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriplePredicateRewriter;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTripleReverser;
+import com.ontology2.millipede.primitiveTriples.PrimitiveTripleTypeRewriter;
 import com.ontology2.millipede.sink.Sink;
 
 import org.apache.commons.logging.Log;

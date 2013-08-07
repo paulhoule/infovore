@@ -1,7 +1,6 @@
-package com.ontology2.bakemono.mappers.freebasePrefilter;
+package com.ontology2.millipede.primitiveTriples;
 
 import com.google.common.base.Function;
-import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
 
 public class PrimitiveTripleTypeRewriter implements
         Function<PrimitiveTriple,PrimitiveTriple> {
