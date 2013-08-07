@@ -40,11 +40,6 @@ public class FreebaseRDFTool implements Tool {
         String input=arg0[0];
         String output=arg0[1];
 
-        //		configuration.set("mapred.output.compress","true");
-        //		configuration.set("mapred.output.compression.type",CompressionType.BLOCK.toString());
-        //		configuration.set("mapred.output.compression.codec",GzipCodec.class.getCanonicalName());
-
-
         Job job = new Job(configuration,"prefilter");
         job.setJarByClass(FreebaseRDFTool.class);		
         job.setMapperClass(FreebaseRDFMapper.class);

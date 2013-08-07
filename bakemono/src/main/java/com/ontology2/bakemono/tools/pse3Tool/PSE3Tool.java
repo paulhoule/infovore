@@ -47,14 +47,10 @@ public class PSE3Tool implements Tool {
     
             String input=arg0[0];
             String output=arg0[1];
-    
-            //
-            // looks like "mapreduce" looks to "mapred" for these parameters
-            //
-    
-            conf.set("mapred.output.compress","true");
-            conf.set("mapred.output.compression.type",CompressionType.BLOCK.toString());
-            conf.set("mapred.output.compression.codec",GzipCodec.class.getCanonicalName());
+            
+            conf.set("mapred.compress.map.output", "true");
+            conf.set("mapred.output.compression.type", "BLOCK"); 
+            conf.set("mapred.map.output.compression.codec", "org.apache.hadoop.io.compress.GzipCodec");
     
             Job job=new Job(conf,"pse3");
             job.setJarByClass(PSE3Tool.class);
@@ -70,6 +66,8 @@ public class PSE3Tool implements Tool {
             job.setOutputValueClass(LongWritable.class);
             FileInputFormat.addInputPath(job, new Path(input));
             FileOutputFormat.setOutputPath(job, new Path(output));
+            FileOutputFormat.setCompressOutput(job, true);
+            FileOutputFormat.setOutputCompressorClass(job, GzipCodec.class);
             return job.waitForCompletion(true) ? 0 :1;
         } catch(Main.IncorrectUsageException iue) {
             return 2;
