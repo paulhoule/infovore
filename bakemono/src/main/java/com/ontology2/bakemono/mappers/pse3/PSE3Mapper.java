@@ -55,6 +55,7 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
             accepted.write(new WritableTriple(realTriple),new LongWritable(1),c);
         } catch(Throwable e) {
             incrementCounter(c,PSE3Counters.REJECTED,1);
+ //           logger.warn("Ill-formed triple: "+arg1);
         }
     }
 
