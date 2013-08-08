@@ -57,6 +57,15 @@ public class TestPrimitiveTripleCodec {
     }
     
     @Test
+    public void parsesALiteralTripleWithNoSpaceBeforeTerminalPeriod() {
+        String in=X+"\t"+Y+"\t "+L1+".";
+        PrimitiveTriple out=codec.decode(in);
+        assertEquals(X,out.subject);
+        assertEquals(Y,out.predicate);
+        assertEquals(L1,out.object);
+    }
+    
+    @Test
     public void parsesALiteralValueWithSpaces() {
         String in=X+"\t"+Y+"\t "+L2+"\t.";
         PrimitiveTriple out=codec.decode(in);
