@@ -15,6 +15,10 @@ abstract class LineProcessingRecordReader<X> extends
         RecordReader<LongWritable, X> {
     LineRecordReader innerReader;
 
+    public LineProcessingRecordReader() {
+        innerReader=new LineRecordReader();
+    }
+    
     @Override
     public void initialize(InputSplit split, TaskAttemptContext context)
             throws IOException, InterruptedException {
