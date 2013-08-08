@@ -202,7 +202,7 @@ public class FreebaseRDFMapper extends Mapper<LongWritable,Text,Text,Text> {
                         "<http://rdf.freebase.com/ns/type.object.type>",
                         "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>"))
                 ,new PrimitiveTripleTypeRewriter(
-                        "xsd:datatype",
+                        "xsd:datetime",
                         "<http://rdf.ontology2.com/freebaseDate>"
                         ));
     }
