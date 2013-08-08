@@ -45,9 +45,10 @@ public class GenerateRegisterStatements {
                     System.out.println(c);
                 }
             }
-            
-            System.out.println("REGISTER /home/paul/.m2/repository/com/ontology2/chopper/2.0-SNAPSHOT/chopper-2.0-SNAPSHOT.jar");
         }
+        
+        String homeDir = System.getProperty("user.home");
+        System.out.println("REGISTER "+new File(homeDir,"/.m2/repository/com/ontology2/chopper/2.0-SNAPSHOT/chopper-2.0-SNAPSHOT.jar"));
     }
 
     private static boolean ok(String c) {

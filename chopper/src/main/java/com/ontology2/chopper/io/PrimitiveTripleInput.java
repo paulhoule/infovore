@@ -26,10 +26,13 @@ public class PrimitiveTripleInput extends LoadFunc {
     private RecordReader<LongWritable,PrimitiveTriple> in;
     private TupleFactory mTupleFactory = TupleFactory.getInstance();
 
+    public PrimitiveTripleInput() {
+        super();
+    }
+    
     @Override
     public void setLocation(String location, Job job) throws IOException {
         FileInputFormat.setInputPaths(job, location);
-
     }
 
     @Override
