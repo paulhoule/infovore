@@ -22,7 +22,7 @@
      <target>1.6</target>
     </configuration>
    </plugin>
-<!--   <plugin>
+   <plugin>
      <groupId>org.jvnet.maven.incrementalbuild</groupId>
      <artifactId>incremental-build-plugin</artifactId>
      <version>1.3</version>
@@ -33,6 +33,6 @@
          </goals>
        </execution>
      </executions>
-   </plugin> -->
+   </plugin>
   </plugins></build>
 </project>
