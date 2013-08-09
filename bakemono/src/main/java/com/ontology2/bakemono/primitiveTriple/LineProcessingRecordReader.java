@@ -24,7 +24,6 @@ abstract class LineProcessingRecordReader<X> extends
     @Override
     public void initialize(InputSplit split, TaskAttemptContext context)
             throws IOException, InterruptedException {
-        logger.info("Initializing Reader");
         innerReader.initialize(split, context);
     }
 
@@ -32,21 +31,18 @@ abstract class LineProcessingRecordReader<X> extends
     public boolean nextKeyValue() throws IOException,
             InterruptedException {
         boolean b=innerReader.nextKeyValue();
-        logger.info("nextKeyValue() returns "+b);
         return b;
     }
 
     @Override
     public LongWritable getCurrentKey() throws IOException,
             InterruptedException {
-        logger.info("getCurrentKey()");
         return innerReader.getCurrentKey();
     }
 
     @Override
     public X getCurrentValue() throws IOException,
             InterruptedException {
-        logger.info("getCurrentValue()");
         Text line=innerReader.getCurrentValue();
         return convert(line);
     }

@@ -26,7 +26,6 @@ public class PrimitiveTripleInputFormat extends FileInputFormat<LongWritable,Pri
 
             @Override
             PrimitiveTriple convert(Text line) {
-                logger.info("tried to read string "+line);
                 return ptc.decode(line.toString());
             }
             
