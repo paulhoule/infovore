@@ -50,15 +50,16 @@ public class PrimitiveTripleInput extends LoadFunc {
     @Override
     public Tuple getNext() throws IOException {
         try {
-            boolean notDone = in.nextKeyValue();
-            if (notDone) {
+            boolean done = !in.nextKeyValue();
+            if (done) {
                 return null;
             }
+            
             PrimitiveTriple t=in.getCurrentValue();
-            List<Text> parts=new ArrayList<Text>(3);
-            parts.add(new Text(t.subject));
-            parts.add(new Text(t.predicate));
-            parts.add(new Text(t.object));
+            List<String> parts=new ArrayList<String>(3);
+            parts.add(t.subject);
+            parts.add(t.predicate);
+            parts.add(t.object);
             
             return mTupleFactory.newTupleNoCopy(parts);
 
