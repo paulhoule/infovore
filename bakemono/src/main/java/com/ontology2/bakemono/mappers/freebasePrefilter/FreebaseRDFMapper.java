@@ -182,6 +182,7 @@ public class FreebaseRDFMapper extends Mapper<LongWritable,Text,Text,Text> {
         return Predicates.not(Predicates.or(
                 PrimitiveTriple.hasPredicate("<http://rdf.freebase.com/ns/type.type.instance>"),
                 PrimitiveTriple.hasPredicate("<http://rdf.freebase.com/ns/type.type.expected_by>"),
+                PrimitiveTriple.hasPredicate("<http://rdf.freebase.com/ns/common.notable_for.display_name>"),
                 Predicates.and(
                         PrimitiveTriple.hasPredicate("<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>"),
                         PrimitiveTriple.objectMatchesPrefix("<http://rdf.freebase.com")

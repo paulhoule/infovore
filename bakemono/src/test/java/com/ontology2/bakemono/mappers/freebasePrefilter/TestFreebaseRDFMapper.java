@@ -155,6 +155,15 @@ public class TestFreebaseRDFMapper {
         verify(context).getCounter(FreebasePrefilterCounter.IGNORED);
         verifyNoMoreInteractions(context);
     }
+    
+    @Test
+    public void ignoreNotableForDisplayNames() throws IOException,
+    InterruptedException {
+        String ordinaryTriple = "ns:rock.me.amadeus\tns:common.notable_for.display_name\t\"Musikale Tracke\"@en";
+        mapper.map(new LongWritable(1L), new Text(ordinaryTriple), context);
+        verify(context).getCounter(FreebasePrefilterCounter.IGNORED);
+        verifyNoMoreInteractions(context);
+    }
 
     @Test
     public void usuallyTypeObjectTypeRewritesToA() throws IOException,
