@@ -54,8 +54,8 @@ public class FreebaseRDFMapper extends Mapper<LongWritable,Text,Text,Text> {
 
     @Override
     public void setup(Context job) {
-        declarePrefix("@prefix ns: <http://rdf.freebase.com/ns/>.");
-        declarePrefix("@prefix key: <http://rdf.freebase.com/key/>.");
+        declarePrefix("@prefix ns: <http://rdf.basekb.com/ns/>.");
+        declarePrefix("@prefix key: <http://rdf.basekb.com/key/>.");
         declarePrefix("@prefix owl: <http://www.w3.org/2002/07/owl#>.");
         declarePrefix("@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.");
         declarePrefix("@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.");
