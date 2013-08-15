@@ -180,12 +180,12 @@ public class FreebaseRDFMapper extends Mapper<LongWritable,Text,Text,Text> {
 
     public static Predicate <PrimitiveTriple> acceptTheseTriples() {
         return Predicates.not(Predicates.or(
-                PrimitiveTriple.hasPredicate("<http://rdf.freebase.com/ns/type.type.instance>"),
-                PrimitiveTriple.hasPredicate("<http://rdf.freebase.com/ns/type.type.expected_by>"),
-                PrimitiveTriple.hasPredicate("<http://rdf.freebase.com/ns/common.notable_for.display_name>"),
+                PrimitiveTriple.hasPredicate("<http://rdf.basekb.com/ns/type.type.instance>"),
+                PrimitiveTriple.hasPredicate("<http://rdf.basekb.com/ns/type.type.expected_by>"),
+                PrimitiveTriple.hasPredicate("<http://rdf.basekb.com/ns/common.notable_for.display_name>"),
                 Predicates.and(
                         PrimitiveTriple.hasPredicate("<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>"),
-                        PrimitiveTriple.objectMatchesPrefix("<http://rdf.freebase.com")
+                        PrimitiveTriple.objectMatchesPrefix("<http://rdf.basekb.com")
                         )
                 ));
     }
@@ -194,13 +194,13 @@ public class FreebaseRDFMapper extends Mapper<LongWritable,Text,Text,Text> {
     public static Function<PrimitiveTriple, PrimitiveTriple> tripleRewritingFunction() {
         return Functions.compose(Functions.compose(Functions.compose(
                 new PrimitiveTripleReverser(
-                        "<http://rdf.freebase.com/ns/type.permission.controls>"
-                        ,"<http://rdf.freebase.com/ns/m.0j2r9sk>")
+                        "<http://rdf.basekb.com/ns/type.permission.controls>"
+                        ,"<http://rdf.basekb.com/ns/m.0j2r9sk>")
                 ,new PrimitiveTripleReverser(
-                        "<http://rdf.freebase.com/ns/dataworld.gardening_hint.replaced_by>"
-                        ,"<http://rdf.freebase.com/ns/m.0j2r8t8>"))
+                        "<http://rdf.basekb.com/ns/dataworld.gardening_hint.replaced_by>"
+                        ,"<http://rdf.basekb.com/ns/m.0j2r8t8>"))
                 ,new PrimitiveTriplePredicateRewriter(
-                        "<http://rdf.freebase.com/ns/type.object.type>",
+                        "<http://rdf.basekb.com/ns/type.object.type>",
                         "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>"))
                 ,new PrimitiveTripleTypeRewriter(
                         "xsd:datetime",
