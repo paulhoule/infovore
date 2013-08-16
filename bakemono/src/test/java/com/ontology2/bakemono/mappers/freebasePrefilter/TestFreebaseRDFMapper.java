@@ -19,10 +19,10 @@ import org.junit.Test;
 import static org.mockito.Mockito.*;
 
 import com.ontology2.bakemono.mappers.freebasePrefilter.FreebaseRDFMapper;
-import com.ontology2.hydroxide.InvalidPrefixException;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.millipede.sink.ListSink;
 import com.ontology2.millipede.sink.NullSink;
+import com.ontology2.rdf.InvalidPrefixException;
 
 public class TestFreebaseRDFMapper {
 

@@ -15,8 +15,6 @@ import com.google.common.base.Predicates;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
-import com.ontology2.hydroxide.InvalidNodeException;
-import com.ontology2.hydroxide.InvalidPrefixException;
 import com.ontology2.millipede.Codec;
 import com.ontology2.millipede.Partitioner;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
@@ -25,6 +23,8 @@ import com.ontology2.millipede.primitiveTriples.PrimitiveTriplePredicateRewriter
 import com.ontology2.millipede.primitiveTriples.PrimitiveTripleReverser;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTripleTypeRewriter;
 import com.ontology2.millipede.sink.Sink;
+import com.ontology2.rdf.InvalidNodeException;
+import com.ontology2.rdf.InvalidPrefixException;
 
 import org.apache.commons.logging.Log;
 
