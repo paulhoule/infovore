@@ -1,4 +1,4 @@
-package com.ontology2.hydroxide.shell;
+package com.ontology2.millipede.shell;
 
 import static org.junit.Assert.*;
 
