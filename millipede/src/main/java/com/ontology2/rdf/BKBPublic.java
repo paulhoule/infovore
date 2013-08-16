@@ -1,4 +1,4 @@
-package com.ontology2.hydroxide;
+package com.ontology2.rdf;
 
 import com.hp.hpl.jena.graph.Node;
 
