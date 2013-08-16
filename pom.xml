@@ -7,11 +7,10 @@
   <packaging>pom</packaging>
   <name>infovore</name>
   <modules>
-    <module>hydroxide</module>
     <module>millipede</module>
     <module>bakemono</module>
     <module>chopper</module>
-    <module>chopper-test</module>
+<!--    <module>chopper-test</module> -->
   </modules>
   <build><plugins>
    <plugin>
