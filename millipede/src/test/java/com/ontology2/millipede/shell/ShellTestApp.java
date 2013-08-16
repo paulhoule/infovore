@@ -13,9 +13,6 @@ public class ShellTestApp extends CommandLineApplication {
 
     protected void _run(String[] arguments) throws Exception {
         System.out.println("Running shell test application");
-        for(int i=0;i<arguments.length;i++) {
-            System.out.println(i+": "+arguments[i]);
-        }
         gotHit=true;
         lastArguments=arguments;
     }

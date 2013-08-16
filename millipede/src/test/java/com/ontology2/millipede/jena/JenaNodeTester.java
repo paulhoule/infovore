@@ -1,4 +1,4 @@
-package com.ontology2.hydroxide;
+package com.ontology2.millipede.jena;
 import static org.junit.Assert.*;
 
 import java.net.MalformedURLException;
