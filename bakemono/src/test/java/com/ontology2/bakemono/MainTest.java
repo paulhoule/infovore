@@ -42,6 +42,14 @@ public class MainTest {
         assertEquals("freebaseRDFPrefilter",main.getToolName());
         assertTrue(main.getToolArgs().isEmpty());
     }
+    
+    @Test
+    public void acceptsListCommand() throws Exception {
+        Main main=new Main(new String[] {"list"});
+        main.parseArguments();
+        assertEquals(null,main.getToolName());
+        assertEquals(Main.ListTools.class,main.cmd.getClass());
+    }
 
     @Test
     public void acceptsRunCommandWithArguments() throws Exception {

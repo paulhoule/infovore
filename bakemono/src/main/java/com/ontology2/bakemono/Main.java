@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -25,6 +26,9 @@ import org.apache.hadoop.mapred.lib.HashPartitioner;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+import arq.cmdline.CmdArgModule;
+
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
@@ -34,6 +38,8 @@ import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.millipede.shell.CommandLineApplication;
 
 public class Main implements Runnable {
+
+
     private static Log logger = LogFactory.getLog(Main.class);
 
     public static class IncorrectUsageException extends Exception {
@@ -46,6 +52,11 @@ public class Main implements Runnable {
     Map<String,Class> myApps=new HashMap<String,Class>() {{
         put("freebaseRDFPrefilter",FreebaseRDFTool.class);
         put("pse3",PSE3Tool.class);
+    }};
+    
+    Map<String, TopLevelCommand> myCommands=new HashMap<String,TopLevelCommand>() {{
+        put("run",new RunATool());
+        put("list",new ListTools());
     }};
 
     final List<String> args;
@@ -63,50 +74,38 @@ public class Main implements Runnable {
         try {
             try {
                 parseArguments();
-                runTool();
+                cmd.run();
             } catch(IncorrectUsageException ex) {
                 usage(ex);
                 return;
             }
         } catch(Exception ex) {
-            logger.error("Uncaught excepion in application",ex);			
+            logger.error("Uncaught exception in application",ex);			
         };
     }
-
-    //
-    // for sake of testability this is broken out.  if anything needs to be actually
-    // initialized that should be done by setting fields.
-    //
-
-    //
-    // I didn't want to allow IncorrectUsageException() to be thrown from
-    // runTool() but the way the Tool interface is implemented it isn't natural
-    // to validate the parameters ahead of time.
-    //
-
 
     void parseArguments() throws Exception {
         if(args.isEmpty())
             errorCausedByUser("you didn't specify any arguments");
+        
+        cmd = myCommands.get(args.get(0));
 
-        if(!args.get(0).equals("run"))
-            errorCausedByUser("the only command supported is the run command");
+        if(cmd==null)
+            errorCausedByUser("bakemono only supports the following commands: "+Joiner.on(" ").join(myCommands.keySet()));
 
-        if(args.size()<2)
-            errorCausedByUser("the run command requires at least one argument,  the name of a tool");
+        if(args.size()<cmd.getMinimumArgumentCount()+1)
+            errorCausedByUser("the "+args.get(0)+" command requires at least one argument,  the name of a tool");
 
-        toolName=args.get(1);
-        if(!myApps.containsKey(toolName))
-            errorCausedByUser("you specified a tool not supported by the bakemono system");
-
-        Class clazz=myApps.get(toolName);
-        tool=(Tool) clazz.newInstance();
-        toolArgs=Lists.newArrayList(Iterables.skip(args, 2));
+        cmd.validateArguments();
     }
+
+
 
     protected String toolName;
     protected Tool tool;
     protected List<String> toolArgs;
+
+    TopLevelCommand cmd;
 
     String getToolName() {
         return this.toolName;
@@ -128,9 +127,43 @@ public class Main implements Runnable {
         System.out.println("User error: "+ex.getMessage());
     }
 
-    void runTool() throws Exception {
-        ToolRunner.run(tool,toolArgs.toArray(new String[0]));
+    abstract class TopLevelCommand implements Runnable {
+        int getMinimumArgumentCount() { return 0; }
+        void validateArguments() throws Exception {};
+    };
+    
+    public class RunATool extends TopLevelCommand {
+        @Override
+        public void run()  {
+            try {
+                ToolRunner.run(tool,toolArgs.toArray(new String[0]));
+            } catch(Exception ex) {
+                logger.error("Uncaught excepion in application",ex);            
+            };
+        }
+        
+        @Override public int getMinimumArgumentCount() { return 1; }
+        void validateArguments() throws Exception {
+            toolName=args.get(1);
+            if(!myApps.containsKey(toolName))
+                errorCausedByUser("you specified a tool not supported by the bakemono system");
+
+            Class clazz=myApps.get(toolName);
+            tool=(Tool) clazz.newInstance();
+            toolArgs=Lists.newArrayList(Iterables.skip(args, 2));
+        }
     }
+    
+    class ListTools extends TopLevelCommand {
 
+        @Override
+        public void run() {
+            System.out.println("Tools supported by this build of bakemono:");
+            System.out.println();
+            for(Entry<String,Class> i:myApps.entrySet()) {
+                System.out.println("    "+i.getKey());
+            }
+        }
 
+    }
 }
