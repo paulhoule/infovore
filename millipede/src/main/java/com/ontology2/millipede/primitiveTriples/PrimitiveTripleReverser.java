@@ -2,8 +2,7 @@ package com.ontology2.millipede.primitiveTriples;
 
 import com.google.common.base.Function;
 import com.hp.hpl.jena.rdf.model.Model;
-import com.ontology2.millipede.sink.EmptyReportSink;
-import com.ontology2.millipede.sink.Sink;
+
 
 public class PrimitiveTripleReverser implements Function<PrimitiveTriple,PrimitiveTriple> {
 

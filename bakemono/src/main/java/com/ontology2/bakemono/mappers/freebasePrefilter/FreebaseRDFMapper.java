@@ -22,7 +22,6 @@ import com.ontology2.millipede.primitiveTriples.PrimitiveTripleCodec;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriplePredicateRewriter;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTripleReverser;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTripleTypeRewriter;
-import com.ontology2.millipede.sink.Sink;
 import com.ontology2.rdf.InvalidNodeException;
 import com.ontology2.rdf.InvalidPrefixException;
 
@@ -69,7 +68,6 @@ public class FreebaseRDFMapper extends Mapper<LongWritable,Text,Text,Text> {
 
     final static Splitter lineSplitter = Splitter.on("\t").limit(3);
     final static Splitter iriSplitter = Splitter.on(":").limit(2);
-    private Sink<PrimitiveTriple> rewriter;
 
     @Override
     public void map(LongWritable k, Text v,Context c) throws IOException, InterruptedException {
