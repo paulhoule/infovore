@@ -1,4 +1,4 @@
-package com.ontology2.millipede.shell;
+package com.ontology2.centipede.shell;
 
 import static org.junit.Assert.*;
 

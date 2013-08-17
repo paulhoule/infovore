@@ -1,4 +1,4 @@
-package com.ontology2.millipede.shell;
+package com.ontology2.centipede.shell;
 
 import java.io.IOException;
 import java.lang.reflect.Constructor;
@@ -10,8 +10,8 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.SetMultimap;
 import com.google.common.reflect.ClassPath;
 import com.google.common.reflect.ClassPath.ClassInfo;
-import com.ontology2.millipede.shell.CommandLineApplication;
-import com.ontology2.millipede.shell.MillipedeShell;
+import com.ontology2.centipede.shell.CommandLineApplication;
+import com.ontology2.centipede.shell.MillipedeShell;
 
 //
 // this was once the entrance point for the infovore application,  but when hydroxide was 
@@ -27,7 +27,7 @@ public class InfovoreShell extends MillipedeShell{
 
     @Override
     public List<String> getApplicationContextPath() {
-        List<String> that=Lists.newArrayList("com/ontology2/millipede/shell/applicationContext.xml");
+        List<String> that=Lists.newArrayList("com/ontology2/centipede/shell/applicationContext.xml");
         return that;
     }
 

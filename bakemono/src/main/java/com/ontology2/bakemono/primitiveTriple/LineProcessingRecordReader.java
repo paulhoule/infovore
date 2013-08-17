@@ -10,7 +10,7 @@ import org.apache.hadoop.mapreduce.RecordReader;
 import org.apache.hadoop.mapreduce.TaskAttemptContext;
 import org.apache.hadoop.mapreduce.lib.input.LineRecordReader;
 
-import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
+import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
 
 abstract class LineProcessingRecordReader<X> extends
         RecordReader<LongWritable, X> {

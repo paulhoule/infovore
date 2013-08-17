@@ -1,4 +1,4 @@
-package com.ontology2.millipede.shell;
+package com.ontology2.centipede.shell;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.util.Arrays;

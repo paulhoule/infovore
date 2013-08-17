@@ -34,8 +34,8 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.ontology2.bakemono.tools.freebasePrefilter.FreebaseRDFTool;
 import com.ontology2.bakemono.tools.pse3Tool.PSE3Tool;
-import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
-import com.ontology2.millipede.shell.CommandLineApplication;
+import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
+import com.ontology2.centipede.shell.CommandLineApplication;
 
 public class Main implements Runnable {
 

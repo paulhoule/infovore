@@ -25,7 +25,7 @@ import org.apache.pig.data.TupleFactory;
 
 import com.google.common.collect.Lists;
 import com.ontology2.bakemono.primitiveTriple.PrimitiveTripleInputFormat;
-import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
+import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
 
 public class PrimitiveTripleInput extends LoadFunc implements LoadMetadata {
 

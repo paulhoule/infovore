@@ -1,4 +1,4 @@
-package com.ontology2.millipede.primitiveTriples;
+package com.ontology2.centipede.primitiveTriples;
 
 import com.google.common.base.Predicate;
 

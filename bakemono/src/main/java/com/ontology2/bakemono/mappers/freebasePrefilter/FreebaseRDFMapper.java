@@ -15,13 +15,12 @@ import com.google.common.base.Predicates;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
-import com.ontology2.millipede.Codec;
-
-import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
-import com.ontology2.millipede.primitiveTriples.PrimitiveTripleCodec;
-import com.ontology2.millipede.primitiveTriples.PrimitiveTriplePredicateRewriter;
-import com.ontology2.millipede.primitiveTriples.PrimitiveTripleReverser;
-import com.ontology2.millipede.primitiveTriples.PrimitiveTripleTypeRewriter;
+import com.ontology2.centipede.Codec;
+import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
+import com.ontology2.centipede.primitiveTriples.PrimitiveTripleCodec;
+import com.ontology2.centipede.primitiveTriples.PrimitiveTriplePredicateRewriter;
+import com.ontology2.centipede.primitiveTriples.PrimitiveTripleReverser;
+import com.ontology2.centipede.primitiveTriples.PrimitiveTripleTypeRewriter;
 import com.ontology2.rdf.InvalidNodeException;
 import com.ontology2.rdf.InvalidPrefixException;
 

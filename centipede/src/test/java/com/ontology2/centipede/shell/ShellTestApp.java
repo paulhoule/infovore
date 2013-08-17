@@ -1,6 +1,6 @@
-package com.ontology2.millipede.shell;
+package com.ontology2.centipede.shell;
 
-import com.ontology2.millipede.shell.CommandLineApplication;
+import com.ontology2.centipede.shell.CommandLineApplication;
 
 public class ShellTestApp extends CommandLineApplication {
     static boolean gotHit=false;

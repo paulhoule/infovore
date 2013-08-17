@@ -1,4 +1,4 @@
-package com.ontology2.millipede.shell;
+package com.ontology2.centipede.shell;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

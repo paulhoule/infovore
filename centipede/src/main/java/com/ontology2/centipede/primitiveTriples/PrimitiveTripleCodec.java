@@ -1,10 +1,10 @@
-package com.ontology2.millipede.primitiveTriples;
+package com.ontology2.centipede.primitiveTriples;
 
 import java.util.Iterator;
 
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
-import com.ontology2.millipede.Codec;
+import com.ontology2.centipede.Codec;
 
 public class PrimitiveTripleCodec implements Codec<PrimitiveTriple> {
     final Splitter tripleSplitter=Splitter.on(CharMatcher.WHITESPACE).omitEmptyStrings().limit(3);

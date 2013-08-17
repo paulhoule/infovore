@@ -1,4 +1,4 @@
-package com.ontology2.millipede;
+package com.ontology2.centipede;
 
 public interface Codec<T> {
     public String encode(T obj);

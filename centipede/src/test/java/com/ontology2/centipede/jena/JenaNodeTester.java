@@ -1,4 +1,4 @@
-package com.ontology2.millipede.jena;
+package com.ontology2.centipede.jena;
 import static org.junit.Assert.*;
 
 import java.net.MalformedURLException;
