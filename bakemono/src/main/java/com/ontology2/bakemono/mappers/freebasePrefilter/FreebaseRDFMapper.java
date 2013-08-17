@@ -16,7 +16,7 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.ontology2.millipede.Codec;
-import com.ontology2.millipede.Partitioner;
+
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTripleCodec;
 import com.ontology2.millipede.primitiveTriples.PrimitiveTriplePredicateRewriter;
