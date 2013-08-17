@@ -7,7 +7,7 @@
   <packaging>pom</packaging>
   <name>infovore</name>
   <modules>
-    <module>millipede</module>
+    <module>centipede</module>
     <module>bakemono</module>
     <module>chopper</module>
 <!--    <module>chopper-test</module> -->
