@@ -21,10 +21,10 @@ import com.google.common.collect.SetMultimap;
 import com.google.common.reflect.ClassPath;
 import com.google.common.reflect.ClassPath.ClassInfo;
 
-public class MillipedeShell extends CommandLineApplication {
+public class CentipedeShell extends CommandLineApplication {
 
-    private static Log logger = LogFactory.getLog(MillipedeShell.class);
-    public MillipedeShell() {
+    private static Log logger = LogFactory.getLog(CentipedeShell.class);
+    public CentipedeShell() {
         context=new ClassPathXmlApplicationContext(getApplicationContextPath().toArray(new String[] {}));
     }
 

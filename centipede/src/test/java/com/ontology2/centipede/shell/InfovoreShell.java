@@ -11,14 +11,14 @@ import com.google.common.collect.SetMultimap;
 import com.google.common.reflect.ClassPath;
 import com.google.common.reflect.ClassPath.ClassInfo;
 import com.ontology2.centipede.shell.CommandLineApplication;
-import com.ontology2.centipede.shell.MillipedeShell;
+import com.ontology2.centipede.shell.CentipedeShell;
 
 //
 // this was once the entrance point for the infovore application,  but when hydroxide was 
 // demolished it was moved here together with its test case
 // 
 
-public class InfovoreShell extends MillipedeShell{
+public class InfovoreShell extends CentipedeShell{
 
     @Override
     public String getShellName() {

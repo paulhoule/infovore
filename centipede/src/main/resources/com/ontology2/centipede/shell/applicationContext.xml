@@ -10,8 +10,7 @@
     <context:include-filter type="assignable"
       expression="com.ontology2.centipede.shell.CommandLineApplication" />
     <context:exclude-filter type="assignable"
-      expression="com.ontology2.centipede.shell.MillipedeShell" />
+      expression="com.ontology2.centipede.shell.CentipedeShell" />
   </context:component-scan>
-
 </beans>
  
