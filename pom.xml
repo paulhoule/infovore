@@ -10,7 +10,7 @@
     <module>centipede</module>
     <module>bakemono</module>
     <module>chopper</module>
-<!--    <module>chopper-test</module> -->
+    <module>haruhi</module>
   </modules>
   <build><plugins>
    <plugin>
