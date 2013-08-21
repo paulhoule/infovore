@@ -21,7 +21,9 @@ public class PSE3FreebaseMapper extends Mapper<LongWritable,Text,WritableTriple,
     @Override public void setup(Context job) {
         map1 = new FreebaseRDFMapper();
         map2 = new PSE3Mapper();
-        map1.setup(new Context(job));
-        map2.setup(job)
-;    }
+        
+        //awful setup (1) I don't actually the the context
+        map1.setup(null);
+//        map2.setup(null);
+    }
 }

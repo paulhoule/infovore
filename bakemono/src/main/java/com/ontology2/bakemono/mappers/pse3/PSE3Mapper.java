@@ -37,7 +37,7 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
     KeyValueAcceptor<WritableTriple,LongWritable> accepted;
 
     @Override
-    protected void setup(Context context) throws IOException,
+    public void setup(Context context) throws IOException,
     InterruptedException {
         super.setup(context);
         accepted=new PrimaryKeyValueAcceptor(context);
