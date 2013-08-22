@@ -9,7 +9,6 @@ public class HaruhiShell extends CentipedeShell {
 
     @Override
     public List<String> getApplicationContextPath() {
-        // TODO Auto-generated method stub
         List<String> that=Lists.newArrayList("com/ontology2/haruhi/shell/applicationContext.xml");
         return that;
     }

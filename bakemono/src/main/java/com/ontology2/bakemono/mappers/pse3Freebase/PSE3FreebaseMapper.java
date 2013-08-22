@@ -22,8 +22,8 @@ public class PSE3FreebaseMapper extends Mapper<LongWritable,Text,WritableTriple,
         map1 = new FreebaseRDFMapper();
         map2 = new PSE3Mapper();
         
-        //awful setup (1) I don't actually the the context
-        map1.setup(null);
+ //       //awful setup (1) I don't actually the the context
+ //       map1.setup(null);
 //        map2.setup(null);
     }
 }

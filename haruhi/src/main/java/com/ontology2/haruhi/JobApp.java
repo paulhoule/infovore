@@ -10,18 +10,14 @@ import org.springframework.context.ApplicationContext;
 import com.ontology2.centipede.shell.CentipedeShell;
 import com.ontology2.centipede.shell.CommandLineApplication;
 
-public class JobApplication extends CommandLineApplication {
-    private static Log logger = LogFactory.getLog(JobApplication.class);
+public class JobApp extends CommandLineApplication {
+    private static Log logger = LogFactory.getLog(JobApp.class);
     
     @Autowired
     private ApplicationContext applicationContext; 
     
     @Override
     protected void _run(String[] arguments) throws Exception {
-        
-        //
-        // stolen from centipede shell
-        //
         
         if(arguments.length<2) {
             usage();
