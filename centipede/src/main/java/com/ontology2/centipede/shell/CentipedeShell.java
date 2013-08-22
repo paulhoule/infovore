@@ -62,6 +62,10 @@ public class CentipedeShell extends CommandLineApplication {
     }
 
     public void runAction(String[] arguments) {
+        if (arguments.length<2) {
+            usage();
+        }
+        
         String application=arguments[1];
 
         String appName=application+"App";

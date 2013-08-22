@@ -10,7 +10,7 @@ public abstract class CommandLineApplication {
         try {
             _run(arguments);
         } catch(Exception e) {
-            logger.error("Uncaught excepion in application",e);
+            logger.error("Uncaught exception in application",e);
         }
     }
 

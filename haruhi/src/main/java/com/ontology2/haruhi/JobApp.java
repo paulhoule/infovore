@@ -40,6 +40,7 @@ public class JobApp extends CommandLineApplication {
         System.out.println("where the cluster id is the name of the cluster that we're sending the job to");
         System.out.println("and the jar_name is relative to the cluster configuration and other arguments");
         System.out.println("get supplied to the jar.");
+        System.exit(-1);
     }
 
 }
