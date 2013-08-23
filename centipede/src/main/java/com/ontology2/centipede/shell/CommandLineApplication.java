@@ -9,6 +9,11 @@ public abstract class CommandLineApplication {
     public void run(String[] arguments) {
         try {
             _run(arguments);
+        } catch (ExternalProcessFailedWithErrorCode e) { 
+            logger.error("external process failed with error code "+e.getCode(),e);
+            System.exit(-1);
+        } catch(ShutTheProcessDown e) {
+            System.exit(-1);    // should we have a way to change this?
         } catch(Exception e) {
             logger.error("Uncaught exception in application",e);
         }
@@ -16,10 +21,9 @@ public abstract class CommandLineApplication {
 
     protected abstract void _run(String[] arguments) throws Exception;
 
-
     protected void die(String message) {
         System.err.println(message);
-        System.exit(-1);
+        throw new ShutTheProcessDown();
     }
 
 }

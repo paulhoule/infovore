@@ -7,6 +7,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.google.common.collect.Lists;
+import com.ontology2.centipede.shell.ExternalProcessFailedWithErrorCode;
 
 public class LocalCmdCluster implements Cluster {
     private static Log logger = LogFactory.getLog(LocalCmdCluster.class);
@@ -14,7 +15,7 @@ public class LocalCmdCluster implements Cluster {
     @Override
     public void runJob(String clusterId, String jarName, String[] jarArgs) throws Exception {
         
-        List<String> args=Lists.newArrayList("hadoop","jar",jarName);
+        List<String> args=Lists.newArrayList("/bin/bash","hadoop","jar",jarName);
         for(String arg:jarArgs) {
             args.add(arg);
         }
@@ -24,8 +25,7 @@ public class LocalCmdCluster implements Cluster {
         Process p = pb.start();
         int value=p.waitFor();
         if(value!=0) {
-            logger.fatal("Hadoop process retuned with error value: "+value);
-            System.exit(value);
+            throw new ExternalProcessFailedWithErrorCode(value);
         };
     }
 };
