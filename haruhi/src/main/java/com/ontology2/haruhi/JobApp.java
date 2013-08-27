@@ -29,7 +29,7 @@ public class JobApp extends CommandLineApplication {
                 : Arrays.copyOfRange(arguments, 2, arguments.length);
         
         Cluster cluster=(Cluster) applicationContext.getBean(clusterId,Cluster.class);
-        cluster.runJob(clusterId,jarName,jarArgs);
+        cluster.runJob(jarName,jarArgs);
     }
 
     private void usage() {

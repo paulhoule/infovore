@@ -24,7 +24,7 @@ public class LocalCmdCluster implements Cluster {
     //
     
     @Override
-    public void runJob(String clusterId, String jarName, String[] jarArgs) throws Exception {
+    public void runJob(String jarName, String[] jarArgs) throws Exception {
         String hadoopBin=findBin("hadoop");
         if(hadoopBin==null) {
             throw new IOException("Hadoop Executable not found");

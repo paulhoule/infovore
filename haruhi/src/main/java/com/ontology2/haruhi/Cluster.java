@@ -4,6 +4,6 @@ import java.io.IOException;
 
 public interface Cluster {
 
-    public void runJob(String clusterId, String jarName, String[] jarArgs) throws Exception;
+    public void runJob(String jarName, String[] jarArgs) throws Exception;
 
 }
