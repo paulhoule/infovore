@@ -5,6 +5,9 @@
          http://www.springframework.org/schema/beans/spring-beans.xsd
          http://www.springframework.org/schema/context
          http://www.springframework.org/schema/context/spring-context.xsd">
+         
+  <!-- automatically scan classpath for apps -->
+  
   <context:component-scan base-package="com.ontology2.haruhi">
     <context:include-filter type="assignable"
       expression="com.ontology2.centipede.shell.CommandLineApplication" />
@@ -12,8 +15,18 @@
       expression="com.ontology2.haruhi.HaruhiShell" />
   </context:component-scan>
 
-  <bean name="localCmdCluster" class="com.ontology2.haruhi.LocalCmdCluster">
+  <!-- configuration of major resources -->
+  <bean name="s3JarPath" class="java.lang.String">
+    <constructor-arg value="s3://bakemono-public/" />
   </bean>
   
+  <bean name="localCmdCluster" class="com.ontology2.haruhi.LocalCmdCluster">
+    <property name="jarPath">
+        <value>${user.home}/.m2/repository/com/ontology2/bakemono</value>
+    </property>
+  </bean>
+  
+ <!--  makes system properties  available -->
+<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" />
 </beans>
  

@@ -17,12 +17,13 @@ import com.ontology2.centipede.shell.ExternalProcessFailedWithErrorCode;
 
 public class LocalCmdCluster implements Cluster {
     private static Log logger = LogFactory.getLog(LocalCmdCluster.class);
+    private String jarPath="";
     
     //
     // For better or worse,  this version has a property that other clusters may not have,
     // in that it will print the stderr and stdout of the hadoop process to standard out
     //
-    
+
     @Override
     public void runJob(String jarName, String[] jarArgs) throws Exception {
         String hadoopBin=findBin("hadoop");
@@ -30,6 +31,7 @@ public class LocalCmdCluster implements Cluster {
             throw new IOException("Hadoop Executable not found");
         }
         
+        jarName=new File(jarPath,jarName).getAbsolutePath();
         List<String> args=Lists.newArrayList(hadoopBin,"jar",jarName);
         for(String arg:jarArgs) {
             args.add(arg);
@@ -58,4 +60,13 @@ public class LocalCmdCluster implements Cluster {
         }
         return null;
     }
+    
+    public String getJarPath() {
+        return jarPath;
+    }
+
+    public void setJarPath(String jarPath) {
+        this.jarPath = jarPath;
+    }
+    
 };
