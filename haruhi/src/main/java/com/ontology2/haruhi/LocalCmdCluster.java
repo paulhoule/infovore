@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.ProcessBuilder.Redirect;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -16,6 +17,11 @@ import com.ontology2.centipede.shell.ExternalProcessFailedWithErrorCode;
 
 public class LocalCmdCluster implements Cluster {
     private static Log logger = LogFactory.getLog(LocalCmdCluster.class);
+    
+    //
+    // For better or worse,  this version has a property that other clusters may not have,
+    // in that it will print the stderr and stdout of the hadoop process to standard out
+    //
     
     @Override
     public void runJob(String clusterId, String jarName, String[] jarArgs) throws Exception {
@@ -30,9 +36,9 @@ public class LocalCmdCluster implements Cluster {
         }
         
         ProcessBuilder pb = new ProcessBuilder(args);
+        pb.redirectErrorStream(true);
+        pb.redirectOutput(Redirect.INHERIT);
         Process p = pb.start();
-        InputStream processOutput=p.getInputStream();
-        CharStreams.copy(new InputStreamReader(processOutput),System.out);
        
         int value=p.waitFor();
         if(value!=0) {
