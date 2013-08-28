@@ -17,7 +17,7 @@ import com.ontology2.centipede.shell.ExternalProcessFailedWithErrorCode;
 
 public class LocalCmdCluster implements Cluster {
     private static Log logger = LogFactory.getLog(LocalCmdCluster.class);
-    private String jarPath="";
+    private String mavenRepoPath="";
     
     //
     // For better or worse,  this version has a property that other clusters may not have,
@@ -25,17 +25,15 @@ public class LocalCmdCluster implements Cluster {
     //
 
     @Override
-    public void runJob(String jarName, String[] jarArgs) throws Exception {
+    public void runJob(MavenManagedJar jar, List<String> jarArgs) throws Exception {
         String hadoopBin=findBin("hadoop");
         if(hadoopBin==null) {
             throw new IOException("Hadoop Executable not found");
         }
         
-        jarName=new File(jarPath,jarName).getAbsolutePath();
+        String jarName=jar.pathFromLocalMavenRepository(getMavenRepoPath());
         List<String> args=Lists.newArrayList(hadoopBin,"jar",jarName);
-        for(String arg:jarArgs) {
-            args.add(arg);
-        }
+        args.addAll(jarArgs);
         
         ProcessBuilder pb = new ProcessBuilder(args);
         pb.redirectErrorStream(true);
@@ -61,12 +59,12 @@ public class LocalCmdCluster implements Cluster {
         return null;
     }
     
-    public String getJarPath() {
-        return jarPath;
+    public String getMavenRepoPath() {
+        return mavenRepoPath;
     }
 
-    public void setJarPath(String jarPath) {
-        this.jarPath = jarPath;
+    public void setMavenRepoPath(String mavenRepoPath) {
+        this.mavenRepoPath = mavenRepoPath;
     }
     
 };

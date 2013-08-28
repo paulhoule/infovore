@@ -1,9 +1,10 @@
 package com.ontology2.haruhi;
 
 import java.io.IOException;
+import java.util.List;
 
 public interface Cluster {
 
-    public void runJob(String jarName, String[] jarArgs) throws Exception;
+    public void runJob(MavenManagedJar defaultJar, List<String> jarArgs) throws Exception;
 
 }

@@ -1,12 +1,17 @@
 package com.ontology2.haruhi;
 
+import java.util.List;
+
 import com.google.common.base.Splitter;
+import com.google.common.collect.Lists;
 
 public class MavenManagedJar {
     private String groupId;
     private String artifactId;
     private String version;
     private String classifier;
+    
+    private List<String> headArguments=Lists.newArrayList();
     
     public String getGroupId() {
         return groupId;
@@ -45,6 +50,7 @@ public class MavenManagedJar {
         }
         
         out.append(artifactId); out.append('/');
+        out.append(version); out.append('/');
         out.append(artifactId); out.append('-');
         out.append(version);
         
@@ -55,4 +61,12 @@ public class MavenManagedJar {
         out.append(".jar");
         return out.toString();
     };
+    
+    public List<String> getHeadArguments() {
+        return headArguments;
+    }
+
+    public void setHeadArguments(List<String> headArguments) {
+        this.headArguments = headArguments;
+    }
 }

@@ -24,7 +24,7 @@ public class MavenManagedJarTests {
     public void checkwholePath() {
         String result=that.pathFromLocalMavenRepository(repoPath);
         assertEquals(
-                repoPath+"/com/example/unicorn/unicorn-8-paradoxical.jar"
+                repoPath+"/com/example/unicorn/8/unicorn-8-paradoxical.jar"
                 ,result);
     }
 }
