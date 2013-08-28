@@ -1,5 +1,6 @@
 package com.ontology2.haruhi;
 
+import java.io.File;
 import java.util.List;
 
 import com.google.common.collect.Lists;
@@ -9,7 +10,16 @@ public class HaruhiShell extends CentipedeShell {
 
     @Override
     public List<String> getApplicationContextPath() {
-        List<String> that=Lists.newArrayList("com/ontology2/haruhi/shell/applicationContext.xml");
+        String $HOME=System.getProperty("user.home");
+        
+        List<String> that=Lists.newArrayList(
+                "com/ontology2/haruhi/shell/applicationContext.xml"
+        );
+        
+        File userConfigFile=new File($HOME,".haruhi/applicationContext.xml");
+        if(userConfigFile.exists()) {
+            that.add("file:"+userConfigFile.getAbsolutePath());
+        }
         return that;
     }
 
