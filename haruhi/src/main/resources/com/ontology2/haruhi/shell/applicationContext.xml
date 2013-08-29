@@ -53,7 +53,7 @@
     <constructor-arg value="yourKey" />
   </bean>
 
-  <bean name="awslogUri" class="java.lang.String">
+  <bean name="awsLogUri" class="java.lang.String">
     <constructor-arg value="s3://bakemono-logs/" />
   </bean>
 
@@ -63,12 +63,13 @@
   
   <!-- 3.1 definition of commonly used objects-->
   
-  <bean name="emrClient" scope="prototype" class="com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduceClient">
+  <bean name="emrClient" class="com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduceClient">
     <constructor-arg ref="awsCredentials"/>
   </bean>
   
   <bean name="stepFactory" class="com.amazonaws.services.elasticmapreduce.util.StepFactory" />
-  <bean name="debugStep" class="com.amazonaws.services.elasticmapreduce.model.StepConfig">
+  
+  <bean name="debugStep" scope="prototype" class="com.amazonaws.services.elasticmapreduce.model.StepConfig">
     <property name="name" value="Install Hive" />
     <property name="actionOnFailure" value="TERMINATE_JOB_FLOW" />
     <property name="hadoopJarStep">
