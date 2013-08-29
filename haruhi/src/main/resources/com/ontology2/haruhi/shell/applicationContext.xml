@@ -1,45 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-  xsi:schemaLocation="http://www.springframework.org/schema/beans
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans
          http://www.springframework.org/schema/beans/spring-beans.xsd
          http://www.springframework.org/schema/context
          http://www.springframework.org/schema/context/spring-context.xsd">
-         
-  <!-- automatically scan classpath for apps -->
-  
+
+  <!-- comment numbering works like ISO 9001 or a PMI book just not so deep a hierarchy the top level schema is now 1 configuration of Spring itself 2 configuration of general infovore beans 3 bean definitions for Amazon EMR -->
+
+  <!-- 1.0 automatically scan classpath for apps -->
+
   <context:component-scan base-package="com.ontology2.haruhi">
-    <context:include-filter type="assignable"
-      expression="com.ontology2.centipede.shell.CommandLineApplication" />
-    <context:exclude-filter type="assignable"
-      expression="com.ontology2.haruhi.HaruhiShell" />
+    <context:include-filter type="assignable" expression="com.ontology2.centipede.shell.CommandLineApplication" />
+    <context:exclude-filter type="assignable" expression="com.ontology2.haruhi.HaruhiShell" />
   </context:component-scan>
 
-  <!-- configuration of major resources -->
+  <!-- 1.1 make system properties available -->
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" />
+
+
+  <!-- 2.0 configuration of major resources -->
   <bean name="s3JarPath" class="java.lang.String">
     <constructor-arg value="s3://bakemono-public/" />
   </bean>
-  
+
   <bean name="localCmdCluster defaultCluster" class="com.ontology2.haruhi.LocalCmdCluster">
     <property name="mavenRepoPath">
-        <value>${user.home}/.m2/repository</value>
+      <value>${user.home}/.m2/repository</value>
     </property>
   </bean>
-  
-  <!-- the defaultJar is the default JAR we run;  override it to change the default -->
+
+  <!-- the defaultJar is the default JAR we run; override it to change the default -->
   <!-- bakemonoJar sets the defaults for bakemono derivatives; inherit from it -->
-  
+
   <bean name="bakemonoJar defaultJar" class="com.ontology2.haruhi.MavenManagedJar">
     <property name="groupId" value="com.ontology2" />
     <property name="artifactId" value="bakemono" />
     <property name="version" value="2.0-SNAPSHOT" />
     <property name="classifier" value="job" />
     <property name="headArguments">
-       <list><value>run</value></list>
+      <list>
+        <value>run</value>
+      </list>
     </property>
   </bean>
+
+  <!-- 3.0 Bean Definitions For Amazon EMR that the user almost certainly needs to change -->
+  <!-- note that this all depends on a "awsCredentials" object being defined in your .haruhi/applicaionContext.xml -->
+  <!-- we're not going to reference this from inside Spring because we don't want to force you to set -->
+  <!-- AWS credentials if you are not using AWS -->
+
+  <bean name="awsCredentials" class="com.amazonaws.auth.AWSCredentials">
+    <constructor-arg value="yourAccessId" />
+    <constructor-arg value="yourKey" />
+  </bean>
+
+  <bean name="awslogUri" class="java.lang.String">
+    <constructor-arg value="s3://bakemono-logs/" />
+  </bean>
+
+  <bean name="awsSoftwareBucket" class="java.lang.String">
+    <constructor-arg value="s3://bakemono-public/" />
+  </bean>
   
- <!--  makes system properties  available -->
-<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" />
+  <!-- 3.1 definition of commonly used objects-->
+  
+  <bean name="emrClient" scope="prototype" class="com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduceClient">
+    <constructor-arg ref="awsCredentials"/>
+  </bean>
+  
+  <bean name="stepFactory" class="com.amazonaws.services.elasticmapreduce.util.StepFactory" />
+  <bean name="debugStep" class="com.amazonaws.services.elasticmapreduce.model.StepConfig">
+    <property name="name" value="Install Hive" />
+    <property name="actionOnFailure" value="TERMINATE_JOB_FLOW" />
+    <property name="hadoopJarStep">
+      <bean factory-bean="stepFactory" factory-method="newEnableDebuggingStep" />
+    </property>
+  </bean>
+
+  <bean name="rootInstancesDefinition" class="com.amazonaws.services.elasticmapreduce.model.JobFlowInstancesConfig" abstract="true">
+    <property name="hadoopVersion" value="1.0.3" />
+    <property name="masterInstanceType" value="m1.small" />
+    <property name="slaveInstanceType" value="c1.medium" />
+    <property name="keepJobFlowAliveWhenNoSteps" value="false" />
+    <property name="instanceCount" value="1" />
+  </bean>
+  
+  <!--  3.2 here we define specific clusters that you might want to use -->
+  
+  <bean name="tinyAwsCluster" class="com.ontology2.haruhi.AmazonEMRCluster">
+    <constructor-arg><bean parent="rootInstancesDefinition" /></constructor-arg>
+  </bean>
 </beans>
  

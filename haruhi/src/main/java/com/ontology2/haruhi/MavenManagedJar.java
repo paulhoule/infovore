@@ -41,6 +41,14 @@ public class MavenManagedJar {
         this.classifier = classifierId;
     }
     
+    public List<String> getHeadArguments() {
+        return headArguments;
+    }
+
+    public void setHeadArguments(List<String> headArguments) {
+        this.headArguments = headArguments;
+    }
+    
     public String pathFromLocalMavenRepository(String repository) {
         StringBuilder out=new StringBuilder();
         out.append(repository); out.append('/');
@@ -51,6 +59,11 @@ public class MavenManagedJar {
         
         out.append(artifactId); out.append('/');
         out.append(version); out.append('/');
+        appendArtifactName(out);
+        return out.toString();
+    }
+
+    private void appendArtifactName(StringBuilder out) {
         out.append(artifactId); out.append('-');
         out.append(version);
         
@@ -59,14 +72,17 @@ public class MavenManagedJar {
         }
         
         out.append(".jar");
-        return out.toString();
     };
-    
-    public List<String> getHeadArguments() {
-        return headArguments;
-    }
 
-    public void setHeadArguments(List<String> headArguments) {
-        this.headArguments = headArguments;
+    // we're assuming this is in the format s3://bucket-name/
+    
+    public String s3JarLocation(String awsSoftwareBucket) {
+        StringBuilder out=new StringBuilder(awsSoftwareBucket);
+        if(out.charAt(out.length()-1)!='/') {
+            out.append('/');
+        };
+        appendArtifactName(out);
+
+        return out.toString();
     }
 }
