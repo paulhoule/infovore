@@ -70,7 +70,7 @@
   <bean name="stepFactory" class="com.amazonaws.services.elasticmapreduce.util.StepFactory" />
   
   <bean name="debugStep" scope="prototype" class="com.amazonaws.services.elasticmapreduce.model.StepConfig">
-    <property name="name" value="Install Hive" />
+    <property name="name" value="Enable Debugging" />
     <property name="actionOnFailure" value="TERMINATE_JOB_FLOW" />
     <property name="hadoopJarStep">
       <bean factory-bean="stepFactory" factory-method="newEnableDebuggingStep" />
@@ -82,13 +82,31 @@
     <property name="masterInstanceType" value="m1.small" />
     <property name="slaveInstanceType" value="c1.medium" />
     <property name="keepJobFlowAliveWhenNoSteps" value="false" />
-    <property name="instanceCount" value="1" />
+    <property name="instanceCount" value="2" /> <!--  the master + 1 slave = 1 -->
   </bean>
   
   <!--  3.2 here we define specific clusters that you might want to use -->
   
+  <!--  cheapest feasible cluster,  contains just the master node which does double -->
+  <!--  duties as JobTracker and TaskTracker;  this will get work done,  but slowly --> 
+  <!--  great for testing lifecycle issues (will the job even start?) -->
+  
   <bean name="tinyAwsCluster" class="com.ontology2.haruhi.AmazonEMRCluster">
-    <constructor-arg><bean parent="rootInstancesDefinition" /></constructor-arg>
+    <constructor-arg>
+       <bean parent="rootInstancesDefinition">
+        <property name="instanceCount" value="1" /> 
+       </bean>
+    </constructor-arg>
+  </bean>
+  
+  <!-- this cluster is suitable for small runs with real data-->
+  
+    <bean name="c1LargeX2AwsCluster smallAwsCluster" class="com.ontology2.haruhi.AmazonEMRCluster">
+    <constructor-arg><bean parent="rootInstancesDefinition">
+      <property name="masterInstanceType" value="m1.medium" />
+      <property name="slaveInstanceType" value="c1.xlarge" />
+      <property name="instanceCount" value="3" /> <!-- 1 master + 4 slaves --> 
+    </bean></constructor-arg>
   </bean>
 </beans>
  

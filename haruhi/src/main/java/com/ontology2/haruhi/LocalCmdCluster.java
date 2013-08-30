@@ -13,7 +13,7 @@ import org.apache.commons.logging.LogFactory;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import com.google.common.io.CharStreams;
-import com.ontology2.centipede.shell.ExternalProcessFailedWithErrorCode;
+import com.ontology2.centipede.shell.ExitCodeException;
 
 public class LocalCmdCluster implements Cluster {
     private static Log logger = LogFactory.getLog(LocalCmdCluster.class);
@@ -42,7 +42,7 @@ public class LocalCmdCluster implements Cluster {
        
         int value=p.waitFor();
         if(value!=0) {
-            throw new ExternalProcessFailedWithErrorCode(value);
+            throw ExitCodeException.create(value);
         };
     }
 

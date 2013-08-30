@@ -65,7 +65,7 @@ public class CentipedeShell extends CommandLineApplication {
         if (arguments.length<2) {
             usage();
         }
-        
+
         String application=arguments[1];
 
         String appName=application+"App";
@@ -78,9 +78,11 @@ public class CentipedeShell extends CommandLineApplication {
             die("Application ["+application+"] not found");
         } ;
 
-        String[] innerArguments=
-                arguments.length<3 ? new String[0] : Arrays.copyOfRange(arguments, 2, arguments.length);
-                app.run(innerArguments);
+        String[] innerArguments= arguments.length<3 
+                ? new String[0] 
+                : Arrays.copyOfRange(arguments, 2, arguments.length);
+        
+        app.run(innerArguments);
     }
 
 
