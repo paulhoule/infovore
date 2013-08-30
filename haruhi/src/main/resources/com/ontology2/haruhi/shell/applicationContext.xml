@@ -49,8 +49,8 @@
   <!-- AWS credentials if you are not using AWS -->
 
   <bean name="awsCredentials" class="com.amazonaws.auth.AWSCredentials">
-    <constructor-arg value="yourAccessId" />
-    <constructor-arg value="yourKey" />
+    <constructor-arg value="redacted" />
+    <constructor-arg value="redacted" />
   </bean>
 
   <bean name="awsLogUri" class="java.lang.String">
