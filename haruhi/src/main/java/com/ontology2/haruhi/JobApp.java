@@ -50,7 +50,7 @@ public class JobApp extends CommandLineApplication {
         List<String> jarArgs=defaultJar.getHeadArguments(); 
         Iterators.addAll(jarArgs, a);
         
-        cluster.runJob(defaultJar,jarArgs);
+        cluster.runJob(jar,jarArgs);
     }
 
     private void usage() {

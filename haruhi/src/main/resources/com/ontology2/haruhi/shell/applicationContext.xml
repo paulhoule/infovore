@@ -43,6 +43,10 @@
     </property>
   </bean>
 
+  <bean name="t20130902" parent="bakemonoJar">
+    <property name="version" value="t20130902" />
+  </bean>
+  
   <!-- 3.0 Bean Definitions For Amazon EMR that the user almost certainly needs to change -->
   <!-- note that this all depends on a "awsCredentials" object being defined in your .haruhi/applicaionContext.xml -->
   <!-- we're not going to reference this from inside Spring because we don't want to force you to set -->
