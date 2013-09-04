@@ -8,6 +8,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.*;
 
+import com.google.common.base.CharMatcher;
 import com.google.common.base.Function;
 import com.google.common.base.Functions;
 import com.google.common.base.Predicate;
@@ -52,8 +53,8 @@ public class FreebaseRDFMapper extends Mapper<LongWritable,Text,Text,Text> {
 
     @Override
     public void setup(Context job) {
-        declarePrefix("@prefix ns: <http://rdf.basekb.com/ns/>.");
-        declarePrefix("@prefix key: <http://rdf.basekb.com/key/>.");
+        declarePrefix("@prefix ns: <http://rdf.freebase.com/ns/>.");
+        declarePrefix("@prefix key: <http://rdf.freebase.com/key/>.");
         declarePrefix("@prefix owl: <http://www.w3.org/2002/07/owl#>.");
         declarePrefix("@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.");
         declarePrefix("@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.");
@@ -65,7 +66,7 @@ public class FreebaseRDFMapper extends Mapper<LongWritable,Text,Text,Text> {
 
     }
 
-    final static Splitter lineSplitter = Splitter.on("\t").limit(3);
+    final static Splitter lineSplitter = Splitter.on(CharMatcher.WHITESPACE).omitEmptyStrings().limit(3);
     final static Splitter iriSplitter = Splitter.on(":").limit(2);
 
     @Override
@@ -114,9 +115,9 @@ public class FreebaseRDFMapper extends Mapper<LongWritable,Text,Text,Text> {
     List<String> expandTripleParts(String line) throws InvalidNodeException {
         List<String> parts=splitTriple(line);
 
-        parts.set(0,expandIRINode(parts.get(0)));
-        parts.set(1,expandIRINode(parts.get(1)));
-        parts.set(2,expandAnyNode(parts.get(2)));
+        parts.set(0,rewriteNode(expandIRINode(parts.get(0))));
+        parts.set(1,rewriteNode(expandIRINode(parts.get(1))));
+        parts.set(2,rewriteNode(expandAnyNode(parts.get(2).trim())));
         return parts;
     }
 
@@ -135,15 +136,25 @@ public class FreebaseRDFMapper extends Mapper<LongWritable,Text,Text,Text> {
 
     public String expandIRINode(String string) throws InvalidNodeException {
         List<String> parts=Lists.newArrayList(iriSplitter.split(string));
+        
+        if (string.startsWith("<") && string.endsWith(">")) {
+            return string;
+        }
+        
         if (prefixMap.containsKey(parts.get(0))) {
             return "<"+prefixMap.get(parts.get(0))+parts.get(1)+">";
         }
-
+        
+      
         throw new InvalidNodeException();
     }
 
     public String expandAnyNode(String string) {
         List<String> parts=Lists.newArrayList(iriSplitter.split(string));
+        
+        if (string.startsWith("<") && string.endsWith(">")) {
+            return string;
+        }
         if (prefixMap.containsKey(parts.get(0))) {
             return "<"+prefixMap.get(parts.get(0))+parts.get(1)+">";
         }
@@ -151,6 +162,18 @@ public class FreebaseRDFMapper extends Mapper<LongWritable,Text,Text,Text> {
         return string;
     }
 
+    public String rewriteNode(String uri) {
+        if(!uri.startsWith("<") && uri.endsWith(">")) {
+            return uri;
+        }
+        
+        if(uri.startsWith("<http://rdf.freebase.com/")) {
+            uri="<http://rdf.basekb.com/"+uri.substring("<http://rdf.freebase.com/".length());
+        }
+        
+        return uri;
+    };
+    
     public static List<String> splitPrefixDeclaration(String obj) throws InvalidPrefixException {
         List<String> parts=Lists.newArrayList(Splitter.on(" ").split(obj));
         if (parts.size()!=3) {

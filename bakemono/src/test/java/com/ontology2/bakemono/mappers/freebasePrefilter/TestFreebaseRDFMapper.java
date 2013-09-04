@@ -62,12 +62,25 @@ public class TestFreebaseRDFMapper {
                 parts.get(1));
         assertEquals("true", parts.get(2));
     }
+    
+    @Test
+    public void testRecentFreebaseDumpFormat() throws Exception {
+        List<String> parts = mapper
+                .expandTripleParts("<http://rdf.freebase.com/ns/automotive.engine.engine_type>      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>       <http://www.w3.org/2000/01/rdf-schema#Property> .");
+        assertEquals(3, parts.size());
+        assertEquals(
+                "<http://rdf.basekb.com/ns/automotive.engine.engine_type>",
+                parts.get(0));
+        assertEquals("<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>",
+                parts.get(1));
+        assertEquals("<http://www.w3.org/2000/01/rdf-schema#Property>", parts.get(2));
+    }
 
     @Test
     public void testExpandNode() throws Exception {
         assertEquals("<http://www.w3.org/2000/01/rdf-schema#label>",
                 mapper.expandIRINode("rdfs:label"));
-        assertEquals("<http://rdf.basekb.com/ns/type.object.type>",
+        assertEquals("<http://rdf.freebase.com/ns/type.object.type>",
                 mapper.expandIRINode("ns:type.object.type"));
 
     }
@@ -76,7 +89,7 @@ public class TestFreebaseRDFMapper {
     public void testExpandAnyNode() throws Exception {
         assertEquals("<http://www.w3.org/2000/01/rdf-schema#label>",
                 mapper.expandAnyNode("rdfs:label"));
-        assertEquals("<http://rdf.basekb.com/ns/type.object.type>",
+        assertEquals("<http://rdf.freebase.com/ns/type.object.type>",
                 mapper.expandAnyNode("ns:type.object.type"));
         assertEquals("\"Number\"@en", mapper.expandAnyNode("\"Number\"@en"));
 
