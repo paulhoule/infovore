@@ -43,6 +43,7 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
         accepted=new PrimaryKeyValueAcceptor(context);
     }
 
+    int myCnt=0;
     @Override
     public void map(LongWritable arg0, Text arg1, Context c) throws IOException, InterruptedException {
         PrimitiveTriple row3=p3Codec.decode(arg1.toString());
@@ -55,7 +56,10 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
             accepted.write(new WritableTriple(realTriple),new LongWritable(1),c);
         } catch(Throwable e) {
             incrementCounter(c,PSE3Counters.REJECTED,1);
-//            logger.warn("Ill-formed triple: "+arg1);
+            myCnt++;
+            if (myCnt<100) {
+                logger.warn("Ill-formed triple: "+arg1);
+            }
         }
     }
 
