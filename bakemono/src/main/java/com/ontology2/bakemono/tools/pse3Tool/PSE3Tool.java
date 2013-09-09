@@ -10,7 +10,6 @@ import org.apache.hadoop.io.compress.GzipCodec;
 import org.apache.hadoop.mapreduce.*;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.hadoop.mapreduce.lib.output.MultipleOutputs;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 
@@ -23,6 +22,7 @@ import com.ontology2.bakemono.jena.STripleOutputFormat;
 import com.ontology2.bakemono.jena.TripleComparator;
 import com.ontology2.bakemono.jena.WritableTriple;
 import com.ontology2.bakemono.mappers.pse3.PSE3Mapper;
+import com.ontology2.bakemono.mapred.RealMultipleOutputs;
 import com.ontology2.bakemono.reducers.uniq.Uniq;
 
 public class PSE3Tool implements Tool {
@@ -68,6 +68,8 @@ public class PSE3Tool implements Tool {
             FileOutputFormat.setOutputPath(job, new Path(output));
             FileOutputFormat.setCompressOutput(job, true);
             FileOutputFormat.setOutputCompressorClass(job, GzipCodec.class);
+            
+            RealMultipleOutputs.addNamedOutput(job, "rejected", "/andImeanRejected",TextOutputFormat.class, Text.class, Text.class);
             return job.waitForCompletion(true) ? 0 :1;
         } catch(Main.IncorrectUsageException iue) {
             return 2;

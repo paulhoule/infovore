@@ -5,12 +5,14 @@ import java.io.IOException;
 import org.apache.hadoop.mapreduce.Mapper.Context;
 import org.apache.hadoop.mapreduce.lib.output.MultipleOutputs;
 
+import com.ontology2.bakemono.mapred.RealMultipleOutputs;
+
 public class NamedKeyValueAcceptor<K,V> implements KeyValueAcceptor<K,V> {
 
     private final String name;
-    private final MultipleOutputs mos;
+    private final RealMultipleOutputs mos;
 
-    public NamedKeyValueAcceptor(final MultipleOutputs mos, final String name) {
+    public NamedKeyValueAcceptor(final RealMultipleOutputs mos, final String name) {
         this.name = name;
         this.mos=mos;
     }

@@ -108,6 +108,7 @@ public class RealMultipleOutputs<KEYOUT, VALUEOUT> {
   private static final String FORMAT = ".format";
   private static final String KEY = ".key";
   private static final String VALUE = ".value";
+  private static final String HDFS_PATH = ".hdfsPath";
   private static final String COUNTERS_ENABLED = 
     MULTIPLE_OUTPUTS+".counters";
   
@@ -224,6 +225,10 @@ public class RealMultipleOutputs<KEYOUT, VALUEOUT> {
     return job.getConfiguration().getClass(MO_PREFIX + namedOutput + VALUE,
       null, Object.class);
   }
+  
+  private String getHdfsPath(JobContext job, String namedOutput) {
+      return job.getConfiguration().get(MO_PREFIX + namedOutput + HDFS_PATH);
+  };
 
   /**
    * Adds a named output for the job.
@@ -233,12 +238,17 @@ public class RealMultipleOutputs<KEYOUT, VALUEOUT> {
    * @param namedOutput       named output name, it has to be a word, letters
    *                          and numbers only, cannot be the word 'part' as
    *                          that is reserved for the default output.
+   *                          
+   *                          The named output is a key used internally that
+   *                          references the hdfsPath give as the next argument
+   *                          
+   * @param                   Path to output in HDFS
    * @param outputFormatClass OutputFormat class.
    * @param keyClass          key class
    * @param valueClass        value class
    */
   @SuppressWarnings("unchecked")
-  public static void addNamedOutput(Job job, String namedOutput,
+  public static void addNamedOutput(Job job, String namedOutput, String hdfsPath,
       Class<? extends OutputFormat> outputFormatClass,
       Class<?> keyClass, Class<?> valueClass) {
     checkNamedOutputName(job, namedOutput, true);
@@ -249,6 +259,7 @@ public class RealMultipleOutputs<KEYOUT, VALUEOUT> {
       OutputFormat.class);
     conf.setClass(MO_PREFIX + namedOutput + KEY, keyClass, Object.class);
     conf.setClass(MO_PREFIX + namedOutput + VALUE, valueClass, Object.class);
+    conf.set(MO_PREFIX+namedOutput+HDFS_PATH, hdfsPath);
   }
 
   /**
@@ -442,11 +453,17 @@ public class RealMultipleOutputs<KEYOUT, VALUEOUT> {
     }
     
     // The following trick leverages the instantiation of a record writer via
-    // the job thus supporting arbitrary output formats.
-    Job job = new Job(context.getConfiguration());
+    // the job thus supporting arbitrary output formats;  it also bypasses
+    // the lack of the set method we want on Job here.
+    
+    Configuration clonedConfiguration=new Configuration(context.getConfiguration());
+    clonedConfiguration.set("mapred.output.dir",getHdfsPath(context, nameOutput));
+    
+    Job job = new Job(clonedConfiguration);
     job.setOutputFormatClass(getNamedOutputFormatClass(context, nameOutput));
     job.setOutputKeyClass(getNamedOutputKeyClass(context, nameOutput));
     job.setOutputValueClass(getNamedOutputValueClass(context, nameOutput));
+    
     taskContext = new TaskAttemptContext(job.getConfiguration(), context
         .getTaskAttemptID());
 

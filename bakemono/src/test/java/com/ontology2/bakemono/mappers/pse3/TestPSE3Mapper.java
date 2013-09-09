@@ -22,6 +22,7 @@ import com.ontology2.bakemono.abstractions.KeyValueAcceptor;
 import com.ontology2.bakemono.jena.NodePair;
 import com.ontology2.bakemono.jena.WritableTriple;
 import com.ontology2.bakemono.mappers.pse3.PSE3Mapper;
+import com.ontology2.bakemono.mapred.RealMultipleOutputs;
 
 
 
@@ -32,12 +33,15 @@ public class TestPSE3Mapper {
     @Before
     public void setup() {
         pse3mapper=new PSE3Mapper();
+        pse3mapper.mos=mock(RealMultipleOutputs.class);
         pse3mapper.accepted=mock(KeyValueAcceptor.class);
+        pse3mapper.rejected=mock(KeyValueAcceptor.class);
     }
 
     @Test
     public void touchlessAtInitalization() {
         verifyNoMoreInteractions(pse3mapper.accepted);
+        verifyNoMoreInteractions(pse3mapper.rejected);
     }
 
 
@@ -61,6 +65,13 @@ public class TestPSE3Mapper {
     }
 
     @Test
+    public void closesMosOnShutdown() throws IOException, InterruptedException {
+        pse3mapper.cleanup(mock(Context.class));
+        verify(pse3mapper.mos).close();
+        verifyNoMoreInteractions(pse3mapper.mos);
+    }
+
+    @Test
     public void rejectsABadTriple() throws IOException, InterruptedException {
         Context mockContext=mock(Context.class);
         pse3mapper.map(
@@ -68,9 +79,16 @@ public class TestPSE3Mapper {
                 new Text("<http://example.com/A>\t<http://example.com/B>\t\"2001-06\"^^xsd:datetime."),
                 mockContext);
 
-        verify(mockContext).getCounter(PSE3Counters.REJECTED);
+        verify(pse3mapper.rejected).write(
+                new Text("<http://example.com/A>")
+                ,new Text("<http://example.com/B>\t\"2001-06\"^^xsd:datetime.")
+                ,mockContext
+        );
+
 
         verifyNoMoreInteractions(pse3mapper.accepted);
+        verifyNoMoreInteractions(pse3mapper.rejected);
+
     }
 
     @After

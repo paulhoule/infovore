@@ -19,6 +19,7 @@ import com.ontology2.bakemono.abstractions.NamedKeyValueAcceptor;
 import com.ontology2.bakemono.abstractions.PrimaryKeyValueAcceptor;
 import com.ontology2.bakemono.jena.NodePair;
 import com.ontology2.bakemono.jena.WritableTriple;
+import com.ontology2.bakemono.mapred.RealMultipleOutputs;
 import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.centipede.primitiveTriples.PrimitiveTripleCodec;
 import com.ontology2.rdf.JenaUtil;
@@ -34,13 +35,17 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
     // can mess with them
     //
 
+    RealMultipleOutputs mos;
     KeyValueAcceptor<WritableTriple,LongWritable> accepted;
-
+    KeyValueAcceptor<Text,Text> rejected;
+    
     @Override
     public void setup(Context context) throws IOException,
     InterruptedException {
+        mos=new RealMultipleOutputs(context);
         super.setup(context);
         accepted=new PrimaryKeyValueAcceptor(context);
+        rejected=new NamedKeyValueAcceptor(mos,"rejected");
     }
 
     int myCnt=0;
@@ -56,10 +61,10 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
             accepted.write(new WritableTriple(realTriple),new LongWritable(1),c);
         } catch(Throwable e) {
             incrementCounter(c,PSE3Counters.REJECTED,1);
-            myCnt++;
-            if (myCnt<100) {
-                logger.warn("Ill-formed triple: "+arg1);
-            }
+            rejected.write(
+                    new Text(row3.subject),
+                    new Text(row3.predicate+"\t"+row3.object+"."),c);
+
         }
     }
 
@@ -82,6 +87,7 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
     protected void cleanup(org.apache.hadoop.mapreduce.Mapper.Context context)
             throws IOException, InterruptedException {
         super.cleanup(context);
+        mos.close();
     }
 
 }
