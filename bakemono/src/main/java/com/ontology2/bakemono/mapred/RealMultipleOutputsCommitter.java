@@ -1,44 +1,55 @@
 package com.ontology2.bakemono.mapred;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.hadoop.mapreduce.JobContext;
 import org.apache.hadoop.mapreduce.OutputCommitter;
 import org.apache.hadoop.mapreduce.TaskAttemptContext;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter;
 
+import com.google.common.collect.Lists;
+
 public class RealMultipleOutputsCommitter extends OutputCommitter {
     
-    public OutputCommitter rootCommitter;
+    public List<OutputCommitter> committers;
 
     public RealMultipleOutputsCommitter(OutputCommitter outputCommitter) {
-        this.rootCommitter=outputCommitter;
+        this.committers=Lists.newArrayList(outputCommitter);
     }
 
     @Override
     public void setupJob(JobContext jobContext) throws IOException {
-        rootCommitter.setupJob(jobContext);
+        for(OutputCommitter that:committers)
+            that.setupJob(jobContext);
     }
 
     @Override
     public void setupTask(TaskAttemptContext taskContext) throws IOException {
-        rootCommitter.setupTask(taskContext);
+        for(OutputCommitter that:committers)
+            that.setupTask(taskContext);
     }
 
     @Override
     public boolean needsTaskCommit(TaskAttemptContext taskContext)
             throws IOException {
-        return rootCommitter.needsTaskCommit(taskContext);
+        for(OutputCommitter that:committers)
+            if(that.needsTaskCommit(taskContext))
+                return true;
+        
+        return false;
     }
 
     @Override
     public void commitTask(TaskAttemptContext taskContext) throws IOException {
-        rootCommitter.commitTask(taskContext);
+        for(OutputCommitter that:committers)
+            that.commitTask(taskContext);
     }
 
     @Override
     public void abortTask(TaskAttemptContext taskContext) throws IOException {
-        rootCommitter.abortTask(taskContext);
+        for(OutputCommitter that:committers)
+            that.abortTask(taskContext);
     }
 
 }
