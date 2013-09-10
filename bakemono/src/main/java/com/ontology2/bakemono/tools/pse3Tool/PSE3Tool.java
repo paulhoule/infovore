@@ -23,6 +23,7 @@ import com.ontology2.bakemono.jena.TripleComparator;
 import com.ontology2.bakemono.jena.WritableTriple;
 import com.ontology2.bakemono.mappers.pse3.PSE3Mapper;
 import com.ontology2.bakemono.mapred.RealMultipleOutputs;
+import com.ontology2.bakemono.mapred.RealMultipleOutputsMainOutputWrapper;
 import com.ontology2.bakemono.reducers.uniq.Uniq;
 
 public class PSE3Tool implements Tool {
@@ -56,20 +57,26 @@ public class PSE3Tool implements Tool {
             job.setJarByClass(PSE3Tool.class);
             job.setMapperClass(PSE3Mapper.class);
             job.setReducerClass(Uniq.class);
-            job.setNumReduceTasks(500);
+            job.setNumReduceTasks(4);
             
             job.setMapOutputKeyClass(WritableTriple.class);
             job.setMapOutputValueClass(LongWritable.class);
-            
-            job.setOutputFormatClass(SPOTripleOutputFormat.class);
+
             job.setOutputKeyClass(Triple.class);
             job.setOutputValueClass(LongWritable.class);
+            
             FileInputFormat.addInputPath(job, new Path(input));
             FileOutputFormat.setOutputPath(job, new Path(output));
             FileOutputFormat.setCompressOutput(job, true);
             FileOutputFormat.setOutputCompressorClass(job, GzipCodec.class);
+            RealMultipleOutputs.addNamedOutput(job, "rejected", "/andImeanRejected2",TextOutputFormat.class, Text.class, Text.class);
             
-            RealMultipleOutputs.addNamedOutput(job, "rejected", "/andImeanRejected",TextOutputFormat.class, Text.class, Text.class);
+            // Gotcha -- this has to run before the definitions above associated with the output format because
+            // this is going to be configured against the job as it stands a moment from now
+            
+            job.setOutputFormatClass(RealMultipleOutputsMainOutputWrapper.class);
+            RealMultipleOutputsMainOutputWrapper.setRootOutputFormat(job, SPOTripleOutputFormat.class);
+
             return job.waitForCompletion(true) ? 0 :1;
         } catch(Main.IncorrectUsageException iue) {
             return 2;
