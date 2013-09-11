@@ -5,6 +5,7 @@
 
 package com.ontology2.bakemono.mapred;
 
+import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.classification.InterfaceAudience;
 import org.apache.hadoop.classification.InterfaceStability;
 import org.apache.hadoop.conf.Configuration;
@@ -15,11 +16,12 @@ import org.apache.hadoop.util.ReflectionUtils;
 import java.io.IOException;
 import java.util.*;
 
-/* TODO: If you want Javadoc,  this is different from the "real" MultipleOutputs class
+/* If you want Javadoc,  this is different from the "real" MultipleOutputs class
  * but overall similar in character.  That javadoc could be copied over and then
- * modified. 
+ * pasted up in here 
  * 
  */
+
 @InterfaceAudience.Public
 @InterfaceStability.Stable
 public class RealMultipleOutputs<KEYOUT, VALUEOUT> {
@@ -175,7 +177,7 @@ public class RealMultipleOutputs<KEYOUT, VALUEOUT> {
    * @param valueClass        value class
    */
   @SuppressWarnings("unchecked")
-  public static void addNamedOutput(Job job, String namedOutput, String hdfsPath,
+  public static void addNamedOutput(Job job, String namedOutput, Path hdfsPath,
       Class<? extends OutputFormat> outputFormatClass,
       Class<?> keyClass, Class<?> valueClass) {
     checkNamedOutputName(job, namedOutput, true);
@@ -186,7 +188,7 @@ public class RealMultipleOutputs<KEYOUT, VALUEOUT> {
       OutputFormat.class);
     conf.setClass(MO_PREFIX + namedOutput + KEY, keyClass, Object.class);
     conf.setClass(MO_PREFIX + namedOutput + VALUE, valueClass, Object.class);
-    conf.set(MO_PREFIX+namedOutput+HDFS_PATH, hdfsPath);
+    conf.set(MO_PREFIX+namedOutput+HDFS_PATH, hdfsPath.toString());
   }
 
   /**

@@ -49,6 +49,9 @@ public class PSE3Tool implements Tool {
             String input=arg0[0];
             String output=arg0[1];
             
+            Path acceptedPath=new Path(output,"accepted");
+            Path rejectedPath=new Path(output,"rejected");
+            
             conf.set("mapred.compress.map.output", "true");
             conf.set("mapred.output.compression.type", "BLOCK"); 
             conf.set("mapred.map.output.compression.codec", "org.apache.hadoop.io.compress.GzipCodec");
@@ -66,10 +69,10 @@ public class PSE3Tool implements Tool {
             job.setOutputValueClass(LongWritable.class);
             
             FileInputFormat.addInputPath(job, new Path(input));
-            FileOutputFormat.setOutputPath(job, new Path(output));
+            FileOutputFormat.setOutputPath(job, acceptedPath);
             FileOutputFormat.setCompressOutput(job, true);
             FileOutputFormat.setOutputCompressorClass(job, GzipCodec.class);
-            RealMultipleOutputs.addNamedOutput(job, "rejected", "/andImeanRejected2",TextOutputFormat.class, Text.class, Text.class);
+            RealMultipleOutputs.addNamedOutput(job, "rejected", rejectedPath,TextOutputFormat.class, Text.class, Text.class);
             
             // Gotcha -- this has to run before the definitions above associated with the output format because
             // this is going to be configured against the job as it stands a moment from now
