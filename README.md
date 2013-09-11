@@ -1,9 +1,8 @@
 Overview
 --------
 
-Infovore is an RDF processing system that uses the millipede framework for efficient
-Map/Reduce processing of billion-triple data sets on a common desktop, laptop or server
-computer.
+Infovore is an RDF processing system that uses Hadoop to process RDF data
+sets in the triple range and beyond
 
 Building
 --------
@@ -13,9 +12,11 @@ mvn clean install
 Installing
 ----------
 
-Configure your environment for the Infovore shell by doing
+The following cantrip initializes the bash shell for the use of the
+"haruhi" program,  which can be used to run Infovore applications
+packaged in the Bakemono Jar.
 
-source infovore-apps/path.sh
+source haruhi/path.sh
 
 More Information
 ----------------
