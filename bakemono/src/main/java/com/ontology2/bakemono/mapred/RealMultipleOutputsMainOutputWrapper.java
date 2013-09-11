@@ -1,15 +1,20 @@
 package com.ontology2.bakemono.mapred;
 
 import java.io.IOException;
+import java.util.List;
 
+import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.compress.CompressionCodec;
+
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.OutputCommitter;
 import org.apache.hadoop.mapreduce.RecordWriter;
 import org.apache.hadoop.mapreduce.TaskAttemptContext;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+import com.google.common.collect.Lists;
 
 public class RealMultipleOutputsMainOutputWrapper<K,V> extends FileOutputFormat<K,V> {
 
@@ -49,12 +54,17 @@ public class RealMultipleOutputsMainOutputWrapper<K,V> extends FileOutputFormat<
     public synchronized OutputCommitter getOutputCommitter(
             TaskAttemptContext context) throws IOException {
         if(_committer==null) {
-            _committer=new RealMultipleOutputsCommitter(super.getOutputCommitter(context));
+            // insert list here?  we should have enough in the context to construct the object states...
+            List<OutputCommitter> committers=Lists.newArrayList(super.getOutputCommitter(context));
+            for(String name:RealMultipleOutputs.getNamedOutputsList(context))
+                committers.add(new FileOutputCommitter(
+                        new Path(RealMultipleOutputs.getHdfsPath(context,name)),
+                        RealMultipleOutputs._getContext(context,name)
+                ));
+                
+            _committer=new RealMultipleOutputsCommitter(committers);
         }
-        // TODO Auto-generated method stub
+        
         return _committer;
     }
-    
-    
-
 }

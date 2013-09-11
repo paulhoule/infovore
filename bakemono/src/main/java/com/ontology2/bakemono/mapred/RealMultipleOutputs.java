@@ -15,86 +15,10 @@ import org.apache.hadoop.util.ReflectionUtils;
 import java.io.IOException;
 import java.util.*;
 
-/**
- * The MultipleOutputs class simplifies writing output data 
- * to multiple outputs
+/* TODO: If you want Javadoc,  this is different from the "real" MultipleOutputs class
+ * but overall similar in character.  That javadoc could be copied over and then
+ * modified. 
  * 
- * <p> 
- * Case one: writing to additional outputs other than the job default output.
- *
- * Each additional output, or named output, may be configured with its own
- * <code>OutputFormat</code>, with its own key class and with its own value
- * class.
- * 
- * <p>
- * Case two: to write data to different files provided by user
- * </p>
- * 
- * <p>
- * MultipleOutputs supports counters, by default they are disabled. The 
- * counters group is the {@link MultipleOutputs} class name. The names of the 
- * counters are the same as the output name. These count the number records 
- * written to each output name.
- * </p>
- * 
- * Usage pattern for job submission:
- * <pre>
- *
- * Job job = new Job();
- *
- * FileInputFormat.setInputPath(job, inDir);
- * FileOutputFormat.setOutputPath(job, outDir);
- *
- * job.setMapperClass(MOMap.class);
- * job.setReducerClass(MOReduce.class);
- * ...
- *
- * // Defines additional single text based output 'text' for the job
- * MultipleOutputs.addNamedOutput(job, "text", TextOutputFormat.class,
- * LongWritable.class, Text.class);
- *
- * // Defines additional sequence-file based output 'sequence' for the job
- * MultipleOutputs.addNamedOutput(job, "seq",
- *   SequenceFileOutputFormat.class,
- *   LongWritable.class, Text.class);
- * ...
- *
- * job.waitForCompletion(true);
- * ...
- * </pre>
- * <p>
- * Usage in Reducer:
- * <pre>
- * <K, V> String generateFileName(K k, V v) {
- *   return k.toString() + "_" + v.toString();
- * }
- * 
- * public class MOReduce extends
- *   Reducer&lt;WritableComparable, Writable,WritableComparable, Writable&gt; {
- * private MultipleOutputs mos;
- * public void setup(Context context) {
- * ...
- * mos = new MultipleOutputs(context);
- * }
- *
- * public void reduce(WritableComparable key, Iterator&lt;Writable&gt; values,
- * Context context)
- * throws IOException {
- * ...
- * mos.write("text", , key, new Text("Hello"));
- * mos.write("seq", LongWritable(1), new Text("Bye"), "seq_a");
- * mos.write("seq", LongWritable(2), key, new Text("Chau"), "seq_b");
- * mos.write(key, new Text("value"), generateFileName(key, new Text("value")));
- * ...
- * }
- *
- * public void cleanup(Context) throws IOException {
- * mos.close();
- * ...
- * }
- *
- * }
- * </pre>
  */
 @InterfaceAudience.Public
 @InterfaceStability.Stable
@@ -192,8 +116,10 @@ public class RealMultipleOutputs<KEYOUT, VALUEOUT> {
     }
   }
 
-  // Returns list of channel names.
-  private static List<String> getNamedOutputsList(JobContext job) {
+  // Returns list of channel names -- infovore made this package scope so this
+  // can be seen when we are initializating the committer
+  
+  static List<String> getNamedOutputsList(JobContext job) {
     List<String> names = new ArrayList<String>();
     StringTokenizer st = new StringTokenizer(
       job.getConfiguration().get(MULTIPLE_OUTPUTS, ""), " ");
@@ -226,7 +152,8 @@ public class RealMultipleOutputs<KEYOUT, VALUEOUT> {
       null, Object.class);
   }
   
-  private String getHdfsPath(JobContext job, String namedOutput) {
+  // package scope in Infovore
+  static String getHdfsPath(JobContext job, String namedOutput) {
       return job.getConfiguration().get(MO_PREFIX + namedOutput + HDFS_PATH);
   };
 
@@ -452,6 +379,15 @@ public class RealMultipleOutputs<KEYOUT, VALUEOUT> {
         return taskContext;
     }
     
+    taskContext = _getContext(context,nameOutput);
+
+    taskContexts.put(nameOutput, taskContext);
+
+    return taskContext;
+  }
+
+static TaskAttemptContext _getContext(TaskAttemptContext context,String nameOutput) throws IOException {
+    TaskAttemptContext taskContext;
     // The following trick leverages the instantiation of a record writer via
     // the job thus supporting arbitrary output formats;  it also bypasses
     // the lack of the set method we want on Job here.
@@ -466,11 +402,8 @@ public class RealMultipleOutputs<KEYOUT, VALUEOUT> {
     
     taskContext = new TaskAttemptContext(job.getConfiguration(), context
         .getTaskAttemptID());
-
-    taskContexts.put(nameOutput, taskContext);
-
     return taskContext;
-  }
+}
 
   /**
    * Closes all the opened outputs.

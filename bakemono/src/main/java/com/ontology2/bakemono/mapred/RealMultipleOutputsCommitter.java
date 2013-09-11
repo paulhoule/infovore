@@ -14,8 +14,16 @@ public class RealMultipleOutputsCommitter extends OutputCommitter {
     
     public List<OutputCommitter> committers;
 
+    //
+    // TODO: Make the lists below immutable,  widen List<> in constructor
+    //
+    
     public RealMultipleOutputsCommitter(OutputCommitter outputCommitter) {
         this.committers=Lists.newArrayList(outputCommitter);
+    }
+
+    public RealMultipleOutputsCommitter(List<OutputCommitter> committers) {
+        this.committers=committers;
     }
 
     @Override
