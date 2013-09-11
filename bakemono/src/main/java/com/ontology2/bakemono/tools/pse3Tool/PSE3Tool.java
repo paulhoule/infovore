@@ -13,10 +13,13 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 
+import com.google.common.collect.Iterators;
+import com.google.common.collect.PeekingIterator;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.reasoner.rulesys.impl.TempNodeCache.NodePair;
 import com.ontology2.bakemono.Main;
+import com.ontology2.bakemono.Main.IncorrectUsageException;
 import com.ontology2.bakemono.jena.SPOTripleOutputFormat;
 import com.ontology2.bakemono.jena.STripleOutputFormat;
 import com.ontology2.bakemono.jena.TripleComparator;
@@ -43,11 +46,32 @@ public class PSE3Tool implements Tool {
     @Override
     public int run(String[] arg0) throws Exception {
         try {
-            if(arg0.length!=2)
-                Main.errorCausedByUser("You must specify both input and output paths");
-    
-            String input=arg0[0];
-            String output=arg0[1];
+            PeekingIterator<String> a=Iterators.peekingIterator(Iterators.forArray(arg0));
+            
+            Integer reduceTasks=null;
+            while(a.hasNext() && a.peek().startsWith("-")) {
+                String flagName=a.next().substring(1).intern();
+                if (!a.hasNext())
+                    usage();
+                
+                String flagValue=a.next();
+                if (flagName=="r") {
+                    reduceTasks=Integer.parseInt(flagValue);
+                } else {
+                    usage();
+                };
+            }
+            
+
+            if (!a.hasNext())
+                usage();
+            
+            String input=a.next();
+            
+            if (!a.hasNext())
+                usage();
+            
+            String output=a.next();
             
             Path acceptedPath=new Path(output,"accepted");
             Path rejectedPath=new Path(output,"rejected");
@@ -60,7 +84,12 @@ public class PSE3Tool implements Tool {
             job.setJarByClass(PSE3Tool.class);
             job.setMapperClass(PSE3Mapper.class);
             job.setReducerClass(Uniq.class);
-            job.setNumReduceTasks(4);
+            
+            if(reduceTasks==null) {
+                reduceTasks=25;    // this shouldn't ever cause a real disaster
+            }
+            
+            job.setNumReduceTasks(reduceTasks);
             
             job.setMapOutputKeyClass(WritableTriple.class);
             job.setMapOutputValueClass(LongWritable.class);
@@ -85,5 +114,8 @@ public class PSE3Tool implements Tool {
             return 2;
         }
     }
-
+    
+    private void usage() throws IncorrectUsageException {
+        throw new Main.IncorrectUsageException("incorrect arguments");
+    };
 }
