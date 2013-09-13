@@ -46,21 +46,8 @@ public class PSE3Tool implements Tool {
     @Override
     public int run(String[] arg0) throws Exception {
         try {
-            PeekingIterator<String> a=Iterators.peekingIterator(Iterators.forArray(arg0));
-            
-            Integer reduceTasks=null;
-            while(a.hasNext() && a.peek().startsWith("-")) {
-                String flagName=a.next().substring(1).intern();
-                if (!a.hasNext())
-                    usage();
-                
-                String flagValue=a.next();
-                if (flagName=="r") {
-                    reduceTasks=Integer.parseInt(flagValue);
-                } else {
-                    usage();
-                };
-            }
+            PeekingIterator<String> a=Iterators.peekingIterator(Iterators.forArray(arg0));    
+            Integer reduceTasks = parseRArgument(a);
             
 
             if (!a.hasNext())
@@ -91,11 +78,7 @@ public class PSE3Tool implements Tool {
             
             job.setNumReduceTasks(reduceTasks);
             
-            job.setMapOutputKeyClass(WritableTriple.class);
-            job.setMapOutputValueClass(LongWritable.class);
-
-            job.setOutputKeyClass(Triple.class);
-            job.setOutputValueClass(LongWritable.class);
+ 
             
             FileInputFormat.addInputPath(job, new Path(input));
             FileOutputFormat.setOutputPath(job, acceptedPath);
@@ -115,7 +98,25 @@ public class PSE3Tool implements Tool {
         }
     }
     
-    private void usage() throws IncorrectUsageException {
+    private static Integer parseRArgument(PeekingIterator<String> a)
+            throws IncorrectUsageException {
+        Integer reduceTasks=null;
+        while(a.hasNext() && a.peek().startsWith("-")) {
+            String flagName=a.next().substring(1).intern();
+            if (!a.hasNext())
+                usage();
+            
+            String flagValue=a.next();
+            if (flagName=="r") {
+                reduceTasks=Integer.parseInt(flagValue);
+            } else {
+                usage();
+            };
+        }
+        return reduceTasks;
+    }
+    
+    private static void usage() throws IncorrectUsageException {
         throw new Main.IncorrectUsageException("incorrect arguments");
     };
 }

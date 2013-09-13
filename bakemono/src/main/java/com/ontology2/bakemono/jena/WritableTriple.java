@@ -10,8 +10,9 @@ import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Triple;
 
 //
-// Makeshift way to serialize triples to the 
+// Makeshift way to serialize triples to the outside 
 //
+
 public class WritableTriple implements WritableComparable {
     private Triple innerTriple;
     private static final TripleComparator tc=new TripleComparator();
