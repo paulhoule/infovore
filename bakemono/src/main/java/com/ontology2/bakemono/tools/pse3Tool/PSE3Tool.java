@@ -77,9 +77,7 @@ public class PSE3Tool implements Tool {
             }
             
             job.setNumReduceTasks(reduceTasks);
-            
- 
-            
+
             FileInputFormat.addInputPath(job, new Path(input));
             FileOutputFormat.setOutputPath(job, acceptedPath);
             FileOutputFormat.setCompressOutput(job, true);
@@ -92,7 +90,7 @@ public class PSE3Tool implements Tool {
             job.setOutputFormatClass(RealMultipleOutputsMainOutputWrapper.class);
             RealMultipleOutputsMainOutputWrapper.setRootOutputFormat(job, SPOTripleOutputFormat.class);
 
-            return job.waitForCompletion(true) ? 0 :1;
+            return job.waitForCompletion(true) ? 0 : 1;
         } catch(Main.IncorrectUsageException iue) {
             return 2;
         }

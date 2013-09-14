@@ -25,6 +25,8 @@ import com.ontology2.centipede.primitiveTriples.PrimitiveTripleCodec;
 import com.ontology2.rdf.JenaUtil;
 
 public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWritable> {
+    private static final LongWritable ONE = new LongWritable(1);
+    
     private static org.apache.commons.logging.Log logger = LogFactory.getLog(PSE3Mapper.class);
     final LoadingCache<String,Node> nodeParser=JenaUtil.createNodeParseCache();
 
@@ -58,7 +60,7 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
             Node object=nodeParser.get(row3.object);
             Triple realTriple=new Triple(subject,predicate,object);
             incrementCounter(c,PSE3Counters.ACCEPTED,1);
-            accepted.write(new WritableTriple(realTriple),new LongWritable(1),c);
+            accepted.write(new WritableTriple(realTriple),ONE,c);
         } catch(Throwable e) {
             incrementCounter(c,PSE3Counters.REJECTED,1);
             rejected.write(
