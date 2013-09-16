@@ -76,7 +76,6 @@ public class Sieve3Tool implements Tool {
             job.setJarByClass(Sieve3Tool.class);
             job.setMapperClass(Sieve3Mapper.class);
             job.setNumReduceTasks(0);
-    
             
             Path otherPath=new Path(output,"other");
             FileOutputFormat.setOutputPath(job, otherPath);
