@@ -32,6 +32,7 @@ import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
+import com.ontology2.bakemono.sieve3.Sieve3Tool;
 import com.ontology2.bakemono.tools.freebasePrefilter.FreebaseRDFTool;
 import com.ontology2.bakemono.tools.pse3Tool.PSE3Tool;
 import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
@@ -52,6 +53,7 @@ public class Main implements Runnable {
     Map<String,Class> myApps=new HashMap<String,Class>() {{
         put("freebaseRDFPrefilter",FreebaseRDFTool.class);
         put("pse3",PSE3Tool.class);
+        put("sieve3",Sieve3Tool.class);
     }};
     
     Map<String, TopLevelCommand> myCommands=new HashMap<String,TopLevelCommand>() {{

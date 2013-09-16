@@ -74,7 +74,7 @@ public class Sieve3Tool implements Tool {
             FileInputFormat.addInputPath(job, new Path(input));
             job.setInputFormatClass(PrimitiveTripleInputFormat.class);
             
-            job.setJarByClass(PSE3Tool.class);
+            job.setJarByClass(Sieve3Tool.class);
             job.setMapperClass(Sieve3Mapper.class);
             job.setNumReduceTasks(0);
     
@@ -90,7 +90,7 @@ public class Sieve3Tool implements Tool {
                 RealMultipleOutputs.addNamedOutput(job,
                         r.getOutputName(),
                         new Path(output,r.getOutputName()),
-                        SPOTripleOutputFormat.class, 
+                        SPOPrimitiveTripleOutputFormat.class, 
                         PrimitiveTriple.class, 
                         LongWritable.class);
             

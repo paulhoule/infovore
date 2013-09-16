@@ -55,4 +55,11 @@ public class Sieve3Mapper extends Mapper<LongWritable,PrimitiveTriple,PrimitiveT
 
         other.write(row3, ONE, c);
     }
+    
+    @Override
+    protected void cleanup(org.apache.hadoop.mapreduce.Mapper.Context context)
+            throws IOException, InterruptedException {
+        super.cleanup(context);
+        mos.close();
+    }
 }

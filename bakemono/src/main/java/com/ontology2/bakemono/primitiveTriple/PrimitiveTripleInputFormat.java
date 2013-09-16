@@ -23,7 +23,6 @@ public class PrimitiveTripleInputFormat extends FileInputFormat<LongWritable,Pri
             final InputSplit split, final TaskAttemptContext context) throws IOException,
             InterruptedException {
         return new LineProcessingRecordReader<PrimitiveTriple>() {
-
             @Override
             PrimitiveTriple convert(Text line) {
                 return ptc.decode(line.toString());
