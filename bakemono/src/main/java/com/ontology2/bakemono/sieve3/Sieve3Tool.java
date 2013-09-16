@@ -72,7 +72,6 @@ public class Sieve3Tool implements Tool {
             
             Job job=new Job(conf,"pse3");
             FileInputFormat.addInputPath(job, new Path(input));
-//            job.setInputFormatClass(PrimitiveTripleInputFormat.class);
             
             job.setJarByClass(Sieve3Tool.class);
             job.setMapperClass(Sieve3Mapper.class);
