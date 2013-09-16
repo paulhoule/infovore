@@ -18,10 +18,12 @@ import com.ontology2.bakemono.abstractions.PrimaryKeyValueAcceptor;
 import com.ontology2.bakemono.jena.WritableTriple;
 import com.ontology2.bakemono.mappers.pse3.PSE3Counters;
 import com.ontology2.bakemono.mapred.RealMultipleOutputs;
+import com.ontology2.centipede.Codec;
 import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.bakemono.sieve3.Sieve3Configuration.Rule;
+import com.ontology2.centipede.primitiveTriples.PrimitiveTripleCodec;
 
-public class Sieve3Mapper extends Mapper<LongWritable,PrimitiveTriple,PrimitiveTriple,LongWritable> {
+public class Sieve3Mapper extends Mapper<LongWritable,Text,PrimitiveTriple,LongWritable> {
 
     private static final LongWritable ONE = new LongWritable(1);
     
@@ -29,6 +31,7 @@ public class Sieve3Mapper extends Mapper<LongWritable,PrimitiveTriple,PrimitiveT
     RealMultipleOutputs mos;
     KeyValueAcceptor<PrimitiveTriple,LongWritable> other;
     Map<String,KeyValueAcceptor<PrimitiveTriple,LongWritable>> outputs=Maps.newHashMap();
+    final static Codec<PrimitiveTriple> primitiveTripleCodec=new PrimitiveTripleCodec(); 
     
     @Override
     public void setup(Context context) throws IOException,
@@ -46,7 +49,8 @@ public class Sieve3Mapper extends Mapper<LongWritable,PrimitiveTriple,PrimitiveT
     //
     
     @Override
-    public void map(LongWritable arg0, PrimitiveTriple row3, Context c) throws IOException, InterruptedException {
+    public void map(LongWritable arg0, Text line, Context c) throws IOException, InterruptedException {
+        PrimitiveTriple row3=primitiveTripleCodec.decode(line.toString());
         for(Rule r:sieve3conf.getRules())
             if(r.getCondition().apply(row3)) {
                 outputs.get(r.getOutputName()).write(row3,ONE,c);
