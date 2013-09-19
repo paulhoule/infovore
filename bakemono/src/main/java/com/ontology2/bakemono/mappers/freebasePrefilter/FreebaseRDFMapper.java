@@ -109,7 +109,7 @@ public class FreebaseRDFMapper extends Mapper<LongWritable,Text,Text,Text> {
 
     private void accept(Context out,
             PrimitiveTriple primitiveTriple) throws IOException, InterruptedException {
-        out.write(new Text(primitiveTriple.subject), new Text(primitiveTriple.poPairAsString()));
+        out.write(new Text(primitiveTriple.getSubject()), new Text(primitiveTriple.poPairAsString()));
     }
 
     List<String> expandTripleParts(String line) throws InvalidNodeException {

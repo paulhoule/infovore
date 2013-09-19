@@ -13,11 +13,11 @@ public class PrimitiveTripleCodec implements Codec<PrimitiveTriple> {
     @Override
     public String encode(PrimitiveTriple obj) {
         StringBuilder output=new StringBuilder();
-        output.append(obj.subject);
+        output.append(obj.getSubject());
         output.append("\t");
-        output.append(obj.predicate);
+        output.append(obj.getPredicate());
         output.append("\t");
-        output.append(obj.object);
+        output.append(obj.getObject());
         output.append(".");
         return output.toString();
     }

@@ -16,11 +16,11 @@ public class PrimitiveTripleReverser implements Function<PrimitiveTriple,Primiti
 
     @Override
     public PrimitiveTriple apply(PrimitiveTriple obj) {
-        if(from.equals(obj.predicate)) {
+        if(from.equals(obj.getPredicate())) {
             return new PrimitiveTriple(
-                    obj.object,
+                    obj.getObject(),
                     to,
-                    obj.subject	
+                    obj.getSubject()	
                     );
         } else {
             return obj;

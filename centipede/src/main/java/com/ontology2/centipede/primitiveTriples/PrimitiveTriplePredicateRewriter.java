@@ -13,11 +13,11 @@ public class PrimitiveTriplePredicateRewriter implements Function<PrimitiveTripl
     }
 
     public PrimitiveTriple apply(PrimitiveTriple obj)  {
-        if(from.equals(obj.predicate)) {
+        if(from.equals(obj.getPredicate())) {
             return new PrimitiveTriple(
-                    obj.subject,
+                    obj.getSubject(),
                     to,
-                    obj.object	
+                    obj.getObject()	
                     );
         } else {
             return obj;

@@ -27,53 +27,53 @@ public class TestPrimitiveTripleCodec {
     public void parsesALinkTriple() {
         String in=X+"       "+Y+"\t"+Z+".";
         PrimitiveTriple out=codec.decode(in);
-        assertEquals(X,out.subject);
-        assertEquals(Y,out.predicate);
-        assertEquals(Z,out.object);
+        assertEquals(X,out.getSubject());
+        assertEquals(Y,out.getPredicate());
+        assertEquals(Z,out.getObject());
     }
     
     @Test
     public void parsesASingleSpaceTriple() {
         String in=X+" "+Y+" "+Z+" .";
         PrimitiveTriple out=codec.decode(in);
-        assertEquals(X,out.subject);
-        assertEquals(Y,out.predicate);
-        assertEquals(Z,out.object);
+        assertEquals(X,out.getSubject());
+        assertEquals(Y,out.getPredicate());
+        assertEquals(Z,out.getObject());
     }
     
     @Test
     public void parsesATabbyTriple() {
         String in=X+"\t"+Y+"\t "+Z+"\t.";
         PrimitiveTriple out=codec.decode(in);
-        assertEquals(X,out.subject);
-        assertEquals(Y,out.predicate);
-        assertEquals(Z,out.object);
+        assertEquals(X,out.getSubject());
+        assertEquals(Y,out.getPredicate());
+        assertEquals(Z,out.getObject());
     }
 
     @Test
     public void parsesALiteralTriple() {
         String in=X+"\t"+Y+"\t "+L1+"\t.";
         PrimitiveTriple out=codec.decode(in);
-        assertEquals(X,out.subject);
-        assertEquals(Y,out.predicate);
-        assertEquals(L1,out.object);
+        assertEquals(X,out.getSubject());
+        assertEquals(Y,out.getPredicate());
+        assertEquals(L1,out.getObject());
     }
     
     @Test
     public void parsesALiteralTripleWithNoSpaceBeforeTerminalPeriod() {
         String in=X+"\t"+Y+"\t "+L1+".";
         PrimitiveTriple out=codec.decode(in);
-        assertEquals(X,out.subject);
-        assertEquals(Y,out.predicate);
-        assertEquals(L1,out.object);
+        assertEquals(X,out.getSubject());
+        assertEquals(Y,out.getPredicate());
+        assertEquals(L1,out.getObject());
     }
     
     @Test
     public void parsesALiteralValueWithSpaces() {
         String in=X+"\t"+Y+"\t "+L2+"\t.";
         PrimitiveTriple out=codec.decode(in);
-        assertEquals(X,out.subject);
-        assertEquals(Y,out.predicate);
-        assertEquals(L2,out.object);
+        assertEquals(X,out.getSubject());
+        assertEquals(Y,out.getPredicate());
+        assertEquals(L2,out.getObject());
     }
 }

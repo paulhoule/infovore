@@ -124,7 +124,7 @@ public class Sieve3Tool implements Tool {
     private static Predicate<PrimitiveTriple> matchesPredicate(final String that) {
         return new Predicate<PrimitiveTriple>() {
             @Override public boolean apply(PrimitiveTriple input) {
-                return input.predicate.equals(that);
+                return input.getPredicate().equals(that);
             }
         };
     }
@@ -132,7 +132,7 @@ public class Sieve3Tool implements Tool {
     private static Predicate<PrimitiveTriple> predicateStartsWith(final String that) {
         return new Predicate<PrimitiveTriple>() {
             @Override public boolean apply(PrimitiveTriple input) {
-                return input.predicate.startsWith("<"+that);
+                return input.getPredicate().startsWith("<"+that);
             }
         };
     }
@@ -160,7 +160,7 @@ public class Sieve3Tool implements Tool {
     static Predicate<PrimitiveTriple> isLinkRelationship() {
         return new Predicate<PrimitiveTriple>() {
             @Override public boolean apply(PrimitiveTriple input) {
-                return input.object.startsWith("<") && input.object.endsWith(">");
+                return input.getObject().startsWith("<") && input.getObject().endsWith(">");
             }
         };
     };

@@ -16,13 +16,13 @@ public class PrimitiveTripleTypeRewriter implements
     
     @Override
     public PrimitiveTriple apply(PrimitiveTriple input) {
-        String object=input.object;
+        String object=input.getObject();
         
         if(!object.endsWith(oldTemplate))
             return input;
         
         String newObject=object.substring(0,object.length()-oldTemplate.length()+2)+newType;
-        return new PrimitiveTriple(input.subject,input.predicate,newObject);
+        return new PrimitiveTriple(input.getSubject(),input.getPredicate(),newObject);
     }
 
 }

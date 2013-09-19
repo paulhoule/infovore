@@ -63,9 +63,9 @@ public class PrimitiveTripleInput extends LoadFunc implements LoadMetadata {
             
             PrimitiveTriple t=in.getCurrentValue();
             List<String> parts=new ArrayList<String>(3);
-            parts.add(t.subject);
-            parts.add(t.predicate);
-            parts.add(t.object);
+            parts.add(t.getSubject());
+            parts.add(t.getPredicate());
+            parts.add(t.getObject());
             
             return mTupleFactory.newTupleNoCopy(parts);
 
