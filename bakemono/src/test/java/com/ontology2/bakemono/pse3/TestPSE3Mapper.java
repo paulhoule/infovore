@@ -1,4 +1,4 @@
-package com.ontology2.bakemono.mappers.pse3;
+package com.ontology2.bakemono.pse3;
 
 import static org.junit.Assert.*;
 
@@ -21,8 +21,8 @@ import com.hp.hpl.jena.graph.Triple;
 import com.ontology2.bakemono.abstractions.KeyValueAcceptor;
 import com.ontology2.bakemono.jena.NodePair;
 import com.ontology2.bakemono.jena.WritableTriple;
-import com.ontology2.bakemono.mappers.pse3.PSE3Mapper;
 import com.ontology2.bakemono.mapred.RealMultipleOutputs;
+import com.ontology2.bakemono.pse3.PSE3Mapper;
 
 
 

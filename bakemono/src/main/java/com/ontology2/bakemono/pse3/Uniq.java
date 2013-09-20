@@ -1,4 +1,4 @@
-package com.ontology2.bakemono.reducers.uniq;
+package com.ontology2.bakemono.pse3;
 
 import java.io.IOException;
 
@@ -9,7 +9,6 @@ import org.apache.hadoop.mapreduce.Reducer.Context;
 
 import com.hp.hpl.jena.graph.Triple;
 import com.ontology2.bakemono.jena.WritableTriple;
-import com.ontology2.bakemono.mappers.pse3.PSE3Mapper;
 
 public class Uniq extends Reducer<WritableTriple, LongWritable, Triple, LongWritable> {
     private static org.apache.commons.logging.Log logger = LogFactory.getLog(Uniq.class);

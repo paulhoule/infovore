@@ -1,4 +1,4 @@
-package com.ontology2.bakemono.mappers.freebasePrefilter;
+package com.ontology2.bakemono.freebasePrefilter;
 
 public enum FreebasePrefilterCounter {
     ACCEPTED, ILL_FORMED, PREFIX_DECL, IGNORED

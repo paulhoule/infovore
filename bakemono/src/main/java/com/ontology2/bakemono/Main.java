@@ -32,10 +32,10 @@ import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
+import com.ontology2.bakemono.freebasePrefilter.FreebaseRDFTool;
+import com.ontology2.bakemono.pse3.PSE3Tool;
+import com.ontology2.bakemono.ranSample.RanSampleTool;
 import com.ontology2.bakemono.sieve3.Sieve3Tool;
-import com.ontology2.bakemono.tools.freebasePrefilter.FreebaseRDFTool;
-import com.ontology2.bakemono.tools.pse3Tool.PSE3Tool;
-import com.ontology2.bakemono.tools.ranSample.RanSampleTool;
 import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.centipede.shell.CommandLineApplication;
 

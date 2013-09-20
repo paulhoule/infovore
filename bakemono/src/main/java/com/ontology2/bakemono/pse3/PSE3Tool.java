@@ -1,4 +1,4 @@
-package com.ontology2.bakemono.tools.pse3Tool;
+package com.ontology2.bakemono.pse3;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hdfs.server.common.IncorrectVersionException;
@@ -24,10 +24,8 @@ import com.ontology2.bakemono.jena.SPOTripleOutputFormat;
 import com.ontology2.bakemono.jena.STripleOutputFormat;
 import com.ontology2.bakemono.jena.TripleComparator;
 import com.ontology2.bakemono.jena.WritableTriple;
-import com.ontology2.bakemono.mappers.pse3.PSE3Mapper;
 import com.ontology2.bakemono.mapred.RealMultipleOutputs;
 import com.ontology2.bakemono.mapred.RealMultipleOutputsMainOutputWrapper;
-import com.ontology2.bakemono.reducers.uniq.Uniq;
 
 public class PSE3Tool implements Tool {
 

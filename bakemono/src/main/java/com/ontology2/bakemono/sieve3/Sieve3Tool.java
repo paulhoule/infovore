@@ -18,12 +18,12 @@ import com.google.common.collect.PeekingIterator;
 import com.ontology2.bakemono.Main;
 import com.ontology2.bakemono.Main.IncorrectUsageException;
 import com.ontology2.bakemono.jena.SPOTripleOutputFormat;
-import com.ontology2.bakemono.mappers.pse3.PSE3Mapper;
 import com.ontology2.bakemono.mapred.RealMultipleOutputs;
 import com.ontology2.bakemono.mapred.RealMultipleOutputsMainOutputWrapper;
 import com.ontology2.bakemono.primitiveTriple.PrimitiveTripleInputFormat;
 import com.ontology2.bakemono.primitiveTriple.SPOPrimitiveTripleOutputFormat;
-import com.ontology2.bakemono.tools.pse3Tool.PSE3Tool;
+import com.ontology2.bakemono.pse3.PSE3Mapper;
+import com.ontology2.bakemono.pse3.PSE3Tool;
 import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.bakemono.sieve3.Sieve3Configuration.Rule;
 

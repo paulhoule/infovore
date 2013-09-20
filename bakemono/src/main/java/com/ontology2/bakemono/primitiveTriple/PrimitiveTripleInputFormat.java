@@ -10,7 +10,7 @@ import org.apache.hadoop.mapreduce.RecordReader;
 import org.apache.hadoop.mapreduce.TaskAttemptContext;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 
-import com.ontology2.bakemono.mappers.pse3.PSE3Mapper;
+import com.ontology2.bakemono.pse3.PSE3Mapper;
 import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.centipede.primitiveTriples.PrimitiveTripleCodec;
 

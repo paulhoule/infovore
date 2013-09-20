@@ -1,6 +1,6 @@
-package com.ontology2.bakemono.mappers.freebasePrefilter;
+package com.ontology2.bakemono.freebasePrefilter;
 
-import static com.ontology2.bakemono.mappers.freebasePrefilter.FreebaseRDFMapper.*;
+import static com.ontology2.bakemono.freebasePrefilter.FreebaseRDFMapper.*;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
@@ -18,7 +18,8 @@ import org.junit.Test;
 
 import static org.mockito.Mockito.*;
 
-import com.ontology2.bakemono.mappers.freebasePrefilter.FreebaseRDFMapper;
+import com.ontology2.bakemono.freebasePrefilter.FreebasePrefilterCounter;
+import com.ontology2.bakemono.freebasePrefilter.FreebaseRDFMapper;
 import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.rdf.InvalidPrefixException;
 

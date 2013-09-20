@@ -1,4 +1,4 @@
-package com.ontology2.bakemono.tools.ranSample;
+package com.ontology2.bakemono.ranSample;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -13,9 +13,9 @@ import com.google.common.collect.Iterators;
 import com.google.common.collect.PeekingIterator;
 import com.ontology2.bakemono.Main;
 import com.ontology2.bakemono.Main.IncorrectUsageException;
+import com.ontology2.bakemono.pse3.PSE3Tool;
 import com.ontology2.bakemono.sieve3.Sieve3Mapper;
 import com.ontology2.bakemono.sieve3.Sieve3Tool;
-import com.ontology2.bakemono.tools.pse3Tool.PSE3Tool;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;

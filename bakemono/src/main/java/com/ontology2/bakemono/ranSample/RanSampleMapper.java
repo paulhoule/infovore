@@ -1,4 +1,4 @@
-package com.ontology2.bakemono.tools.ranSample;
+package com.ontology2.bakemono.ranSample;
 
 import java.io.IOException;
 import java.util.Random;

@@ -1,4 +1,4 @@
-package com.ontology2.bakemono.mappers.freebasePrefilter;
+package com.ontology2.bakemono.freebasePrefilter;
 
 import java.io.IOException;
 import java.util.List;
