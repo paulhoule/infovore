@@ -96,7 +96,7 @@ public class PSE3Tool implements Tool {
         }
     }
     
-    private static Integer parseRArgument(PeekingIterator<String> a)
+    public static Integer parseRArgument(PeekingIterator<String> a)
             throws IncorrectUsageException {
         Integer reduceTasks=null;
         while(a.hasNext() && a.peek().startsWith("-")) {

@@ -15,6 +15,10 @@ import com.ontology2.bakemono.Main;
 import com.ontology2.bakemono.Main.IncorrectUsageException;
 import com.ontology2.bakemono.sieve3.Sieve3Mapper;
 import com.ontology2.bakemono.sieve3.Sieve3Tool;
+import com.ontology2.bakemono.tools.pse3Tool.PSE3Tool;
+
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
 
 public class RanSampleTool implements Tool{
     private Configuration conf;
@@ -32,7 +36,10 @@ public class RanSampleTool implements Tool{
     @Override
     public int run(String[] args) throws Exception {
         try {
-            PeekingIterator<String> a=Iterators.peekingIterator(Iterators.forArray(args));    
+            PeekingIterator<String> a=Iterators.peekingIterator(Iterators.forArray(args)); 
+            
+            Integer reduceTasks = PSE3Tool.parseRArgument(a);
+            
             if (!a.hasNext())
                 usage();
 
@@ -50,17 +57,26 @@ public class RanSampleTool implements Tool{
             conf.set("mapred.output.compression.type", "BLOCK"); 
             conf.set("mapred.map.output.compression.codec", "org.apache.hadoop.io.compress.GzipCodec");
 
+            conf.set(RanSampleMapper.NULL_VALUE, Boolean.toString((reduceTasks==null || reduceTasks==0)));
             Job job=new Job(conf,"sieve3");
             FileInputFormat.addInputPath(job, input);
             
             job.setJarByClass(RanSampleTool.class);
             job.setMapperClass(RanSampleMapper.class);
-            job.setNumReduceTasks(0);
+
             FileOutputFormat.setOutputPath(job, output);
             FileOutputFormat.setCompressOutput(job,true);
             FileOutputFormat.setOutputCompressorClass(job, GzipCodec.class);
             job.setOutputFormatClass(TextOutputFormat.class);
 
+            job.setOutputKeyClass(Text.class);
+            job.setOutputValueClass(LongWritable.class);
+            if(reduceTasks==null) {
+                job.setNumReduceTasks(0);
+            } else {
+                job.setNumReduceTasks(reduceTasks);
+                job.setReducerClass(PassthroughReducer.class);
+            }
             return job.waitForCompletion(true) ? 0 :1;
         } catch(Main.IncorrectUsageException iue) {
             return 2;
