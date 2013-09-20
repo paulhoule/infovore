@@ -35,6 +35,7 @@ import com.google.common.collect.Lists;
 import com.ontology2.bakemono.sieve3.Sieve3Tool;
 import com.ontology2.bakemono.tools.freebasePrefilter.FreebaseRDFTool;
 import com.ontology2.bakemono.tools.pse3Tool.PSE3Tool;
+import com.ontology2.bakemono.tools.ranSample.RanSampleTool;
 import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.centipede.shell.CommandLineApplication;
 
@@ -54,6 +55,7 @@ public class Main implements Runnable {
         put("freebaseRDFPrefilter",FreebaseRDFTool.class);
         put("pse3",PSE3Tool.class);
         put("sieve3",Sieve3Tool.class);
+        put("ranSample",RanSampleTool.class);
     }};
     
     Map<String, TopLevelCommand> myCommands=new HashMap<String,TopLevelCommand>() {{
