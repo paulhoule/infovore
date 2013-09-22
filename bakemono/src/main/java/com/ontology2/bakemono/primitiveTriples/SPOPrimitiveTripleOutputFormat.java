@@ -1,8 +1,6 @@
-package com.ontology2.bakemono.primitiveTriple;
+package com.ontology2.bakemono.primitiveTriples;
 
 import org.apache.hadoop.io.LongWritable;
-
-import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
 
 public class SPOPrimitiveTripleOutputFormat extends PrimitiveTripleOutputFormat<PrimitiveTriple,LongWritable> {
 

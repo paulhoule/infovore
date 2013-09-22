@@ -1,4 +1,4 @@
-package com.ontology2.centipede.primitiveTriples;
+package com.ontology2.bakemono.primitiveTriples;
 
 import com.google.common.base.Function;
 import com.hp.hpl.jena.rdf.model.Model;

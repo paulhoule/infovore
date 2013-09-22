@@ -1,4 +1,4 @@
-package com.ontology2.bakemono.primitiveTriple;
+package com.ontology2.bakemono.primitiveTriples;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -17,8 +17,6 @@ import org.apache.hadoop.util.ReflectionUtils;
 import org.openjena.riot.out.SinkTripleOutput;
 
 import com.ontology2.bakemono.jena.TripleOutputFormat.TripleRecordWriter;
-import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
-import com.ontology2.centipede.primitiveTriples.PrimitiveTripleCodec;
 
 abstract public class PrimitiveTripleOutputFormat<K,V> extends FileOutputFormat<K, V> {
 

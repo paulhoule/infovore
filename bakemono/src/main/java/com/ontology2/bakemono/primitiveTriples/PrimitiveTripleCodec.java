@@ -1,4 +1,4 @@
-package com.ontology2.centipede.primitiveTriples;
+package com.ontology2.bakemono.primitiveTriples;
 
 import java.util.Iterator;
 

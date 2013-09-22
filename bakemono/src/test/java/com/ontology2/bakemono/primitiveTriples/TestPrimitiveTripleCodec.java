@@ -1,12 +1,12 @@
-package com.ontology2.centipede.primitiveTriples;
+package com.ontology2.bakemono.primitiveTriples;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
-import com.ontology2.centipede.primitiveTriples.PrimitiveTripleCodec;
+import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
+import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleCodec;
 
 public class TestPrimitiveTripleCodec {
 

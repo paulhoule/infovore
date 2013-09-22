@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableList;
-import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
+import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
 
 import org.apache.hadoop.fs.Path;
 

@@ -20,7 +20,7 @@ import static org.mockito.Mockito.*;
 
 import com.ontology2.bakemono.freebasePrefilter.FreebasePrefilterCounter;
 import com.ontology2.bakemono.freebasePrefilter.FreebaseRDFMapper;
-import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
+import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
 import com.ontology2.rdf.InvalidPrefixException;
 
 public class TestFreebaseRDFMapper {

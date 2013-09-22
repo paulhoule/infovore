@@ -8,8 +8,8 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Mapper.Context;
 import org.apache.hadoop.io.Text;
 
+import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
 import com.ontology2.bakemono.sieve3.Sieve3Configuration.Rule;
-import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
 
 public class RanSampleMapper extends Mapper <LongWritable,Text,Text,LongWritable> {
     final public static String P="com.ontology2.bakemono.ranSample.p";

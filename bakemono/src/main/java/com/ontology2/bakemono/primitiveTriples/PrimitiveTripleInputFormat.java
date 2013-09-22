@@ -1,4 +1,4 @@
-package com.ontology2.bakemono.primitiveTriple;
+package com.ontology2.bakemono.primitiveTriples;
 
 import java.io.IOException;
 
@@ -11,8 +11,6 @@ import org.apache.hadoop.mapreduce.TaskAttemptContext;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 
 import com.ontology2.bakemono.pse3.PSE3Mapper;
-import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
-import com.ontology2.centipede.primitiveTriples.PrimitiveTripleCodec;
 
 public class PrimitiveTripleInputFormat extends FileInputFormat<LongWritable,PrimitiveTriple> {
     private static org.apache.commons.logging.Log logger = LogFactory.getLog(PrimitiveTripleInputFormat.class);

@@ -10,7 +10,7 @@ import org.apache.hadoop.mapreduce.Mapper.Context;
 
 import com.google.common.base.Predicate;
 import com.ontology2.bakemono.mapred.RealMultipleOutputs;
-import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
+import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
 
 public class Sieve3MapperTest {
 

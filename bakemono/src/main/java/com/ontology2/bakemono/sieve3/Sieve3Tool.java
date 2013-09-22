@@ -20,11 +20,11 @@ import com.ontology2.bakemono.Main.IncorrectUsageException;
 import com.ontology2.bakemono.jena.SPOTripleOutputFormat;
 import com.ontology2.bakemono.mapred.RealMultipleOutputs;
 import com.ontology2.bakemono.mapred.RealMultipleOutputsMainOutputWrapper;
-import com.ontology2.bakemono.primitiveTriple.PrimitiveTripleInputFormat;
-import com.ontology2.bakemono.primitiveTriple.SPOPrimitiveTripleOutputFormat;
+import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
+import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleInputFormat;
+import com.ontology2.bakemono.primitiveTriples.SPOPrimitiveTripleOutputFormat;
 import com.ontology2.bakemono.pse3.PSE3Mapper;
 import com.ontology2.bakemono.pse3.PSE3Tool;
-import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.bakemono.sieve3.Sieve3Configuration.Rule;
 
 /**

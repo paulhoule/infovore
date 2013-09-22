@@ -1,4 +1,4 @@
-package com.ontology2.bakemono.primitiveTriple;
+package com.ontology2.bakemono.primitiveTriples;
 
 import java.io.IOException;
 
@@ -9,8 +9,6 @@ import org.apache.hadoop.mapreduce.InputSplit;
 import org.apache.hadoop.mapreduce.RecordReader;
 import org.apache.hadoop.mapreduce.TaskAttemptContext;
 import org.apache.hadoop.mapreduce.lib.input.LineRecordReader;
-
-import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
 
 abstract class LineProcessingRecordReader<X> extends
         RecordReader<LongWritable, X> {

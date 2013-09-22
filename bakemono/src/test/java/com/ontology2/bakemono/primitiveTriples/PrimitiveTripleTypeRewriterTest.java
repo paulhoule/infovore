@@ -1,4 +1,4 @@
-package com.ontology2.centipede.primitiveTriples;
+package com.ontology2.bakemono.primitiveTriples;
 
 import static org.junit.Assert.*;
 
@@ -6,8 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.google.common.base.Function;
-import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
-import com.ontology2.centipede.primitiveTriples.PrimitiveTripleTypeRewriter;
+import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
+import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleTypeRewriter;
 
 public class PrimitiveTripleTypeRewriterTest {
 

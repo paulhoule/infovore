@@ -17,11 +17,11 @@ import com.ontology2.bakemono.abstractions.NamedKeyValueAcceptor;
 import com.ontology2.bakemono.abstractions.PrimaryKeyValueAcceptor;
 import com.ontology2.bakemono.jena.WritableTriple;
 import com.ontology2.bakemono.mapred.RealMultipleOutputs;
+import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
+import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleCodec;
 import com.ontology2.bakemono.pse3.PSE3Counters;
 import com.ontology2.centipede.Codec;
-import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
 import com.ontology2.bakemono.sieve3.Sieve3Configuration.Rule;
-import com.ontology2.centipede.primitiveTriples.PrimitiveTripleCodec;
 
 public class Sieve3Mapper extends Mapper<LongWritable,Text,PrimitiveTriple,LongWritable> {
 

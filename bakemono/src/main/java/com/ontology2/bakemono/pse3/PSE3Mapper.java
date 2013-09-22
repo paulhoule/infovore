@@ -20,8 +20,8 @@ import com.ontology2.bakemono.abstractions.PrimaryKeyValueAcceptor;
 import com.ontology2.bakemono.jena.NodePair;
 import com.ontology2.bakemono.jena.WritableTriple;
 import com.ontology2.bakemono.mapred.RealMultipleOutputs;
-import com.ontology2.centipede.primitiveTriples.PrimitiveTriple;
-import com.ontology2.centipede.primitiveTriples.PrimitiveTripleCodec;
+import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
+import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleCodec;
 import com.ontology2.rdf.JenaUtil;
 
 public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWritable> {
