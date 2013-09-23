@@ -22,26 +22,5 @@ public class Sieve3MapperTest {
         verify(s3m.mos).close();
     }
     
-    @Test
-    public void linkTriplesAreAcceptedAsSuch() {
-        PrimitiveTriple pt=new PrimitiveTriple(
-                "<http://example.com/A>",
-                "<http://example.com/B>",
-                "<http://example.com/C>"
-                );
-        
-        assertTrue(Sieve3Tool.isLinkRelationship().apply(pt));
-    }
-    
-    @Test
-    public void nonLinkTriplesTriplesAreNotAcceptedAsSuch() {
-        PrimitiveTriple pt=new PrimitiveTriple(
-                "<http://example.com/A>",
-                "<http://example.com/B>",
-                "55"
-                );
-        
-        assertFalse(Sieve3Tool.isLinkRelationship().apply(pt));
-    }
 
 }

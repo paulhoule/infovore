@@ -62,8 +62,47 @@ public class TestPSE3Mapper {
                 ,new LongWritable(1)
                 ,mockContext);
         verifyNoMoreInteractions(pse3mapper.accepted);
+        verifyNoMoreInteractions(pse3mapper.rejected);
     }
 
+    @Test
+    public void acceptsARealFreebaseTriple() throws IOException,InterruptedException {
+        Context mockContext=mock(Context.class);
+        pse3mapper.map(
+                new LongWritable(944L),
+                new Text("<http://rdf.basekb.com/ns/m.06fm3lj>\t<http://rdf.basekb.com/ns/book.written_work.author>\t<http://rdf.basekb.com/ns/m.03qp7yf>."),
+                mockContext);
+
+        verify(pse3mapper.accepted).write(
+                new WritableTriple(
+                        Node_URI.createURI("http://rdf.basekb.com/ns/m.06fm3lj")
+                        ,Node_URI.createURI("http://rdf.basekb.com/ns/book.written_work.author")
+                        ,Node_URI.createURI("http://rdf.basekb.com/ns/m.03qp7yf")
+                 )
+                ,new LongWritable(1)
+                ,mockContext);
+        verifyNoMoreInteractions(pse3mapper.accepted);      
+    }
+    
+    @Test
+    public void acceptsARealFreebaseTripleWithSpaces() throws IOException,InterruptedException {
+        Context mockContext=mock(Context.class);
+        pse3mapper.map(
+                new LongWritable(944L),
+                new Text("<http://rdf.basekb.com/ns/m.06fm3lj> <http://rdf.basekb.com/ns/book.written_work.author> <http://rdf.basekb.com/ns/m.03qp7yf>."),
+                mockContext);
+
+        verify(pse3mapper.accepted).write(
+                new WritableTriple(
+                        Node_URI.createURI("http://rdf.basekb.com/ns/m.06fm3lj")
+                        ,Node_URI.createURI("http://rdf.basekb.com/ns/book.written_work.author")
+                        ,Node_URI.createURI("http://rdf.basekb.com/ns/m.03qp7yf")
+                 )
+                ,new LongWritable(1)
+                ,mockContext);
+        verifyNoMoreInteractions(pse3mapper.accepted);      
+    }
+    
     @Test
     public void closesMosOnShutdown() throws IOException, InterruptedException {
         pse3mapper.cleanup(mock(Context.class));
@@ -81,7 +120,7 @@ public class TestPSE3Mapper {
 
         verify(pse3mapper.rejected).write(
                 new Text("<http://example.com/A>")
-                ,new Text("<http://example.com/B>\t\"2001-06\"^^xsd:datetime.")
+                ,new Text("<http://example.com/B>\t\"2001-06\"^^xsd:datetime\t.")
                 ,mockContext
         );
 

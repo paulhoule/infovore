@@ -18,7 +18,7 @@ public class PrimitiveTripleCodec implements Codec<PrimitiveTriple> {
         output.append(obj.getPredicate());
         output.append("\t");
         output.append(obj.getObject());
-        output.append(".");
+        output.append("\t.");
         return output.toString();
     }
 

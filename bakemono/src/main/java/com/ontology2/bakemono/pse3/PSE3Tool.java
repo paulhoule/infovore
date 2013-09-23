@@ -44,9 +44,8 @@ public class PSE3Tool implements Tool {
     @Override
     public int run(String[] arg0) throws Exception {
         try {
-            PeekingIterator<String> a=Iterators.peekingIterator(Iterators.forArray(arg0));    
+            PeekingIterator<String> a=Iterators.peekingIterator(Iterators.forArray(arg0));
             Integer reduceTasks = parseRArgument(a);
-            
 
             if (!a.hasNext())
                 usage();
@@ -76,6 +75,12 @@ public class PSE3Tool implements Tool {
             
             job.setNumReduceTasks(reduceTasks);
 
+            job.setMapOutputKeyClass(WritableTriple.class);
+            job.setMapOutputValueClass(LongWritable.class);
+            job.setOutputKeyClass(Triple.class);
+            job.setOutputValueClass(LongWritable.class);
+
+            
             FileInputFormat.addInputPath(job, new Path(input));
             FileOutputFormat.setOutputPath(job, acceptedPath);
             FileOutputFormat.setCompressOutput(job, true);

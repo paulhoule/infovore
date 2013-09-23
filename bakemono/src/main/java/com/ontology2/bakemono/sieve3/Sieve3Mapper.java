@@ -7,6 +7,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Mapper.Context;
+import org.springframework.context.ApplicationContext;
 
 import com.google.common.collect.Maps;
 import com.hp.hpl.jena.graph.Node;
@@ -15,6 +16,7 @@ import com.hp.hpl.jena.graph.Triple;
 import com.ontology2.bakemono.abstractions.KeyValueAcceptor;
 import com.ontology2.bakemono.abstractions.NamedKeyValueAcceptor;
 import com.ontology2.bakemono.abstractions.PrimaryKeyValueAcceptor;
+import com.ontology2.bakemono.abstractions.Spring;
 import com.ontology2.bakemono.jena.WritableTriple;
 import com.ontology2.bakemono.mapred.RealMultipleOutputs;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
@@ -31,17 +33,21 @@ public class Sieve3Mapper extends Mapper<LongWritable,Text,PrimitiveTriple,LongW
     RealMultipleOutputs mos;
     KeyValueAcceptor<PrimitiveTriple,LongWritable> other;
     Map<String,KeyValueAcceptor<PrimitiveTriple,LongWritable>> outputs=Maps.newHashMap();
+
+    private ApplicationContext applicationContext;
     final static Codec<PrimitiveTriple> primitiveTripleCodec=new PrimitiveTripleCodec(); 
     
     @Override
     public void setup(Context context) throws IOException,
     InterruptedException {
+        applicationContext=Spring.getApplicationContext(context.getConfiguration());
         mos=new RealMultipleOutputs(context);
         super.setup(context);
         other=new PrimaryKeyValueAcceptor(context);
-        sieve3conf=Sieve3Tool.generateConfiguration();
+        sieve3conf=applicationContext.getBean(Sieve3Configuration.SIEVE3DEFAULT,Sieve3Configuration.class);
         for(Rule r:sieve3conf.getRules())
             outputs.put(r.getOutputName(), new NamedKeyValueAcceptor(mos,r.getOutputName()));
+        
     }
     
     //

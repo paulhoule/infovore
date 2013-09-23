@@ -54,18 +54,20 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
     @Override
     public void map(LongWritable arg0, Text arg1, Context c) throws IOException, InterruptedException {
         PrimitiveTriple row3=p3Codec.decode(arg1.toString());
-        try {					
+        try {
             Node_URI subject=(Node_URI) nodeParser.get(row3.getSubject());
             Node_URI predicate=(Node_URI) nodeParser.get(row3.getPredicate());
             Node object=nodeParser.get(row3.getObject());
             Triple realTriple=new Triple(subject,predicate,object);
-            incrementCounter(c,PSE3Counters.ACCEPTED,1);
             accepted.write(new WritableTriple(realTriple),ONE,c);
+            incrementCounter(c,PSE3Counters.ACCEPTED,1);
         } catch(Throwable e) {
             incrementCounter(c,PSE3Counters.REJECTED,1);
+            logger.error("Caught exception in PSE3Mapper",e);
             rejected.write(
                     new Text(row3.getSubject()),
-                    new Text(row3.getPredicate()+"\t"+row3.getObject()+"."),c);
+                    new Text(row3.getPredicate()+"\t"+row3.getObject()+"\t."),c);
+            incrementCounter(c,PSE3Counters.REJECTED,1);
 
         }
     }

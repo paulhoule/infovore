@@ -10,6 +10,9 @@ import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
 import org.apache.hadoop.fs.Path;
 
 public class Sieve3Configuration {
+    
+    public static final String SIEVE3DEFAULT="sieve3Default";
+    
     public static class Rule {
         private final String outputName;
         private final Predicate<PrimitiveTriple> condition;
