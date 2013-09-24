@@ -79,7 +79,6 @@ public class PSE3Tool implements Tool {
             job.setMapOutputValueClass(LongWritable.class);
             job.setOutputKeyClass(Triple.class);
             job.setOutputValueClass(LongWritable.class);
-
             
             FileInputFormat.addInputPath(job, new Path(input));
             FileOutputFormat.setOutputPath(job, acceptedPath);
