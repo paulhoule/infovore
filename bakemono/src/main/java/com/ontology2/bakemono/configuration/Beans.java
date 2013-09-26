@@ -13,7 +13,7 @@ import com.ontology2.bakemono.sieve3.Sieve3Configuration.Rule;
 public class Beans {
     
   @Bean
-  public static Sieve3Configuration sieve3Default() {
+  public Sieve3Configuration sieve3Default() {
   return new Sieve3Configuration(
           new Rule("a", matchesA()),
           new Rule("label", matchesLabel()),

@@ -19,6 +19,7 @@ import com.google.common.collect.PeekingIterator;
 import com.ontology2.bakemono.Main;
 import com.ontology2.bakemono.Main.IncorrectUsageException;
 import com.ontology2.bakemono.abstractions.Spring;
+import com.ontology2.bakemono.configuration.Beans;
 import com.ontology2.bakemono.jena.SPOTripleOutputFormat;
 import com.ontology2.bakemono.mapred.RealMultipleOutputs;
 import com.ontology2.bakemono.mapred.RealMultipleOutputsMainOutputWrapper;
@@ -58,7 +59,7 @@ public class Sieve3Tool implements Tool {
     
     @Override
     public int run(String[] arg0) throws Exception {
-        ApplicationContext context=Spring.getApplicationContext(conf);
+//        ApplicationContext context=Spring.getApplicationContext(conf);
         try {
             PeekingIterator<String> a=Iterators.peekingIterator(Iterators.forArray(arg0));    
             if (!a.hasNext())
@@ -87,7 +88,7 @@ public class Sieve3Tool implements Tool {
             FileOutputFormat.setCompressOutput(job, true);
             FileOutputFormat.setOutputCompressorClass(job, GzipCodec.class);
             
-            Sieve3Configuration sieve3Config = context.getBean(Sieve3Configuration.SIEVE3DEFAULT,Sieve3Configuration.class);
+            Sieve3Configuration sieve3Config = createDefaultConfiguration();
             for(Rule r:sieve3Config.getRules())
                 RealMultipleOutputs.addNamedOutput(job,
                         r.getOutputName(),
@@ -102,6 +103,11 @@ public class Sieve3Tool implements Tool {
         } catch(Main.IncorrectUsageException iue) {
             return 2;
         }
+    }
+
+    static Sieve3Configuration createDefaultConfiguration() {
+        // return context.getBean(Sieve3Configuration.SIEVE3DEFAULT,Sieve3Configuration.class);
+        return new Beans().sieve3Default();
     }
     
     private static void usage() throws IncorrectUsageException {
