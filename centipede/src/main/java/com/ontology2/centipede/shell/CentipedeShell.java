@@ -47,7 +47,7 @@ public class CentipedeShell extends CommandLineApplication {
             listAction(arguments);			
         }
 
-
+        usage();
     }
 
     private void listAction(String[] arguments) {
