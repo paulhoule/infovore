@@ -85,4 +85,8 @@ public class MavenManagedJar {
 
         return out.toString();
     }
+    
+    public boolean getFirstArgumentIsNotAPath() {
+        return true;
+    }
 }
