@@ -44,8 +44,7 @@ public class Sieve3Mapper extends Mapper<LongWritable,Text,PrimitiveTriple,LongW
         mos=new RealMultipleOutputs(context);
         super.setup(context);
         other=new PrimaryKeyValueAcceptor(context);
-        sieve3conf = Sieve3Tool.createDefaultConfiguration();
-        
+        sieve3conf = Sieve3Tool.createDefaultConfiguration(applicationContext);
         
         for(Rule r:sieve3conf.getRules())
             outputs.put(r.getOutputName(), new NamedKeyValueAcceptor(mos,r.getOutputName()));

@@ -59,7 +59,7 @@ public class Sieve3Tool implements Tool {
     
     @Override
     public int run(String[] arg0) throws Exception {
-//        ApplicationContext context=Spring.getApplicationContext(conf);
+        ApplicationContext context=Spring.getApplicationContext(conf);
         try {
             PeekingIterator<String> a=Iterators.peekingIterator(Iterators.forArray(arg0));    
             if (!a.hasNext())
@@ -88,7 +88,7 @@ public class Sieve3Tool implements Tool {
             FileOutputFormat.setCompressOutput(job, true);
             FileOutputFormat.setOutputCompressorClass(job, GzipCodec.class);
             
-            Sieve3Configuration sieve3Config = createDefaultConfiguration();
+            Sieve3Configuration sieve3Config = createDefaultConfiguration(context);
             for(Rule r:sieve3Config.getRules())
                 RealMultipleOutputs.addNamedOutput(job,
                         r.getOutputName(),
@@ -105,9 +105,8 @@ public class Sieve3Tool implements Tool {
         }
     }
 
-    static Sieve3Configuration createDefaultConfiguration() {
-        // return context.getBean(Sieve3Configuration.SIEVE3DEFAULT,Sieve3Configuration.class);
-        return new Beans().sieve3Default();
+    static Sieve3Configuration createDefaultConfiguration(ApplicationContext context) {
+        return context.getBean(Sieve3Configuration.SIEVE3DEFAULT,Sieve3Configuration.class);
     }
     
     private static void usage() throws IncorrectUsageException {

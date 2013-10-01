@@ -14,7 +14,6 @@
   <name>bakemono</name>
   <url>http://maven.apache.org</url>
   <dependencies>
-    <!-- be lazy try to get as much as it can from hydroxide -->
     <dependency>
        <groupId>com.ontology2</groupId>
        <artifactId>centipede</artifactId>
@@ -46,7 +45,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.2.1</version>
+        <version>2.4</version>
         <configuration>
           <descriptors>
             <descriptor>src/main/assembly/hadoop-job.xml</descriptor>
