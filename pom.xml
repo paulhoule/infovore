@@ -9,7 +9,6 @@
   <modules>
     <module>centipede</module>
     <module>bakemono</module>
-    <module>chopper</module>
     <module>haruhi</module>
   </modules>
   <build><plugins>
