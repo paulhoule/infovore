@@ -30,6 +30,16 @@ public class PrimitiveTriple {
             }
         };
     }
+    
+    public boolean equals(Object o) {
+        if(o==null || !(o instanceof PrimitiveTriple))
+            return false;
+        
+        PrimitiveTriple that = (PrimitiveTriple) o;
+        return getSubject().equals(that.getSubject())
+                && getObject().equals(that.getObject())
+                && getPredicate().equals(that.getPredicate()); 
+    }
 
     public String toString() {
         StringBuffer buff=new StringBuffer();
