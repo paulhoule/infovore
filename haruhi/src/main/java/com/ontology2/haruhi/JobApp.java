@@ -47,7 +47,15 @@ public class JobApp extends CommandLineApplication {
                 usage();
             };
         }
-        List<String> jarArgs=defaultJar.getHeadArguments(); 
+        
+        if(jar.getFirstArgumentIsNotAPath()) {
+            if (a.hasNext()) {
+                String firstArgument=a.peek();
+                if (firstArgument.contains(":") || firstArgument.contains("/"))
+                    usage();
+            }
+        };
+        List<String> jarArgs=jar.getHeadArguments();
         Iterators.addAll(jarArgs, a);
         
         cluster.runJob(jar,jarArgs);
