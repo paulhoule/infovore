@@ -20,7 +20,9 @@ import org.apache.hadoop.mapreduce.TaskAttemptID;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.hp.hpl.jena.graph.Node_URI;
 import com.ontology2.bakemono.abstractions.KeyValueAcceptor;
+import com.ontology2.bakemono.jena.WritableTriple;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
 import com.ontology2.bakemono.sieve3.Sieve3Configuration.Rule;
 
@@ -75,6 +77,23 @@ public class DeeperSieve3Test {
                         "<http://example.com/A>",
                         "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>",
                         "<http://example.com/B>"
+                )),
+                eq(new LongWritable(1)),
+                eq(context));
+    }
+    
+    @Test
+    public void schwarzeneggerIsAFilmActor() throws IOException, InterruptedException {
+        sieve3.map(
+                new LongWritable(88), 
+                new Text("<http://rdf.basekb.com/ns/m.0tc7>\t<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>\t<http://rdf.basekb.com/ns/film.actor>\t."), 
+                context);
+        verifyNoMoreInteractions(sieve3.outputs.get("label"));
+        verify(sieve3.outputs.get("a")).write(
+                eq(new PrimitiveTriple(
+                        "<http://rdf.basekb.com/ns/m.0tc7>",
+                        "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>",
+                        "<http://rdf.basekb.com/ns/film.actor>"
                 )),
                 eq(new LongWritable(1)),
                 eq(context));
