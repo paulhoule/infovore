@@ -214,5 +214,26 @@ public class TestFreebaseRDFMapper {
                         "<http://rdf.basekb.com/ns/m.0j2r9sk>\t<http://rdf.basekb.com/ns/A>."));
         verifyNoMoreInteractions(context);
     }
+    
+    @Test
+    public void arnoldSchwarzeneggerAfactIsIgnored() throws IOException, InterruptedException {
+        String extraordinaryTriple = "<http://rdf.freebase.com/ns/m.0tc7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rdf.freebase.com/ns/film.actor> .";
+        mapper.map(new LongWritable(1940L),new Text(extraordinaryTriple), context);
+        verify(context).getCounter(FreebasePrefilterCounter.IGNORED);
+        verifyNoMoreInteractions(context);
+    }
+    
+    @Test
+    public void arnoldSchwarzeneggerIsAFilmActor() throws IOException, InterruptedException {
+        String extraordinaryTriple = "<http://rdf.freebase.com/ns/m.0tc7> <http://rdf.freebase.com/ns/type.object.type> <http://rdf.freebase.com/ns/film.actor> .";
+        mapper.map(new LongWritable(1940L),new Text(extraordinaryTriple), context);
+        verify(context).getCounter(FreebasePrefilterCounter.ACCEPTED);
+        verify(context)
+        .write(new Text("<http://rdf.basekb.com/ns/m.0tc7>"),
+                new Text(
+                        "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>\t<http://rdf.basekb.com/ns/film.actor>."));
+        verifyNoMoreInteractions(context);
+    }
+
 
 }
