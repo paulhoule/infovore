@@ -81,7 +81,26 @@ public class TestPSE3Mapper {
                  )
                 ,new LongWritable(1)
                 ,mockContext);
-        verifyNoMoreInteractions(pse3mapper.accepted);      
+        verifyNoMoreInteractions(pse3mapper.accepted);
+    }
+    
+    @Test
+    public void arnoldSchwarzeneggerIsAFilmActor() throws IOException, InterruptedException {
+        Context mockContext=mock(Context.class);
+        pse3mapper.map(
+                new LongWritable(944L),
+                new Text("<http://rdf.basekb.com/ns/m.0tc7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>\t<http://rdf.basekb.com/ns/film.actor>."),
+                mockContext);
+        
+        verify(pse3mapper.accepted).write(
+                new WritableTriple(
+                        Node_URI.createURI("http://rdf.basekb.com/ns/m.0tc7")
+                        ,Node_URI.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")
+                        ,Node_URI.createURI("http://rdf.basekb.com/ns/film.actor")
+                 )
+                ,new LongWritable(1)
+                ,mockContext);
+        verifyNoMoreInteractions(pse3mapper.accepted);
     }
     
     @Test
