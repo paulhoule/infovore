@@ -86,7 +86,6 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
         };
     };
 
-
     @Override
     protected void cleanup(org.apache.hadoop.mapreduce.Mapper.Context context)
             throws IOException, InterruptedException {
