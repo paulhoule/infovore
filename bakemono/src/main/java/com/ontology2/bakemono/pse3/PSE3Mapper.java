@@ -55,9 +55,13 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
     public void map(LongWritable arg0, Text arg1, Context c) throws IOException, InterruptedException {
         PrimitiveTriple row3=p3Codec.decode(arg1.toString());
         try {
-            Node_URI subject=(Node_URI) nodeParser.get(row3.getSubject());
-            Node_URI predicate=(Node_URI) nodeParser.get(row3.getPredicate());
-            Node object=nodeParser.get(row3.getObject());
+//            Node_URI subject=(Node_URI) nodeParser.get(row3.getSubject());
+//            Node_URI predicate=(Node_URI) nodeParser.get(row3.getPredicate());
+//            Node object=nodeParser.get(row3.getObject());
+
+            Node_URI subject=(Node_URI) JenaUtil.ParseNode(row3.getSubject());
+            Node_URI predicate=(Node_URI) JenaUtil.ParseNode(row3.getPredicate());
+            Node object=JenaUtil.ParseNode(row3.getObject());
             Triple realTriple=new Triple(subject,predicate,object);
             accepted.write(new WritableTriple(realTriple),ONE,c);
             incrementCounter(c,PSE3Counters.ACCEPTED,1);
