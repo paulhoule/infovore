@@ -17,7 +17,7 @@ public class TripleComparator implements Comparator<Triple> {
         if (val!=0)
             return val;
         
-        return nc.compare(o1.getSubject(),o2.getSubject());
+        return nc.compare(o1.getObject(),o2.getObject());
     }
 
 }

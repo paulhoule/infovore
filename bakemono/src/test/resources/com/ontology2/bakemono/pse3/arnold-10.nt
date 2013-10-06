@@ -1,0 +1,10 @@
+<http://rdf.basekb.com/ns/m.0tc7>	<http://rdf.basekb.com/ns/type.object.key>	"/wikipedia/pl/Schwarzenegger".
+<http://rdf.basekb.com/ns/m.0tc7>	<http://rdf.basekb.com/ns/award.award_nominee.award_nominations..award.award_nomination.nominated_for>	<http://rdf.basekb.com/ns/m.0hwpz>.
+<http://rdf.basekb.com/ns/m.0tc7>	<http://rdf.basekb.com/ns/award.award_nominee.award_nominations..award.award_nomination.award_nominee>	<http://rdf.basekb.com/ns/m.0253b6>.
+<http://rdf.basekb.com/ns/m.0tc7>	<http://rdf.basekb.com/ns/base.schemastaging.context_name.official_name>	"Arnold Alois Schwarzenegger"@en.
+<http://rdf.basekb.com/ns/m.0tc7>	<http://rdf.basekb.com/ns/type.object.key>	"/wikipedia/hr_title/Arnold_Schwarzenegger".
+<http://rdf.basekb.com/ns/m.0tc7>	<http://rdf.basekb.com/ns/award.award_winner.awards_won..award.award_honor.year>	"2005"^^<http://www.w3.org/2001/XMLSchema#gYear>.
+<http://rdf.basekb.com/ns/m.0tc7>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://rdf.basekb.com/ns/tv.tv_producer>.
+<http://rdf.basekb.com/ns/m.0tc7>	<http://rdf.basekb.com/ns/imdb.topic.name_id>	"nm0000216".
+<http://rdf.basekb.com/ns/m.0tc7>	<http://rdf.basekb.com/ns/film.person_or_entity_appearing_in_film.films..film.personal_film_appearance.film>	<http://rdf.basekb.com/ns/m.0jmw523>.
+<http://rdf.basekb.com/ns/m.0tc7>	<http://rdf.basekb.com/ns/type.object.name>	"Арнолд Шварценегер"@bg.

@@ -24,8 +24,6 @@ import com.ontology2.bakemono.jena.WritableTriple;
 import com.ontology2.bakemono.mapred.RealMultipleOutputs;
 import com.ontology2.bakemono.pse3.PSE3Mapper;
 
-
-
 public class TestPSE3Mapper {
 
     PSE3Mapper pse3mapper;
