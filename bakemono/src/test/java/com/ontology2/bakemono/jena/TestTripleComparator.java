@@ -8,7 +8,7 @@ import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
 
-public class TestNodeComparator {
+public class TestTripleComparator {
     public final Node A=Node_URI.createURI("http://example.com/A");
     public final Node B=Node_URI.createURI("http://example.com/B");
     public final Node C=Node_URI.createURI("http://example.com/C");
