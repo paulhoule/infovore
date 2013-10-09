@@ -14,6 +14,7 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import com.google.common.io.CharStreams;
 import com.ontology2.centipede.shell.ExitCodeException;
+import com.ontology2.haruhi.flows.Flow;
 
 public class LocalCmdCluster implements Cluster {
     private static Log logger = LogFactory.getLog(LocalCmdCluster.class);
@@ -65,6 +66,11 @@ public class LocalCmdCluster implements Cluster {
 
     public void setMavenRepoPath(String mavenRepoPath) {
         this.mavenRepoPath = mavenRepoPath;
+    }
+
+    @Override
+    public void runFlow(MavenManagedJar defaultJar, Flow f) throws Exception {
+        throw new Exception("runFlow() not implemented yet");
     }
     
 };

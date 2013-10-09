@@ -23,6 +23,7 @@ import com.amazonaws.services.elasticmapreduce.model.StepConfig;
 import com.amazonaws.services.simpleworkflow.model.ExecutionStatus;
 import com.google.common.collect.Sets;
 import com.ontology2.centipede.shell.ExitCodeException;
+import com.ontology2.haruhi.flows.Flow;
 
 public class AmazonEMRCluster implements Cluster {
     private static Log logger = LogFactory.getLog(AmazonEMRCluster.class);
@@ -98,6 +99,11 @@ public class AmazonEMRCluster implements Cluster {
             logger.error("Process completed in state "+state+" not on done list");
             throw ExitCodeException.create(EX_SOFTWARE);
         }
+    }
+
+    @Override
+    public void runFlow(MavenManagedJar defaultJar, Flow f) throws Exception {
+        throw new Exception("runFlow() not implemented yet");
     }
 
 }
