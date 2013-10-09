@@ -34,7 +34,7 @@ public class SpringStepTest {
     }
     
     @Test
-    public void itFindPositionalArguments() {
+    public void itFindsPositionalArguments() {
         JobStep step=new JobStep(
                 "'furry '+pos[0]+' brothers'"
         );
