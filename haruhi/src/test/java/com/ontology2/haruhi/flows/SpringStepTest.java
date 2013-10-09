@@ -43,7 +43,4 @@ public class SpringStepTest {
         assertEquals("furry freak brothers",out.get(0));
         assertEquals(1,out.size());
     }
-
-
-
 }

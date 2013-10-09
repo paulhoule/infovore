@@ -9,12 +9,15 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.xerces.impl.xpath.XPath.Step;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import com.google.common.io.CharStreams;
 import com.ontology2.centipede.shell.ExitCodeException;
 import com.ontology2.haruhi.flows.Flow;
+import com.ontology2.haruhi.flows.FlowStep;
+import com.ontology2.haruhi.flows.JobStep;
 
 public class LocalCmdCluster implements Cluster {
     private static Log logger = LogFactory.getLog(LocalCmdCluster.class);
@@ -69,8 +72,13 @@ public class LocalCmdCluster implements Cluster {
     }
 
     @Override
-    public void runFlow(MavenManagedJar defaultJar, Flow f) throws Exception {
-        throw new Exception("runFlow() not implemented yet");
+    public void runFlow(MavenManagedJar jar, Flow f,List<String> flowArgs) throws Exception {
+        List<FlowStep> steps=f.generateSteps(flowArgs);
+        if(steps instanceof JobStep) {
+            JobStep jobStep=(JobStep) steps;
+            this.runJob(jar, jobStep.getStepArgs(flowArgs));
+        } else {
+            throw new RuntimeException("Could not process step of type "+steps.getClass());
+        }
     }
-    
 };

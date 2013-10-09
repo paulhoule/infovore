@@ -102,7 +102,7 @@ public class AmazonEMRCluster implements Cluster {
     }
 
     @Override
-    public void runFlow(MavenManagedJar defaultJar, Flow f) throws Exception {
+    public void runFlow(MavenManagedJar defaultJar, Flow f,List<String> flowArgs) throws Exception {
         throw new Exception("runFlow() not implemented yet");
     }
 

@@ -42,6 +42,27 @@
       </list>
     </property>
   </bean>
+  
+  <!-- 2.1.1 definitions of flows -->
+  <!-- arg0: s3n://freebase-dumps/ -->
+  <!-- arg1: 2013-10-06-00 -->
+  <!-- arg2: s3n://basekb-now/ -->
+  
+  <bean name="basekbNowFlow" class="com.ontology2.haruhi.flows.SpringFlow">
+    <constructor-arg>
+        <list>
+            <bean class="com.ontology2.haruhi.flows.JobStep">
+                <constructor-arg>
+                  <list>
+                     <value>'freebaseRDFPrefilter'</value>
+                     <value>pos[0]+'freebase-rdf-'+pos[1]+'/'</value>
+                     <value>tmpDir+'/preprocessed/'+pos[1]</value>
+                  </list>
+                </constructor-arg>
+            </bean>
+        </list>
+    </constructor-arg>
+  </bean>
 
   <bean name="t20130902" parent="bakemonoJar">
     <property name="version" value="t20130902" />
