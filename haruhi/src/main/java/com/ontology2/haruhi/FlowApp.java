@@ -11,6 +11,7 @@ import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.google.common.collect.PeekingIterator;
 import com.ontology2.centipede.shell.CommandLineApplication;
+import com.ontology2.haruhi.flows.Flow;
 
 public class FlowApp extends CommandLineApplication {
     private static Log logger = LogFactory.getLog(FlowApp.class);
@@ -45,8 +46,11 @@ public class FlowApp extends CommandLineApplication {
             usage();
         
         String flowId=a.next();
+        Flow f=applicationContext.getBean(flowId,Flow.class);
+        
         List<String> flowArgs=Lists.newArrayList();
         Iterators.addAll(flowArgs, a);
+        cluster.runFlow(jar, f, flowArgs);
     }
 
     private void usage() {

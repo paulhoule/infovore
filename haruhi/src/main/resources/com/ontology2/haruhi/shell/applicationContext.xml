@@ -54,6 +54,7 @@
             <bean class="com.ontology2.haruhi.flows.JobStep">
                 <constructor-arg>
                   <list>
+                     <value>'run'</value>
                      <value>'freebaseRDFPrefilter'</value>
                      <value>pos[0]+'freebase-rdf-'+pos[1]+'/'</value>
                      <value>tmpDir+'preprocessed/'+pos[1]+'/'</value>

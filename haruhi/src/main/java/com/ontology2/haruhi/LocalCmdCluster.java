@@ -73,12 +73,16 @@ public class LocalCmdCluster implements Cluster {
 
     @Override
     public void runFlow(MavenManagedJar jar, Flow f,List<String> flowArgs) throws Exception {
-        List<FlowStep> steps=f.generateSteps(flowArgs);
-        if(steps instanceof JobStep) {
-            JobStep jobStep=(JobStep) steps;
+        for(FlowStep that:f.generateSteps(flowArgs))
+            runStep(jar, flowArgs, that);
+    }
+
+    private void runStep(MavenManagedJar jar, List<String> flowArgs, FlowStep that) throws Exception {
+        if(that instanceof JobStep) {
+            JobStep jobStep=(JobStep) that;
             this.runJob(jar, jobStep.getStepArgs(flowArgs));
         } else {
-            throw new RuntimeException("Could not process step of type "+steps.getClass());
+            throw new RuntimeException("Could not process step of type "+that.getClass());
         }
     }
 };
