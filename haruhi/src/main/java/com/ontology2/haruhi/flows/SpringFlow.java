@@ -1,5 +1,6 @@
 package com.ontology2.haruhi.flows;
 
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.common.collect.Lists;
@@ -23,6 +24,10 @@ public class SpringFlow extends Flow {
     
     public SpringFlow(List<SpringStep> springSteps) {
         this.springSteps = springSteps;
+    }
+    
+    public SpringFlow(SpringStep... springSteps) {
+        this(Arrays.asList(springSteps));
     }
 
     @Override

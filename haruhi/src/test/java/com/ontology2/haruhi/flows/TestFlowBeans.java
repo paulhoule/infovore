@@ -28,9 +28,12 @@ public class TestFlowBeans {
         SpringStep step0=(SpringStep) steps.get(0);
         List<String> args=step0.getStepArgs(flowArgs);
         
-        assertEquals(3,args.size());
-        assertEquals("freebaseRDFPrefilter",args.get(0));
-        assertEquals("s3n://freebase-dumps/freebase-rdf-1942-12-07-00-00/",args.get(1));
-        assertEquals("/preprocessed/1942-12-07-00-00/",args.get(2));
+        assertEquals(4,args.size());
+        
+        int i=0;
+        assertEquals("run",args.get(i++));
+        assertEquals("freebaseRDFPrefilter",args.get(i++));
+        assertEquals("s3n://freebase-dumps/freebase-rdf-1942-12-07-00-00/",args.get(i++));
+        assertEquals("/preprocessed/1942-12-07-00-00/",args.get(i++));
     }
 }

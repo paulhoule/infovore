@@ -50,18 +50,16 @@
   
   <bean name="basekbNowFlow" class="com.ontology2.haruhi.flows.SpringFlow">
     <constructor-arg>
-        <list>
-            <bean class="com.ontology2.haruhi.flows.JobStep">
-                <constructor-arg>
-                  <list>
-                     <value>'run'</value>
-                     <value>'freebaseRDFPrefilter'</value>
-                     <value>pos[0]+'freebase-rdf-'+pos[1]+'/'</value>
-                     <value>tmpDir+'preprocessed/'+pos[1]+'/'</value>
-                  </list>
-                </constructor-arg>
-            </bean>
-        </list>
+      <bean class="com.ontology2.haruhi.flows.JobStep">
+          <constructor-arg>
+            <list>
+              <value>'run'</value>
+              <value>'freebaseRDFPrefilter'</value>
+              <value>pos[0]+'freebase-rdf-'+pos[1]+'/'</value>
+              <value>tmpDir+'preprocessed/'+pos[1]+'/'</value>
+            </list>
+          </constructor-arg>
+      </bean>
     </constructor-arg>
   </bean>
 
