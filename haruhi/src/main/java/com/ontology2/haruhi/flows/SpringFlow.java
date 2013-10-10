@@ -2,6 +2,7 @@ package com.ontology2.haruhi.flows;
 
 import java.util.List;
 
+import com.google.common.collect.Lists;
 import com.ontology2.haruhi.MavenManagedJar;
 
 /**
@@ -16,7 +17,7 @@ import com.ontology2.haruhi.MavenManagedJar;
  *
  */
 
-public class SpringFlow implements Flow {
+public class SpringFlow extends Flow {
 
     private final List<SpringStep> springSteps;
     
@@ -26,6 +27,8 @@ public class SpringFlow implements Flow {
 
     @Override
     public List<FlowStep> generateSteps(List<String> flowArgs) {
-        return null;
+        List <FlowStep> result=Lists.newArrayList();
+        result.addAll(springSteps);
+        return result;
     }
 }

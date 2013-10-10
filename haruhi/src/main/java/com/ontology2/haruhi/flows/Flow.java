@@ -1,5 +1,6 @@
 package com.ontology2.haruhi.flows;
 
+import java.util.Arrays;
 import java.util.List;
 
 //
@@ -11,6 +12,10 @@ import java.util.List;
 // sequentially against a local cluster or submitted together for a batch
 //
 
-public interface Flow {
-    public List<FlowStep> generateSteps(List<String> flowArgs);
+public abstract class Flow {
+    abstract public List<FlowStep> generateSteps(List<String> flowArgs);
+    
+    public List<FlowStep> generateSteps(String... flowArgs) {
+        return generateSteps(Arrays.asList(flowArgs));
+    }
 }

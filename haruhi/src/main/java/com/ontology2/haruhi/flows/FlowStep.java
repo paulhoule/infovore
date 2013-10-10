@@ -9,5 +9,5 @@ import java.util.List;
 // an EMR cluster will batch them together,  then run them
 //
 
-public interface FlowStep {
+public abstract class FlowStep {
 }

@@ -11,7 +11,7 @@ import org.springframework.expression.spel.support.StandardEvaluationContext;
 
 import com.google.common.collect.Lists;
 
-public abstract class SpringStep implements FlowStep {
+public abstract class SpringStep extends FlowStep {
 
     final List<String> argDefinitions;
     
@@ -47,6 +47,14 @@ public abstract class SpringStep implements FlowStep {
         
         public List<String> getPos() {
             return pos;
+        }
+        
+        //
+        // right now hardcoded to the HDFS root
+        //
+        
+        public String getTmpDir() {
+            return "/";
         }
     }
 
