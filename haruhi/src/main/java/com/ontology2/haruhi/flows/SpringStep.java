@@ -3,6 +3,8 @@ package com.ontology2.haruhi.flows;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.expression.EvaluationContext;
 import org.springframework.expression.Expression;
 import org.springframework.expression.ExpressionParser;
@@ -12,7 +14,7 @@ import org.springframework.expression.spel.support.StandardEvaluationContext;
 import com.google.common.collect.Lists;
 
 public abstract class SpringStep extends FlowStep {
-
+    private static final Log logger = LogFactory.getLog(SpringStep.class);
     final List<String> argDefinitions;
     
     public SpringStep(List<String> argDefinitions) {
@@ -25,6 +27,7 @@ public abstract class SpringStep extends FlowStep {
         List<String> stepArgs=Lists.newArrayList();
         
         for(String that:argDefinitions) {
+            logger.info("parsing ["+that+"]");
             Expression e=parser.parseExpression(that);
             EvaluationContext c=new StandardEvaluationContext(stepContext);
             stepArgs.add(e.getValue(c,String.class));

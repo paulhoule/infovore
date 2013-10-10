@@ -46,20 +46,32 @@
   <!-- 2.1.1 definitions of flows -->
   <!-- arg0: s3n://freebase-dumps/ -->
   <!-- arg1: 2013-10-06-00 -->
-  <!-- arg2: /preprocess/2013-10-06-00-00 -->
+  <!-- arg2: s3n://basekb-lime/ -->
   
   <bean name="basekbNowFlow" class="com.ontology2.haruhi.flows.SpringFlow">
     <constructor-arg>
-      <bean class="com.ontology2.haruhi.flows.JobStep">
-          <constructor-arg>
-            <list>
-              <value>'run'</value>
-              <value>'freebaseRDFPrefilter'</value>
-              <value>pos[0]+'freebase-rdf-'+pos[1]+'/'</value>
-              <value>tmpDir+'preprocessed/'+pos[1]+'/'</value>
-            </list>
-          </constructor-arg>
-      </bean>
+      <list>
+       <bean class="com.ontology2.haruhi.flows.JobStep">
+            <constructor-arg>
+              <list>
+                <value>'run'</value>
+                <value>'freebaseRDFPrefilter'</value>
+                <value>pos[0]+'freebase-rdf-'+pos[1]+'/'</value>
+                <value>tmpDir+'preprocessed/'+pos[1]+'/'</value>
+              </list>
+            </constructor-arg>
+        </bean>  
+        <bean class="com.ontology2.haruhi.flows.JobStep">
+            <constructor-arg>
+              <list>
+                <value>'run'</value>
+                <value>'pse3'</value>
+                <value>tmpDir+'preprocessed/'+pos[1]+'/'</value>
+                <value>pos[2]+pos[1]+'/'</value>
+              </list>
+            </constructor-arg>
+        </bean>
+      </list>
     </constructor-arg>
   </bean>
 
