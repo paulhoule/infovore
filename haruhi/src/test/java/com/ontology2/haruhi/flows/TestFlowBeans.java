@@ -26,7 +26,7 @@ public class TestFlowBeans {
         List<String> flowArgs=Lists.newArrayList("s3n://freebase-dumps/","1942-12-07-00-00","s3n://basekb-now/");
         List<FlowStep> steps=basekbNowFlow.generateSteps(flowArgs);
         assertNotNull(steps);
-        assertEquals(2,steps.size());
+        assertEquals(3,steps.size());
         
         {
             assertTrue(steps.get(0) instanceof SpringStep);
@@ -54,6 +54,20 @@ public class TestFlowBeans {
             assertEquals("pse3",args.get(i++));
             assertEquals("/preprocessed/1942-12-07-00-00/",args.get(i++));
             assertEquals("s3n://basekb-now/1942-12-07-00-00/",args.get(i++));
+        }
+        
+        {
+            assertTrue(steps.get(2) instanceof SpringStep);
+            SpringStep step2=(SpringStep) steps.get(2);
+            List<String> args=step2.getStepArgs(flowArgs);
+            
+            assertEquals(4,args.size());
+            
+            int i=0;
+            assertEquals("run",args.get(i++));
+            assertEquals("sieve3",args.get(i++));
+            assertEquals("s3n://basekb-now/1942-12-07-00-00/accepted/",args.get(i++));
+            assertEquals("s3n://basekb-now/1942-12-07-00-00/sieved/",args.get(i++));
         }
     }
 }

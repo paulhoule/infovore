@@ -71,6 +71,16 @@
               </list>
             </constructor-arg>
         </bean>
+        <bean class="com.ontology2.haruhi.flows.JobStep">
+            <constructor-arg>
+              <list>
+                <value>'run'</value>
+                <value>'sieve3'</value>
+                <value>pos[2]+pos[1]+'/accepted/'</value>
+                <value>pos[2]+pos[1]+'/sieved/'</value>
+              </list>
+            </constructor-arg>
+        </bean>
       </list>
     </constructor-arg>
   </bean>
