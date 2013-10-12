@@ -81,6 +81,17 @@
               </list>
             </constructor-arg>
         </bean>
+        <bean class="com.ontology2.haruhi.flows.JobStep">
+            <constructor-arg>
+              <list>
+                <value>'run'</value>
+                <value>'fs'</value>
+                <value>'-rmr'</value>
+                <value>pos[2]+pos[1]+'/accepted/'</value>
+                <value>tmpDir+'preprocessed/'+pos[1]+'/'</value>
+              </list>
+            </constructor-arg>
+        </bean>
       </list>
     </constructor-arg>
   </bean>

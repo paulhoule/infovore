@@ -9,6 +9,7 @@ import java.util.Map.Entry;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FsShell;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.compress.GzipCodec;
@@ -56,6 +57,7 @@ public class Main implements Runnable {
         put("pse3",PSE3Tool.class);
         put("sieve3",Sieve3Tool.class);
         put("ranSample",RanSampleTool.class);
+        put("fs",FsShell.class);                    // from Hadoop
     }};
     
     Map<String, TopLevelCommand> myCommands=new HashMap<String,TopLevelCommand>() {{
