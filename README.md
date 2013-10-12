@@ -2,7 +2,7 @@ Overview
 --------
 
 Infovore is an RDF processing system that uses Hadoop to process RDF data
-sets in the triple range and beyond
+sets in the billion triple range and beyond
 
 Building
 --------
@@ -21,4 +21,11 @@ source haruhi/path.sh
 More Information
 ----------------
 
-See https://github.com/paulhoule/infovore/wiki
+See 
+
+https://github.com/paulhoule/infovore/wiki 
+
+for documentation and join the discussion group at
+
+https://groups.google.com/forum/#!forum/infovore-basekb
+
