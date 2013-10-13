@@ -29,3 +29,7 @@ for documentation and join the discussion group at
 
 https://groups.google.com/forum/#!forum/infovore-basekb
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/paulhoule/infovore/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
