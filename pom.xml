@@ -15,9 +15,25 @@
     </license>
   </licenses>
   <scm>
+    <connection>https://github.com/paulhoule/infovore.git</connection>
     <developerConnection>scm:git:https://github.com/paulhoule/infovore.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
+  <developers>
+    <developer>
+      <id>paul_houle</id>
+      <name>Paul A. Houle</name>
+      <email>paul@ontology2.com</email>
+      <url>http://blog.databaseanimals.com/</url>
+      <organization>Ontology2</organization>
+      <organizationUrl>http://ontology2.com/</organizationUrl>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <timezone>http://en.wikipedia.org/wiki/America/New_York</timezone>
+    </developer>
+  </developers>
   <modules>
     <module>centipede</module>
     <module>bakemono</module>
