@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.ProcessBuilder.Redirect;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -13,6 +14,7 @@ import org.apache.xerces.impl.xpath.XPath.Step;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.google.common.io.CharStreams;
 import com.ontology2.centipede.shell.ExitCodeException;
 import com.ontology2.haruhi.flows.Flow;
@@ -80,9 +82,13 @@ public class LocalCmdCluster implements Cluster {
     private void runStep(MavenManagedJar jar, List<String> flowArgs, FlowStep that) throws Exception {
         if(that instanceof JobStep) {
             JobStep jobStep=(JobStep) that;
-            this.runJob(jar, jobStep.getStepArgs(flowArgs));
+            this.runJob(jar, jobStep.getStepArgs(emptyMap(),flowArgs));
         } else {
             throw new RuntimeException("Could not process step of type "+that.getClass());
         }
+    }
+    
+    private Map<String, Object> emptyMap() {
+        return Maps.newHashMap();
     }
 };

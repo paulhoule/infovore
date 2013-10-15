@@ -3,6 +3,7 @@ package com.ontology2.haruhi.flows;
 import static org.junit.Assert.*;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -13,6 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.ontology2.haruhi.JobApp;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -31,7 +33,7 @@ public class TestFlowBeans {
         {
             assertTrue(steps.get(0) instanceof SpringStep);
             SpringStep step0=(SpringStep) steps.get(0);
-            List<String> args=step0.getStepArgs(flowArgs);
+            List<String> args=step0.getStepArgs(emptyMap(),flowArgs);
             
             assertEquals(4,args.size());
             
@@ -45,7 +47,7 @@ public class TestFlowBeans {
         {
             assertTrue(steps.get(1) instanceof SpringStep);
             SpringStep step1=(SpringStep) steps.get(1);
-            List<String> args=step1.getStepArgs(flowArgs);
+            List<String> args=step1.getStepArgs(emptyMap(),flowArgs);
             
             assertEquals(4,args.size());
             
@@ -59,7 +61,7 @@ public class TestFlowBeans {
         {
             assertTrue(steps.get(2) instanceof SpringStep);
             SpringStep step2=(SpringStep) steps.get(2);
-            List<String> args=step2.getStepArgs(flowArgs);
+            List<String> args=step2.getStepArgs(emptyMap(),flowArgs);
             
             assertEquals(4,args.size());
             
@@ -73,7 +75,7 @@ public class TestFlowBeans {
         {
             assertTrue(steps.get(3) instanceof SpringStep);
             SpringStep step2=(SpringStep) steps.get(3);
-            List<String> args=step2.getStepArgs(flowArgs);
+            List<String> args=step2.getStepArgs(emptyMap(),flowArgs);
             
             assertEquals(5,args.size());
             
@@ -84,5 +86,9 @@ public class TestFlowBeans {
             assertEquals("s3n://basekb-now/1942-12-07-00-00/accepted/",args.get(i++));
             assertEquals("/preprocessed/1942-12-07-00-00/",args.get(i++));
         }
+    }
+
+    private Map<String,Object> emptyMap() {
+        return Maps.newHashMap();
     }
 }

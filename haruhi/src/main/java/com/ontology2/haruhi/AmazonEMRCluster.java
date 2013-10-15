@@ -4,6 +4,7 @@ import static com.ontology2.centipede.shell.ExitCodeException.EX_SOFTWARE;
 import static com.ontology2.centipede.shell.ExitCodeException.EX_UNAVAILABLE;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.logging.Log;
@@ -22,6 +23,7 @@ import com.amazonaws.services.elasticmapreduce.model.RunJobFlowResult;
 import com.amazonaws.services.elasticmapreduce.model.StepConfig;
 import com.amazonaws.services.simpleworkflow.model.ExecutionStatus;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.ontology2.centipede.shell.ExitCodeException;
 import com.ontology2.haruhi.flows.Flow;
@@ -120,7 +122,7 @@ public class AmazonEMRCluster implements Cluster {
                 steps.add(new StepConfig(
                         "main"
                         ,new HadoopJarStepConfig(jarLocation)
-                            .withArgs(j.getStepArgs(flowArgs)))
+                            .withArgs(j.getStepArgs(emptyMap(),flowArgs)))
                 );
             } else {
                 throw new RuntimeException("Could not process step of type "+that.getClass());
@@ -134,5 +136,9 @@ public class AmazonEMRCluster implements Cluster {
         
         RunJobFlowResult result=emrClient.runJobFlow(that);
         pollClusterForCompletion(result);
+    }
+
+    private Map<String, Object> emptyMap() {
+        return Maps.newHashMap();
     }
 }
