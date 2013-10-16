@@ -10,7 +10,6 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.xerces.impl.xpath.XPath.Step;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
