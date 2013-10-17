@@ -31,7 +31,8 @@ public abstract class SpringStep extends FlowStep {
         
         for(String that:argDefinitions) {
             Expression e=parser.parseExpression(that);
-            EvaluationContext c=new StandardEvaluationContext(stepContext);
+            StandardEvaluationContext c=new StandardEvaluationContext(stepContext);
+            stepContext.assignVariables(c);
             String value = e.getValue(c,String.class);
             logger.trace("parsing ["+that+"] with result +["+value+"]");
             stepArgs.add(value);
@@ -42,33 +43,6 @@ public abstract class SpringStep extends FlowStep {
     
     public List<String> getStepArgs(String... flowArgs) {
         return getStepArgs(new HashMap<String,Object>(),Arrays.asList(flowArgs));
-    };
-    
-    public static class SpringStepContext {
-        private final List<String> pos;
-        private final Map<String,Object> local;
-
-        public SpringStepContext(List<String> pos, Map<String, Object> local) {
-            super();
-            this.pos = pos;
-            this.local = local;
-        }
-        
-        public List<String> getPos() {
-            return pos;
-        }
-        
-        public Map<String,Object> getLocal() {
-            return local;
-        }
-        
-        //
-        // right now hardcoded to the HDFS root
-        //
-        
-        public String getTmpDir() {
-            return "/";
-        }
     }
 
 }

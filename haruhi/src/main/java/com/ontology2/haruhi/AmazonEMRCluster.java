@@ -26,6 +26,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.ontology2.centipede.shell.ExitCodeException;
+import com.ontology2.haruhi.flows.AssignmentStep;
 import com.ontology2.haruhi.flows.Flow;
 import com.ontology2.haruhi.flows.FlowStep;
 import com.ontology2.haruhi.flows.JobStep;
@@ -114,19 +115,7 @@ public class AmazonEMRCluster implements Cluster {
     @Override
     public void runFlow(MavenManagedJar jar, Flow f,List<String> flowArgs) throws Exception {
         String jarLocation=jar.s3JarLocation(awsSoftwareBucket);
-        List<StepConfig> steps=Lists.newArrayList(debugStep);
-        
-        for(FlowStep that:f.generateSteps(flowArgs))
-            if(that instanceof JobStep) {
-                JobStep j=(JobStep) that;
-                steps.add(new StepConfig(
-                        "main"
-                        ,new HadoopJarStepConfig(jarLocation)
-                            .withArgs(j.getStepArgs(emptyMap(),flowArgs)))
-                );
-            } else {
-                throw new RuntimeException("Could not process step of type "+that.getClass());
-            }
+        List<StepConfig> steps = createEmrSteps(f, flowArgs, jarLocation);
         
         RunJobFlowRequest that=new RunJobFlowRequest()
         .withName("Haruhi submitted job")
@@ -136,6 +125,27 @@ public class AmazonEMRCluster implements Cluster {
         
         RunJobFlowResult result=emrClient.runJobFlow(that);
         pollClusterForCompletion(result);
+    }
+
+    private List<StepConfig> createEmrSteps(Flow f, List<String> flowArgs,
+            String jarLocation) {
+        List<StepConfig> steps=Lists.newArrayList(debugStep);
+        Map<String,Object> local=Maps.newHashMap();
+        for(FlowStep that:f.generateSteps(flowArgs))
+            if(that instanceof JobStep) {
+                JobStep j=(JobStep) that;
+                steps.add(new StepConfig(
+                        "main"
+                        ,new HadoopJarStepConfig(jarLocation)
+                            .withArgs(j.getStepArgs(emptyMap(),flowArgs)))
+                );
+            } else if(that instanceof AssignmentStep) {
+                AssignmentStep ass=(AssignmentStep) that;
+                local = ass.process(local, flowArgs);
+            } else {
+                throw new RuntimeException("Could not process step of type "+that.getClass());
+            }
+        return steps;
     }
 
     private Map<String, Object> emptyMap() {

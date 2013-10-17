@@ -56,8 +56,8 @@
               <list>
                 <value>'run'</value>
                 <value>'freebaseRDFPrefilter'</value>
-                <value>pos[0]+'freebase-rdf-'+pos[1]+'/'</value>
-                <value>tmpDir+'preprocessed/'+pos[1]+'/'</value>
+                <value>#$0+'freebase-rdf-'+#$1+'/'</value>
+                <value>tmpDir+'preprocessed/'+#$1+'/'</value>
               </list>
             </constructor-arg>
         </bean>  
@@ -66,8 +66,8 @@
               <list>
                 <value>'run'</value>
                 <value>'pse3'</value>
-                <value>tmpDir+'preprocessed/'+pos[1]+'/'</value>
-                <value>pos[2]+pos[1]+'/'</value>
+                <value>tmpDir+'preprocessed/'+#$1+'/'</value>
+                <value>#$2+#$1+'/'</value>
               </list>
             </constructor-arg>
         </bean>
@@ -76,8 +76,8 @@
               <list>
                 <value>'run'</value>
                 <value>'sieve3'</value>
-                <value>pos[2]+pos[1]+'/accepted/'</value>
-                <value>pos[2]+pos[1]+'/sieved/'</value>
+                <value>#$2+#$1+'/accepted/'</value>
+                <value>#$2+#$1+'/sieved/'</value>
               </list>
             </constructor-arg>
         </bean>
@@ -87,8 +87,8 @@
                 <value>'run'</value>
                 <value>'fs'</value>
                 <value>'-rmr'</value>
-                <value>pos[2]+pos[1]+'/accepted/'</value>
-                <value>tmpDir+'preprocessed/'+pos[1]+'/'</value>
+                <value>#$2+#$1+'/accepted/'</value>
+                <value>tmpDir+'preprocessed/'+pos[1]+'/'</value>  <!-- do with verbose syntax so it is tested -->
               </list>
             </constructor-arg>
         </bean>
