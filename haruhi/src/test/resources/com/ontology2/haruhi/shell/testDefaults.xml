@@ -1,21 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- this file defines default values for properties that normally are set in
-     the user's home directory;  we need these so tests can properly test
-     initialization of the applicationContext.xml and bogus values are OK
-     because we can't touch AWS in a unit test -->
-     
+<!-- this file defines default values for properties that normally are set in the user's home directory; we need these so tests can properly test initialization of the applicationContext.xml and bogus values are OK because we can't touch AWS in a unit test -->
+
 <beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-  xsi:schemaLocation="http://www.springframework.org/schema/beans
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:context="http://www.springframework.org/schema/context" 
+         xmlns:c="http://www.springframework.org/schema/c"
+         xmlns:p="http://www.springframework.org/schema/p"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans
          http://www.springframework.org/schema/beans/spring-beans.xsd
          http://www.springframework.org/schema/context
          http://www.springframework.org/schema/context/spring-context.xsd">
-   <bean name="awsCredentials" class="com.amazonaws.auth.BasicAWSCredentials">
-        <constructor-arg value="mick"/>
-        <constructor-arg value="jagger"/>
-   </bean>
-   <bean name="awsSoftwareBucket" class="java.lang.String">
-      <constructor-arg value="s3://bakemono/" />
-   </bean>
-</beans>
+  <bean name="awsCredentials" class="com.amazonaws.auth.BasicAWSCredentials">
+    <constructor-arg value="mick" />
+    <constructor-arg value="jagger" />
+  </bean>
+  <bean name="awsSoftwareBucket" class="java.lang.String">
+    <constructor-arg value="s3://bakemono/" />
+  </bean>
+  <bean name="assignmentStep1" class="com.ontology2.haruhi.flows.AssignmentStep">
+    <constructor-arg>
+        <list>
+            <bean class="com.ontology2.haruhi.flows.Assignment" c:assignTo="zappa" c:expression="55/5" />
+        </list>
+    </constructor-arg>
+  </bean>
+    <bean name="assignmentStep2" class="com.ontology2.haruhi.flows.AssignmentStep">
+    <constructor-arg>
+        <list>
+            <!--  because arg2 is a string, we repeat the string local['justice'] times -->
+            <bean class="com.ontology2.haruhi.flows.Assignment" c:assignTo="usagi" c:expression="pos[0]*local['justice']" />
+            <bean class="com.ontology2.haruhi.flows.Assignment" c:assignTo="mamoru" c:expression="pos[1]+' '+local['endymion']" />
+        </list>
+    </constructor-arg>
+  </bean>
+</beans>  
      

@@ -30,10 +30,11 @@ public abstract class SpringStep extends FlowStep {
         List<String> stepArgs=Lists.newArrayList();
         
         for(String that:argDefinitions) {
-            logger.info("parsing ["+that+"]");
             Expression e=parser.parseExpression(that);
             EvaluationContext c=new StandardEvaluationContext(stepContext);
-            stepArgs.add(e.getValue(c,String.class));
+            String value = e.getValue(c,String.class);
+            logger.trace("parsing ["+that+"] with result +["+value+"]");
+            stepArgs.add(value);
         };
         
         return stepArgs;
@@ -43,7 +44,7 @@ public abstract class SpringStep extends FlowStep {
         return getStepArgs(new HashMap<String,Object>(),Arrays.asList(flowArgs));
     };
     
-    public class SpringStepContext {
+    public static class SpringStepContext {
         private final List<String> pos;
         private final Map<String,Object> local;
 
