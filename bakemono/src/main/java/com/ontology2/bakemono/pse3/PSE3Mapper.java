@@ -1,6 +1,7 @@
 package com.ontology2.bakemono.pse3;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.io.LongWritable;
@@ -31,7 +32,8 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
     final LoadingCache<String,Node> nodeParser=JenaUtil.createNodeParseCache();
 
     final static PrimitiveTripleCodec p3Codec=new PrimitiveTripleCodec();
-
+    private final Pattern $escape=Pattern.compile("[$][0-9A-F]{4}");
+    
     //
     // all of these are deliberately in the default scope so that the test classes
     // can mess with them
@@ -40,6 +42,7 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
     RealMultipleOutputs mos;
     KeyValueAcceptor<WritableTriple,LongWritable> accepted;
     KeyValueAcceptor<Text,Text> rejected;
+
     
     @Override
     public void setup(Context context) throws IOException,
@@ -59,18 +62,34 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
             Node_URI predicate=(Node_URI) nodeParser.get(row3.getPredicate());
             Node object=nodeParser.get(row3.getObject());
 
+            if(has$escape(subject) || has$escape(predicate) || has$escape(object)) {
+                reject(c,row3);
+                return;
+            }
+            
             Triple realTriple=new Triple(subject,predicate,object);
             accepted.write(new WritableTriple(realTriple),ONE,c);
             incrementCounter(c,PSE3Counters.ACCEPTED,1);
         } catch(Throwable e) {
-            incrementCounter(c,PSE3Counters.REJECTED,1);
             logger.error("Caught exception in PSE3Mapper",e);
-            rejected.write(
-                    new Text(row3.getSubject()),
-                    new Text(row3.getPredicate()+"\t"+row3.getObject()+"\t."),c);
-            incrementCounter(c,PSE3Counters.REJECTED,1);
-
+            reject(c, row3);
         }
+    }
+    
+    //
+    // Barf on $xxxx escape sequences in any data type
+    //
+    
+    private boolean has$escape(Node that) {
+        return $escape.matcher(that.toString()).find();
+    }
+
+    private void reject(Context c, PrimitiveTriple row3) throws IOException,
+            InterruptedException {
+        incrementCounter(c,PSE3Counters.REJECTED,1);
+        rejected.write(
+                new Text(row3.getSubject()),
+                new Text(row3.getPredicate()+"\t"+row3.getObject()+"\t."),c);
     }
 
     //

@@ -117,6 +117,21 @@ public class TestPSE3Mapper {
                  )
                 ,new LongWritable(1)
                 ,mockContext);
+        verifyNoMoreInteractions(pse3mapper.accepted);
+    }
+    
+    @Test
+    public void rejects$Escapes() throws IOException,InterruptedException {
+        Context mockContext=mock(Context.class);
+        pse3mapper.map(
+                new LongWritable(944L),
+                new Text("<http://rdf.basekb.com/ns/m.0tc7> <http://rdf.basekb.com/ns/common.topic.topic_equivalent_webpage> <http://www.ranker.com/review/arnold-schwarzenegger$002F493404> ."),
+                mockContext);
+
+        verify(pse3mapper.rejected).write(
+                new Text("<http://rdf.basekb.com/ns/m.0tc7>")
+                ,new Text("<http://rdf.basekb.com/ns/common.topic.topic_equivalent_webpage>\t<http://www.ranker.com/review/arnold-schwarzenegger$002F493404>\t.")
+                ,mockContext);
         verifyNoMoreInteractions(pse3mapper.accepted);      
     }
     
