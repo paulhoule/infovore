@@ -45,7 +45,8 @@ public class AssignmentStep extends FlowStep {
         
         for(Assignment that:assignments) {
             Expression e=parser.parseExpression(that.getExpression());
-            EvaluationContext c=new StandardEvaluationContext(stepContext);
+            StandardEvaluationContext c=new StandardEvaluationContext(stepContext);
+            stepContext.assignVariables(c);
             Object value = e.getValue(c);
             logger.trace("parsing ["+that+"] with result +["+value+"]");
             if (output.containsKey(that.getAssignTo())) {

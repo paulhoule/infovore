@@ -28,12 +28,26 @@ public class TestFlowBeans {
         List<String> flowArgs=Lists.newArrayList("s3n://freebase-dumps/","1942-12-07-00-00","s3n://basekb-now/");
         List<FlowStep> steps=basekbNowFlow.generateSteps(flowArgs);
         assertNotNull(steps);
-        assertEquals(4,steps.size());
+        assertEquals(6,steps.size());
+        
+        Map<String, Object> local = Maps.newHashMap();
+        int j=0;
+        {
+            assertTrue(steps.get(j) instanceof AssignmentStep);
+            AssignmentStep that=(AssignmentStep) steps.get(j++);
+            local=that.process(local, flowArgs);
+        }
         
         {
-            assertTrue(steps.get(0) instanceof SpringStep);
-            SpringStep step0=(SpringStep) steps.get(0);
-            List<String> args=step0.getStepArgs(emptyMap(),flowArgs);
+            assertTrue(steps.get(j) instanceof AssignmentStep);
+            AssignmentStep that=(AssignmentStep) steps.get(j++);
+            local=that.process(local, flowArgs);
+        }
+        
+        {
+            assertTrue(steps.get(j) instanceof SpringStep);
+            SpringStep step0=(SpringStep) steps.get(j++);
+            List<String> args=step0.getStepArgs(local,flowArgs);
             
             assertEquals(4,args.size());
             
@@ -45,9 +59,9 @@ public class TestFlowBeans {
         }
         
         {
-            assertTrue(steps.get(1) instanceof SpringStep);
-            SpringStep step1=(SpringStep) steps.get(1);
-            List<String> args=step1.getStepArgs(emptyMap(),flowArgs);
+            assertTrue(steps.get(j) instanceof SpringStep);
+            SpringStep step1=(SpringStep) steps.get(j++);
+            List<String> args=step1.getStepArgs(local,flowArgs);
             
             assertEquals(4,args.size());
             
@@ -59,9 +73,9 @@ public class TestFlowBeans {
         }
         
         {
-            assertTrue(steps.get(2) instanceof SpringStep);
-            SpringStep step2=(SpringStep) steps.get(2);
-            List<String> args=step2.getStepArgs(emptyMap(),flowArgs);
+            assertTrue(steps.get(j) instanceof SpringStep);
+            SpringStep step2=(SpringStep) steps.get(j++);
+            List<String> args=step2.getStepArgs(local,flowArgs);
             
             assertEquals(4,args.size());
             
@@ -73,9 +87,9 @@ public class TestFlowBeans {
         }
         
         {
-            assertTrue(steps.get(3) instanceof SpringStep);
-            SpringStep step2=(SpringStep) steps.get(3);
-            List<String> args=step2.getStepArgs(emptyMap(),flowArgs);
+            assertTrue(steps.get(j) instanceof SpringStep);
+            SpringStep step2=(SpringStep) steps.get(j++);
+            List<String> args=step2.getStepArgs(local,flowArgs);
             
             assertEquals(5,args.size());
             
@@ -88,7 +102,4 @@ public class TestFlowBeans {
         }
     }
 
-    private Map<String,Object> emptyMap() {
-        return Maps.newHashMap();
-    }
 }

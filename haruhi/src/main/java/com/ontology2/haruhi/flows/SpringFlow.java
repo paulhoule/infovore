@@ -20,13 +20,13 @@ import com.ontology2.haruhi.MavenManagedJar;
 
 public class SpringFlow extends Flow {
 
-    private final List<SpringStep> springSteps;
+    private final List<FlowStep> springSteps;
     
-    public SpringFlow(List<SpringStep> springSteps) {
+    public SpringFlow(List<FlowStep> springSteps) {
         this.springSteps = springSteps;
     }
     
-    public SpringFlow(SpringStep... springSteps) {
+    public SpringFlow(FlowStep... springSteps) {
         this(Arrays.asList(springSteps));
     }
 

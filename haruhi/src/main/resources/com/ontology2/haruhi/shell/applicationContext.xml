@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans
+<beans xmlns="http://www.springframework.org/schema/beans" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+     xmlns:c="http://www.springframework.org/schema/c"
+     xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
          http://www.springframework.org/schema/beans/spring-beans.xsd
          http://www.springframework.org/schema/context
          http://www.springframework.org/schema/context/spring-context.xsd">
@@ -51,13 +56,30 @@
   <bean name="basekbNowFlow" class="com.ontology2.haruhi.flows.SpringFlow">
     <constructor-arg>
       <list>
+      <bean class="com.ontology2.haruhi.flows.AssignmentStep">
+            <constructor-arg>
+              <list>
+                <bean class="com.ontology2.haruhi.flows.Assignment" c:assignTo="input" c:expression="#$0+'freebase-rdf-'+#$1+'/'" />
+                <bean class="com.ontology2.haruhi.flows.Assignment" c:assignTo="preprocessed" c:expression="tmpDir+'preprocessed/'+#$1+'/'" />
+                <bean class="com.ontology2.haruhi.flows.Assignment" c:assignTo="outputRoot" c:expression="#$2+#$1+'/'" />
+              </list>
+            </constructor-arg>
+       </bean>
+       <bean class="com.ontology2.haruhi.flows.AssignmentStep">
+            <constructor-arg>
+              <list>
+                <bean class="com.ontology2.haruhi.flows.Assignment" c:assignTo="accepted" c:expression="#outputRoot+'accepted/'" />
+                <bean class="com.ontology2.haruhi.flows.Assignment" c:assignTo="sieved" c:expression="#outputRoot+'sieved/'" />
+              </list>
+            </constructor-arg>
+       </bean>
        <bean class="com.ontology2.haruhi.flows.JobStep">
             <constructor-arg>
               <list>
                 <value>'run'</value>
                 <value>'freebaseRDFPrefilter'</value>
-                <value>#$0+'freebase-rdf-'+#$1+'/'</value>
-                <value>tmpDir+'preprocessed/'+#$1+'/'</value>
+                <value>#input</value>
+                <value>#preprocessed</value>
               </list>
             </constructor-arg>
         </bean>  
@@ -66,8 +88,8 @@
               <list>
                 <value>'run'</value>
                 <value>'pse3'</value>
-                <value>tmpDir+'preprocessed/'+#$1+'/'</value>
-                <value>#$2+#$1+'/'</value>
+                <value>#preprocessed</value>
+                <value>#outputRoot</value>
               </list>
             </constructor-arg>
         </bean>
@@ -76,8 +98,8 @@
               <list>
                 <value>'run'</value>
                 <value>'sieve3'</value>
-                <value>#$2+#$1+'/accepted/'</value>
-                <value>#$2+#$1+'/sieved/'</value>
+                <value>#accepted</value>
+                <value>#sieved</value>
               </list>
             </constructor-arg>
         </bean>
@@ -87,8 +109,8 @@
                 <value>'run'</value>
                 <value>'fs'</value>
                 <value>'-rmr'</value>
-                <value>#$2+#$1+'/accepted/'</value>
-                <value>tmpDir+'preprocessed/'+pos[1]+'/'</value>  <!-- do with verbose syntax so it is tested -->
+                <value>#accepted</value>
+                <value>#preprocessed</value>
               </list>
             </constructor-arg>
         </bean>
