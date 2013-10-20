@@ -127,7 +127,7 @@ public class AmazonEMRCluster implements Cluster {
         pollClusterForCompletion(result);
     }
 
-    private List<StepConfig> createEmrSteps(Flow f, List<String> flowArgs,
+    List<StepConfig> createEmrSteps(Flow f, List<String> flowArgs,
             String jarLocation) {
         List<StepConfig> steps=Lists.newArrayList(debugStep);
         Map<String,Object> local=Maps.newHashMap();
@@ -137,7 +137,7 @@ public class AmazonEMRCluster implements Cluster {
                 steps.add(new StepConfig(
                         "main"
                         ,new HadoopJarStepConfig(jarLocation)
-                            .withArgs(j.getStepArgs(emptyMap(),flowArgs)))
+                            .withArgs(j.getStepArgs(local,flowArgs)))
                 );
             } else if(that instanceof AssignmentStep) {
                 AssignmentStep ass=(AssignmentStep) that;
@@ -146,9 +146,5 @@ public class AmazonEMRCluster implements Cluster {
                 throw new RuntimeException("Could not process step of type "+that.getClass());
             }
         return steps;
-    }
-
-    private Map<String, Object> emptyMap() {
-        return Maps.newHashMap();
     }
 }
