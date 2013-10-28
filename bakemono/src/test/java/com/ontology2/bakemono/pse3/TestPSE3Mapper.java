@@ -128,11 +128,15 @@ public class TestPSE3Mapper {
                 new Text("<http://rdf.basekb.com/ns/m.0tc7> <http://rdf.basekb.com/ns/common.topic.topic_equivalent_webpage> <http://www.ranker.com/review/arnold-schwarzenegger$002F493404> ."),
                 mockContext);
 
-        verify(pse3mapper.rejected).write(
-                new Text("<http://rdf.basekb.com/ns/m.0tc7>")
-                ,new Text("<http://rdf.basekb.com/ns/common.topic.topic_equivalent_webpage>\t<http://www.ranker.com/review/arnold-schwarzenegger$002F493404>\t.")
+        verify(pse3mapper.accepted).write(
+                new WritableTriple(
+                    Node_URI.createURI("http://rdf.basekb.com/ns/m.0tc7")
+                    ,Node_URI.createURI("http://rdf.basekb.com/ns/common.topic.topic_equivalent_webpage")
+                    ,Node_URI.createURI("http://www.ranker.com/review/arnold-schwarzenegger/493404")
+                )
+                ,new LongWritable(1)
                 ,mockContext);
-        verifyNoMoreInteractions(pse3mapper.accepted);      
+        verifyNoMoreInteractions(pse3mapper.accepted);
     }
     
     @Test

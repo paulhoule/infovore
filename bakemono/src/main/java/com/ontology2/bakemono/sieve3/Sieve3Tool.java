@@ -74,9 +74,9 @@ public class Sieve3Tool implements Tool {
             conf.set("mapred.compress.map.output", "true");
             conf.set("mapred.output.compression.type", "BLOCK"); 
             conf.set("mapred.map.output.compression.codec", "org.apache.hadoop.io.compress.GzipCodec");
-            conf.set("mapreduce.map.speculative","false");
             
             Job job=new Job(conf,"sieve3");
+            job.setSpeculativeExecution(false);
             FileInputFormat.addInputPath(job, new Path(input));
             
             job.setJarByClass(Sieve3Tool.class);

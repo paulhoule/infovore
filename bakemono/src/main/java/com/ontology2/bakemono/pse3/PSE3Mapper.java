@@ -10,6 +10,7 @@ import org.apache.hadoop.mapreduce.*;
 import org.apache.hadoop.mapreduce.Mapper.Context;
 import org.apache.hadoop.mapreduce.lib.output.MultipleOutputs;
 
+import com.google.common.base.Function;
 import com.google.common.base.Splitter;
 import com.google.common.cache.LoadingCache;
 import com.hp.hpl.jena.graph.Node;
@@ -53,19 +54,19 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
         rejected=new NamedKeyValueAcceptor(mos,"rejected");
     }
 
+    Function<String,String> nodePreprocessor=new Unescape$();
     int myCnt=0;
     @Override
     public void map(LongWritable arg0, Text arg1, Context c) throws IOException, InterruptedException {
         PrimitiveTriple row3=p3Codec.decode(arg1.toString());
         try {
-            Node_URI subject=(Node_URI) nodeParser.get(row3.getSubject());
-            Node_URI predicate=(Node_URI) nodeParser.get(row3.getPredicate());
-            Node object=nodeParser.get(row3.getObject());
-
-            if(has$escape(subject) || has$escape(predicate) || has$escape(object)) {
-                reject(c,row3);
-                return;
-            }
+            String rawSubject = nodePreprocessor.apply(row3.getSubject());
+            String rawPredicate = nodePreprocessor.apply(row3.getPredicate());
+            String rawObject = nodePreprocessor.apply(row3.getObject());
+            
+            Node_URI subject=(Node_URI) nodeParser.get(rawSubject);
+            Node_URI predicate=(Node_URI) nodeParser.get(rawPredicate);
+            Node object=nodeParser.get(rawObject);
             
             Triple realTriple=new Triple(subject,predicate,object);
             accepted.write(new WritableTriple(realTriple),ONE,c);
@@ -111,6 +112,48 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
             throws IOException, InterruptedException {
         super.cleanup(context);
         mos.close();
+    }
+    
+    public class Unescape$ implements Function<String,String>{
+
+        @Override
+        public String apply(String input) {
+            if(input.startsWith("<") && input.endsWith(">"))
+                return applyToNode(input);
+            
+            if(input.startsWith("\""))
+                return applyToString(input);
+            
+            return input;
+        }
+        
+        public String applyToNode(String input) {
+            return unescapeFreebaseKey(input);
+        }
+        
+        public String applyToString(String input) {
+            return input;
+        }
+    }
+    
+    public static String unescapeFreebaseKey(String in) {
+        StringBuffer out=new StringBuffer();
+        String [] parts=in.split("[$]");
+        out.append(parts[0]);
+        for(int i=1;i<parts.length;i++) {
+            String hexSymbols=parts[i].substring(0,4);
+            String remainder="";
+            if(parts[i].length()>4) {
+                remainder=parts[i].substring(4);
+            }
+            
+            int codePoint=Integer.parseInt(hexSymbols,16);
+            char[] character=Character.toChars(codePoint);
+            out.append(character);
+            out.append(remainder);
+        }
+        
+        return out.toString();
     }
 
 }

@@ -70,7 +70,7 @@ public class PSE3Tool implements Tool {
             job.setReducerClass(Uniq.class);
             
             if(reduceTasks==null) {
-                reduceTasks=23;    // about right for AWS runs
+                reduceTasks=29;    // about right for AWS runs
             }
             
             job.setNumReduceTasks(reduceTasks);
