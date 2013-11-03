@@ -3,11 +3,11 @@
   <parent>
     <artifactId>infovore</artifactId>
     <groupId>com.ontology2</groupId>
-    <version>2.0-SNAPSHOT</version>
+    <version>t20131103</version>
   </parent>
 
   <artifactId>centipede</artifactId>
-  <version>2.0-SNAPSHOT</version>
+  <version>t20131103</version>
   <packaging>jar</packaging>
   <name>Centipede -- utilities for developing command line applications in Java</name>
   <url>https://github.com/paulhoule/infovore/wiki/Centipede</url>
