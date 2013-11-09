@@ -40,7 +40,6 @@
     </developer>
   </developers>
   <modules>
-    <module>centipede</module>
     <module>bakemono</module>
     <module>haruhi</module>
   </modules>
