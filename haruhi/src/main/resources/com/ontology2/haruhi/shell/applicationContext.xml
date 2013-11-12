@@ -39,7 +39,7 @@
   <bean name="bakemonoJar defaultJar" class="com.ontology2.haruhi.MavenManagedJar">
     <property name="groupId" value="com.ontology2" />
     <property name="artifactId" value="bakemono" />
-    <property name="version" value="2.0-SNAPSHOT" />
+    <property name="version" value="2.1-SNAPSHOT" />
     <property name="classifier" value="job" />
     <property name="headArguments">
       <list>
