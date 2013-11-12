@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.ontology2.bakemono.mapmap.UniqURIObjectTool;
+import com.ontology2.bakemono.mapmap.*;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.conf.Configuration;
@@ -60,6 +60,9 @@ public class Main implements Runnable {
         put("ranSample",RanSampleTool.class);
         put("fs",FsShell.class);                    // from Hadoop
         put("uniqURIObjects",UniqURIObjectTool.class);
+        put("uniqInternalURIObjects", UniqueInternalURIObjectTool.class);
+        put("uniqURISubjects", UniqueURISubjectTool.class);
+        put("uniqURIPredicates", UniqueURIPredicateTool.class);
     }};
     
     Map<String, TopLevelCommand> myCommands=new HashMap<String,TopLevelCommand>() {{

@@ -13,6 +13,6 @@ import org.apache.hadoop.io.Text;
 public class ProjectPredicate implements Function<PrimitiveTriple,Text> {
         @Override
         public Text apply(PrimitiveTriple t) {
-            return new Text(t.getSubject());
+            return new Text(t.getPredicate());
         }
 }
