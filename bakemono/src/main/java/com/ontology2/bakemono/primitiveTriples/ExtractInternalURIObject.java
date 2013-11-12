@@ -6,16 +6,15 @@ import org.apache.hadoop.io.Text;
 /**
  * Created with IntelliJ IDEA.
  * User: paul_000
- * Date: 11/10/13
- * Time: 4:52 PM
+ * Date: 11/12/13
+ * Time: 1:15 PM
  * To change this template use File | Settings | File Templates.
  */
-
-public class ExtractURIObject implements Function<PrimitiveTriple,Text> {
+public class ExtractInternalURIObject implements Function<PrimitiveTriple,Text> {
     @Override
     public Text apply(PrimitiveTriple t) {
         String o=t.getObject();
-        if(o.startsWith("<") && o.endsWith(">")) {
+        if(o.startsWith("<http://rdf.basekb.com/") && o.endsWith(">")) {
             return new Text(t.getObject());
         }
 

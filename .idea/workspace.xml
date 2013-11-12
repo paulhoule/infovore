@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ExtractInternalURIObject.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ProjectPredicate.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ProjectSubject.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqTool.java" />
+      <change type="MOVED" beforePath="C:\Users\paul_000\Documents\GitHub\infovore\bakemono\src\main\java\com\ontology2\bakemono\primitiveTriples\ExtractURIObject.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ProjectURIObject.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqURIObjectTool.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqURIObjectTool.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURIObjectMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURIObjectMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384269865707" ignored="false" />
-    <file path="$PROJECT_DIR$/../internal/adserver3/.idea/workspace.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384277833120" ignored="false" />
+    <file path="/Dummy.txt" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384277913003" ignored="false" />
+    <file path="$PROJECT_DIR$/../internal/adserver3/.idea/workspace.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384280878038" ignored="false" />
     <file path="/MapMap.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384119062692" ignored="false" />
     <file path="/MapMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384121253101" ignored="false" />
     <file path="/PTUniqueMapMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384119887753" ignored="false" />
@@ -17,11 +24,14 @@
     <file path="/UniqueUriObjectMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384123033750" ignored="false" />
     <file path="/fragment.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384126747676" ignored="false" />
     <file path="/Uniq.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384209964390" ignored="false" />
-    <file path="/UniqURIObjectTool.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384277593233" ignored="false" />
+    <file path="/UniqURIObjectTool.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384280865994" ignored="false" />
     <file path="/KeyOnlyOutputFormat.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384209486606" ignored="false" />
     <file path="/Main.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384268143558" ignored="false" />
     <file path="/AmazonEMRCluster.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384268328334" ignored="false" />
     <file path="/TestEMRCluster.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384269846594" ignored="false" />
+    <file path="/ExtractSubject.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384280252439" ignored="false" />
+    <file path="/ExtractPredicate.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384280396401" ignored="false" />
+    <file path="/UniqTool.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384280789900" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +94,7 @@
             <file leaf-file-name="PrimitiveTripleOutputFormat.java" pinned="false" current="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/PrimitiveTripleOutputFormat.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="23" column="0" selection-start="886" selection-end="1596" vertical-scroll-proportion="0.10067682">
+                  <state line="56" column="54" selection-start="2009" selection-end="2009" vertical-scroll-proportion="0.62081784">
                     <folding />
                   </state>
                 </provider>
@@ -106,41 +116,8 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="20" column="35" selection-start="750" selection-end="750" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#628#658#0" expanded="true" />
                 <element signature="e#850#851#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UniqueUriObjectMapperTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/mapmap/UniqueUriObjectMapperTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="24" selection-start="917" selection-end="917" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Uniq.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/uniq/Uniq.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="25" selection-start="1040" selection-end="1040" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="applicationContext.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="39" selection-start="2106" selection-end="2106" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -148,7 +125,7 @@
       <file leaf-file-name="UniqURIObjectTool.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqURIObjectTool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="23" selection-start="972" selection-end="975" vertical-scroll-proportion="0.6687817">
+            <state line="25" column="32" selection-start="917" selection-end="917" vertical-scroll-proportion="0.35956007">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -156,19 +133,74 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AmazonEMRCluster.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java">
+      <file leaf-file-name="UniqTool.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqTool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="4" selection-start="2888" selection-end="2888" vertical-scroll-proportion="0.0">
+            <state line="66" column="47" selection-start="2023" selection-end="2023" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UniqueURIObjectMapper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURIObjectMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="24" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectURIObject.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ProjectURIObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="71" selection-start="313" selection-end="354" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestEMRCluster.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/TestEMRCluster.java">
+      <file leaf-file-name="ExtractInternalURIObject.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ExtractInternalURIObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="8" selection-start="1278" selection-end="1278" vertical-scroll-proportion="0.0">
+            <state line="12" column="79" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectSubject.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ProjectSubject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="1" selection-start="352" selection-end="463" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectPredicate.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ProjectPredicate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="42" selection-start="478" selection-end="478" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapMapper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/MapMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="22" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -177,25 +209,7 @@
       <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="131" column="56" selection-start="4054" selection-end="4054" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SPOPrimitiveTripleOutputFormat.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/SPOPrimitiveTripleOutputFormat.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="57" selection-start="145" selection-end="172" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PSE3Tool.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/pse3/PSE3Tool.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="0" selection-start="1413" selection-end="4777" vertical-scroll-proportion="0.0">
+            <state line="131" column="5" selection-start="4054" selection-end="4054" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -219,11 +233,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/SpringPtUniqueMapMapper.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueObjectMapper.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/MapMapper.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ExtractObject.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ExtractURIObject.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURIObjectMapper.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/mapmap/UniqueUriObjectMapper.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/mapmap/UniqueUriObjectMapperTest.java" />
@@ -234,6 +243,11 @@
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/Main.java" />
         <option value="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java" />
         <option value="$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/TestEMRCluster.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ExtractSubject.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ExtractInternalURIObject.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ExtractPredicate.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ProjectPredicate.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqTool.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqURIObjectTool.java" />
       </list>
     </option>
@@ -608,27 +622,65 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="primitiveTriples" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ontology2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="mapmap" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="OverrideImplement.combined" value="true" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="recentsLimit" value="5" />
+    <property name="OverrideImplement.combined" value="true" />
     <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -697,19 +749,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -735,6 +774,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -834,33 +886,37 @@
       <created>1384269872351</created>
       <updated>1384269872351</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="#70 fix wrong class that broke reducer">
+      <created>1384277884069</created>
+      <updated>1384277884069</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2671" y="-399" width="1347" height="1385" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26908752" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925835" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26908752" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34785992" sideWeight="0.71149147" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28850856" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28833866" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925835" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -905,7 +961,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="#77 better ergonomics for error handling and reporting" />
+    <option name="LAST_COMMIT_MESSAGE" value="#70 fix wrong class that broke reducer" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -925,6 +981,7 @@
     <MESSAGE value="point haruhi's default at version 2.1-SNAPSHOT to resolve #76" />
     <MESSAGE value="#70 add application to application list" />
     <MESSAGE value="#77 better ergonomics for error handling and reporting" />
+    <MESSAGE value="#70 fix wrong class that broke reducer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -934,64 +991,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/pse3/TestPSE3Mapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="238" selection-end="274" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURIObjectMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="24" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/pse3/Uniq.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="569" selection-end="1533" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/uniq/UniqCounters.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="12" selection-start="50" selection-end="50" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/pse3/PSE3Tool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="0" selection-start="1413" selection-end="4777" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/SPOPrimitiveTripleOutputFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="57" selection-start="145" selection-end="172" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-core/1.0.4/hadoop-core-1.0.4.jar!/org/apache/hadoop/mapreduce/lib/output/FileOutputFormat.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="34" selection-start="118" selection-end="118" vertical-scroll-proportion="0.032786883">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/PrimitiveTripleOutputFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="886" selection-end="1596" vertical-scroll-proportion="0.10067682">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="39" selection-start="2106" selection-end="2106" vertical-scroll-proportion="0.0">
@@ -1002,9 +1001,7 @@
     <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/mapmap/UniqueUriObjectMapperTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="24" selection-start="917" selection-end="917" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1024,10 +1021,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/uniq/Uniq.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="25" selection-start="1040" selection-end="1040" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="28" column="6" selection-start="1040" selection-end="1040" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="131" column="5" selection-start="4054" selection-end="4054" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/PrimitiveTripleOutputFormat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="54" selection-start="2009" selection-end="2009" vertical-scroll-proportion="0.62081784">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/MapMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="22" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1035,23 +1051,66 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="35" selection-start="750" selection-end="750" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#628#658#0" expanded="true" />
             <element signature="e#850#851#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/Main.java">
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ProjectURIObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="56" selection-start="4054" selection-end="4054" vertical-scroll-proportion="0.0">
+        <state line="13" column="71" selection-start="313" selection-end="354" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ExtractInternalURIObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="79" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ProjectSubject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="1" selection-start="352" selection-end="463" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ProjectPredicate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="42" selection-start="478" selection-end="478" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="47" selection-start="2023" selection-end="2023" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURIObjectMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="24" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqURIObjectTool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="23" selection-start="972" selection-end="975" vertical-scroll-proportion="0.6687817">
+        <state line="25" column="32" selection-start="917" selection-end="917" vertical-scroll-proportion="0.35956007">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
