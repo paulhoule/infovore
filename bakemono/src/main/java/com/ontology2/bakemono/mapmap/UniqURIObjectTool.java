@@ -45,9 +45,6 @@ public class UniqURIObjectTool implements Tool {
 
             String output=a.next();
 
-            Path acceptedPath=new Path(output,"accepted");
-            Path rejectedPath=new Path(output,"rejected");
-
             conf.set("mapred.compress.map.output", "true");
             conf.set("mapred.output.compression.type", "BLOCK");
             conf.set("mapred.map.output.compression.codec", "org.apache.hadoop.io.compress.GzipCodec");
@@ -70,7 +67,7 @@ public class UniqURIObjectTool implements Tool {
             job.setOutputValueClass(LongWritable.class);
 
             FileInputFormat.addInputPath(job, new Path(input));
-            FileOutputFormat.setOutputPath(job, acceptedPath);
+            FileOutputFormat.setOutputPath(job, new Path(output));
             FileOutputFormat.setCompressOutput(job, true);
             FileOutputFormat.setOutputCompressorClass(job, GzipCodec.class);
 
