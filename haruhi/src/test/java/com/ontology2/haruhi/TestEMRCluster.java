@@ -24,7 +24,23 @@ public class TestEMRCluster {
     @Autowired AmazonEMRCluster tinyAwsCluster;
     @Autowired Flow basekbNowFlow;
     @Autowired private StepConfig debugStep;
-    
+
+    @Test
+    public void testShortName() {
+        String name=tinyAwsCluster.computeJobName(Lists.newArrayList("fe","fi","fo","fum"));
+        assertEquals(name,"fe fi fo fum");
+    }
+
+    @Test
+    public void testLongName() {
+        List<String> abc=Lists.newArrayList();
+        for(int i=0;i<1000;i++)
+            abc.add("x");
+
+        String name=tinyAwsCluster.computeJobName(Lists.newArrayList(abc));
+        assertEquals(name.length(),255);
+    }
+
     @Test
     public void checkCorrectConfigurationForBaseKBNowFlow() {
         List<String> flowArgs=Lists.newArrayList("s3n://freebase-dumps/","1942-12-07-00-00","s3n://basekb-now/");

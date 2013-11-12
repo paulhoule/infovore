@@ -59,7 +59,7 @@ public class Main implements Runnable {
         put("sieve3",Sieve3Tool.class);
         put("ranSample",RanSampleTool.class);
         put("fs",FsShell.class);                    // from Hadoop
-        put("uniqURIObject",UniqURIObjectTool.class);
+        put("uniqURIObjects",UniqURIObjectTool.class);
     }};
     
     Map<String, TopLevelCommand> myCommands=new HashMap<String,TopLevelCommand>() {{
@@ -154,7 +154,7 @@ public class Main implements Runnable {
         void validateArguments() throws Exception {
             toolName=args.get(1);
             if(!myApps.containsKey(toolName))
-                errorCausedByUser("you specified a tool not supported by the bakemono system");
+                errorCausedByUser("you specified a tool ["+toolName+"] not supported by the bakemono system");
 
             Class clazz=myApps.get(toolName);
             tool=(Tool) clazz.newInstance();

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.google.common.base.Joiner;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,14 +55,24 @@ public class AmazonEMRCluster implements Cluster {
                 debugStep,
                 new StepConfig("main",new HadoopJarStepConfig(jarLocation).withArgs(jarArgs))
         };
-        
+
+        String jobName = computeJobName(jarArgs);
+
         RunJobFlowRequest that=new RunJobFlowRequest()
-            .withName("Haruhi submitted job")
+            .withName(jobName)
             .withSteps(steps)
             .withLogUri(awsLogUri)
             .withInstances(instances);
         RunJobFlowResult result=emrClient.runJobFlow(that);
         pollClusterForCompletion(result);
+    }
+
+    String computeJobName(List<String> jarArgs) {
+        String jobName = Joiner.on(" ").join(jarArgs);
+        if (jobName.length()>255) {
+            jobName=jobName.substring(0,255);
+        }
+        return jobName;
     }
 
     private void pollClusterForCompletion(RunJobFlowResult result)
