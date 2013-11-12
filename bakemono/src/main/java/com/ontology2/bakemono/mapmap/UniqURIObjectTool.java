@@ -3,14 +3,13 @@ package com.ontology2.bakemono.mapmap;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.PeekingIterator;
 import com.ontology2.bakemono.Main;
-import com.ontology2.bakemono.jena.SPOTripleOutputFormat;
-import com.ontology2.bakemono.mapred.RealMultipleOutputsMainOutputWrapper;
 import com.ontology2.bakemono.uniq.Uniq;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.compress.GzipCodec;
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
@@ -74,7 +73,7 @@ public class UniqURIObjectTool implements Tool {
             // Gotcha -- this has to run before the definitions above associated with the output format because
             // this is going to be configured against the job as it stands a moment from now
 
-            job.setOutputFormatClass(SPOTripleOutputFormat.class);
+            job.setOutputFormatClass(TextOutputFormat.class);
 
             return job.waitForCompletion(true) ? 0 : 1;
         } catch(Main.IncorrectUsageException iue) {
