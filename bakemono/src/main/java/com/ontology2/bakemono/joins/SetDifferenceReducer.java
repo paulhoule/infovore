@@ -1,4 +1,4 @@
-package com.ontology2.bakemono.setOperations;
+package com.ontology2.bakemono.joins;
 
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.VIntWritable;

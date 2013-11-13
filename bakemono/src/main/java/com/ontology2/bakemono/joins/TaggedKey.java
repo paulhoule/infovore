@@ -1,8 +1,6 @@
-package com.ontology2.bakemono.setOperations;
+package com.ontology2.bakemono.joins;
 
-import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.VIntWritable;
-import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.io.WritableComparable;
 
 import java.io.DataInput;

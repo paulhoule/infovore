@@ -1,4 +1,4 @@
-package com.ontology2.bakemono.setOperations;
+package com.ontology2.bakemono.joins;
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.VIntWritable;

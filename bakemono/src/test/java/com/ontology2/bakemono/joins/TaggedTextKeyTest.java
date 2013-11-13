@@ -1,6 +1,5 @@
-package com.ontology2.setOperations;
+package com.ontology2.bakemono.joins;
 
-import com.ontology2.bakemono.setOperations.TaggedTextKey;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.VIntWritable;
 import org.junit.Test;
@@ -134,7 +133,7 @@ public class TaggedTextKeyTest {
         TaggedTextKey k2=new TaggedTextKey();
         k2.readFields(new DataInputStream(inputBytes));
         assertEquals(k1,k2);
-        assertEquals("solvent",k1.getKey().toString());
-        assertEquals(7777,k2.getTag().get());
+        assertEquals("solvent", k1.getKey().toString());
+        assertEquals(7777, k2.getTag().get());
     }
 }
