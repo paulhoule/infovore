@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="#70 add projection operates for predicate and subject, and internal object URIs (filter out if not rdf.basekb.com) and refactor UniqTool out to simplify development of various uniq tools">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/mapmap/UniqPredicateMapperTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueInternalURIObjectMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueInternalURIObjectTool.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/mapmap/UniqueInternalUriObjectMapperTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/mapmap/UniqueSubjectMapperTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURIPredicateMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURIPredicateTool.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURISubjectMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURISubjectTool.java" />
-      <change type="MOVED" beforePath="C:\Users\paul_000\Documents\GitHub\infovore\bakemono\src\main\java\com\ontology2\bakemono\primitiveTriples\ExtractInternalURIObject.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ProjectInternalURIObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/Main.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ProjectPredicate.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ProjectPredicate.java" />
+    <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/setOperations/SetDifferenceReducer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/setOperations/TaggedKey.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/setOperations/TaggedTextKey.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/setOperations/TaggedTextKeyTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384296562037" ignored="false" />
-    <file path="$PROJECT_DIR$/../internal/adserver3/.idea/workspace.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384297770886" ignored="false" />
+    <file path="/Dummy.txt" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384297858728" ignored="false" />
+    <file path="$PROJECT_DIR$/../internal/adserver3/.idea/workspace.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384353398638" ignored="false" />
     <file path="/MapMap.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384119062692" ignored="false" />
     <file path="/MapMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384121253101" ignored="false" />
     <file path="/PTUniqueMapMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384119887753" ignored="false" />
@@ -46,6 +38,10 @@
     <file path="/UniqueSubjectMapperTest.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384297336601" ignored="false" />
     <file path="/ProjectPredicate.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384297610622" ignored="false" />
     <file path="/UniqueURISubjectMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384297727988" ignored="false" />
+    <file path="/SetDifferenceReducer.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384348946037" ignored="false" />
+    <file path="/TaggedKey.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384351780893" ignored="false" />
+    <file path="/TaggedTextKey.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384352338529" ignored="false" />
+    <file path="/TaggedTextKeyTest.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384353388397" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,25 +96,6 @@
     <breakpoint_rules />
     <ui_properties />
   </component>
-  <component name="DockManager">
-    <window id="2">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="PrimitiveTripleOutputFormat.java" pinned="false" current="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/PrimitiveTripleOutputFormat.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="56" column="54" selection-start="2009" selection-end="2009" vertical-scroll-proportion="0.6211699">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="infovore" />
@@ -137,19 +114,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UniqueURIPredicateTool.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURIPredicateTool.java">
+      <file leaf-file-name="SetDifferenceReducer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/setOperations/SetDifferenceReducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="62" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UniqueInternalUriObjectMapperTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/mapmap/UniqueInternalUriObjectMapperTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="0" selection-start="1271" selection-end="1360" vertical-scroll-proportion="0.0">
+            <state line="13" column="46" selection-start="450" selection-end="450" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -157,10 +125,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UniqPredicateMapperTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/mapmap/UniqPredicateMapperTest.java">
+      <file leaf-file-name="TaggedKey.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/setOperations/TaggedKey.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="28" selection-start="571" selection-end="595" vertical-scroll-proportion="0.0">
+            <state line="35" column="4" selection-start="831" selection-end="831" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaggedTextKey.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/setOperations/TaggedTextKey.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="22" selection-start="294" selection-end="294" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaggedTextKeyTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/setOperations/TaggedTextKeyTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="137" column="45" selection-start="3729" selection-end="3729" vertical-scroll-proportion="0.8873418">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/MainTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="0" selection-start="33" selection-end="66" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -179,10 +180,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UniqueURISubjectMapper.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="UniqueURISubjectMapper.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURISubjectMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="60" selection-start="726" selection-end="726" vertical-scroll-proportion="0.5062035">
+            <state line="24" column="45" selection-start="726" selection-end="726" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -190,13 +191,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UniqueURIPredicateMapper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURIPredicateMapper.java">
+      <file leaf-file-name="UniqueURISubjectTool.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURISubjectTool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="78" selection-start="453" selection-end="469" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="10" column="29" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -205,29 +204,7 @@
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ProjectPredicate.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="13" column="61" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UniqueInternalURIObjectTool.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueInternalURIObjectTool.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="27" selection-start="337" selection-end="337" vertical-scroll-proportion="0.0">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UniqueInternalURIObjectMapper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueInternalURIObjectMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="95" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -250,10 +227,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqTool.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqURIObjectTool.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueInternalURIObjectTool.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/mapmap/UniqueInternalUriObjectMapperTest.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/ProjectURIPredicate.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURIPredicateMapper.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueInternalURIObjectMapper.java" />
@@ -266,14 +239,18 @@
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/mapmap/UniqPredicateMapperTest.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ProjectPredicate.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURISubjectMapper.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/setOperations/SetDifferenceReducer.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/setOperations/TaggedKey.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/setOperations/TaggedTextKey.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/setOperations/TaggedTextKeyTest.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2399" />
-    <option name="y" value="-378" />
-    <option name="width" value="1347" />
-    <option name="height" value="1385" />
+    <option name="x" value="-1032" />
+    <option name="y" value="-207" />
+    <option name="width" value="1040" />
+    <option name="height" value="1256" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -519,6 +496,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="setOperations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ontology2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="rdf" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -715,6 +726,44 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="setOperations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ontology2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="mapmap" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -748,7 +797,7 @@
       <recent name="com.ontology2.bakemono" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UniqueSubjectMapperTest">
+  <component name="RunManager" selected="JUnit.TaggedTextKeyTest">
     <configuration default="false" name="UniqueUriObjectMapperTest" type="JUnit" factoryName="JUnit" temporary="true">
       <module name="bakemono" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -799,6 +848,28 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.ontology2.bakemono.mapmap" />
       <option name="MAIN_CLASS_NAME" value="com.ontology2.bakemono.mapmap.UniqueSubjectMapperTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="TaggedTextKeyTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="bakemono" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.ontology2.setOperations" />
+      <option name="MAIN_CLASS_NAME" value="com.ontology2.setOperations.TaggedTextKeyTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -903,16 +974,18 @@
       <patterns />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="JUnit.UniqueUriObjectMapperTest" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.TestEMRCluster" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.UniqueSubjectMapperTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.TaggedTextKeyTest" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.UniqueSubjectMapperTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.UniqueUriObjectMapperTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.TestEMRCluster" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.TaggedTextKeyTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.UniqueSubjectMapperTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.UniqueUriObjectMapperTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.TestEMRCluster" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -976,11 +1049,15 @@
       <created>1384280995032</created>
       <updated>1384280995032</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="#70 get (ugly/repetitive/error-prone) implementations of projection operators for subject, object and predicate ready for integration testing">
+      <created>1384297864218</created>
+      <updated>1384297864218</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2399" y="-378" width="1347" height="1385" extended-state="0" />
+    <frame x="-1032" y="-207" width="1040" height="1256" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -991,13 +1068,13 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26908752" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925835" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287796" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34785992" sideWeight="0.71230644" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28769356" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32719836" sideWeight="0.79326046" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20673953" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1047,7 +1124,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="#70 add projection operates for predicate and subject, and internal object URIs (filter out if not rdf.basekb.com) and refactor UniqTool out to simplify development of various uniq tools" />
+    <option name="LAST_COMMIT_MESSAGE" value="#70 get (ugly/repetitive/error-prone) implementations of projection operators for subject, object and predicate ready for integration testing" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1069,6 +1146,7 @@
     <MESSAGE value="#77 better ergonomics for error handling and reporting" />
     <MESSAGE value="#70 fix wrong class that broke reducer" />
     <MESSAGE value="#70 add projection operates for predicate and subject, and internal object URIs (filter out if not rdf.basekb.com) and refactor UniqTool out to simplify development of various uniq tools" />
+    <MESSAGE value="#70 get (ugly/repetitive/error-prone) implementations of projection operators for subject, object and predicate ready for integration testing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1078,65 +1156,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ProjectURIObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="71" selection-start="313" selection-end="354" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqURIObjectTool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="13" selection-start="694" selection-end="694" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqTool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="47" selection-start="2023" selection-end="2023" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURIObjectMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="314" selection-end="404" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ProjectInternalURIObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="22" selection-start="422" selection-end="422" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURISubjectTool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueInternalURIObjectMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="95" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueInternalURIObjectTool.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="27" selection-start="337" selection-end="337" vertical-scroll-proportion="0.0">
@@ -1157,16 +1176,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="62" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="59" selection-start="2847" selection-end="2847" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#1941#1955#0" expanded="true" />
-            <element signature="e#2530#2554#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1191,9 +1200,7 @@
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/ProjectPredicate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="61" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1208,7 +1215,76 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURISubjectMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="60" selection-start="726" selection-end="726" vertical-scroll-proportion="0.5062035">
+        <state line="24" column="45" selection-start="726" selection-end="726" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURISubjectTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="29" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/PrimitiveTripleOutputFormat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="32" selection-start="1526" selection-end="1546" vertical-scroll-proportion="0.35571054">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="59" selection-start="2847" selection-end="2847" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#1941#1955#0" expanded="true" />
+            <element signature="e#2530#2554#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/MainTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="33" selection-end="66" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/setOperations/SetDifferenceReducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="46" selection-start="450" selection-end="450" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/setOperations/TaggedKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="4" selection-start="831" selection-end="831" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/setOperations/TaggedTextKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="22" selection-start="294" selection-end="294" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/setOperations/TaggedTextKeyTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="45" selection-start="3729" selection-end="3729" vertical-scroll-proportion="0.8873418">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
