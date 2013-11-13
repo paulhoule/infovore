@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.Map;
 
 public abstract class SimpleJoinMapper<T extends WritableComparable>
-        extends Mapper<LongWritable,T,TaggedKey<T>,NullWritable> {
+        extends Mapper<LongWritable,T,TaggedKey<T>,VIntWritable> {
 
     public static final String JOINS="com.ontology2.bakemono.joins";
     public static final String INPUTS=JOINS+".inputs";
@@ -64,10 +64,10 @@ public abstract class SimpleJoinMapper<T extends WritableComparable>
     @Override
     protected void map(LongWritable key, T value, Context context) throws IOException, InterruptedException {
         FileSplit split=(FileSplit) context.getInputSplit();
-        String thePath=split.getPath().getName();
+        String thePath=split.getPath().toString();
         VIntWritable currentTag = determineTag(mapping,thePath);
 
-        context.write(newTaggedKey(value,currentTag),NullWritable.get());
+        context.write(newTaggedKey(value,currentTag),currentTag);
     }
 
     static VIntWritable determineTag(Map<String,VIntWritable> mapping,String thePath) {

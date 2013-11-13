@@ -42,7 +42,7 @@ public class TextSimpleJoinMapperTest {
         m.map(new LongWritable(666),new Text("Ganbaru!"),c2);
         verify(c2).getInputSplit();
         verify(c2).write(
-                new TaggedTextKey(new Text("Ganbaru!"),new VIntWritable(75)), NullWritable.get()
+                new TaggedTextKey(new Text("Ganbaru!"),new VIntWritable(75)), new VIntWritable(75)
         );
         verifyNoMoreInteractions(c2);
 
@@ -58,7 +58,7 @@ public class TextSimpleJoinMapperTest {
         m.map(new LongWritable(667),new Text("He was some kind of recording genius"),c3);
         verify(c3).getInputSplit();
         verify(c3).write(
-                new TaggedTextKey(new Text("He was some kind of recording genius"),new VIntWritable(0)), NullWritable.get()
+                new TaggedTextKey(new Text("He was some kind of recording genius"),new VIntWritable(0)), new VIntWritable(0)
         );
         verifyNoMoreInteractions(c3);
 
@@ -75,7 +75,7 @@ public class TextSimpleJoinMapperTest {
         m.map(new LongWritable(668),new Text("Nothing comes easy"),c4);
         verify(c4).getInputSplit();
         verify(c4).write(
-                new TaggedTextKey(new Text("Nothing comes easy"),new VIntWritable(23)), NullWritable.get()
+                new TaggedTextKey(new Text("Nothing comes easy"),new VIntWritable(23)), new VIntWritable(23)
         );
         verifyNoMoreInteractions(c4);
     }
