@@ -31,6 +31,7 @@ public class SetDifferenceReducer<Type extends WritableComparable>
     protected void reduce(TaggedKey<Type> key, Iterable<VIntWritable> values, Context context) throws IOException, InterruptedException {
         Set<VIntWritable> that= Sets.newHashSet();
         Iterables.addAll(that,values);
+        String newKey=key.getKey()+" "+that.toString();
         if(that.contains(ONE) & !that.contains(TWO)) {
             context.write(key.getKey(),null);
         }

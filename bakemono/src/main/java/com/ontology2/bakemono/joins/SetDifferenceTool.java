@@ -63,7 +63,7 @@ public class SetDifferenceTool implements Tool {
             job.setReducerClass(SetDifferenceReducer.class);
 
             if(reduceTasks==null) {
-                reduceTasks=29;    // about right for AWS runs
+                reduceTasks=1;    // about right for AWS runs
             }
 
             job.setNumReduceTasks(reduceTasks);
