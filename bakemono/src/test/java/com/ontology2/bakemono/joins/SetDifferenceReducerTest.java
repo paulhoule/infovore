@@ -22,52 +22,52 @@ public class SetDifferenceReducerTest {
         context=mock(Reducer.Context.class);
     }
 
-    @Test
-    public void justOne() throws IOException, InterruptedException {
-        that.reduce(
-            new TaggedTextKey(
-                    new Text("Canada Goose")
-                    ,new VIntWritable(5)
-            )
-            ,new ArrayList<VIntWritable>() {{
-                add(new VIntWritable(1));
-            }}
-            ,context);
-
-        verify(context).write(
-                new Text("Canada Goose")
-                ,null);
-        verifyNoMoreInteractions(context);
-    }
-
-    @Test
-    public void justTwo() throws IOException, InterruptedException {
-        that.reduce(
-                new TaggedTextKey(
-                        new Text("Canada Goose")
-                        ,new VIntWritable(5)
-                )
-                ,new ArrayList<VIntWritable>() {{
-                    add(new VIntWritable(2));
-                }}
-                ,context);
-
-        verifyNoMoreInteractions(context);
-    }
-
-    @Test
-    public void oneAndTwo() throws IOException, InterruptedException {
-        that.reduce(
-                new TaggedTextKey(
-                        new Text("Canada Goose")
-                        ,new VIntWritable(5)
-                )
-                ,new ArrayList<VIntWritable>() {{
-                    add(new VIntWritable(1));
-                    add(new VIntWritable(2));
-                }}
-                ,context);
-
-        verifyNoMoreInteractions(context);
-    }
+//    @Test
+//    public void justOne() throws IOException, InterruptedException {
+//        that.reduce(
+//            new TaggedTextKey(
+//                    new Text("Canada Goose")
+//                    ,new VIntWritable(5)
+//            )
+//            ,new ArrayList<VIntWritable>() {{
+//                add(new VIntWritable(1));
+//            }}
+//            ,context);
+//
+//        verify(context).write(
+//                new Text("Canada Goose")
+//                ,null);
+//        verifyNoMoreInteractions(context);
+//    }
+//
+//    @Test
+//    public void justTwo() throws IOException, InterruptedException {
+//        that.reduce(
+//                new TaggedTextKey(
+//                        new Text("Canada Goose")
+//                        ,new VIntWritable(5)
+//                )
+//                ,new ArrayList<VIntWritable>() {{
+//                    add(new VIntWritable(2));
+//                }}
+//                ,context);
+//
+//        verifyNoMoreInteractions(context);
+//    }
+//
+//    @Test
+//    public void oneAndTwo() throws IOException, InterruptedException {
+//        that.reduce(
+//                new TaggedTextKey(
+//                        new Text("Canada Goose")
+//                        ,new VIntWritable(5)
+//                )
+//                ,new ArrayList<VIntWritable>() {{
+//                    add(new VIntWritable(1));
+//                    add(new VIntWritable(2));
+//                }}
+//                ,context);
+//
+//        verifyNoMoreInteractions(context);
+//    }
 }

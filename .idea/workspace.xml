@@ -3,12 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceTool.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceTool.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceReducerTest.java" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceReducerTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384455515251" ignored="false" />
+    <file path="/Dummy.txt" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384455976617" ignored="false" />
     <file path="$PROJECT_DIR$/../internal/adserver3/.idea/workspace.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384450822972" ignored="false" />
     <file path="/MapMap.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384119062692" ignored="false" />
     <file path="/MapMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384121253101" ignored="false" />
@@ -36,7 +36,7 @@
     <file path="/UniqueSubjectMapperTest.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384297336601" ignored="false" />
     <file path="/ProjectPredicate.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384297610622" ignored="false" />
     <file path="/UniqueURISubjectMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384297727988" ignored="false" />
-    <file path="/SetDifferenceReducer.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384455929489" ignored="false" />
+    <file path="/SetDifferenceReducer.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384456079926" ignored="false" />
     <file path="/TaggedKey.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384351780893" ignored="false" />
     <file path="/TaggedTextKey.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384352338529" ignored="false" />
     <file path="/TaggedTextKeyTest.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384353388397" ignored="false" />
@@ -122,10 +122,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SetDifferenceReducerTest.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="SetDifferenceReducerTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceReducerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="102" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0">
+            <state line="36" column="59" selection-start="995" selection-end="995" vertical-scroll-proportion="0.64818025">
               <folding />
             </state>
           </provider>
@@ -140,10 +140,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SetDifferenceReducer.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SetDifferenceReducer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="39" selection-start="1218" selection-end="1218" vertical-scroll-proportion="0.7173913">
+            <state line="34" column="69" selection-start="1268" selection-end="1268" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -240,7 +240,6 @@
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/joins/SimpleJoinMapperInternalTest.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SimpleJoinMapperInternalTest.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceReducerTest.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TextSimpleJoinMapper.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceTool.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SimpleJoinMapper.java" />
@@ -248,6 +247,7 @@
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/Main.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceTool.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceReducerTest.java" />
       </list>
     </option>
   </component>
@@ -1213,7 +1213,11 @@
       <created>1384450663281</created>
       <updated>1384450663281</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="#79 add debug code to track down what's happing inside the SetDifferenceReducer">
+      <created>1384455985810</created>
+      <updated>1384455985810</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1228,16 +1232,16 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26908752" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3265306" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38253638" sideWeight="0.75510204" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24489796" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24489796" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32760364" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1284,7 +1288,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="#79 an initial implementation of SetDifferenceTool is ready for integration testing (wired up and with SetDifferenceTool moved out of &quot;test&quot;)" />
+    <option name="LAST_COMMIT_MESSAGE" value="#79 add debug code to track down what's happing inside the SetDifferenceReducer" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1312,6 +1316,7 @@
     <MESSAGE value="#79 tests for the TextSimpleJoinMapper (passes them too!)" />
     <MESSAGE value="#79 an initial implementation of SetDifferenceTool is ready for integration testing" />
     <MESSAGE value="#79 an initial implementation of SetDifferenceTool is ready for integration testing (wired up and with SetDifferenceTool moved out of &quot;test&quot;)" />
+    <MESSAGE value="#79 add debug code to track down what's happing inside the SetDifferenceReducer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1368,13 +1373,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceReducerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="102" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TextSimpleJoinMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="48" selection-start="158" selection-end="174" vertical-scroll-proportion="0.0">
@@ -1426,10 +1424,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="39" selection-start="1218" selection-end="1218" vertical-scroll-proportion="0.7173913">
+        <state line="34" column="69" selection-start="1268" selection-end="1268" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceReducerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="59" selection-start="995" selection-end="995" vertical-scroll-proportion="0.64818025">
+          <folding />
         </state>
       </provider>
     </entry>

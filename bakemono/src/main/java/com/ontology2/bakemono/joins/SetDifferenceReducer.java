@@ -3,6 +3,7 @@ package com.ontology2.bakemono.joins;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Sets;
 import org.apache.hadoop.io.NullWritable;
+import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.VIntWritable;
 import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.mapreduce.Reducer;
@@ -33,7 +34,7 @@ public class SetDifferenceReducer<Type extends WritableComparable>
         Iterables.addAll(that,values);
         String newKey=key.getKey()+" "+that.toString();
         if(that.contains(ONE) & !that.contains(TWO)) {
-            context.write(key.getKey(),null);
+            context.write((Type) new Text(newKey),null);
         }
     }
 }
