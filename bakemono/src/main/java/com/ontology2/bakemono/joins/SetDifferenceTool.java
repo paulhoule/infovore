@@ -72,6 +72,7 @@ public class SetDifferenceTool implements Tool {
             job.setMapOutputValueClass(VIntWritable.class);
             job.setOutputKeyClass(Text.class);
             job.setOutputValueClass(NullWritable.class);
+            job.setGroupingComparatorClass(TaggedKeyGroupComparator.class);
 
             FileInputFormat.addInputPath(job, new Path(inputA));
             FileInputFormat.addInputPath(job, new Path(inputB));
