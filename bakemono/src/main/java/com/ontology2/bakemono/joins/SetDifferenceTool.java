@@ -61,6 +61,8 @@ public class SetDifferenceTool implements Tool {
             job.setJarByClass(this.getClass());
             job.setMapperClass(TextSimpleJoinMapper.class);
             job.setReducerClass(SetDifferenceReducer.class);
+            job.setGroupingComparatorClass(TaggedTextKeyGroupComparator.class);
+            job.setPartitionerClass(TaggedKeyPartitioner.class);
 
             if(reduceTasks==null) {
                 reduceTasks=1;    // about right for AWS runs
@@ -72,7 +74,7 @@ public class SetDifferenceTool implements Tool {
             job.setMapOutputValueClass(VIntWritable.class);
             job.setOutputKeyClass(Text.class);
             job.setOutputValueClass(NullWritable.class);
-            job.setGroupingComparatorClass(TaggedTextKeyGroupComparator.class);
+
 
             FileInputFormat.addInputPath(job, new Path(inputA));
             FileInputFormat.addInputPath(job, new Path(inputB));
