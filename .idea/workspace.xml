@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqTool.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqTool.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384463001206" ignored="false" />
+    <file path="/Dummy.txt" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384521775762" ignored="false" />
     <file path="$PROJECT_DIR$/../internal/adserver3/.idea/workspace.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384450822972" ignored="false" />
     <file path="/MapMap.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384119062692" ignored="false" />
     <file path="/MapMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384121253101" ignored="false" />
@@ -23,7 +24,7 @@
     <file path="/TestEMRCluster.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384269846594" ignored="false" />
     <file path="/ExtractSubject.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384280252439" ignored="false" />
     <file path="/ExtractPredicate.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384280396401" ignored="false" />
-    <file path="/UniqTool.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384280789900" ignored="false" />
+    <file path="/UniqTool.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384522376659" ignored="false" />
     <file path="/UniqueInternalURIObjectTool.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384281941619" ignored="false" />
     <file path="/UniqueInternalURIObjectMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384296401894" ignored="false" />
     <file path="/UniqueInternalUriObjectMapperTest.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384282268499" ignored="false" />
@@ -59,6 +60,23 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SimpleJoinMapper.java" line="69" class="com.ontology2.bakemono.joins.SimpleJoinMapper" package="com.ontology2.bakemono.joins">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
@@ -96,38 +114,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SimpleJoinMapper.java" line="69" class="com.ontology2.bakemono.joins.SimpleJoinMapper" package="com.ontology2.bakemono.joins">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceTool.java" line="72" class="com.ontology2.bakemono.joins.SetDifferenceTool" package="com.ontology2.bakemono.joins">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -137,10 +123,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SetDifferenceReducerTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SetDifferenceReducerTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceReducerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="25" selection-start="581" selection-end="2011" vertical-scroll-proportion="0.93079585">
+            <state line="35" column="27" selection-start="938" selection-end="938" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -149,7 +135,7 @@
       <file leaf-file-name="SetDifferenceTool.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceTool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="65" selection-start="2094" selection-end="2094" vertical-scroll-proportion="0.0">
+            <state line="73" column="25" selection-start="2449" selection-end="2449" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -168,9 +154,7 @@
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedKeyGroupComparator.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="18" column="40" selection-start="652" selection-end="652" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -202,10 +186,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UniqTool.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="UniqTool.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqTool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="51" selection-start="2565" selection-end="2565" vertical-scroll-proportion="0.0">
+            <state line="84" column="12" selection-start="2657" selection-end="2657" vertical-scroll-proportion="0.81042653">
               <folding />
             </state>
           </provider>
@@ -247,7 +231,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/setOperations/SimpleJoinMapper.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/join/SimpleJoinMapper.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/join/SimpleJoinMapperInternalTest.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/joins/SimpleJoinMapperInternalTest.java" />
@@ -263,14 +246,15 @@
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceTool.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceReducerTest.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqTool.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2" />
-    <option name="y" value="4" />
-    <option name="width" value="1137" />
-    <option name="height" value="1040" />
+    <option name="x" value="-2333" />
+    <option name="y" value="-388" />
+    <option name="width" value="1295" />
+    <option name="height" value="1380" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -298,7 +282,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -827,6 +810,44 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="mapmap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ontology2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="joins" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -872,20 +893,21 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="OverrideImplement.combined" value="true" />
-    <property name="MemberChooser.sorted" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="restartRequiresConfirmation" value="true" />
+    <property name="MemberChooser.sorted" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="dynamic.classpath" value="false" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -1030,6 +1052,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -1055,19 +1090,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1244,11 +1266,15 @@
       <created>1384463007044</created>
       <updated>1384463007044</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="#79 fix initialization problem;  remove debug code,  restore tests">
+      <created>1384463018284</created>
+      <updated>1384463018284</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="4" width="1137" height="1040" extended-state="0" />
+    <frame x="-2333" y="-388" width="1295" height="1380" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1259,13 +1285,13 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26908752" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32539684" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3251634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.45488372" sideWeight="0.75623584" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24376418" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39659366" sideWeight="0.7569558" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24304418" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1403,23 +1429,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqTool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="51" selection-start="2565" selection-end="2565" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/MapMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="35" selection-start="1225" selection-end="1225" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="40" selection-start="2557" selection-end="2557" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1434,9 +1446,7 @@
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedKeyGroupComparator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="40" selection-start="652" selection-end="652" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1447,9 +1457,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceTool.java">
+    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceReducerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="65" selection-start="2094" selection-end="2094" vertical-scroll-proportion="0.0">
+        <state line="35" column="27" selection-start="938" selection-end="938" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="40" selection-start="2557" selection-end="2557" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1461,9 +1478,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceReducerTest.java">
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceTool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="25" selection-start="581" selection-end="2011" vertical-scroll-proportion="0.93079585">
+        <state line="73" column="25" selection-start="2449" selection-end="2449" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="12" selection-start="2657" selection-end="2657" vertical-scroll-proportion="0.81042653">
           <folding />
         </state>
       </provider>

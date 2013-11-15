@@ -1,6 +1,7 @@
 package com.ontology2.bakemono.mapmap;
 
 import com.google.common.collect.Iterators;
+import com.google.common.collect.Lists;
 import com.google.common.collect.PeekingIterator;
 import com.ontology2.bakemono.Main;
 import com.ontology2.bakemono.uniq.Uniq;
@@ -14,6 +15,8 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
+
+import java.util.List;
 
 
 /**
@@ -50,12 +53,10 @@ public abstract class UniqTool implements Tool {
             if (!a.hasNext())
                 usage();
 
-            String input=a.next();
+            List<String> paths= Lists.newArrayList(a);
 
-            if (!a.hasNext())
-                usage();
-
-            String output=a.next();
+            String output=paths.get(paths.size()-1);
+            paths.remove(paths.size()-1);
 
             conf.set("mapred.compress.map.output", "true");
             conf.set("mapred.output.compression.type", "BLOCK");
@@ -78,7 +79,10 @@ public abstract class UniqTool implements Tool {
             job.setOutputKeyClass(Text.class);
             job.setOutputValueClass(LongWritable.class);
 
-            FileInputFormat.addInputPath(job, new Path(input));
+            for(String input:paths) {
+                FileInputFormat.addInputPath(job, new Path(input));
+            }
+
             FileOutputFormat.setOutputPath(job, new Path(output));
             FileOutputFormat.setCompressOutput(job, true);
             FileOutputFormat.setOutputCompressorClass(job, GzipCodec.class);
