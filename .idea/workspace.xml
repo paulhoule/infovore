@@ -7,7 +7,7 @@
     </list>
     <ignored path="infovore.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384803544575" ignored="false" />
+    <file path="/Dummy.txt" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384804677602" ignored="false" />
     <file path="$PROJECT_DIR$/../internal/adserver3/.idea/workspace.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384450822972" ignored="false" />
     <file path="/MapMap.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384119062692" ignored="false" />
     <file path="/MapMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384121253101" ignored="false" />
@@ -55,7 +55,7 @@
     <file path="/pom.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384803143020" ignored="false" />
     <file path="/TestVersionData.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384801032243" ignored="false" />
     <file path="/path.sh" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384803523319" ignored="false" />
-    <file path="/applicationContext.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384804622186" ignored="false" />
+    <file path="/applicationContext.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384804847587" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +192,7 @@
       <file leaf-file-name="applicationContext.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="60" selection-start="2353" selection-end="2361" vertical-scroll-proportion="0.35416666">
+            <state line="45" column="58" selection-start="2359" selection-end="2359" vertical-scroll-proportion="0.6493056">
               <folding />
             </state>
           </provider>
@@ -1087,7 +1087,11 @@
       <created>1384803546565</created>
       <updated>1384803546565</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="#78 add to application context file so by default haruhi will run the matching version of bakemono">
+      <created>1384804684063</created>
+      <updated>1384804684063</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1158,7 +1162,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="#78 fixed wrong path" />
+    <option name="LAST_COMMIT_MESSAGE" value="#78 add to application context file so by default haruhi will run the matching version of bakemono" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1196,6 +1200,7 @@
     <MESSAGE value="#78 insert version number into readable properties file" />
     <MESSAGE value="hopefully this resolves #78 but I need to check on Unix" />
     <MESSAGE value="#78 fixed wrong path" />
+    <MESSAGE value="#78 add to application context file so by default haruhi will run the matching version of bakemono" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1320,7 +1325,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="60" selection-start="2353" selection-end="2361" vertical-scroll-proportion="0.35416666">
+        <state line="45" column="58" selection-start="2359" selection-end="2359" vertical-scroll-proportion="0.6493056">
           <folding />
         </state>
       </provider>
