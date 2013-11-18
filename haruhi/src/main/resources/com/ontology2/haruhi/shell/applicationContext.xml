@@ -19,7 +19,10 @@
   </context:component-scan>
 
   <!-- 1.1 make system properties available -->
-  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" />
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="locations" value="classpath:com/ontology2/haruhi/version.properties"/>
+    <property name="systemPropertiesMode" value="1"/>
+  </bean>
 
 
   <!-- 2.0 configuration of major resources -->
@@ -35,11 +38,12 @@
 
   <!-- the defaultJar is the default JAR we run; override it to change the default -->
   <!-- bakemonoJar sets the defaults for bakemono derivatives; inherit from it -->
+  <!-- we're assuming that haruhi and bakemono are being updated in lockstep -->
 
   <bean name="bakemonoJar defaultJar" class="com.ontology2.haruhi.MavenManagedJar">
     <property name="groupId" value="com.ontology2" />
     <property name="artifactId" value="bakemono" />
-    <property name="version" value="2.1-SNAPSHOT" />
+    <property name="version" value="${com.ontology2.bakemono.version}" />
     <property name="classifier" value="job" />
     <property name="headArguments">
       <list>
