@@ -1,4 +1,0 @@
-#!/bin/sh
-
-alias haruhi="java -jar $HOME/.m2/repository/com/ontology2/haruhi/2.1-SNAPSHOT/haruhi-2.1-SNAPSHOT-jar-with-dependencies.jar"
-

@@ -67,6 +67,11 @@
         <filtering>false</filtering>
         <directory>${basedir}/src/main/resources</directory>
       </resource>
+      <resource>
+        <filtering>true</filtering>
+        <targetPath>..</targetPath>
+        <directory>${basedir}/src/main/scripts</directory>
+      </resource>
     </resources>
     <plugins>
       <plugin>
