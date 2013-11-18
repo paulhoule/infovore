@@ -339,6 +339,22 @@ public class DeeperSieve3Test {
                 eq(new LongWritable(1)),
                 eq(context));
     }
+
+    @Test public void motorcycles() throws IOException,InterruptedException {
+        sieve3.map(
+                new LongWritable(7),
+                new Text("<http://rdf.basekb.com/ns/base.motorcycle.option_package.currency>\t<http://rdf.basekb.com/ns/type.object.name>\t\"Currency\"@en ."),
+                context);
+        untouchedExceptFor("name");
+        verify(sieve3.outputs.get("name")).write(
+                eq(new PrimitiveTriple(
+                        "<http://rdf.basekb.com/ns/base.motorcycle.option_package.currency>",
+                        "<http://rdf.basekb.com/ns/type.object.name>",
+                        "\"Currency\"@en"
+                )),
+                eq(new LongWritable(1)),
+                eq(context));
+    }
     
     public void untouchedExceptFor(String key) {
         for(Entry<String, KeyValueAcceptor<PrimitiveTriple, LongWritable>> that:sieve3.outputs.entrySet()) {

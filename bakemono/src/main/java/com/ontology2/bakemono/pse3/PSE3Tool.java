@@ -65,7 +65,8 @@ public class PSE3Tool implements Tool {
             conf.set("mapred.map.output.compression.codec", "org.apache.hadoop.io.compress.GzipCodec");
     
             Job job=new Job(conf,"pse3");
-            job.setSpeculativeExecution(false);
+            job.setReduceSpeculativeExecution(false);
+            job.setMapSpeculativeExecution(false);
             job.setJarByClass(PSE3Tool.class);
             job.setMapperClass(PSE3Mapper.class);
             job.setReducerClass(Uniq.class);
