@@ -4,10 +4,9 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Maps;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
-import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.VIntWritable;
+import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -15,8 +14,8 @@ import org.apache.hadoop.mapreduce.Mapper;
 import java.io.IOException;
 import java.util.Map;
 
-public abstract class SimpleJoinMapper<T extends WritableComparable>
-        extends Mapper<LongWritable,T,TaggedKey<T>,VIntWritable> {
+public abstract class GeneralJoinMapper<K extends WritableComparable,V extends WritableComparable>
+        extends Mapper<LongWritable,Writable,TaggedItem<K>,TaggedItem<V>> {
 
     public static final String JOINS="com.ontology2.bakemono.joins";
     public static final String INPUTS=JOINS+".inputs";
@@ -62,12 +61,17 @@ public abstract class SimpleJoinMapper<T extends WritableComparable>
     }
 
     @Override
-    protected void map(LongWritable key, T value, Context context) throws IOException, InterruptedException {
+    protected void map(LongWritable key, Writable value, Context context) throws IOException, InterruptedException {
         FileSplit split=(FileSplit) context.getInputSplit();
         String thePath=split.getPath().toString();
         VIntWritable currentTag = determineTag(mapping,thePath);
 
-        context.write(newTaggedKey(value,currentTag),currentTag);
+        Map.Entry<K,V> entry=splitValue(value,currentTag);
+
+        context.write(
+                newTaggedKey(entry.getKey(),currentTag)
+                ,newTaggedValue(entry.getValue(),currentTag)
+        );
     }
 
     static VIntWritable determineTag(Map<String,VIntWritable> mapping,String thePath) {
@@ -79,5 +83,7 @@ public abstract class SimpleJoinMapper<T extends WritableComparable>
         return currentTag;
     }
 
-    abstract TaggedKey<T> newTaggedKey(T key,VIntWritable tag);
+    abstract Map.Entry<K,V> splitValue(Writable value,VIntWritable tag);
+    abstract TaggedItem<K> newTaggedKey(K key,VIntWritable tag);
+    abstract TaggedItem<V> newTaggedValue(V value,VIntWritable tag);
 }

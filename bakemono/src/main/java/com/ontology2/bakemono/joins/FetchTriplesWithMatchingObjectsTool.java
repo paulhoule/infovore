@@ -1,6 +1,8 @@
 package com.ontology2.bakemono.joins;
 
+
 import com.google.common.collect.Iterators;
+import com.google.common.collect.Lists;
 import com.google.common.collect.PeekingIterator;
 import com.ontology2.bakemono.Main;
 import org.apache.hadoop.conf.Configuration;
@@ -15,7 +17,9 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 
-public class SetDifferenceTool implements Tool {
+import java.util.List;
+
+public class FetchTriplesWithMatchingObjectsTool implements Tool {
     private Configuration conf;
 
     @Override
@@ -37,28 +41,27 @@ public class SetDifferenceTool implements Tool {
             if (!a.hasNext())
                 usage();
 
+            // The first argument is the list of objects
             String inputA=a.next();
 
-            if (!a.hasNext())
-                usage();
+            // Middle positional parameters are sources of triples
+            List<String> paths= Lists.newArrayList(a);
 
-            String inputB=a.next();
-
-            if (!a.hasNext())
-                usage();
-
-            String output=a.next();
+            // The last positional parameter is the output path
+            String output=paths.get(paths.size()-1);
+            paths.remove(paths.size()-1);
 
             conf.set("mapred.compress.map.output", "true");
             conf.set("mapred.output.compression.type", "BLOCK");
             conf.set("mapred.map.output.compression.codec", "org.apache.hadoop.io.compress.GzipCodec");
             conf.set(SetJoinMapper.INPUTS+".1",inputA);
-            conf.set(SetJoinMapper.INPUTS+".2",inputB);
+            for(String path:paths)
+                conf.set(SetJoinMapper.INPUTS+".2",path);
 
-            Job job=new Job(conf,"setDifference");
+            Job job=new Job(conf,"fetchTriplesWithMatchingObjects");
             job.setJarByClass(this.getClass());
-            job.setMapperClass(TextSimpleJoinMapper.class);
-            job.setReducerClass(SetDifferenceReducer.class);
+            job.setMapperClass(FetchTriplesWithMatchingObjectsMapper.class);
+            job.setReducerClass(AcceptWithMatchingKeyReducer.class);
             job.setGroupingComparatorClass(TaggedTextKeyGroupComparator.class);
             job.setPartitionerClass(TaggedKeyPartitioner.class);
 
@@ -75,15 +78,12 @@ public class SetDifferenceTool implements Tool {
 
 
             FileInputFormat.addInputPath(job, new Path(inputA));
-            FileInputFormat.addInputPath(job, new Path(inputB));
+            for(String path:paths)
+                FileInputFormat.addInputPath(job, new Path(path));
 
             FileOutputFormat.setOutputPath(job, new Path(output));
             FileOutputFormat.setCompressOutput(job, true);
             FileOutputFormat.setOutputCompressorClass(job, GzipCodec.class);
-
-            // Gotcha -- this has to run before the definitions above associated with the output format because
-            // this is going to be configured against the job as it stands a moment from now
-
             job.setOutputFormatClass(TextOutputFormat.class);
 
             return job.waitForCompletion(true) ? 0 : 1;
@@ -91,6 +91,7 @@ public class SetDifferenceTool implements Tool {
             return 2;
         }
     }
+
 
     public static Integer parseRArgument(PeekingIterator<String> a)
             throws Main.IncorrectUsageException {
@@ -113,5 +114,4 @@ public class SetDifferenceTool implements Tool {
     private static void usage() throws Main.IncorrectUsageException {
         throw new Main.IncorrectUsageException("incorrect arguments");
     };
-
 }

@@ -9,6 +9,6 @@ package com.ontology2.bakemono.joins;
  */
 public class TaggedTextKeyGroupComparator  extends TaggedKeyGroupComparator {
     protected TaggedTextKeyGroupComparator() {
-        super(TaggedTextKey.class);
+        super(TaggedTextItem.class);
     }
 }

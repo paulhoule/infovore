@@ -12,14 +12,14 @@ public class TaggedTextKeyTest {
 
     @Test
     public void zeroArgConstructorLeavesAllNull() {
-        TaggedTextKey that=new TaggedTextKey();
+        TaggedTextItem that=new TaggedTextItem();
         assertNull(that.getKey());
         assertNull(that.getTag());
     }
 
     @Test
     public void dualArgConstructorSetsValues() {
-        TaggedTextKey that=new TaggedTextKey(
+        TaggedTextItem that=new TaggedTextItem(
             new Text("Doctor Funkenstein")
             ,new VIntWritable(33550336)
         );
@@ -30,12 +30,12 @@ public class TaggedTextKeyTest {
 
     @Test
     public void equalIfTagsAreEqual() {
-        TaggedTextKey k1=new TaggedTextKey(
+        TaggedTextItem k1=new TaggedTextItem(
                 new Text("Doctor Funkenstein")
                 ,new VIntWritable(33550336)
         );
 
-        TaggedTextKey k2=new TaggedTextKey(
+        TaggedTextItem k2=new TaggedTextItem(
                 new Text("Doctor Funkenstein")
                 ,new VIntWritable(702)
         );
@@ -45,12 +45,12 @@ public class TaggedTextKeyTest {
 
     @Test
     public void unequalIfTagsAreUnequal() {
-        TaggedTextKey k1=new TaggedTextKey(
+        TaggedTextItem k1=new TaggedTextItem(
                 new Text("Doctor Funkenstein")
                 ,new VIntWritable(33550336)
         );
 
-        TaggedTextKey k2=new TaggedTextKey(
+        TaggedTextItem k2=new TaggedTextItem(
                 new Text("Sir Nose D'void of Funk")
                 ,new VIntWritable(702)
         );
@@ -60,7 +60,7 @@ public class TaggedTextKeyTest {
 
     @Test
     public void hashEqualsHashOfKey() {
-        TaggedTextKey k1=new TaggedTextKey(
+        TaggedTextItem k1=new TaggedTextItem(
                 new Text("Doctor Funkenstein")
                 ,new VIntWritable(33550336)
         );
@@ -73,12 +73,12 @@ public class TaggedTextKeyTest {
 
     @Test
     public void sortsByOrderOfKeys() {
-        TaggedTextKey k1=new TaggedTextKey(
+        TaggedTextItem k1=new TaggedTextItem(
                 new Text("a")
                 ,new VIntWritable(2)
         );
 
-        TaggedTextKey k2=new TaggedTextKey(
+        TaggedTextItem k2=new TaggedTextItem(
                 new Text("b")
                 ,new VIntWritable(1)
         );
@@ -89,12 +89,12 @@ public class TaggedTextKeyTest {
 
     @Test
     public void exactlyEqualSortsSame() {
-        TaggedTextKey k1=new TaggedTextKey(
+        TaggedTextItem k1=new TaggedTextItem(
                 new Text("a")
                 ,new VIntWritable(2)
         );
 
-        TaggedTextKey k2=new TaggedTextKey(
+        TaggedTextItem k2=new TaggedTextItem(
                 new Text("a")
                 ,new VIntWritable(2)
         );
@@ -105,12 +105,12 @@ public class TaggedTextKeyTest {
 
     @Test
     public void sortsOnTagIfKeysSame() {
-        TaggedTextKey k1=new TaggedTextKey(
+        TaggedTextItem k1=new TaggedTextItem(
                 new Text("a")
                 ,new VIntWritable(1)
         );
 
-        TaggedTextKey k2=new TaggedTextKey(
+        TaggedTextItem k2=new TaggedTextItem(
                 new Text("a")
                 ,new VIntWritable(2)
         );
@@ -121,7 +121,7 @@ public class TaggedTextKeyTest {
 
     @Test
     public void roundTrips() throws IOException {
-        TaggedTextKey k1=new TaggedTextKey(
+        TaggedTextItem k1=new TaggedTextItem(
                 new Text("solvent")
                 ,new VIntWritable(7777)
         );
@@ -130,7 +130,7 @@ public class TaggedTextKeyTest {
         DataOutput out=new DataOutputStream(byteStream);
         k1.write(out);
         ByteArrayInputStream inputBytes=new ByteArrayInputStream(byteStream.toByteArray());
-        TaggedTextKey k2=new TaggedTextKey();
+        TaggedTextItem k2=new TaggedTextItem();
         k2.readFields(new DataInputStream(inputBytes));
         assertEquals(k1,k2);
         assertEquals("solvent", k1.getKey().toString());

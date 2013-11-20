@@ -3,7 +3,6 @@ package com.ontology2.bakemono.joins;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.VIntWritable;
-import org.apache.hadoop.mapreduce.Mapper;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -11,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.*;
-import static com.ontology2.bakemono.joins.SimpleJoinMapper.*;
+import static com.ontology2.bakemono.joins.SetJoinMapper.*;
 
 public class SimpleJoinMapperInternalTest {
     @Test

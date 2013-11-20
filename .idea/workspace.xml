@@ -2,12 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml" afterPath="$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/AcceptWithMatchingKeyReducer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsTool.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/GeneralJoinMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/GeneralTextJoinMapper.java" />
+      <change type="MOVED" beforePath="C:\Users\paul_000\Documents\GitHub\infovore\bakemono\src\main\java\com\ontology2\bakemono\joins\SimpleJoinMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetJoinMapper.java" />
+      <change type="MOVED" beforePath="C:\Users\paul_000\Documents\GitHub\infovore\bakemono\src\main\java\com\ontology2\bakemono\joins\TaggedKey.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedItem.java" />
+      <change type="MOVED" beforePath="C:\Users\paul_000\Documents\GitHub\infovore\bakemono\src\main\java\com\ontology2\bakemono\joins\TaggedTextKey.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedTextItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceReducerTest.java" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceReducerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceTool.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceTool.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SimpleJoinMapperInternalTest.java" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SimpleJoinMapperInternalTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedKeyGroupComparator.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedKeyGroupComparator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedKeyPartitioner.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedKeyPartitioner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedTextKeyGroupComparator.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedTextKeyGroupComparator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/TaggedTextKeyTest.java" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/TaggedTextKeyTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TextSimpleJoinMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TextSimpleJoinMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/TextSimpleJoinMapperTest.java" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/TextSimpleJoinMapperTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384804677602" ignored="false" />
+    <file path="/Dummy.txt" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384970340630" ignored="false" />
     <file path="$PROJECT_DIR$/../internal/adserver3/.idea/workspace.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384450822972" ignored="false" />
     <file path="/MapMap.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384119062692" ignored="false" />
     <file path="/MapMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384121253101" ignored="false" />
@@ -15,7 +32,7 @@
     <file path="/SpringPtUniqueMapMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384120611055" ignored="false" />
     <file path="/ExtractObject.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384121765277" ignored="false" />
     <file path="/UniqueUriObjectMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384123033750" ignored="false" />
-    <file path="/fragment.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384802198585" ignored="false" />
+    <file path="/fragment.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384980487868" ignored="false" />
     <file path="/Uniq.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384209964390" ignored="false" />
     <file path="/UniqURIObjectTool.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384280865994" ignored="false" />
     <file path="/KeyOnlyOutputFormat.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384209486606" ignored="false" />
@@ -35,11 +52,11 @@
     <file path="/UniqueSubjectMapperTest.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384297336601" ignored="false" />
     <file path="/ProjectPredicate.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384297610622" ignored="false" />
     <file path="/UniqueURISubjectMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384297727988" ignored="false" />
-    <file path="/SetDifferenceReducer.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384462847825" ignored="false" />
-    <file path="/TaggedKey.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384351780893" ignored="false" />
+    <file path="/SetDifferenceReducer.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384975786122" ignored="false" />
+    <file path="/TaggedKey.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384976108473" ignored="false" />
     <file path="/TaggedTextKey.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384352338529" ignored="false" />
     <file path="/TaggedTextKeyTest.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384353388397" ignored="false" />
-    <file path="/SimpleJoinMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384380712572" ignored="false" />
+    <file path="/SimpleJoinMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384976891577" ignored="false" />
     <file path="/SimpleJoinMapperInternalTest.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384372218684" ignored="false" />
     <file path="/TextSimpleJoinMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384372527044" ignored="false" />
     <file path="/TextSimpleJoinMapperTest.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384380388827" ignored="false" />
@@ -50,12 +67,41 @@
     <file path="/TestPSE3Mapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384717769268" ignored="false" />
     <file path="/DeeperSieve3Test.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384718929709" ignored="false" />
     <file path="/PSE3Tool.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384792894832" ignored="false" />
-    <file path="/version.properties" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384802146170" ignored="false" />
+    <file path="/version.properties" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384809722769" ignored="false" />
     <file path="/hadoop-job.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384798248058" ignored="false" />
-    <file path="/pom.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384803143020" ignored="false" />
+    <file path="/pom.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384808327558" ignored="false" />
     <file path="/TestVersionData.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384801032243" ignored="false" />
     <file path="/path.sh" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384803523319" ignored="false" />
     <file path="/applicationContext.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384804847587" ignored="false" />
+    <file path="$PROJECT_DIR$/../centipede/centipede/pom.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384809896299" ignored="false" />
+    <file path="$PROJECT_DIR$/../centipede/centipede/src/main/filtered/com/ontology2/centipede/version.properties" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384809722769" ignored="false" />
+    <file path="$PROJECT_DIR$/../centipede/centipede/src/main/java/com/ontology2/centipede/util.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384808455133" ignored="false" />
+    <file path="$PROJECT_DIR$/../centipede/centipede/src/main/java/com/ontology2/centipede/util/Version.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384809896299" ignored="false" />
+    <file path="/Version.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384809239991" ignored="false" />
+    <file path="$PROJECT_DIR$/../centipede/centipede/src/test/java/util/TestVersion.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384809896299" ignored="false" />
+    <file path="/TestVersion.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384809205385" ignored="false" />
+    <file path="$PROJECT_DIR$/../centipede/pom.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384809899180" ignored="false" />
+    <file path="$PROJECT_DIR$/../centipede/.idea/workspace.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384981565841" ignored="false" />
+    <file path="$PROJECT_DIR$/../centipede/centipede/src/main/java/com/ontology2/centipede/parser/Argument.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384886091403" ignored="false" />
+    <file path="/Argument.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384886034422" ignored="false" />
+    <file path="$PROJECT_DIR$/../centipede/centipede/src/main/java/com/ontology2/centipede/parser/Option.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384892244578" ignored="false" />
+    <file path="$PROJECT_DIR$/../centipede/centipede/src/main/java/com/ontology2/centipede/parser/ArgumentParser.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384886126912" ignored="false" />
+    <file path="$PROJECT_DIR$/../centipede/centipede/src/main/java/com/ontology2/centipede/parser/OptionParser.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384896477740" ignored="false" />
+    <file path="/OptionParser.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384896477740" ignored="false" />
+    <file path="$PROJECT_DIR$/../centipede/centipede/src/main/java/com/ontology2/centipede/parser/HasOptions.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384886174032" ignored="false" />
+    <file path="$PROJECT_DIR$/../centipede/centipede/src/test/java/com/ontology2/centipede/parser/OptionExample.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384892270556" ignored="false" />
+    <file path="/OptionExample.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384889804156" ignored="false" />
+    <file path="$PROJECT_DIR$/../centipede/centipede/src/test/java/com/ontology2/centipede/parser/TestAnnotationExtraction.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384896881871" ignored="false" />
+    <file path="/TestAnnotationExtraction.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384896589081" ignored="false" />
+    <file path="$PROJECT_DIR$/../centipede/centipede/src/test/java/com/ontology2/centipede/parser/InheritedOptionExample.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384896852422" ignored="false" />
+    <file path="/InheritedOptionExample.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384890773587" ignored="false" />
+    <file path="/Option.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384891924507" ignored="false" />
+    <file path="$PROJECT_DIR$/../centipede/centipede/src/main/java/com/ontology2/centipede/parser/RWOption.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384893118754" ignored="false" />
+    <file path="/RWOption.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384893089075" ignored="false" />
+    <file path="/AcceptWithMatchingKeyReducer.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384978870279" ignored="false" />
+    <file path="/GeneralJoinMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384978001055" ignored="false" />
+    <file path="/GeneralTextJoinMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384979191735" ignored="false" />
+    <file path="/FetchTriplesWithMatchingObjectsTool.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384981200544" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +117,37 @@
   </component>
   <component name="DebuggerManager">
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SimpleJoinMapper.java" line="69" class="com.ontology2.bakemono.joins.SimpleJoinMapper" package="com.ontology2.bakemono.joins">
+      <breakpoint url="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetJoinMapper.java" line="67" class="com.ontology2.bakemono.joins.SimpleJoinMapper" package="com.ontology2.bakemono.joins">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/TestVersionData.java" line="15" class="com.ontology2.haruhi.TestVersionData" package="com.ontology2.haruhi">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/AcceptWithMatchingKeyReducer.java" line="20" class="com.ontology2.bakemono.joins.AcceptWithMatchingKeyReducer" package="com.ontology2.bakemono.joins">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -127,25 +203,44 @@
     <breakpoint_rules />
     <ui_properties />
   </component>
+  <component name="DockManager">
+    <window id="4">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="UniqTool.java" pinned="false" current="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqTool.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state line="55" column="0" selection-start="1537" selection-end="1687" vertical-scroll-proportion="0.13533835">
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="infovore" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="version.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bakemono/src/main/filtered/com/ontology2/bakemono/version.properties">
+      <file leaf-file-name="SetDifferenceReducerTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceReducerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="24" selection-start="0" selection-end="49" vertical-scroll-proportion="0.0">
+            <state line="13" column="13" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestVersionData.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/TestVersionData.java">
+      <file leaf-file-name="FetchTriplesWithMatchingObjectsTool.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsTool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="37" selection-start="660" selection-end="660" vertical-scroll-proportion="0.0">
+            <state line="21" column="60" selection-start="806" selection-end="806" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -153,73 +248,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/haruhi/pom.xml">
+      <file leaf-file-name="AcceptWithMatchingKeyReducer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/AcceptWithMatchingKeyReducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="56" selection-start="1659" selection-end="1659" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="23" column="85" selection-start="1012" selection-end="1012" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="version.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/haruhi/src/main/filtered/com/ontology2/haruhi/version.properties">
+      <file leaf-file-name="SetDifferenceReducer.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="20" selection-start="20" selection-end="20" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="23" column="68" selection-start="700" selection-end="700" vertical-scroll-proportion="0.37668595">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestVersionData.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/TestVersionData.java">
+      <file leaf-file-name="FetchTriplesWithMatchingObjectsMapper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="39" selection-start="657" selection-end="657" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="path.sh" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/haruhi/src/main/scripts/path.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="92" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="applicationContext.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="58" selection-start="2359" selection-end="2359" vertical-scroll-proportion="0.6493056">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="31" selection-start="1077" selection-end="1077" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestBeans.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/configuration/TestBeans.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="91" selection-end="133" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bakemono/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="0" selection-start="1990" selection-end="2286" vertical-scroll-proportion="0.0">
+            <state line="11" column="13" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -243,30 +297,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqTool.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedKeyPartitioner.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceTool.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/pse3/TestPSE3Mapper.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/sieve3/DeeperSieve3Test.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/pse3/PSE3Tool.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/main/resources/com/ontology2/bakemono/version.properties" />
-        <option value="$PROJECT_DIR$/bakemono/src/main/assembly/hadoop-job.xml" />
-        <option value="$PROJECT_DIR$/bakemono/pom.xml" />
-        <option value="$PROJECT_DIR$/bakemono/src/main/filtered/com/ontology2/bakemono/version.properties" />
-        <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/TestVersionData.java" />
-        <option value="$PROJECT_DIR$/haruhi/src/main/filtered/com/ontology2/haruhi/version.properties" />
         <option value="$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/TestVersionData.java" />
         <option value="$PROJECT_DIR$/haruhi/pom.xml" />
         <option value="$PROJECT_DIR$/haruhi/src/main/scripts/path.sh" />
         <option value="$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedKey.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedItem.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedTextKey.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedTextItem.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SimpleJoinMapper.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetJoinMapper.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/GeneralJoinMapper.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/AcceptWithMatchingKeyReducer.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/GeneralTextJoinMapper.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsMapper.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsTool.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2388" />
-    <option name="y" value="-379" />
-    <option name="width" value="1295" />
-    <option name="height" value="1380" />
+    <option name="x" value="-1032" />
+    <option name="y" value="-207" />
+    <option name="width" value="1040" />
+    <option name="height" value="1256" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -612,6 +666,44 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ontology2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="freebasePrefilter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -668,6 +760,192 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ontology2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ontology2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uniq" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ontology2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapmap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ontology2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="joins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ontology2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="freebasePrefilter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="filtered" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -688,7 +966,7 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../centipede" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
@@ -701,6 +979,7 @@
       <recent name="com.ontology2.bakemono.uniq" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.ontology2.bakemono.joins" />
       <recent name="com.ontology2.bakemono.mapmap" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -827,7 +1106,13 @@
       </option>
       <envs />
       <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -1091,32 +1376,36 @@
       <created>1384804684063</created>
       <updated>1384804684063</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="#78 use the right propert name to unbreak the build">
+      <created>1384804915691</created>
+      <updated>1384804915691</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2388" y="-379" width="1295" height="1380" extended-state="0" />
+    <frame x="-1032" y="-207" width="1040" height="1256" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39939332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39934534" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26908752" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32487726" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26908752" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32487726" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3755069" sideWeight="0.7561375" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24386252" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30879346" sideWeight="0.6704918" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11349693" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24386252" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1162,7 +1451,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="#78 add to application context file so by default haruhi will run the matching version of bakemono" />
+    <option name="LAST_COMMIT_MESSAGE" value="#78 use the right propert name to unbreak the build" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1176,7 +1465,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="resolve #74 (remove chopper) resolve #64 (spin off centipede)" />
     <MESSAGE value="initial work on #70 -- in particular add mapper that will extract URI objects from triples so we can extract the set of all distinct objects" />
     <MESSAGE value="resolve #75 and more work towards #70,  in particular development of script to extract all unique object links" />
     <MESSAGE value="point haruhi's default at version 2.1-SNAPSHOT to resolve #76" />
@@ -1201,6 +1489,7 @@
     <MESSAGE value="hopefully this resolves #78 but I need to check on Unix" />
     <MESSAGE value="#78 fixed wrong path" />
     <MESSAGE value="#78 add to application context file so by default haruhi will run the matching version of bakemono" />
+    <MESSAGE value="#78 use the right propert name to unbreak the build" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1210,123 +1499,125 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/pse3/PSE3Tool.java">
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="53" selection-start="2541" selection-end="2541" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/resources/com/ontology2/bakemono/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="28" selection-start="626" selection-end="626" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="55" selection-start="2640" selection-end="2640" vertical-scroll-proportion="0.0">
+        <state line="29" column="5" selection-start="693" selection-end="693" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#2640#2664#0" expanded="true" />
+            <marker date="1384976140688" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/assembly/hadoop-job.xml">
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedTextItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="19" selection-start="575" selection-end="575" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/MainTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/sieve3/DeeperSieve3Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="13" selection-start="1469" selection-end="1469" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/configuration/TestBeans.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="91" selection-end="133" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/TestVersionData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="37" selection-start="660" selection-end="660" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="1990" selection-end="2286" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/filtered/com/ontology2/bakemono/version.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="24" selection-start="0" selection-end="49" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/haruhi/src/main/filtered/com/ontology2/haruhi/version.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="20" selection-start="20" selection-end="20" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/TestVersionData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="39" selection-start="657" selection-end="657" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="31" selection-start="1077" selection-end="1077" vertical-scroll-proportion="0.0">
+        <state line="5" column="27" selection-start="143" selection-end="143" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/haruhi/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="56" selection-start="1659" selection-end="1659" vertical-scroll-proportion="0.0">
+        <state line="61" column="0" selection-start="1999" selection-end="2262" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haruhi/src/main/scripts/path.sh">
+    <entry file="file://$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/TestVersionData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="92" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0">
+        <state line="12" column="0" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml">
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/GeneralTextJoinMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="58" selection-start="2359" selection-end="2359" vertical-scroll-proportion="0.6493056">
+        <state line="14" column="4" selection-start="460" selection-end="461" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueInternalURIObjectTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="13" selection-start="210" selection-end="210" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetJoinMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="0" selection-start="2288" selection-end="2464" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/GeneralJoinMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="30" selection-start="2611" selection-end="2611" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="0" selection-start="3851" selection-end="3998" vertical-scroll-proportion="0.8331528">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="13" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TextSimpleJoinMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="13" selection-start="129" selection-end="129" vertical-scroll-proportion="0.07943925">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="0" selection-start="1537" selection-end="1687" vertical-scroll-proportion="0.13533835">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/AcceptWithMatchingKeyReducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="85" selection-start="1012" selection-end="1012" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="60" selection-start="806" selection-end="806" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceReducerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="13" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="68" selection-start="700" selection-end="700" vertical-scroll-proportion="0.37668595">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

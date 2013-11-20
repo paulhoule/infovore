@@ -7,7 +7,7 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public abstract class TaggedKey<T extends WritableComparable> implements WritableComparable {
+public abstract class TaggedItem<T extends WritableComparable> implements WritableComparable {
 
     //
     // Thanks to type erasure,  we've got to override this to provide a constructor
@@ -19,8 +19,8 @@ public abstract class TaggedKey<T extends WritableComparable> implements Writabl
     private T key;
     private VIntWritable tag;
 
-    public TaggedKey() {};
-    public TaggedKey(T key,VIntWritable tag) {
+    public TaggedItem() {};
+    public TaggedItem(T key, VIntWritable tag) {
         this.key=key;
         this.tag=tag;
     }
@@ -54,14 +54,14 @@ public abstract class TaggedKey<T extends WritableComparable> implements Writabl
 
     @Override
     public int compareTo(Object o) {
-        TaggedKey that=(TaggedKey) o;
+        TaggedItem that=(TaggedItem) o;
         int cmp=key.compareTo(that.key);
         return cmp==0 ? tag.compareTo(that.tag) : cmp;
     }
 
     @Override
     public boolean equals(Object o) {
-        TaggedKey that=(TaggedKey) o;
+        TaggedItem that=(TaggedItem) o;
         return key.equals(that.key);
     }
 

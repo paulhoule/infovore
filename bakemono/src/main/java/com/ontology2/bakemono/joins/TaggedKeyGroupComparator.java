@@ -7,8 +7,8 @@ public class TaggedKeyGroupComparator<T extends WritableComparable>
         extends WritableComparator {
 
     //
-    // Because of type erasure,  a TaggedKey doesn't know how to instantiate
-    // itself,  so you need to use a subclass of TaggedKey.  This class doesn't
+    // Because of type erasure,  a TaggedItem doesn't know how to instantiate
+    // itself,  so you need to use a subclass of TaggedItem.  This class doesn't
     // know which subclass it needs to instantiate so you must subclass this to
     // make something that can self-instantiate
     //
@@ -18,8 +18,8 @@ public class TaggedKeyGroupComparator<T extends WritableComparable>
 
     @Override
     public int compare(WritableComparable a,WritableComparable b) {
-        TaggedKey<T> left=(TaggedKey<T>) a;
-        TaggedKey<T> right=(TaggedKey<T>) b;
+        TaggedItem<T> left=(TaggedItem<T>) a;
+        TaggedItem<T> right=(TaggedItem<T>) b;
         return left.getKey().compareTo(right.getKey());
     }
 }

@@ -3,10 +3,10 @@ package com.ontology2.bakemono.joins;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.VIntWritable;
 
-public class TaggedTextKey extends TaggedKey<Text> {
+public class TaggedTextItem extends TaggedItem<Text> {
 
-    public TaggedTextKey() { super(); }
-    public TaggedTextKey(Text key,VIntWritable tag) {
+    public TaggedTextItem() { super(); }
+    public TaggedTextItem(Text key, VIntWritable tag) {
        super(key,tag);
     }
 

@@ -9,7 +9,6 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class SetDifferenceReducerTest {
@@ -25,7 +24,7 @@ public class SetDifferenceReducerTest {
     @Test
     public void justOne() throws IOException, InterruptedException {
         that.reduce(
-            new TaggedTextKey(
+            new TaggedTextItem(
                     new Text("Canada Goose")
                     ,new VIntWritable(5)
             )
@@ -43,7 +42,7 @@ public class SetDifferenceReducerTest {
     @Test
     public void justTwo() throws IOException, InterruptedException {
         that.reduce(
-                new TaggedTextKey(
+                new TaggedTextItem(
                         new Text("Canada Goose")
                         ,new VIntWritable(5)
                 )
@@ -58,7 +57,7 @@ public class SetDifferenceReducerTest {
     @Test
     public void oneAndTwo() throws IOException, InterruptedException {
         that.reduce(
-                new TaggedTextKey(
+                new TaggedTextItem(
                         new Text("Canada Goose")
                         ,new VIntWritable(5)
                 )
