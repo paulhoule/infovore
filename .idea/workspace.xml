@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/Main.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsTool.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsTool.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1385063362096" ignored="false" />
+    <file path="/Dummy.txt" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1385063848010" ignored="false" />
     <file path="$PROJECT_DIR$/../internal/adserver3/.idea/workspace.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384450822972" ignored="false" />
     <file path="/MapMap.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384119062692" ignored="false" />
     <file path="/MapMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384121253101" ignored="false" />
@@ -64,7 +64,7 @@
     <file path="$PROJECT_DIR$/../centipede/centipede/src/test/java/util/TestVersion.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384809896299" ignored="false" />
     <file path="/TestVersion.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384809205385" ignored="false" />
     <file path="$PROJECT_DIR$/../centipede/pom.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384809899180" ignored="false" />
-    <file path="$PROJECT_DIR$/../centipede/.idea/workspace.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1385063805120" ignored="false" />
+    <file path="$PROJECT_DIR$/../centipede/.idea/workspace.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1385069412395" ignored="false" />
     <file path="$PROJECT_DIR$/../centipede/centipede/src/main/java/com/ontology2/centipede/parser/Argument.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384886091403" ignored="false" />
     <file path="/Argument.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384886034422" ignored="false" />
     <file path="$PROJECT_DIR$/../centipede/centipede/src/main/java/com/ontology2/centipede/parser/Option.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384892244578" ignored="false" />
@@ -84,7 +84,7 @@
     <file path="/AcceptWithMatchingKeyReducer.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1385055809206" ignored="false" />
     <file path="/GeneralJoinMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384978001055" ignored="false" />
     <file path="/GeneralTextJoinMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384979191735" ignored="false" />
-    <file path="/FetchTriplesWithMatchingObjectsTool.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384981200544" ignored="false" />
+    <file path="/FetchTriplesWithMatchingObjectsTool.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1385069409465" ignored="false" />
     <file path="/TestMatchingKeyRecord.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384989460537" ignored="false" />
     <file path="/TestAcceptWithMatchingKeyReducer.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1385056162802" ignored="false" />
     <file path="/TaggedTextItem.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1385055434461" ignored="false" />
@@ -214,25 +214,6 @@
     <breakpoint_rules />
     <ui_properties />
   </component>
-  <component name="DockManager">
-    <window id="4">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="UniqTool.java" pinned="false" current="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqTool.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="55" column="0" selection-start="1537" selection-end="1687" vertical-scroll-proportion="0.13533835">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="infovore" />
@@ -304,10 +285,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaggedItemMatcher.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/TaggedItemMatcher.java">
+      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="13" selection-start="137" selection-end="137" vertical-scroll-proportion="0.0">
+            <state line="68" column="75" selection-start="2685" selection-end="2720" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FetchTriplesWithMatchingObjectsTool.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsTool.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="73" column="66" selection-start="2690" selection-end="2690" vertical-scroll-proportion="0.5308498">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -315,19 +305,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/Main.java">
+      <file leaf-file-name="AcceptWithMatchingKeyReducer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/AcceptWithMatchingKeyReducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="75" selection-start="2685" selection-end="2720" vertical-scroll-proportion="0.5343422">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TextSimpleJoinMapperTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/TextSimpleJoinMapperTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="1076" selection-end="1343" vertical-scroll-proportion="0.0">
+            <state line="14" column="13" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -356,7 +337,6 @@
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetJoinMapper.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/GeneralJoinMapper.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/GeneralTextJoinMapper.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsTool.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/TestMatchingKeyRecord.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedTextItem.java" />
@@ -369,6 +349,7 @@
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/TestTaggedItemMatcher.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/TestFetchTriplesWithMatchingObjectsMapper.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/Main.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsTool.java" />
       </list>
     </option>
   </component>
@@ -1416,7 +1397,11 @@
       <created>1385063376198</created>
       <updated>1385063376198</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="#70 add a link to the Main class (yes I know we ought to use classpath scanning,  but...)">
+      <created>1385063852893</created>
+      <updated>1385063852893</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1487,7 +1472,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="#70 mapper and reducer pass tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="#70 add a link to the Main class (yes I know we ought to use classpath scanning,  but...)" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1501,7 +1486,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="point haruhi's default at version 2.1-SNAPSHOT to resolve #76" />
     <MESSAGE value="#70 add application to application list" />
     <MESSAGE value="#77 better ergonomics for error handling and reporting" />
     <MESSAGE value="#70 fix wrong class that broke reducer" />
@@ -1526,6 +1510,7 @@
     <MESSAGE value="#78 use the right propert name to unbreak the build" />
     <MESSAGE value="#70 initial work on FetchTriplesWithMatchingObjectsTool and the infrastructure that supports it." />
     <MESSAGE value="#70 mapper and reducer pass tests" />
+    <MESSAGE value="#70 add a link to the Main class (yes I know we ought to use classpath scanning,  but...)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1535,31 +1520,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/GeneralTextJoinMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="22" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="65" selection-start="720" selection-end="720" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SimpleJoinMapperInternalTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="24" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.38621444">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="83" column="59" selection-start="1912" selection-end="1912" vertical-scroll-proportion="0.0">
@@ -1654,10 +1614,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="98" selection-start="2112" selection-end="2112" vertical-scroll-proportion="0.3259346">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="75" selection-start="2685" selection-end="2720" vertical-scroll-proportion="0.5343422">
+        <state line="68" column="75" selection-start="2685" selection-end="2720" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/AcceptWithMatchingKeyReducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="13" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="66" selection-start="2690" selection-end="2690" vertical-scroll-proportion="0.5308498">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

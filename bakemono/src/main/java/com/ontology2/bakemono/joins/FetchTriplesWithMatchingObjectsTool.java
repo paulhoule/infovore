@@ -72,9 +72,9 @@ public class FetchTriplesWithMatchingObjectsTool implements Tool {
             job.setNumReduceTasks(reduceTasks);
 
             job.setMapOutputKeyClass(TaggedTextItem.class);
-            job.setMapOutputValueClass(VIntWritable.class);
-            job.setOutputKeyClass(Text.class);
-            job.setOutputValueClass(NullWritable.class);
+            job.setMapOutputValueClass(TaggedTextItem.class);
+            job.setOutputKeyClass(NullWritable.class);
+            job.setOutputValueClass(Text.class);
 
 
             FileInputFormat.addInputPath(job, new Path(inputA));
