@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.ontology2.bakemono.joins.FetchTriplesWithMatchingObjectsTool;
 import com.ontology2.bakemono.joins.SetDifferenceTool;
 import com.ontology2.bakemono.mapmap.*;
 import org.apache.commons.logging.Log;
@@ -65,6 +66,7 @@ public class Main implements Runnable {
         put("uniqURISubjects", UniqueURISubjectTool.class);
         put("uniqURIPredicates", UniqueURIPredicateTool.class);
         put("setDifference", SetDifferenceTool.class);
+        put("fetchWithMatchingObjects3",FetchTriplesWithMatchingObjectsTool.class);
     }};
     
     Map<String, TopLevelCommand> myCommands=new HashMap<String,TopLevelCommand>() {{
