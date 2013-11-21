@@ -23,7 +23,7 @@ public class AcceptWithMatchingKeyReducer<K extends WritableComparable, V extend
         PeekingIterator<TaggedItem<V>> pi = Iterators.peekingIterator(values.iterator());
         boolean foundObject = false;
 
-        while (pi.hasNext() && pi.peek().getTag() == ONE) {
+        while (pi.hasNext() && pi.peek().getTag().equals(ONE)) {
             pi.next();
             foundObject = true;
         }

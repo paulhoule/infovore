@@ -1,11 +1,14 @@
 package com.ontology2.bakemono.joins;
 
+import com.google.common.collect.Maps;
+import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.VIntWritable;
 import org.apache.hadoop.io.WritableComparable;
 
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
+import java.util.Map;
 
 public abstract class TaggedItem<T extends WritableComparable> implements WritableComparable {
 
@@ -68,6 +71,15 @@ public abstract class TaggedItem<T extends WritableComparable> implements Writab
     @Override
     public int hashCode() {
         return key.hashCode();
+    }
+
+    //
+    // for testing:  the equals operator for this type is funny and thinks
+    // two of these are equal if the tags are different
+    //
+
+    public Map.Entry<String,Integer> toEntry() {
+        return Maps.immutableEntry(key.toString(),tag.get());
     }
 
 

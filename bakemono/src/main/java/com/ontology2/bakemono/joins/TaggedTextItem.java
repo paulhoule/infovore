@@ -7,7 +7,15 @@ public class TaggedTextItem extends TaggedItem<Text> {
 
     public TaggedTextItem() { super(); }
     public TaggedTextItem(Text key, VIntWritable tag) {
-       super(key,tag);
+        super(key,tag);
+    }
+
+    public TaggedTextItem(Text key, int tag) {
+        this(key,new VIntWritable(tag));
+    }
+
+    public TaggedTextItem(String key, int tag) {
+        this(new Text(key),tag);
     }
 
     @Override
