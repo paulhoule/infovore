@@ -5,6 +5,8 @@ import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.google.common.collect.PeekingIterator;
 import com.ontology2.bakemono.Main;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.NullWritable;
@@ -20,6 +22,7 @@ import org.apache.hadoop.util.Tool;
 import java.util.List;
 
 public class FetchTriplesWithMatchingObjectsTool implements Tool {
+    private static Log logger= LogFactory.getLog(FetchTriplesWithMatchingObjectsTool.class);
     private Configuration conf;
 
     @Override
@@ -44,13 +47,17 @@ public class FetchTriplesWithMatchingObjectsTool implements Tool {
             // The first argument is the list of objects
             String inputA=a.next();
 
+            if (!a.hasNext())
+                usage();
+
             // Middle positional parameters are sources of triples
             List<String> paths= Lists.newArrayList(a);
 
             // The last positional parameter is the output path
-            String output=paths.get(paths.size()-1);
+            String output=paths.get(paths.size() - 1);
             paths.remove(paths.size()-1);
 
+            logger.info("Writing to output path "+output);
             conf.set("mapred.compress.map.output", "true");
             conf.set("mapred.output.compression.type", "BLOCK");
             conf.set("mapred.map.output.compression.codec", "org.apache.hadoop.io.compress.GzipCodec");
