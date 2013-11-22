@@ -25,7 +25,9 @@ public class Beans {
           new Rule("text",matchesText()),
           new Rule("webpages",matchesWebPage()),
           new Rule("notability",isAboutNotability()),
-          new Rule("links",isLinkRelationship())
+          new Rule("dotdot",hasDoubleDotPredicate()),
+          new Rule("links",isLinkRelationship()),
+          new Rule("literals",Predicates.not(isLinkRelationship()))
   );
 }
 
@@ -45,6 +47,13 @@ private static Predicate<PrimitiveTriple> predicateStartsWith(final String that)
   };
 }
 
+private static Predicate<PrimitiveTriple> hasDoubleDotPredicate() {
+    return new Predicate<PrimitiveTriple>() {
+        @Override public boolean apply(PrimitiveTriple input) {
+            return input.getPredicate().contains("..");
+        }
+    };
+}
 private static Predicate<PrimitiveTriple> matchesA() {
   return matchesPredicate("<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>");
 };

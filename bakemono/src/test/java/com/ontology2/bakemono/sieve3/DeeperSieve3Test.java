@@ -61,7 +61,9 @@ public class DeeperSieve3Test {
         sieve3.outputs.put("webpages", mock(KeyValueAcceptor.class));
         sieve3.outputs.put("notability",mock(KeyValueAcceptor.class));
         sieve3.outputs.put("links", mock(KeyValueAcceptor.class));
-        
+        sieve3.outputs.put("dotdot", mock(KeyValueAcceptor.class));
+        sieve3.outputs.put("literals", mock(KeyValueAcceptor.class));
+
         sieve3.other=mock(KeyValueAcceptor.class);
     }
     
@@ -307,16 +309,33 @@ public class DeeperSieve3Test {
     }
     
     @Test
-    public void other() throws IOException, InterruptedException {
+    public void literals() throws IOException, InterruptedException {
         sieve3.map(
                 new LongWritable(88), 
                 new Text("<http://example.com/A>\t<http://rdf.basekb.com/ns/i.scream.for.ice.cream>\t\"this is the time and this is the record of the time\"\t."), 
                 context);
-        untouchedExceptFor("other");
-        verify(sieve3.other).write(
+        untouchedExceptFor("literals");
+        verify(sieve3.outputs.get("literals")).write(
                 eq(new PrimitiveTriple(
                         "<http://example.com/A>",
                         "<http://rdf.basekb.com/ns/i.scream.for.ice.cream>",
+                        "\"this is the time and this is the record of the time\""
+                )),
+                eq(new LongWritable(1)),
+                eq(context));
+    }
+
+    @Test
+    public void dotdot() throws IOException, InterruptedException {
+        sieve3.map(
+                new LongWritable(88),
+                new Text("<http://example.com/A>\t<http://rdf.basekb.com/ns/i.scream.for..ice.cream>\t\"this is the time and this is the record of the time\"\t."),
+                context);
+        untouchedExceptFor("dotdot");
+        verify(sieve3.outputs.get("dotdot")).write(
+                eq(new PrimitiveTriple(
+                        "<http://example.com/A>",
+                        "<http://rdf.basekb.com/ns/i.scream.for..ice.cream>",
                         "\"this is the time and this is the record of the time\""
                 )),
                 eq(new LongWritable(1)),

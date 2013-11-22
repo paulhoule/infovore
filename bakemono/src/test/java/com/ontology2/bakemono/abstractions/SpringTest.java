@@ -14,7 +14,7 @@ public class SpringTest {
         // right now we don't actually use the Hadoop Config,  so null is OK
         ApplicationContext c=Spring.getApplicationContext(null);
         Sieve3Configuration sieve3Config = c.getBean(Sieve3Configuration.SIEVE3DEFAULT,Sieve3Configuration.class);
-        assertEquals(sieve3Config.getRules().size(),11);
+        assertEquals(sieve3Config.getRules().size(),13);
     }
 
 }
