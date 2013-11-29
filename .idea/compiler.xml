@@ -28,10 +28,10 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="bakemono" target="1.6" />
+      <module name="bakemono" target="1.7" />
       <module name="centipede" target="1.6" />
-      <module name="haruhi" target="1.6" />
-      <module name="infovore" target="1.6" />
+      <module name="haruhi" target="1.7" />
+      <module name="infovore" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,9 +1,9 @@
 package com.ontology2.bakemono.mapmap;
 
 import com.google.common.base.Function;
+import com.ontology2.bakemono.abstractions.Codec;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleCodec;
-import com.ontology2.centipede.Codec;
 import org.apache.hadoop.io.LongWritable;
 
 import javax.annotation.Nullable;

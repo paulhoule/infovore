@@ -3,6 +3,7 @@ package com.ontology2.bakemono.sieve3;
 import java.io.IOException;
 import java.util.Map;
 
+import com.ontology2.bakemono.abstractions.*;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -13,16 +14,11 @@ import com.google.common.collect.Maps;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
-import com.ontology2.bakemono.abstractions.KeyValueAcceptor;
-import com.ontology2.bakemono.abstractions.NamedKeyValueAcceptor;
-import com.ontology2.bakemono.abstractions.PrimaryKeyValueAcceptor;
-import com.ontology2.bakemono.abstractions.Spring;
 import com.ontology2.bakemono.jena.WritableTriple;
 import com.ontology2.bakemono.mapred.RealMultipleOutputs;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleCodec;
 import com.ontology2.bakemono.pse3.PSE3Counters;
-import com.ontology2.centipede.Codec;
 import com.ontology2.bakemono.sieve3.Sieve3Configuration.Rule;
 
 public class Sieve3Mapper extends Mapper<LongWritable,Text,PrimitiveTriple,LongWritable> {
@@ -35,7 +31,7 @@ public class Sieve3Mapper extends Mapper<LongWritable,Text,PrimitiveTriple,LongW
     Map<String,KeyValueAcceptor<PrimitiveTriple,LongWritable>> outputs=Maps.newHashMap();
 
     private ApplicationContext applicationContext;
-    final static Codec<PrimitiveTriple> primitiveTripleCodec=new PrimitiveTripleCodec(); 
+    final static Codec<PrimitiveTriple> primitiveTripleCodec=new PrimitiveTripleCodec();
     
     @Override
     public void setup(Context context) throws IOException,

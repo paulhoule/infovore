@@ -42,11 +42,15 @@ import com.ontology2.bakemono.pse3.PSE3Tool;
 import com.ontology2.bakemono.ranSample.RanSampleTool;
 import com.ontology2.bakemono.sieve3.Sieve3Tool;
 import com.ontology2.centipede.shell.CommandLineApplication;
+import org.springframework.beans.factory.BeanNotOfRequiredTypeException;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main implements Runnable {
 
 
     private static Log logger = LogFactory.getLog(Main.class);
+    private final ClassPathXmlApplicationContext context;
 
     public static class IncorrectUsageException extends Exception {
         public IncorrectUsageException(String message) {
@@ -78,9 +82,15 @@ public class Main implements Runnable {
 
     public Main(String[] arg0) {
         args=Lists.newArrayList(arg0);
+        context=new ClassPathXmlApplicationContext(getApplicationContextPath().toArray(new String[] {}));
+    }
+
+    public List<String> getApplicationContextPath() {
+        return Lists.newArrayList("com/ontology2/bakemono/applicationContext.xml");
     }
 
     public static void main(String[] arg0) throws Exception {
+
         new Main(arg0).run();
     }
 
@@ -160,11 +170,12 @@ public class Main implements Runnable {
         @Override public int getMinimumArgumentCount() { return 1; }
         void validateArguments() throws Exception {
             toolName=args.get(1);
-            if(!myApps.containsKey(toolName))
+            try {
+                tool=context.getBean(toolName,Tool.class);
+            } catch(NoSuchBeanDefinitionException|BeanNotOfRequiredTypeException x) {
                 errorCausedByUser("you specified a tool ["+toolName+"] not supported by the bakemono system");
+            }
 
-            Class clazz=myApps.get(toolName);
-            tool=(Tool) clazz.newInstance();
             toolArgs=Lists.newArrayList(Iterables.skip(args, 2));
         }
     }

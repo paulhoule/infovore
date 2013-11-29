@@ -3,6 +3,7 @@ package com.ontology2.bakemono.freebasePrefilter;
 import java.io.IOException;
 import java.util.List;
 
+import com.ontology2.bakemono.abstractions.Codec;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -21,7 +22,6 @@ import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleCodec;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTriplePredicateRewriter;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleReverser;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleTypeRewriter;
-import com.ontology2.centipede.Codec;
 import com.ontology2.rdf.InvalidNodeException;
 import com.ontology2.rdf.InvalidPrefixException;
 

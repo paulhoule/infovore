@@ -1,5 +1,6 @@
 package com.ontology2.bakemono.freebasePrefilter;
 
+import com.ontology2.bakemono.configuration.HadoopTool;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FsShell;
 import org.apache.hadoop.fs.Path;
@@ -16,6 +17,7 @@ import org.apache.hadoop.util.Tool;
 
 import com.ontology2.bakemono.Main;
 
+@HadoopTool("freebaseRDFPrefilter")
 public class FreebaseRDFTool implements Tool {
 
     private Configuration configuration=new Configuration();
