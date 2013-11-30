@@ -1,5 +1,6 @@
 package com.ontology2.bakemono.sieve3;
 
+import com.ontology2.bakemono.configuration.HadoopTool;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
@@ -44,6 +45,8 @@ import com.ontology2.bakemono.sieve3.Sieve3Configuration.Rule;
  *
  *
  */
+
+@HadoopTool("sieve3")
 public class Sieve3Tool implements Tool {
     private Configuration conf;
 

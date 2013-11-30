@@ -3,6 +3,7 @@ package com.ontology2.bakemono.joins;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.PeekingIterator;
 import com.ontology2.bakemono.Main;
+import com.ontology2.bakemono.configuration.HadoopTool;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.NullWritable;
@@ -15,6 +16,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 
+@HadoopTool("setDifference")
 public class SetDifferenceTool implements Tool {
     private Configuration conf;
 

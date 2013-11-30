@@ -1,5 +1,6 @@
 package com.ontology2.bakemono.ranSample;
 
+import com.ontology2.bakemono.configuration.HadoopTool;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.compress.GzipCodec;
@@ -20,6 +21,7 @@ import com.ontology2.bakemono.sieve3.Sieve3Tool;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 
+@HadoopTool("ranSample")
 public class RanSampleTool implements Tool{
     private Configuration conf;
     

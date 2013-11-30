@@ -1,4 +1,5 @@
 package com.ontology2.bakemono.pse3;
+import com.ontology2.bakemono.configuration.HadoopTool;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hdfs.server.common.IncorrectVersionException;
@@ -27,6 +28,7 @@ import com.ontology2.bakemono.jena.WritableTriple;
 import com.ontology2.bakemono.mapred.RealMultipleOutputs;
 import com.ontology2.bakemono.mapred.RealMultipleOutputsMainOutputWrapper;
 
+@HadoopTool("pse3")
 public class PSE3Tool implements Tool {
 
     private Configuration conf;

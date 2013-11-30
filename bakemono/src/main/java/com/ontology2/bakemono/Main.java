@@ -58,20 +58,6 @@ public class Main implements Runnable {
         }
 
     }
-
-    Map<String,Class> myApps=new HashMap<String,Class>() {{
-        put("freebaseRDFPrefilter",FreebaseRDFTool.class);
-        put("pse3",PSE3Tool.class);
-        put("sieve3",Sieve3Tool.class);
-        put("ranSample",RanSampleTool.class);
-        put("fs",FsShell.class);                    // from Hadoop
-        put("uniqURIObjects",UniqURIObjectTool.class);
-        put("uniqInternalURIObjects", UniqueInternalURIObjectTool.class);
-        put("uniqURISubjects", UniqueURISubjectTool.class);
-        put("uniqURIPredicates", UniqueURIPredicateTool.class);
-        put("setDifference", SetDifferenceTool.class);
-        put("fetchWithMatchingObjects3",FetchTriplesWithMatchingObjectsTool.class);
-    }};
     
     Map<String, TopLevelCommand> myCommands=new HashMap<String,TopLevelCommand>() {{
         put("run",new RunATool());
@@ -163,7 +149,7 @@ public class Main implements Runnable {
             try {
                 ToolRunner.run(tool,toolArgs.toArray(new String[0]));
             } catch(Exception ex) {
-                logger.error("Uncaught excepion in application",ex);            
+                logger.error("Uncaught exception in application",ex);
             };
         }
         
@@ -186,7 +172,7 @@ public class Main implements Runnable {
         public void run() {
             System.out.println("Tools supported by this build of bakemono:");
             System.out.println();
-            for(Entry<String,Class> i:myApps.entrySet()) {
+            for(Entry<String,Tool> i:context.getBeansOfType(Tool.class).entrySet()) {
                 System.out.println("    "+i.getKey());
             }
         }

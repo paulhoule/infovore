@@ -5,6 +5,7 @@ import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.google.common.collect.PeekingIterator;
 import com.ontology2.bakemono.Main;
+import com.ontology2.bakemono.configuration.HadoopTool;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.conf.Configuration;
@@ -21,6 +22,7 @@ import org.apache.hadoop.util.Tool;
 
 import java.util.List;
 
+@HadoopTool("fetchWithMatchingObjects3")
 public class FetchTriplesWithMatchingObjectsTool implements Tool {
     private static Log logger= LogFactory.getLog(FetchTriplesWithMatchingObjectsTool.class);
     private Configuration conf;
