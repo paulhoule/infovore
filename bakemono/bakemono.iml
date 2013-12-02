@@ -71,6 +71,7 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.avro:avro:1.5.3" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.thoughtworks.paranamer:paranamer:2.3" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.xerial.snappy:snappy-java:1.0.3.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:3.2.4.RELEASE" level="project" />
   </component>
 </module>
 
