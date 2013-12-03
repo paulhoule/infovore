@@ -9,6 +9,7 @@ import org.apache.hadoop.io.VIntWritable;
 import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.util.Map;
@@ -16,6 +17,7 @@ import java.util.Map;
 public abstract class SetJoinMapper<T extends WritableComparable>
         extends Mapper<LongWritable,T,TaggedItem<T>,VIntWritable> {
 
+    static Logger log= Logger.getLogger(SetJoinMapper.class);
     public static final String JOINS="com.ontology2.bakemono.joins";
     public static final String INPUTS=JOINS+".inputs";
     static final Splitter dotSplitter= Splitter.on(".");
@@ -64,7 +66,7 @@ public abstract class SetJoinMapper<T extends WritableComparable>
         FileSplit split=(FileSplit) context.getInputSplit();
         String thePath=split.getPath().toString();
         VIntWritable currentTag = determineTag(mapping,thePath);
-
+        log.info("Writing tag "+currentTag.get()+ " for "+value);
         context.write(newTaggedKey(value,currentTag),currentTag);
     }
 
