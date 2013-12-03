@@ -27,7 +27,6 @@ public class DiffFactReducer<KeyType extends WritableComparable>
     protected void reduce(TaggedItem<KeyType> key, Iterable<VIntWritable> values, Context context) throws IOException, InterruptedException {
         Set<Integer> that= Sets.newHashSet();
         for(VIntWritable tag:values) {
-            log.info("Saw key ["+key.getKey()+"] with tag ["+tag+"]");
             that.add(tag.get());
         }
 

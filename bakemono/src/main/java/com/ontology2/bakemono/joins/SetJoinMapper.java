@@ -66,7 +66,6 @@ public abstract class SetJoinMapper<T extends WritableComparable>
         FileSplit split=(FileSplit) context.getInputSplit();
         String thePath=split.getPath().toString();
         VIntWritable currentTag = determineTag(mapping,thePath);
-        log.info("Writing tag "+currentTag.get()+ " for "+value);
         context.write(newTaggedKey(value,currentTag),currentTag);
     }
 
