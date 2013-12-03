@@ -25,17 +25,17 @@ public class DiffFactReducer<KeyType extends WritableComparable>
 
     @Override
     protected void reduce(TaggedItem<KeyType> key, Iterable<VIntWritable> values, Context context) throws IOException, InterruptedException {
-        Set<VIntWritable> that= Sets.newHashSet();
+        Set<Integer> that= Sets.newHashSet();
         for(VIntWritable tag:values) {
-            log.info("Saw key ["+key+"] with tag ["+tag+"]");
-            that.add(tag);
+            log.info("Saw key ["+key.getKey()+"] with tag ["+tag+"]");
+            that.add(tag.get());
         }
 
-        if(that.contains(ONE) & !that.contains(TWO)) {
+        if(that.contains(1) & !that.contains(2)) {
             context.write(D,key.getKey());
         }
 
-        if(!that.contains(ONE) & that.contains(TWO)) {
+        if(!that.contains(1) & that.contains(2)) {
             context.write(A,key.getKey());
         }
     }
