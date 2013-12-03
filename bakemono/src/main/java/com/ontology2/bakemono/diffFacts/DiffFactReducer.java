@@ -28,9 +28,8 @@ public class DiffFactReducer<KeyType extends WritableComparable>
         Set<VIntWritable> that= Sets.newHashSet();
         for(VIntWritable tag:values) {
             log.info("Saw key ["+key+"] with tag ["+tag+"]");
+            that.add(tag);
         }
-
-        Iterables.addAll(that, values);
 
         if(that.contains(ONE) & !that.contains(TWO)) {
             context.write(D,key.getKey());
