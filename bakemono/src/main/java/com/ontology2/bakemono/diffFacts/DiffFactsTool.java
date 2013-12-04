@@ -21,7 +21,7 @@ import org.apache.hadoop.util.Tool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
-@HadoopTool("diffFacts")
+@HadoopTool("rdfDiff")
 public class DiffFactsTool implements Tool {
     @Autowired ApplicationContext applicationContext;
     private Configuration conf;
