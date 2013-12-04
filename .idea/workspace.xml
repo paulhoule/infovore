@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="#82 zap out logging code for real run">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/haruhi/src/main/resources/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/diffFacts/DiffFactsTool.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/diffFacts/DiffFactsTool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/haruhi.iml" afterPath="$PROJECT_DIR$/haruhi/haruhi.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/pom.xml" afterPath="$PROJECT_DIR$/haruhi/pom.xml" />
+    <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1386097727054" ignored="false" />
+    <file path="/Dummy.txt" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1386177811053" ignored="false" />
     <file path="$PROJECT_DIR$/../internal/adserver3/.idea/workspace.xml" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384450822972" ignored="false" />
     <file path="/MapMap.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384119062692" ignored="false" />
     <file path="/MapMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384121253101" ignored="false" />
@@ -39,7 +35,7 @@
     <file path="/UniqueSubjectMapperTest.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384297336601" ignored="false" />
     <file path="/ProjectPredicate.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384297610622" ignored="false" />
     <file path="/UniqueURISubjectMapper.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384297727988" ignored="false" />
-    <file path="/SetDifferenceReducer.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384975786122" ignored="false" />
+    <file path="/SetDifferenceReducer.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1386179111507" ignored="false" />
     <file path="/TaggedKey.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384976108473" ignored="false" />
     <file path="/TaggedTextKey.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384352338529" ignored="false" />
     <file path="/TaggedTextKeyTest.java" changelist="87a5655c-6aba-400c-a88c-ad04aa82a448" time="1384353388397" ignored="false" />
@@ -261,10 +257,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="log4j.properties" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="log4j.properties" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/haruhi/src/main/resources/log4j.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="39" selection-start="271" selection-end="271" vertical-scroll-proportion="0.13144329">
+            <state line="6" column="39" selection-start="271" selection-end="271" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SetDifferenceReducerTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceReducerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="13" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SetDifferenceReducer.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="26" selection-start="1171" selection-end="1171" vertical-scroll-proportion="0.61340207">
               <folding />
             </state>
           </provider>
@@ -288,7 +304,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURISubjectTool.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURIPredicateTool.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceTool.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsTool.java" />
@@ -304,6 +319,7 @@
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/diffFacts/DiffFactsTool.java" />
         <option value="$PROJECT_DIR$/haruhi/pom.xml" />
         <option value="$PROJECT_DIR$/haruhi/src/main/resources/log4j.properties" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java" />
       </list>
     </option>
   </component>
@@ -1449,12 +1465,16 @@
       <created>1386096004918</created>
       <updated>1386096004918</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="#82 rename rdfDiff tool;  also add log4j.properties to resolve #90">
+      <created>1386177816700</created>
+      <updated>1386177816700</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2300" y="1" width="1276" height="1363" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1472,7 +1492,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35667217" sideWeight="0.67634857" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13179572" sideWeight="0.67634857" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32365146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32365146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1520,7 +1540,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="#82 zap out logging code for real run" />
+    <option name="LAST_COMMIT_MESSAGE" value="#82 rename rdfDiff tool;  also add log4j.properties to resolve #90" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1534,7 +1554,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="#79 fix initialization problem;  remove debug code,  restore tests" />
     <MESSAGE value="#79 add support for multiple input files in uniq tool" />
     <MESSAGE value="#79 ha...  set difference didn't work properly because we didn't create a custom partitioner." />
     <MESSAGE value="#81 add motorcycle test triple, also try a different cantrip to disable speculative execution because we had another attempt to overwrite an existing file when we ran the job this weekend." />
@@ -1559,6 +1578,7 @@
     <MESSAGE value="#82 worked better after I added the logging code which explictly iterates over the Iterable,  what if I use this loop to populate the set." />
     <MESSAGE value="#82 could it be that VIntWritable doesn't play well with hashtables?" />
     <MESSAGE value="#82 zap out logging code for real run" />
+    <MESSAGE value="#82 rename rdfDiff tool;  also add log4j.properties to resolve #90" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1568,13 +1588,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/resources/com/ontology2/bakemono/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="82" selection-start="787" selection-end="787" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/diffFacts/TestReducer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="63" selection-start="1112" selection-end="1112" vertical-scroll-proportion="0.0">
@@ -1610,13 +1623,6 @@
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceTool.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="90" column="0" selection-start="3229" selection-end="3284" vertical-scroll-proportion="0.3592233">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="34" selection-start="1176" selection-end="1176" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1683,7 +1689,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/haruhi/src/main/resources/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="39" selection-start="271" selection-end="271" vertical-scroll-proportion="0.13144329">
+        <state line="6" column="39" selection-start="271" selection-end="271" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceReducerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="13" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="26" selection-start="1171" selection-end="1171" vertical-scroll-proportion="0.61340207">
           <folding />
         </state>
       </provider>

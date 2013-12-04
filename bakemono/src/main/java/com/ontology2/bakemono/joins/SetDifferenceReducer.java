@@ -24,15 +24,13 @@ import java.util.Set;
 public class SetDifferenceReducer<KeyType extends WritableComparable>
         extends Reducer<TaggedItem<KeyType>,VIntWritable,KeyType,NullWritable> {
 
-    final static VIntWritable ONE=new VIntWritable(1);
-    final static VIntWritable TWO=new VIntWritable(2);
-
     @Override
     protected void reduce(TaggedItem<KeyType> key, Iterable<VIntWritable> values, Context context) throws IOException, InterruptedException {
-        Set<VIntWritable> that= Sets.newHashSet();
-        Iterables.addAll(that,values);
+        Set<Integer> that= Sets.newHashSet();
+        for(VIntWritable tag:values)
+            that.add(tag.get());
 
-        if(that.contains(ONE) & !that.contains(TWO)) {
+        if(that.contains(1) & !that.contains(2)) {
             context.write(key.getKey(),null);
         }
     }
