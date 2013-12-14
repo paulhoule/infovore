@@ -169,7 +169,7 @@
       <file leaf-file-name="EntityIsAReducer.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="84" selection-start="1293" selection-end="1293" vertical-scroll-proportion="0.49214226" vertical-offset="0" max-vertical-offset="1209">
+            <state line="35" column="87" selection-start="1293" selection-end="1293" vertical-scroll-proportion="0.49214226" vertical-offset="0" max-vertical-offset="1209">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -295,8 +295,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2647" />
-    <option name="y" value="55" />
+    <option name="x" value="-2654" />
+    <option name="y" value="14" />
     <option name="width" value="1276" />
     <option name="height" value="1363" />
   </component>
@@ -1522,11 +1522,15 @@
       <created>1387058414761</created>
       <updated>1387058414761</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="#92 add EntityIsAReducer and test&#10;">
+      <created>1387058492806</created>
+      <updated>1387058492806</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2647" y="55" width="1276" height="1363" extended-state="0" />
+    <frame x="-2654" y="14" width="1276" height="1363" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1928,7 +1932,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="84" selection-start="1293" selection-end="1293" vertical-scroll-proportion="0.49214226" vertical-offset="0" max-vertical-offset="1209">
+        <state line="35" column="87" selection-start="1293" selection-end="1293" vertical-scroll-proportion="0.49214226" vertical-offset="0" max-vertical-offset="1209">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
