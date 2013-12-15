@@ -12,7 +12,7 @@ public class DiffFactsOptions implements HasOptions {
     @Option(name="R",description="number of reducers")
     public int reducerCount;
 
-    @Option(description="input file default directory")
+    @Option(description="input and output file default directory")
     public String dir;
 
     @Option(description="input paths for left side of comparison",contextualConverter=Converter.class)

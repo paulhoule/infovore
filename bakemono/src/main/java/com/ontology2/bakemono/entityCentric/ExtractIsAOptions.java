@@ -14,7 +14,7 @@ public class ExtractIsAOptions implements HasOptions  {
     @Option(name="R",description="number of reducers")
     public int reducerCount;
 
-    @Option(description="input file default directory")
+    @Option(description="input and output file default directory")
     public String dir;
 
     @Option(description="input files",contextualConverter=PathConverter.class)
