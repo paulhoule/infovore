@@ -39,7 +39,7 @@ public class ExtractIsATool implements Tool {
 
     @Override
     public int run(String[] strings) throws Exception {
-        OptionParser parser=new OptionParser(ExtractIsATool.class);
+        OptionParser parser=new OptionParser(ExtractIsAOptions.class);
         applicationContext.getAutowireCapableBeanFactory().autowireBean(parser);
 
         ExtractIsAOptions options=(ExtractIsAOptions) parser.parse(Lists.newArrayList(strings));

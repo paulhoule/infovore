@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/diffFacts/DiffFactsOptions.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/diffFacts/DiffFactsOptions.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsAOptions.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsAOptions.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsATool.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsATool.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -182,7 +180,7 @@
       <file leaf-file-name="EntityMatchesRuleReducer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="34" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="425">
+            <state line="12" column="34" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
               <folding />
             </state>
           </provider>
@@ -213,7 +211,7 @@
       <file leaf-file-name="ExtractIsATool.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsATool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="47" selection-start="2789" selection-end="2789" vertical-scroll-proportion="0.9281184" vertical-offset="734" max-vertical-offset="1564">
+            <state line="41" column="62" selection-start="1428" selection-end="1428" vertical-scroll-proportion="0.48055556" vertical-offset="283" max-vertical-offset="1564">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -224,7 +222,7 @@
       <file leaf-file-name="ExtractIsAOptions.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsAOptions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="47" selection-start="1187" selection-end="1187" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1207">
+            <state line="24" column="63" selection-start="768" selection-end="768" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1207">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -235,14 +233,8 @@
       <file leaf-file-name="SetDifferenceTool.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceTool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="0" selection-start="3229" selection-end="3284" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1819">
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#897#898#0" expanded="false" />
-                <element signature="e#929#930#0" expanded="false" />
-                <element signature="e#990#991#0" expanded="false" />
-                <element signature="e#1020#1021#0" expanded="false" />
-              </folding>
+            <state line="31" column="45" selection-start="1022" selection-end="1022" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1819">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -329,7 +321,7 @@
     <option name="x" value="-2373" />
     <option name="y" value="2" />
     <option name="width" value="1343" />
-    <option name="height" value="1043" />
+    <option name="height" value="1290" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1603,11 +1595,19 @@
       <created>1387072816155</created>
       <updated>1387072816155</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="#92 if we're lucky, ExtractIsATool might work&#10;">
+      <created>1387123877268</created>
+      <updated>1387123877268</updated>
+    </task>
+    <task id="LOCAL-00053" summary="#92 use the right option parser">
+      <created>1387129722093</created>
+      <updated>1387129722093</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2373" y="2" width="1343" height="1043" extended-state="0" />
+    <frame x="-2373" y="2" width="1343" height="1290" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1627,7 +1627,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33986434" sideWeight="0.67634857" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44444445" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35164836" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1648,8 +1648,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="hopefully this resolves #78 but I need to check on Unix" />
-    <MESSAGE value="#78 fixed wrong path" />
     <MESSAGE value="#78 add to application context file so by default haruhi will run the matching version of bakemono" />
     <MESSAGE value="#78 use the right propert name to unbreak the build" />
     <MESSAGE value="#70 initial work on FetchTriplesWithMatchingObjectsTool and the infrastructure that supports it." />
@@ -1673,7 +1671,9 @@
     <MESSAGE value="#92 add EntityIsAReducer and test" />
     <MESSAGE value="#92 add EntityIsAReducer and test&#10;" />
     <MESSAGE value="#92 add ExtractIsAOptions and start work on ExtractIsATool,  but ExtractIsATool is incomplete&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="#92 add ExtractIsAOptions and start work on ExtractIsATool,  but ExtractIsATool is incomplete&#10;" />
+    <MESSAGE value="#92 if we're lucky, ExtractIsATool might work&#10;" />
+    <MESSAGE value="#92 use the right option parser" />
+    <option name="LAST_COMMIT_MESSAGE" value="#92 use the right option parser" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1950,13 +1950,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="34" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SetDifferenceReducerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="0" selection-start="265" selection-end="301" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1326">
@@ -1969,19 +1962,6 @@
         <state line="35" column="0" selection-start="1293" selection-end="1293" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceTool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="0" selection-start="3229" selection-end="3284" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1819">
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#897#898#0" expanded="false" />
-            <element signature="e#929#930#0" expanded="false" />
-            <element signature="e#990#991#0" expanded="false" />
-            <element signature="e#1020#1021#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2011,15 +1991,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsAOptions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="47" selection-start="1187" selection-end="1187" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1207">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/diffFacts/DiffFactsTool.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="77" column="0" selection-start="2994" selection-end="3128" vertical-scroll-proportion="0.74333924" vertical-offset="81" max-vertical-offset="1207">
@@ -2027,9 +1998,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsAOptions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="63" selection-start="768" selection-end="768" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1207">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="34" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="45" selection-start="1022" selection-end="1022" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1819">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsATool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="47" selection-start="2789" selection-end="2789" vertical-scroll-proportion="0.9281184" vertical-offset="734" max-vertical-offset="1564">
+        <state line="41" column="62" selection-start="1428" selection-end="1428" vertical-scroll-proportion="0.48055556" vertical-offset="283" max-vertical-offset="1564">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
