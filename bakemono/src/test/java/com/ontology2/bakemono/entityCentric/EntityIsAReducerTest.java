@@ -17,6 +17,7 @@ public class EntityIsAReducerTest {
     Configuration configuration;
     EntityIsAReducer reducer;
 
+
     @Before
     public void setup() {
         context=mock(Reducer.Context.class);
