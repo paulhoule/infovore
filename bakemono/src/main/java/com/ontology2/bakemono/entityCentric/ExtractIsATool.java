@@ -39,22 +39,8 @@ public class ExtractIsATool implements Tool {
 
     @Override
     public int run(String[] strings) throws Exception {
-        OptionParser parser=new OptionParser(ExtractIsAOptions.class);
-        applicationContext.getAutowireCapableBeanFactory().autowireBean(parser);
-
-        ExtractIsAOptions options=(ExtractIsAOptions) parser.parse(Lists.newArrayList(strings));
-        if (options.input.isEmpty())
-            throw new UsageException("You did not specify a value for -input");
-
-        if (options.output==null || options.output.isEmpty())
-            throw new UsageException("You did not specify a value for -output");
-
-        if (options.type.isEmpty())
-            throw new UsageException("You did not specify a value for -type");
-
-        conf.set("mapred.compress.map.output", "true");
-        conf.set("mapred.output.compression.type", "BLOCK");
-        conf.set("mapred.map.output.compression.codec", "org.apache.hadoop.io.compress.GzipCodec");
+        ExtractIsAOptions options = extractOptions(strings);
+        configureOutputCompression();
 
         List<String> nodes=Lists.newArrayList();
         for(String link:options.type)
@@ -86,5 +72,27 @@ public class ExtractIsATool implements Tool {
         job.setOutputFormatClass(TextOutputFormat.class);
 
         return job.waitForCompletion(true) ? 0 : 1;
+    }
+
+    void configureOutputCompression() {
+        conf.set("mapred.compress.map.output", "true");
+        conf.set("mapred.output.compression.type", "BLOCK");
+        conf.set("mapred.map.output.compression.codec", "org.apache.hadoop.io.compress.GzipCodec");
+    }
+
+    ExtractIsAOptions extractOptions(String[] strings) throws IllegalAccessException {
+        OptionParser parser=new OptionParser(ExtractIsAOptions.class);
+        applicationContext.getAutowireCapableBeanFactory().autowireBean(parser);
+
+        ExtractIsAOptions options=(ExtractIsAOptions) parser.parse(Lists.newArrayList(strings));
+        if (options.input.isEmpty())
+            throw new UsageException("You did not specify a value for -input");
+
+        if (options.output==null || options.output.isEmpty())
+            throw new UsageException("You did not specify a value for -output");
+
+        if (options.type.isEmpty())
+            throw new UsageException("You did not specify a value for -type");
+        return options;
     }
 }
