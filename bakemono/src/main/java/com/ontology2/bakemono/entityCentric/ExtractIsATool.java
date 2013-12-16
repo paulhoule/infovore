@@ -9,6 +9,7 @@ import com.ontology2.centipede.parser.OptionParser;
 import com.ontology2.centipede.shell.UsageException;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.compress.GzipCodec;
 import org.apache.hadoop.mapreduce.Job;
@@ -59,7 +60,7 @@ public class ExtractIsATool implements Tool {
         job.setNumReduceTasks(options.reducerCount);
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(Text.class);
-        job.setOutputKeyClass(Text.class);
+        job.setOutputKeyClass(NullWritable.class);
         job.setOutputValueClass(Text.class);
 
         for(String path: options.input) {
