@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/ExtractIsAToolTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsAOptions.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsAOptions.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsATool.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsATool.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -126,21 +124,6 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java" line="34" class="com.ontology2.bakemono.entityCentric.EntityIsAReducer" package="com.ontology2.bakemono.entityCentric">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
       <breakpoint url="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsAOptions.java" line="50" class="com.ontology2.bakemono.entityCentric.ExtractIsAOptions.URIConverter" package="com.ontology2.bakemono.entityCentric">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
@@ -194,10 +177,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="EntityIsAReducer.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="EntityIsAReducer.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="31" selection-start="1165" selection-end="1165" vertical-scroll-proportion="0.0" vertical-offset="62" max-vertical-offset="782">
+            <state line="23" column="79" selection-start="975" selection-end="975" vertical-scroll-proportion="0.45694444" vertical-offset="62" max-vertical-offset="782">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -209,15 +192,17 @@
         <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SimpleJoinMapperInternalTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="14" column="13" selection-start="336" selection-end="336" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1054">
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExtractIsAToolTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ExtractIsAToolTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/ExtractIsAToolTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="56" selection-start="526" selection-end="526" vertical-scroll-proportion="0.40138888" vertical-offset="0" max-vertical-offset="799">
+            <state line="25" column="50" selection-start="784" selection-end="784" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -229,7 +214,9 @@
         <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/diffFacts/TestReducer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="38" column="63" selection-start="1112" selection-end="1112" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -238,9 +225,7 @@
         <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/EntityIsAReducerTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="30" column="36" selection-start="887" selection-end="887" vertical-scroll-proportion="0.0" vertical-offset="143" max-vertical-offset="1156">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -260,7 +245,9 @@
         <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/diffFacts/TestGetopt.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="17" column="0" selection-start="597" selection-end="711" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -279,7 +266,7 @@
       <file leaf-file-name="ExtractIsATool.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsATool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="62" selection-start="1428" selection-end="1428" vertical-scroll-proportion="0.0" vertical-offset="376" max-vertical-offset="1700">
+            <state line="52" column="49" selection-start="1877" selection-end="1877" vertical-scroll-proportion="0.0" vertical-offset="980" max-vertical-offset="1700">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -341,10 +328,10 @@
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/diffFacts/DiffFactsOptions.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityCentricMapper.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/EntityCentricMapperTest.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsATool.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsAOptions.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/ExtractIsAToolTest.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java" />
       </list>
     </option>
   </component>
@@ -1517,7 +1504,11 @@
       <created>1387216986616</created>
       <updated>1387216986616</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="#92 add test for argument parsing,  make sure that prefix prepender for URIs is used&#10;">
+      <created>1387222400017</created>
+      <updated>1387222400017</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1562,7 +1553,7 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="#70 mapper and reducer pass tests" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
     <MESSAGE value="#70 add a link to the Main class (yes I know we ought to use classpath scanning,  but...)" />
     <MESSAGE value="#70 make types match up in Tool" />
     <MESSAGE value="#70 add logging to check up on possible cause of failure of last run" />
@@ -1587,7 +1578,8 @@
     <MESSAGE value="#92 use the right option parser (really)&#10;" />
     <MESSAGE value="#92 write unit test for mapper,  fix types,  make non-abstract,  things like that.&#10;" />
     <MESSAGE value="#92 add logging code to find out why we aren't getting any output" />
-    <option name="LAST_COMMIT_MESSAGE" value="#92 add logging code to find out why we aren't getting any output" />
+    <MESSAGE value="#92 add test for argument parsing,  make sure that prefix prepender for URIs is used&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="#92 add test for argument parsing,  make sure that prefix prepender for URIs is used&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1878,27 +1870,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="31" selection-start="1165" selection-end="1165" vertical-scroll-proportion="0.0" vertical-offset="62" max-vertical-offset="782">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/diffFacts/TestGetopt.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="0" selection-start="597" selection-end="711" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsATool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="62" selection-start="1428" selection-end="1428" vertical-scroll-proportion="0.0" vertical-offset="376" max-vertical-offset="1700">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1906,7 +1882,9 @@
     <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/diffFacts/TestReducer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="63" selection-start="1112" selection-end="1112" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1914,7 +1892,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="13" selection-start="316" selection-end="316" vertical-scroll-proportion="0.30694443" vertical-offset="0" max-vertical-offset="1326">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1922,7 +1900,9 @@
     <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/joins/SimpleJoinMapperInternalTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="13" selection-start="336" selection-end="336" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1054">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1938,9 +1918,7 @@
     <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/EntityIsAReducerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="36" selection-start="887" selection-end="887" vertical-scroll-proportion="0.0" vertical-offset="143" max-vertical-offset="1156">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1955,7 +1933,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/ExtractIsAToolTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="56" selection-start="526" selection-end="526" vertical-scroll-proportion="0.40138888" vertical-offset="0" max-vertical-offset="799">
+        <state line="25" column="50" selection-start="784" selection-end="784" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsATool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="49" selection-start="1877" selection-end="1877" vertical-scroll-proportion="0.0" vertical-offset="980" max-vertical-offset="1700">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="79" selection-start="975" selection-end="975" vertical-scroll-proportion="0.45694444" vertical-offset="62" max-vertical-offset="782">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
