@@ -39,7 +39,7 @@ public class ExtractIsATool implements Tool {
 
     @Override
     public int run(String[] strings) throws Exception {
-        ExtractIsAOptions options = extractOptions(strings);
+        ExtractIsAOptions options = extractOptions(Lists.newArrayList(strings));
         configureOutputCompression();
 
         List<String> nodes=Lists.newArrayList();
@@ -80,7 +80,7 @@ public class ExtractIsATool implements Tool {
         conf.set("mapred.map.output.compression.codec", "org.apache.hadoop.io.compress.GzipCodec");
     }
 
-    ExtractIsAOptions extractOptions(String[] strings) throws IllegalAccessException {
+    ExtractIsAOptions extractOptions(List<String> strings) throws IllegalAccessException {
         OptionParser parser=new OptionParser(ExtractIsAOptions.class);
         applicationContext.getAutowireCapableBeanFactory().autowireBean(parser);
 

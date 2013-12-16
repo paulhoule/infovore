@@ -26,7 +26,7 @@ public class ExtractIsAOptions implements HasOptions  {
     @Option(description="rdf prefix")
     public String prefix;
 
-    @Option(description="accepted types")
+    @Option(description="accepted types",contextualConverter=URIConverter.class)
     public List<String> type;
 
     public static class PathConverter implements ContextualConverter<String> {
