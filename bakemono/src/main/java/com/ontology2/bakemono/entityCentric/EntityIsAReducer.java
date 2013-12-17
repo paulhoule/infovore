@@ -32,7 +32,7 @@ public class EntityIsAReducer extends EntityMatchesRuleReducer<Text,Text> {
     protected boolean matches(Text subject, Iterable<Text> facts) {
         for(Text fact:facts) {
             PrimitiveTriple pt=codec.decode(fact.toString());
-            if (A.equals(pt.getPredicate()) && typeList.contains(pt.getObject()) )
+            if (/* A.equals(pt.getPredicate()) && */ typeList.contains(pt.getObject()) )
                 return true;
         }
         return false;
