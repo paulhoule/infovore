@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -190,8 +189,10 @@
       <file leaf-file-name="ExtractIsATool.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsATool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="62" selection-start="919" selection-end="919" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1717">
-              <folding />
+            <state line="68" column="24" selection-start="2367" selection-end="2367" vertical-scroll-proportion="0.0" vertical-offset="572" max-vertical-offset="1717">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -199,9 +200,20 @@
       <file leaf-file-name="EntityIsAReducer.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="90" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.39783978" vertical-offset="0" max-vertical-offset="1111">
+            <state line="36" column="100" selection-start="1638" selection-end="1638" vertical-scroll-proportion="0.5614679" vertical-offset="0" max-vertical-offset="1090">
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DiffFactReducer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/diffFacts/DiffFactReducer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="38" selection-start="1107" selection-end="1107" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+              <folding>
+                <element signature="imports" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -841,6 +853,44 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ontology2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diffFacts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -1455,7 +1505,15 @@
       <created>1387290444312</created>
       <updated>1387290444312</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="#92 another experiment that fixes the test,  it turned out we weren't using the rewindableValues after all&#10;">
+      <created>1387291763707</created>
+      <updated>1387291763707</updated>
+    </task>
+    <task id="LOCAL-00063" summary="#92 test-breaking experiment,  why is this function getting hung up?&#10;">
+      <created>1387293283495</created>
+      <updated>1387293283495</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1501,8 +1559,6 @@
       <TodoPanelSettings />
     </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="a little more e #87 -- bump centipede version to 98.7 and do some other small version bumps." />
-    <MESSAGE value="work toward #88 -- also jdk version bump up to 1.7 (supposedly AWS will accept this) and bring back the Codec class which disappeared between centipede 98.6 and 98.7" />
     <MESSAGE value="resolve #88" />
     <MESSAGE value="work on #82,  ready for integration testing" />
     <MESSAGE value="add logging instrumentation to find out why #82 isn't working" />
@@ -1526,7 +1582,9 @@
     <MESSAGE value="#92 change yet another conditional -- this change (and the last) breaks tests&#10;" />
     <MESSAGE value="#92 i don't think hadoop honors the contract for iterable and I am working on this assumption.  this fix passes the unit tests and I think it will work on the cluster&#10;" />
     <MESSAGE value="#92 another experiment that breaks the tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="#92 another experiment that breaks the tests" />
+    <MESSAGE value="#92 another experiment that fixes the test,  it turned out we weren't using the rewindableValues after all&#10;" />
+    <MESSAGE value="#92 test-breaking experiment,  why is this function getting hung up?&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="#92 test-breaking experiment,  why is this function getting hung up?&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1769,15 +1827,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/diffFacts/DiffFactReducer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="38" selection-start="1107" selection-end="1107" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetJoinMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="0" selection-start="657" selection-end="718" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
@@ -1874,13 +1923,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsATool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="62" selection-start="919" selection-end="919" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1717">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/EntityIsAReducerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="155" selection-start="1155" selection-end="1155" vertical-scroll-proportion="0.0" vertical-offset="148" max-vertical-offset="986">
@@ -1888,9 +1930,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/diffFacts/DiffFactReducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="38" selection-start="1107" selection-end="1107" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsATool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="24" selection-start="2367" selection-end="2367" vertical-scroll-proportion="0.0" vertical-offset="572" max-vertical-offset="1717">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="90" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.39783978" vertical-offset="0" max-vertical-offset="1111">
+        <state line="36" column="100" selection-start="1638" selection-end="1638" vertical-scroll-proportion="0.5614679" vertical-offset="0" max-vertical-offset="1090">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
