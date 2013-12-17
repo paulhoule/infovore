@@ -31,7 +31,7 @@ public class EntityIsAReducerTest {
     @Test
     public void itIsA() throws IOException, InterruptedException {
         List<Text> facts=Lists.newArrayList(
-            new Text("<http://rdf.basekb.com/ns/m.03m4lm6> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rdf.basekb.com/ns/skiing.ski_area> .")
+            new Text("<http://rdf.basekb.com/ns/m.03m4lm6>\t<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>\t<http://rdf.basekb.com/ns/skiing.ski_area>\t.")
             ,new Text("<http://rdf.basekb.com/ns/m.03m4lm6> <http://www.w3.org/2000/01/rdf-schema#label> \"Greek Peak\"@en .")
         );
 

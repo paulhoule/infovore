@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="#92 change yet another conditional -- this change (and the last) breaks tests&#10;">
+    <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/EntityIsAReducerTest.java" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/EntityIsAReducerTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -152,7 +152,7 @@
             <file leaf-file-name="DiffFactsTool.java" pinned="false" current="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/diffFacts/DiffFactsTool.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="78" column="42" selection-start="3098" selection-end="3098" vertical-scroll-proportion="0.7584369" vertical-offset="81" max-vertical-offset="1207">
+                  <state line="78" column="42" selection-start="3098" selection-end="3098" vertical-scroll-proportion="0.98160917" vertical-offset="81" max-vertical-offset="1207">
                     <folding />
                   </state>
                 </provider>
@@ -181,7 +181,7 @@
       <file leaf-file-name="EntityMatchesRuleReducer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="28" selection-start="1011" selection-end="1011" vertical-scroll-proportion="-5.5636363" vertical-offset="0" max-vertical-offset="493">
+            <state line="21" column="14" selection-start="918" selection-end="918" vertical-scroll-proportion="-4.9454546" vertical-offset="0" max-vertical-offset="493">
               <folding />
             </state>
           </provider>
@@ -199,7 +199,7 @@
       <file leaf-file-name="EntityIsAReducer.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="80" selection-start="1443" selection-end="1443" vertical-scroll-proportion="0.72469634" vertical-offset="41" max-vertical-offset="782">
+            <state line="34" column="86" selection-start="1454" selection-end="1454" vertical-scroll-proportion="0.713885" vertical-offset="69" max-vertical-offset="782">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -210,7 +210,7 @@
       <file leaf-file-name="EntityIsAReducerTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/EntityIsAReducerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="0" selection-start="2123" selection-end="2123" vertical-scroll-proportion="0.0" vertical-offset="258" max-vertical-offset="986">
+            <state line="33" column="155" selection-start="1155" selection-end="1155" vertical-scroll-proportion="0.0" vertical-offset="148" max-vertical-offset="986">
               <folding />
             </state>
           </provider>
@@ -253,7 +253,6 @@
         <option value="$PROJECT_DIR$/bakemono/pom.xml" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/EntityIsAReducerTest.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/IsAConfiguration.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/diffFacts/DiffFactsOptions.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityCentricMapper.java" />
@@ -262,6 +261,7 @@
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/ExtractIsAToolTest.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsATool.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/EntityIsAReducerTest.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java" />
       </list>
     </option>
@@ -277,10 +277,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2489" />
-    <option name="y" value="42" />
-    <option name="width" value="1343" />
-    <option name="height" value="1290" />
+    <option name="x" value="-2401" />
+    <option name="y" value="357" />
+    <option name="width" value="1278" />
+    <option name="height" value="990" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1447,12 +1447,16 @@
       <created>1387232127714</created>
       <updated>1387232127714</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="#92 i don't think hadoop honors the contract for iterable and I am working on this assumption.  this fix passes the unit tests and I think it will work on the cluster&#10;">
+      <created>1387242630270</created>
+      <updated>1387242630270</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2489" y="42" width="1343" height="1290" extended-state="0" />
-    <editor active="false" />
+    <frame x="-2401" y="357" width="1278" height="990" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1464,14 +1468,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26908752" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31868133" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31813" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23625255" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33986434" sideWeight="0.67634857" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35164836" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35736924" sideWeight="0.67634857" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16308041" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1493,7 +1497,6 @@
       <TodoPanelSettings />
     </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="resolve #85 resolve #86 change sieve3 rules to put literals in &quot;literals&quot; (less chinese encyclopedia) and put double dot predicates in &quot;dotdot&quot; so they can be easily lost." />
     <MESSAGE value="resolve #87 -- bump centipede version to 98.7" />
     <MESSAGE value="a little more e #87 -- bump centipede version to 98.7 and do some other small version bumps." />
     <MESSAGE value="work toward #88 -- also jdk version bump up to 1.7 (supposedly AWS will accept this) and bring back the Codec class which disappeared between centipede 98.6 and 98.7" />
@@ -1518,7 +1521,8 @@
     <MESSAGE value="#92 change conditional to eliminate possible failure modes" />
     <MESSAGE value="#92 change conditional to eliminate possible failure modes&#10;" />
     <MESSAGE value="#92 change yet another conditional -- this change (and the last) breaks tests&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="#92 change yet another conditional -- this change (and the last) breaks tests&#10;" />
+    <MESSAGE value="#92 i don't think hadoop honors the contract for iterable and I am working on this assumption.  this fix passes the unit tests and I think it will work on the cluster&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="#92 i don't think hadoop honors the contract for iterable and I am working on this assumption.  this fix passes the unit tests and I think it will work on the cluster&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1840,7 +1844,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="50" selection-start="784" selection-end="784" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1854,14 +1858,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/diffFacts/DiffFactsTool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="42" selection-start="3098" selection-end="3098" vertical-scroll-proportion="0.7584369" vertical-offset="81" max-vertical-offset="1207">
+        <state line="78" column="42" selection-start="3098" selection-end="3098" vertical-scroll-proportion="0.98160917" vertical-offset="81" max-vertical-offset="1207">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java">
+    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/EntityIsAReducerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="28" selection-start="1011" selection-end="1011" vertical-scroll-proportion="-5.5636363" vertical-offset="0" max-vertical-offset="493">
+        <state line="33" column="155" selection-start="1155" selection-end="1155" vertical-scroll-proportion="0.0" vertical-offset="148" max-vertical-offset="986">
           <folding />
         </state>
       </provider>
@@ -1873,16 +1877,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/EntityIsAReducerTest.java">
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="0" selection-start="2123" selection-end="2123" vertical-scroll-proportion="0.0" vertical-offset="258" max-vertical-offset="986">
+        <state line="21" column="14" selection-start="918" selection-end="918" vertical-scroll-proportion="-4.9454546" vertical-offset="0" max-vertical-offset="493">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="80" selection-start="1443" selection-end="1443" vertical-scroll-proportion="0.72469634" vertical-offset="41" max-vertical-offset="782">
+        <state line="34" column="86" selection-start="1454" selection-end="1454" vertical-scroll-proportion="0.713885" vertical-offset="69" max-vertical-offset="782">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

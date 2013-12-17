@@ -25,14 +25,14 @@ public class EntityIsAReducer extends EntityMatchesRuleReducer<Text,Text> {
         typeList= Sets.newHashSet(Splitter.on(",").split(that.get(TYPE_LIST)));
         log.info("Initializing type list");
         for(String type:typeList)
-            log.info("Accepting type: "+type);
+            log.info("Accepting type: ["+type+"]");
     }
 
     @Override
     protected boolean matches(Text subject, Iterable<Text> facts) {
         for(Text fact:facts) {
             PrimitiveTriple pt=codec.decode(fact.toString());
-            if (A.equals(pt.getPredicate()) && typeList.contains(pt.getObject()) )
+            if (A.equals(pt.getPredicate()) /* && typeList.contains(pt.getObject()) */ )
                 return true;
         }
         return false;
