@@ -34,7 +34,7 @@ public class EntityIsAReducer extends EntityMatchesRuleReducer<Text,Text> {
             PrimitiveTriple pt=codec.decode(fact.toString());
             if (/* A.equals(pt.getPredicate()) && */ typeList.contains(pt.getObject()) ) {
                 log.info("matched object, predicate=["+pt.getPredicate()+"]");
-                log.info("equals status for A operator and predicate: ["+A.equals(pt.getPredicate())+"]")
+                log.info("equals status for A operator and predicate: ["+A.equals(pt.getPredicate())+"]");
                 return true;
             }
         }

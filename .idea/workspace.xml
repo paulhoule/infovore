@@ -200,7 +200,7 @@
       <file leaf-file-name="EntityIsAReducer.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="100" selection-start="1638" selection-end="1638" vertical-scroll-proportion="0.5614679" vertical-offset="0" max-vertical-offset="1090">
+            <state line="36" column="106" selection-start="1644" selection-end="1644" vertical-scroll-proportion="0.5682451" vertical-offset="0" max-vertical-offset="1077">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1513,7 +1513,11 @@
       <created>1387293283495</created>
       <updated>1387293283495</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="#92 another experiment...  it seems like we're not matching the A predicate... is this true and why?&#10;">
+      <created>1387294810629</created>
+      <updated>1387294810629</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1559,7 +1563,6 @@
       <TodoPanelSettings />
     </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="resolve #88" />
     <MESSAGE value="work on #82,  ready for integration testing" />
     <MESSAGE value="add logging instrumentation to find out why #82 isn't working" />
     <MESSAGE value="add more logging instrumentation to find out why #82 isn't working" />
@@ -1584,7 +1587,8 @@
     <MESSAGE value="#92 another experiment that breaks the tests" />
     <MESSAGE value="#92 another experiment that fixes the test,  it turned out we weren't using the rewindableValues after all&#10;" />
     <MESSAGE value="#92 test-breaking experiment,  why is this function getting hung up?&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="#92 test-breaking experiment,  why is this function getting hung up?&#10;" />
+    <MESSAGE value="#92 another experiment...  it seems like we're not matching the A predicate... is this true and why?&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="#92 another experiment...  it seems like we're not matching the A predicate... is this true and why?&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1950,7 +1954,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="100" selection-start="1638" selection-end="1638" vertical-scroll-proportion="0.5614679" vertical-offset="0" max-vertical-offset="1090">
+        <state line="36" column="106" selection-start="1644" selection-end="1644" vertical-scroll-proportion="0.5682451" vertical-offset="0" max-vertical-offset="1077">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
