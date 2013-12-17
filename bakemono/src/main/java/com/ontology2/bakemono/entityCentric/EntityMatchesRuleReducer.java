@@ -20,7 +20,7 @@ abstract public class EntityMatchesRuleReducer<KEY,VALUE> extends Reducer<KEY,VA
         
         List<VALUE> rewindableValues= Lists.newArrayList(values);            
         if(matches(key,rewindableValues)) 
-            for(VALUE value:values)
+            for(VALUE value:rewindableValues)
                 context.write(null,value);
     }
 

@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/EntityIsAReducerTest.java" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/EntityIsAReducerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -181,7 +181,7 @@
       <file leaf-file-name="EntityMatchesRuleReducer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="14" selection-start="918" selection-end="918" vertical-scroll-proportion="-4.9454546" vertical-offset="0" max-vertical-offset="493">
+            <state line="28" column="44" selection-start="1118" selection-end="1118" vertical-scroll-proportion="-7.109091" vertical-offset="0" max-vertical-offset="493">
               <folding />
             </state>
           </provider>
@@ -199,7 +199,7 @@
       <file leaf-file-name="EntityIsAReducer.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="86" selection-start="1454" selection-end="1454" vertical-scroll-proportion="0.713885" vertical-offset="69" max-vertical-offset="782">
+            <state line="26" column="90" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.39783978" vertical-offset="0" max-vertical-offset="1111">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -210,7 +210,7 @@
       <file leaf-file-name="EntityIsAReducerTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/EntityIsAReducerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="155" selection-start="1155" selection-end="1155" vertical-scroll-proportion="0.0" vertical-offset="148" max-vertical-offset="986">
+            <state line="33" column="155" selection-start="1155" selection-end="1155" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="986">
               <folding />
             </state>
           </provider>
@@ -260,8 +260,8 @@
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsAOptions.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/ExtractIsAToolTest.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsATool.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/EntityIsAReducerTest.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java" />
       </list>
     </option>
@@ -277,10 +277,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2401" />
-    <option name="y" value="357" />
+    <option name="x" value="-2303" />
+    <option name="y" value="1" />
     <option name="width" value="1278" />
-    <option name="height" value="990" />
+    <option name="height" value="1388" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1451,11 +1451,15 @@
       <created>1387242630270</created>
       <updated>1387242630270</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="#92 another experiment that breaks the tests">
+      <created>1387290444312</created>
+      <updated>1387290444312</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2401" y="357" width="1278" height="990" extended-state="0" />
+    <frame x="-2303" y="1" width="1278" height="1388" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1475,7 +1479,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35736924" sideWeight="0.67634857" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16308041" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11241218" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1497,7 +1501,6 @@
       <TodoPanelSettings />
     </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="resolve #87 -- bump centipede version to 98.7" />
     <MESSAGE value="a little more e #87 -- bump centipede version to 98.7 and do some other small version bumps." />
     <MESSAGE value="work toward #88 -- also jdk version bump up to 1.7 (supposedly AWS will accept this) and bring back the Codec class which disappeared between centipede 98.6 and 98.7" />
     <MESSAGE value="resolve #88" />
@@ -1522,7 +1525,8 @@
     <MESSAGE value="#92 change conditional to eliminate possible failure modes&#10;" />
     <MESSAGE value="#92 change yet another conditional -- this change (and the last) breaks tests&#10;" />
     <MESSAGE value="#92 i don't think hadoop honors the contract for iterable and I am working on this assumption.  this fix passes the unit tests and I think it will work on the cluster&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="#92 i don't think hadoop honors the contract for iterable and I am working on this assumption.  this fix passes the unit tests and I think it will work on the cluster&#10;" />
+    <MESSAGE value="#92 another experiment that breaks the tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="#92 another experiment that breaks the tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1863,9 +1867,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/EntityIsAReducerTest.java">
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="155" selection-start="1155" selection-end="1155" vertical-scroll-proportion="0.0" vertical-offset="148" max-vertical-offset="986">
+        <state line="28" column="44" selection-start="1118" selection-end="1118" vertical-scroll-proportion="-7.109091" vertical-offset="0" max-vertical-offset="493">
           <folding />
         </state>
       </provider>
@@ -1877,16 +1881,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java">
+    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/EntityIsAReducerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="14" selection-start="918" selection-end="918" vertical-scroll-proportion="-4.9454546" vertical-offset="0" max-vertical-offset="493">
+        <state line="33" column="155" selection-start="1155" selection-end="1155" vertical-scroll-proportion="0.0" vertical-offset="148" max-vertical-offset="986">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="86" selection-start="1454" selection-end="1454" vertical-scroll-proportion="0.713885" vertical-offset="69" max-vertical-offset="782">
+        <state line="26" column="90" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.39783978" vertical-offset="0" max-vertical-offset="1111">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
