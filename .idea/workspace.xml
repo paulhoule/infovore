@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="#92 add missing semicolon&#10;">
+    <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -200,7 +200,7 @@
       <file leaf-file-name="EntityIsAReducer.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="42" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.41039926" vertical-offset="0" max-vertical-offset="1077">
+            <state line="34" column="84" selection-start="1452" selection-end="1452" vertical-scroll-proportion="0.53667593" vertical-offset="0" max-vertical-offset="1077">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1521,7 +1521,11 @@
       <created>1387294876563</created>
       <updated>1387294876563</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="#92 logging code says that A.equals(pt.getPredicate())...  Was there something uncontolled in environment in last run?">
+      <created>1387304134568</created>
+      <updated>1387304134568</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1567,7 +1571,6 @@
       <TodoPanelSettings />
     </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="add logging instrumentation to find out why #82 isn't working" />
     <MESSAGE value="add more logging instrumentation to find out why #82 isn't working" />
     <MESSAGE value="#82 worked better after I added the logging code which explictly iterates over the Iterable,  what if I use this loop to populate the set." />
     <MESSAGE value="#82 could it be that VIntWritable doesn't play well with hashtables?" />
@@ -1592,7 +1595,8 @@
     <MESSAGE value="#92 test-breaking experiment,  why is this function getting hung up?&#10;" />
     <MESSAGE value="#92 another experiment...  it seems like we're not matching the A predicate... is this true and why?&#10;" />
     <MESSAGE value="#92 add missing semicolon&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="#92 add missing semicolon&#10;" />
+    <MESSAGE value="#92 logging code says that A.equals(pt.getPredicate())...  Was there something uncontolled in environment in last run?" />
+    <option name="LAST_COMMIT_MESSAGE" value="#92 logging code says that A.equals(pt.getPredicate())...  Was there something uncontolled in environment in last run?" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1958,7 +1962,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="42" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.41039926" vertical-offset="0" max-vertical-offset="1077">
+        <state line="34" column="84" selection-start="1452" selection-end="1452" vertical-scroll-proportion="0.53667593" vertical-offset="0" max-vertical-offset="1077">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
