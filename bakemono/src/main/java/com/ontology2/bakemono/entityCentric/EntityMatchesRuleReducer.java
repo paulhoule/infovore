@@ -1,14 +1,25 @@
 package com.ontology2.bakemono.entityCentric;
 
+import com.google.common.collect.Lists;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.mapreduce.Reducer;
 
 import java.io.IOException;
+import java.util.List;
 
 abstract public class EntityMatchesRuleReducer<KEY,VALUE> extends Reducer<KEY,VALUE,NullWritable,VALUE> {
     @Override
     protected void reduce(KEY key,Iterable<VALUE> values,Context context) throws IOException, InterruptedException {
-//        if(matches(key,values))
+        
+        // I'm not trusting that Hadoop is honoring the contract for Iterable,  that is,
+        // I can't iterate on it twice safely.
+        //
+        // memory consumption and speed could get a factor of 2 by adapting this so that once match returns,
+        // it dumps the content of the List and streams the rest of the facts
+        //
+        
+        List<VALUE> rewindableValues= Lists.newArrayList(values);            
+        if(matches(key,rewindableValues)) 
             for(VALUE value:values)
                 context.write(null,value);
     }
