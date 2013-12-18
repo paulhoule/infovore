@@ -217,12 +217,24 @@
       </bean>
     </constructor-arg>
     </bean>
+
    <bean name="c1LargeX12AwsCluster largeAwsCluster" class="com.ontology2.haruhi.AmazonEMRCluster">
-    <constructor-arg>
+     <constructor-arg>
       <bean parent="rootInstancesDefinition">
         <property name="masterInstanceType" value="m1.large" />
         <property name="slaveInstanceType" value="c1.xlarge" />
-        <property name="instanceCount" value="13" /> <!-- 1 master + 12 slaves --> 
+        <property name="instanceCount" value="13" /> <!-- 1 master + 12 slaves -->
+       </bean>
+    </constructor-arg>
+  </bean>
+
+
+  <bean name="m1LargeX2AwsCluster" class="com.ontology2.haruhi.AmazonEMRCluster">
+    <constructor-arg>
+      <bean parent="rootInstancesDefinition">
+        <property name="masterInstanceType" value="m1.large" />
+        <property name="slaveInstanceType" value="m1.xlarge" />
+        <property name="instanceCount" value="3" /> <!-- 1 master + 2 slaves -->
       </bean>
     </constructor-arg>
   </bean>

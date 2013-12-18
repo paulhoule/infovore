@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java" />
+    <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="add new cluster type with increased memory">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml" afterPath="$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -197,13 +197,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EntityIsAReducer.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="EntityIsAReducer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="84" selection-start="1452" selection-end="1452" vertical-scroll-proportion="0.53667593" vertical-offset="0" max-vertical-offset="1077">
+            <state line="26" column="21" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="applicationContext.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="216" column="49" selection-start="9951" selection-end="9951" vertical-scroll-proportion="0.61904764" vertical-offset="3295" max-vertical-offset="4216">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -275,6 +284,7 @@
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/entityCentric/EntityIsAReducerTest.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java" />
+        <option value="$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml" />
       </list>
     </option>
   </component>
@@ -289,10 +299,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2303" />
-    <option name="y" value="1" />
+    <option name="x" value="284" />
+    <option name="y" value="139" />
     <option name="width" value="1278" />
-    <option name="height" value="1388" />
+    <option name="height" value="1088" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1525,11 +1535,15 @@
       <created>1387304134568</created>
       <updated>1387304134568</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="#92 remove logging code which could get triggered often in a real run;  hopefully the logging code isn't making this work...">
+      <created>1387305358162</created>
+      <updated>1387305358162</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2303" y="1" width="1278" height="1388" extended-state="0" />
+    <frame x="284" y="139" width="1278" height="1088" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1542,14 +1556,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26908752" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31813" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3180428" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23625255" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35736924" sideWeight="0.67634857" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11241218" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14678898" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1571,8 +1585,6 @@
       <TodoPanelSettings />
     </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="add more logging instrumentation to find out why #82 isn't working" />
-    <MESSAGE value="#82 worked better after I added the logging code which explictly iterates over the Iterable,  what if I use this loop to populate the set." />
     <MESSAGE value="#82 could it be that VIntWritable doesn't play well with hashtables?" />
     <MESSAGE value="#82 zap out logging code for real run" />
     <MESSAGE value="#82 rename rdfDiff tool;  also add log4j.properties to resolve #90" />
@@ -1596,7 +1608,9 @@
     <MESSAGE value="#92 another experiment...  it seems like we're not matching the A predicate... is this true and why?&#10;" />
     <MESSAGE value="#92 add missing semicolon&#10;" />
     <MESSAGE value="#92 logging code says that A.equals(pt.getPredicate())...  Was there something uncontolled in environment in last run?" />
-    <option name="LAST_COMMIT_MESSAGE" value="#92 logging code says that A.equals(pt.getPredicate())...  Was there something uncontolled in environment in last run?" />
+    <MESSAGE value="#92 remove logging code which could get triggered often in a real run;  hopefully the logging code isn't making this work..." />
+    <MESSAGE value="add new cluster type with increased memory" />
+    <option name="LAST_COMMIT_MESSAGE" value="add new cluster type with increased memory" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1606,13 +1620,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapred/RealMultipleOutputs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="330" column="0" selection-start="11771" selection-end="11771" vertical-scroll-proportion="0.0" vertical-offset="5610" max-vertical-offset="7293">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/haruhi/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="58" column="31" selection-start="1969" selection-end="1969" vertical-scroll-proportion="0.0" vertical-offset="468" max-vertical-offset="1921">
@@ -1921,13 +1928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/diffFacts/DiffFactsTool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="42" selection-start="3098" selection-end="3098" vertical-scroll-proportion="0.98160917" vertical-offset="81" max-vertical-offset="1207">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityMatchesRuleReducer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="44" selection-start="1118" selection-end="1118" vertical-scroll-proportion="-7.109091" vertical-offset="0" max-vertical-offset="493">
@@ -1960,12 +1960,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/diffFacts/DiffFactsTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="42" selection-start="3098" selection-end="3098" vertical-scroll-proportion="0.98160917" vertical-offset="81" max-vertical-offset="1207">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityIsAReducer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="84" selection-start="1452" selection-end="1452" vertical-scroll-proportion="0.53667593" vertical-offset="0" max-vertical-offset="1077">
+        <state line="26" column="21" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="216" column="49" selection-start="9951" selection-end="9951" vertical-scroll-proportion="0.61904764" vertical-offset="3295" max-vertical-offset="4216">
+          <folding />
         </state>
       </provider>
     </entry>
