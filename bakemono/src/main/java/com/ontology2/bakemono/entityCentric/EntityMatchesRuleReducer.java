@@ -23,16 +23,15 @@ abstract public class EntityMatchesRuleReducer<KEY,VALUE> extends Reducer<KEY,VA
         
         List<VALUE> rewindableValues= Lists.newArrayList();
         for(VALUE value:values) {
-            if (value.toString().contains("/m.01hpdw>")) {
-                log.info("Key: "+key+" has value ["+value+"]");
-            }
-            rewindableValues.add(value);
+            rewindableValues.add(copy(value));
         }
 
         if(matches(key,rewindableValues)) 
             for(VALUE value:rewindableValues)
                 context.write(null,value);
     }
+
+    protected abstract VALUE copy(VALUE value);
 
     protected abstract boolean matches(KEY key, Iterable<VALUE> values);
 }

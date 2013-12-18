@@ -31,6 +31,11 @@ public class EntityIsAReducer extends EntityMatchesRuleReducer<Text,Text> {
     }
 
     @Override
+    protected Text copy(Text text) {
+        return new Text(text);
+    }
+
+    @Override
     protected boolean matches(Text subject, Iterable<Text> facts) {
         for(Text fact:facts) {
             PrimitiveTriple pt=codec.decode(fact.toString());
