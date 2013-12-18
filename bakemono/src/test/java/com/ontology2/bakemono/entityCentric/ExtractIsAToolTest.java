@@ -38,4 +38,27 @@ public class ExtractIsAToolTest {
         assertEquals(1,options.type.size());
         assertEquals("http://rdf.basekb.com/ns/skiing.ski_area",options.type.get(0));
     }
+
+    @Test
+    public void parsesMultiplePathsCorrectly() throws IllegalAccessException {
+        List<String> arguments= Lists.newArrayList(
+                "-dir",
+                "s3n://basekb-now/2013-12-08-00-00/sieved",
+                "-input",
+                "a,label",
+                "-prefix",
+                "http://rdf.basekb.com/ns/",
+                "-type",
+                "skiing.ski_area",
+                "-output",
+                "s3n://basekb-sandbox/only-ski-tiny"
+        );
+
+        ExtractIsAOptions options=extractIsATool.extractOptions(arguments);
+        List<String> pathList=Lists.newArrayList(
+                "s3n://basekb-now/2013-12-08-00-00/sieved/a",
+                "s3n://basekb-now/2013-12-08-00-00/sieved/label"
+        );
+        assertEquals(pathList,options.input);
+    }
 }
