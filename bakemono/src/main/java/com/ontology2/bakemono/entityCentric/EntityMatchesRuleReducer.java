@@ -3,11 +3,14 @@ package com.ontology2.bakemono.entityCentric;
 import com.google.common.collect.Lists;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.util.List;
 
 abstract public class EntityMatchesRuleReducer<KEY,VALUE> extends Reducer<KEY,VALUE,NullWritable,VALUE> {
+    static Logger log= Logger.getLogger(EntityMatchesRuleReducer.class);
+
     @Override
     protected void reduce(KEY key,Iterable<VALUE> values,Context context) throws IOException, InterruptedException {
         
@@ -19,8 +22,12 @@ abstract public class EntityMatchesRuleReducer<KEY,VALUE> extends Reducer<KEY,VA
         //
         
         List<VALUE> rewindableValues= Lists.newArrayList();
-        for(VALUE value:values)
+        for(VALUE value:values) {
+            if (value.toString().contains("/m.01hpdw>")) {
+                log.info("Key: "+key+" has value ["+value+"]");
+            }
             rewindableValues.add(value);
+        }
 
         if(matches(key,rewindableValues)) 
             for(VALUE value:rewindableValues)
