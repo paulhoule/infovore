@@ -18,7 +18,10 @@ abstract public class EntityMatchesRuleReducer<KEY,VALUE> extends Reducer<KEY,VA
         // it dumps the content of the List and streams the rest of the facts
         //
         
-        List<VALUE> rewindableValues= Lists.newArrayList(values);            
+        List<VALUE> rewindableValues= Lists.newArrayList();
+        for(VALUE value:values)
+            rewindableValues.add(value);
+
         if(matches(key,rewindableValues)) 
             for(VALUE value:rewindableValues)
                 context.write(null,value);
