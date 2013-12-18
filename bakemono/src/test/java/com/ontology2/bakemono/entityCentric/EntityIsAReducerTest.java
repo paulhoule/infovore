@@ -19,7 +19,7 @@ public class EntityIsAReducerTest {
 
 
     @Before
-    public void setup() {
+    public void setup() throws IOException, InterruptedException {
         context=mock(Reducer.Context.class);
         configuration=mock(Configuration.class);
         when(configuration.get(EntityIsAReducer.TYPE_LIST)).thenReturn("<http://rdf.basekb.com/ns/skiing.ski_area>");

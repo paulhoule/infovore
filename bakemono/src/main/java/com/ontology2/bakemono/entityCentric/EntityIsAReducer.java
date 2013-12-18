@@ -8,6 +8,7 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.Text;
 import org.apache.log4j.Logger;
 
+import java.io.IOException;
 import java.util.Set;
 
 public class EntityIsAReducer extends EntityMatchesRuleReducer<Text,Text> {
@@ -20,7 +21,8 @@ public class EntityIsAReducer extends EntityMatchesRuleReducer<Text,Text> {
     static Logger log= Logger.getLogger(EntityIsAReducer.class);
 
     @Override
-    public void setup(Context context) {
+    public void setup(Context context) throws IOException, InterruptedException {
+        super.setup(context);
         Configuration that=context.getConfiguration();
         typeList= Sets.newHashSet(Splitter.on(",").split(that.get(TYPE_LIST)));
         log.info("Initializing type list");
