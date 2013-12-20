@@ -22,7 +22,7 @@
     <dependency>
        <groupId>com.ontology2</groupId>
        <artifactId>centipede</artifactId>
-       <version>98.7</version>
+       <version>98.9</version>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
@@ -56,7 +56,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
-      <version>3.2.4.RELEASE</version>
+      <version>3.2.6.RELEASE</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

@@ -1,8 +1,10 @@
 package com.ontology2.bakemono.diffFacts;
 
 import com.google.common.collect.Lists;
+import com.ontology2.bakemono.RecyclingIterable;
 import com.ontology2.bakemono.joins.TaggedTextItem;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.VIntWritable;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,9 +24,14 @@ public class TestReducer {
 
     @Test
     public void addAFact() throws IOException, InterruptedException {
+        RecyclingIterable<VIntWritable> iterable=new RecyclingIterable(
+                VIntWritable.class,
+                DiffFactReducer.TWO
+         );
+
         that.reduce(
             new TaggedTextItem("anderson",10)
-            , Lists.newArrayList(DiffFactReducer.TWO)
+            , iterable
             , context
         );
 
@@ -34,9 +41,14 @@ public class TestReducer {
 
     @Test
     public void subtractAFact() throws IOException, InterruptedException {
+        RecyclingIterable<VIntWritable> iterable=new RecyclingIterable(
+                VIntWritable.class,
+                DiffFactReducer.ONE
+        );
+
         that.reduce(
                 new TaggedTextItem("cooper",10)
-                , Lists.newArrayList(DiffFactReducer.ONE)
+                , iterable
                 , context
         );
 
@@ -46,6 +58,12 @@ public class TestReducer {
 
     @Test
     public void theMoreThingsStayTheSame() throws IOException, InterruptedException {
+        RecyclingIterable<VIntWritable> iterable=new RecyclingIterable(
+                VIntWritable.class,
+                DiffFactReducer.ONE,
+                DiffFactReducer.TWO
+        );
+
         that.reduce(
                 new TaggedTextItem("rather",10)
                 , Lists.newArrayList(DiffFactReducer.ONE,DiffFactReducer.TWO)
