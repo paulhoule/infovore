@@ -16,7 +16,9 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.PeekingIterator;
 import com.ontology2.centipede.shell.CentipedeShell;
 import com.ontology2.centipede.shell.CommandLineApplication;
+import org.springframework.stereotype.Component;
 
+@Component("job")
 public class JobApp extends CommandLineApplication {
     private static Log logger = LogFactory.getLog(JobApp.class);
     

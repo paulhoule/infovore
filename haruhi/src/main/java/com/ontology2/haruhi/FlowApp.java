@@ -12,7 +12,9 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.PeekingIterator;
 import com.ontology2.centipede.shell.CommandLineApplication;
 import com.ontology2.haruhi.flows.Flow;
+import org.springframework.stereotype.Component;
 
+@Component("flow")
 public class FlowApp extends CommandLineApplication {
     private static Log logger = LogFactory.getLog(FlowApp.class);
     @Autowired private ApplicationContext applicationContext;
