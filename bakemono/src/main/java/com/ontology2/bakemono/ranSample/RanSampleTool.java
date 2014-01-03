@@ -13,7 +13,7 @@ import org.apache.hadoop.util.Tool;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.PeekingIterator;
 import com.ontology2.bakemono.Main;
-import com.ontology2.bakemono.Main.IncorrectUsageException;
+import com.ontology2.bakemono.MainBase.IncorrectUsageException;
 import com.ontology2.bakemono.pse3.PSE3Tool;
 import com.ontology2.bakemono.sieve3.Sieve3Mapper;
 import com.ontology2.bakemono.sieve3.Sieve3Tool;

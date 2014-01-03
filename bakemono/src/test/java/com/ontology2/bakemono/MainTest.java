@@ -7,7 +7,7 @@ import org.apache.hadoop.mapred.lib.HashPartitioner;
 import org.apache.hadoop.mapred.lib.IdentityReducer;
 import org.junit.Test;
 
-import com.ontology2.bakemono.Main.IncorrectUsageException;
+import com.ontology2.bakemono.MainBase.IncorrectUsageException;
 
 public class MainTest {
 

@@ -20,7 +20,7 @@ import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.reasoner.rulesys.impl.TempNodeCache.NodePair;
 import com.ontology2.bakemono.Main;
-import com.ontology2.bakemono.Main.IncorrectUsageException;
+import com.ontology2.bakemono.MainBase.IncorrectUsageException;
 import com.ontology2.bakemono.jena.SPOTripleOutputFormat;
 import com.ontology2.bakemono.jena.STripleOutputFormat;
 import com.ontology2.bakemono.jena.TripleComparator;

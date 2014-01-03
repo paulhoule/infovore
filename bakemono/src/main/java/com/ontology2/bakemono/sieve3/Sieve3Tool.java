@@ -18,7 +18,7 @@ import com.google.common.base.Predicates;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.PeekingIterator;
 import com.ontology2.bakemono.Main;
-import com.ontology2.bakemono.Main.IncorrectUsageException;
+import com.ontology2.bakemono.MainBase.IncorrectUsageException;
 import com.ontology2.bakemono.abstractions.Spring;
 import com.ontology2.bakemono.configuration.Beans;
 import com.ontology2.bakemono.jena.SPOTripleOutputFormat;
