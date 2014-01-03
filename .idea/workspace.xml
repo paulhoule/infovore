@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Users\paul_000\Documents\GitHub\infovore\.idea\libraries\Maven__com_ontology2_centipede_98_9.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_ontology2_centipede_99_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/FlowApp.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/FlowApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/JobApp.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/JobApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/bakemono.iml" afterPath="$PROJECT_DIR$/bakemono/bakemono.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/haruhi.iml" afterPath="$PROJECT_DIR$/haruhi/haruhi.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/pom.xml" afterPath="$PROJECT_DIR$/bakemono/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/pom.xml" afterPath="$PROJECT_DIR$/haruhi/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -1171,7 +1164,11 @@
       <created>1387552957715</created>
       <updated>1387552957715</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="bump centipede version to 99.2">
+      <created>1388779466896</created>
+      <updated>1388779466896</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1188,6 +1185,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26908752" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2496" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23625255" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1199,7 +1197,6 @@
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891467" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2496" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13179572" sideWeight="0.67634857" order="2" side_tool="false" content_ui="combo" />
     </layout>
@@ -1217,7 +1214,6 @@
       <TodoPanelSettings />
     </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="#92 if we're lucky, ExtractIsATool might work&#10;" />
     <MESSAGE value="#92 use the right option parser" />
     <MESSAGE value="#92 use the right option parser (really)&#10;" />
     <MESSAGE value="#92 write unit test for mapper,  fix types,  make non-abstract,  things like that.&#10;" />
@@ -1242,7 +1238,8 @@
     <MESSAGE value="#92 -- copy the Text objects that we're storing because I'm pretty sure now we're getting hung up because Hadoop is reusing Writables so they are not safe to store in a collection" />
     <MESSAGE value="#92 -- correct name of m1XLargeX2AwsCluster and add m1XLargeX5AwsCluster&#10;" />
     <MESSAGE value="resolve #96 by introducing RecyclingIterable&lt;T&gt;;  also resolve #97 to bump spring and centipede versions&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve #96 by introducing RecyclingIterable&lt;T&gt;;  also resolve #97 to bump spring and centipede versions&#10;" />
+    <MESSAGE value="bump centipede version to 99.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="bump centipede version to 99.2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
