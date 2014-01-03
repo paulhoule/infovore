@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-        xsi:schemaLocation="
+       xsi:schemaLocation="
          http://www.springframework.org/schema/beans
          http://www.springframework.org/schema/beans/spring-beans.xsd
          http://www.springframework.org/schema/context
          http://www.springframework.org/schema/context/spring-context.xsd">
 
-<!--  1.0 Spring self-configuration -->
-<context:component-scan base-package="com.ontology2.bakemono"/>
+  <!--  1.0 Spring self-configuration -->
+  <context:component-scan base-package="com.ontology2.bakemono"/>
 
-<bean name="fs" class="org.apache.hadoop.fs.FsShell" />
+  <bean name="fs" class="org.apache.hadoop.fs.FsShell"/>
   <bean id="conversionService"
         class="org.springframework.context.support.ConversionServiceFactoryBean"/>
 </beans>
