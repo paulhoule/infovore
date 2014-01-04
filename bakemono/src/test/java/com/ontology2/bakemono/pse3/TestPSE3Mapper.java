@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.io.IOException;
 
+import org.apache.hadoop.mapreduce.Mapper;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,6 +28,7 @@ import com.ontology2.bakemono.pse3.PSE3Mapper;
 public class TestPSE3Mapper {
 
     PSE3Mapper pse3mapper;
+    Mapper.Context mockContext;
 
     @Before
     public void setup() {
@@ -34,6 +36,7 @@ public class TestPSE3Mapper {
         pse3mapper.mos=mock(RealMultipleOutputs.class);
         pse3mapper.accepted=mock(KeyValueAcceptor.class);
         pse3mapper.rejected=mock(KeyValueAcceptor.class);
+        mockContext=mock(Mapper.Context.class);
     }
 
     @Test
@@ -45,7 +48,6 @@ public class TestPSE3Mapper {
 
     @Test
     public void acceptsAGoodTriple() throws IOException, InterruptedException {
-        Context mockContext=mock(Context.class);
         pse3mapper.map(
                 new LongWritable(944L),
                 new Text("<http://example.com/A>\t<http://example.com/B>\t<http://example.com/C>."),
@@ -65,7 +67,6 @@ public class TestPSE3Mapper {
 
     @Test
     public void acceptsARealFreebaseTriple() throws IOException,InterruptedException {
-        Context mockContext=mock(Context.class);
         pse3mapper.map(
                 new LongWritable(944L),
                 new Text("<http://rdf.basekb.com/ns/m.06fm3lj>\t<http://rdf.basekb.com/ns/book.written_work.author>\t<http://rdf.basekb.com/ns/m.03qp7yf>."),
@@ -84,7 +85,6 @@ public class TestPSE3Mapper {
     
     @Test
     public void arnoldSchwarzeneggerIsAFilmActor() throws IOException, InterruptedException {
-        Context mockContext=mock(Context.class);
         pse3mapper.map(
                 new LongWritable(944L),
                 new Text("<http://rdf.basekb.com/ns/m.0tc7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>\t<http://rdf.basekb.com/ns/film.actor>."),
@@ -103,7 +103,6 @@ public class TestPSE3Mapper {
     
     @Test
     public void acceptsARealFreebaseTripleWithSpaces() throws IOException,InterruptedException {
-        Context mockContext=mock(Context.class);
         pse3mapper.map(
                 new LongWritable(944L),
                 new Text("<http://rdf.basekb.com/ns/m.06fm3lj> <http://rdf.basekb.com/ns/book.written_work.author> <http://rdf.basekb.com/ns/m.03qp7yf>."),
@@ -122,7 +121,6 @@ public class TestPSE3Mapper {
     
     @Test
     public void rejects$Escapes() throws IOException,InterruptedException {
-        Context mockContext=mock(Context.class);
         pse3mapper.map(
                 new LongWritable(944L),
                 new Text("<http://rdf.basekb.com/ns/m.0tc7> <http://rdf.basekb.com/ns/common.topic.topic_equivalent_webpage> <http://www.ranker.com/review/arnold-schwarzenegger$002F493404> ."),
@@ -148,7 +146,6 @@ public class TestPSE3Mapper {
 
     @Test
     public void rejectsABadTriple() throws IOException, InterruptedException {
-        Context mockContext=mock(Context.class);
         pse3mapper.map(
                 new LongWritable(24562L),
                 new Text("<http://example.com/A>\t<http://example.com/B>\t\"2001-06\"^^xsd:datetime."),
