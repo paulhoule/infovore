@@ -5,6 +5,7 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.ontology2.bakemono.configuration.HadoopTool;
 import com.ontology2.bakemono.diffFacts.DiffFactsOptions;
+import com.ontology2.bakemono.mapred.ToolBase;
 import com.ontology2.centipede.parser.OptionParser;
 import com.ontology2.centipede.shell.UsageException;
 import org.apache.hadoop.conf.Configuration;
@@ -23,20 +24,7 @@ import org.springframework.context.ApplicationContext;
 import java.util.List;
 
 @HadoopTool("extractIsA")
-public class ExtractIsATool implements Tool {
-    @Autowired
-    ApplicationContext applicationContext;
-    private Configuration conf;
-
-    @Override
-    public Configuration getConf() {
-        return this.conf;
-    }
-
-    @Override
-    public void setConf(Configuration arg0) {
-        this.conf=arg0;
-    }
+public class ExtractIsATool extends ToolBase {
 
     @Override
     public int run(String[] strings) throws Exception {
@@ -46,16 +34,12 @@ public class ExtractIsATool implements Tool {
         List<String> nodes=Lists.newArrayList();
         for(String link:options.type)
             nodes.add("<"+link+">");
-        conf.set(EntityIsAReducer.TYPE_LIST, Joiner.on(",").join(nodes));
+        getConf().set(EntityIsAReducer.TYPE_LIST, Joiner.on(",").join(nodes));
 
-        Job job=new Job(conf,"extractIsA");
+        Job job=new Job(getConf(),"extractIsA");
         job.setJarByClass(this.getClass());
         job.setMapperClass(EntityCentricMapper.class);
         job.setReducerClass(EntityIsAReducer.class);
-
-        if(options.reducerCount<1) {
-            options.reducerCount=1;
-        }
 
         job.setNumReduceTasks(options.reducerCount);
         job.setMapOutputKeyClass(Text.class);
@@ -75,12 +59,6 @@ public class ExtractIsATool implements Tool {
         return job.waitForCompletion(true) ? 0 : 1;
     }
 
-    void configureOutputCompression() {
-        conf.set("mapred.compress.map.output", "true");
-        conf.set("mapred.output.compression.type", "BLOCK");
-        conf.set("mapred.map.output.compression.codec", "org.apache.hadoop.io.compress.GzipCodec");
-    }
-
     ExtractIsAOptions extractOptions(List<String> strings) throws IllegalAccessException {
         OptionParser parser=new OptionParser(ExtractIsAOptions.class);
         applicationContext.getAutowireCapableBeanFactory().autowireBean(parser);
@@ -94,6 +72,10 @@ public class ExtractIsATool implements Tool {
 
         if (options.type.isEmpty())
             throw new UsageException("You did not specify a value for -type");
+
+        if(options.reducerCount<1) {
+            options.reducerCount=1;
+        }
         return options;
     }
 }

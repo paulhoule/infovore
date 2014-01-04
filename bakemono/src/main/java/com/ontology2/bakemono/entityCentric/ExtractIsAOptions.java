@@ -20,7 +20,7 @@ public class ExtractIsAOptions implements HasOptions  {
     @Option(description="input files",contextualConverter=PathConverter.class)
     public List<String> input;
 
-    @Option(description="output files",contextualConverter=PathConverter.class)
+    @Option(description="output file",contextualConverter=PathConverter.class)
     public String output;
 
     @Option(description="rdf prefix")

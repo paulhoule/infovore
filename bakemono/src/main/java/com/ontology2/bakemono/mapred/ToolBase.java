@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationContext;
 
 abstract public class ToolBase implements Tool {
     @Autowired
-    protected ApplicationContext context;
+    protected ApplicationContext applicationContext;
     private Configuration conf;
 
     @Override
@@ -18,5 +18,11 @@ abstract public class ToolBase implements Tool {
     @Override
     public Configuration getConf() {
         return conf;
+    }
+
+    protected void configureOutputCompression() {
+        conf.set("mapred.compress.map.output", "true");
+        conf.set("mapred.output.compression.type", "BLOCK");
+        conf.set("mapred.map.output.compression.codec", "org.apache.hadoop.io.compress.GzipCodec");
     }
 }
