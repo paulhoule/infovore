@@ -29,9 +29,8 @@ public class AssignmentStep extends FlowStep {
     
     /**
      * 
-     * Updates local variables with new computed values;  warning,  as of now,  you are not allowed
-     * to change the variables once they've been set since we don't support loops or any other
-     * structure that would need variables to change.
+     * Updates local variables with new computed values; you are not allowed to change a variable
+     * once it is set
      * 
      * @param local -- pre-existing local arguments;  this variable is not changed
      * @param flowArgs -- a list of flow arguments that defines positional variable

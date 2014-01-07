@@ -3,11 +3,13 @@ package com.ontology2.haruhi;
 import static com.ontology2.centipede.shell.ExitCodeException.EX_SOFTWARE;
 import static com.ontology2.centipede.shell.ExitCodeException.EX_UNAVAILABLE;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import com.google.common.base.Joiner;
+import com.ontology2.haruhi.flows.*;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +29,6 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.ontology2.centipede.shell.ExitCodeException;
-import com.ontology2.haruhi.flows.AssignmentStep;
-import com.ontology2.haruhi.flows.Flow;
-import com.ontology2.haruhi.flows.FlowStep;
-import com.ontology2.haruhi.flows.JobStep;
 
 public class AmazonEMRCluster implements Cluster {
     private static Log logger = LogFactory.getLog(AmazonEMRCluster.class);
@@ -138,11 +136,28 @@ public class AmazonEMRCluster implements Cluster {
         pollClusterForCompletion(result);
     }
 
-    List<StepConfig> createEmrSteps(Flow f, List<String> flowArgs,
+    List<StepConfig> createEmrSteps(
+            Flow f,
+            List<String> flowArgs,
             String jarLocation) {
         List<StepConfig> steps=Lists.newArrayList(debugStep);
-        Map<String,Object> local=Maps.newHashMap();
-        for(FlowStep that:f.generateSteps(flowArgs))
+        steps.addAll(createEmrSteps(
+                f.generateSteps(flowArgs),
+                flowArgs,
+                jarLocation,
+                new HashMap<String,Object>()
+        ));
+        return steps;
+    }
+    List<StepConfig> createEmrSteps(
+            List<FlowStep> innerSteps,
+            List<String> flowArgs,
+            String jarLocation,
+            Map<String,Object> upperScopeVariables
+    ) {
+        List<StepConfig> steps=Lists.newArrayList();
+        Map<String,Object> local=Maps.newHashMap(upperScopeVariables);
+        for(FlowStep that:innerSteps)
             if(that instanceof JobStep) {
                 JobStep j=(JobStep) that;
                 steps.add(new StepConfig(
@@ -153,7 +168,14 @@ public class AmazonEMRCluster implements Cluster {
             } else if(that instanceof AssignmentStep) {
                 AssignmentStep ass=(AssignmentStep) that;
                 local = ass.process(local, flowArgs);
-            } else {
+            } else if(that instanceof ForeachStep) {
+                ForeachStep step=(ForeachStep) that;
+                for(Object v:step.getValues()) {
+                    local.put(step.getLoopVar(),v);
+                    steps.addAll(createEmrSteps(step.getFlowSteps(),flowArgs,jarLocation,local));
+                }
+
+            } else{
                 throw new RuntimeException("Could not process step of type "+that.getClass());
             }
         return steps;

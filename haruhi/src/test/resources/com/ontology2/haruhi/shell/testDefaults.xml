@@ -24,13 +24,49 @@
         </list>
     </constructor-arg>
   </bean>
-    <bean name="assignmentStep2" class="com.ontology2.haruhi.flows.AssignmentStep">
+  <bean name="assignmentStep2" class="com.ontology2.haruhi.flows.AssignmentStep">
     <constructor-arg>
         <list>
             <!--  because arg2 is a string, we repeat the string local['justice'] times -->
             <bean class="com.ontology2.haruhi.flows.Assignment" c:assignTo="usagi" c:expression="pos[0]*local['justice']" />
             <bean class="com.ontology2.haruhi.flows.Assignment" c:assignTo="mamoru" c:expression="pos[1]+' '+local['endymion']" />
         </list>
+    </constructor-arg>
+  </bean>
+  <bean name="foreachStepFlow" class="com.ontology2.haruhi.flows.SpringFlow">
+    <constructor-arg>
+      <list>
+        <bean class="com.ontology2.haruhi.flows.ForeachStep">
+          <constructor-arg value="zed" />
+          <constructor-arg>
+            <list>
+              <value>2000</value>
+              <value>2001</value>
+              <value>2002</value>
+            </list>
+          </constructor-arg>
+          <constructor-arg>
+            <list>
+              <bean class="com.ontology2.haruhi.flows.JobStep">
+                <constructor-arg>
+                  <list>
+                    <value>'doItForYear'</value>
+                    <value>#zed</value>
+                  </list>
+                </constructor-arg>
+              </bean>
+              <bean class="com.ontology2.haruhi.flows.JobStep">
+                <constructor-arg>
+                  <list>
+                    <value>#$0</value>
+                    <value>#zed</value>
+                  </list>
+                </constructor-arg>
+              </bean>
+            </list>
+          </constructor-arg>
+        </bean>
+      </list>
     </constructor-arg>
   </bean>
 </beans>  

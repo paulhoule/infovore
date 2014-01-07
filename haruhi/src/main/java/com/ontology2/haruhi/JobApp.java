@@ -49,7 +49,7 @@ public class JobApp extends CommandLineApplication {
                 usage();
             };
         }
-        
+
         if(jar.getFirstArgumentIsNotAPath()) {
             if (a.hasNext()) {
                 String firstArgument=a.peek();

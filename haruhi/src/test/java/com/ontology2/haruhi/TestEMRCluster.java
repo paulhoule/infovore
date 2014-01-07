@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.ontology2.haruhi.flows.ForeachStep;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class TestEMRCluster {
     @Autowired AmazonEMRCluster tinyAwsCluster;
     @Autowired Flow basekbNowFlow;
     @Autowired private StepConfig debugStep;
+    @Autowired Flow foreachStepFlow;
 
     @Test
     public void testShortName() {
@@ -103,5 +105,23 @@ public class TestEMRCluster {
                             ,"/preprocessed/1942-12-07-00-00/")
                     ,that.getArgs());
         }
+    }
+
+    @Test
+    public void testForeachLoop() {
+        List<String> flowArgs=Lists.newArrayList("nellyF");
+        List<StepConfig> steps=tinyAwsCluster.createEmrSteps(
+                foreachStepFlow,
+                flowArgs,
+                null
+        );
+
+        assertEquals(7,steps.size());
+        assertEquals(Arrays.asList("doItForYear","2000"),steps.get(1).getHadoopJarStep().getArgs());
+        assertEquals(Arrays.asList("nellyF","2000"),steps.get(2).getHadoopJarStep().getArgs());
+        assertEquals(Arrays.asList("doItForYear","2001"),steps.get(3).getHadoopJarStep().getArgs());
+        assertEquals(Arrays.asList("nellyF","2001"),steps.get(4).getHadoopJarStep().getArgs());
+        assertEquals(Arrays.asList("doItForYear","2002"),steps.get(5).getHadoopJarStep().getArgs());
+        assertEquals(Arrays.asList("nellyF","2002"),steps.get(6).getHadoopJarStep().getArgs());
     }
 }
