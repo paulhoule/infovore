@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/newPersistentCluster/NewPersistentClusterApp.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/newPersistentCluster/NewPersistentClusterOptions.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/newPersistentCluster/NewPersistentClusterApp.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/newPersistentCluster/NewPersistentClusterApp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -102,7 +100,7 @@
       <file leaf-file-name="AmazonEMRCluster.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="37" selection-start="2673" selection-end="2673" vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="3094">
+            <state line="130" column="37" selection-start="5072" selection-end="5072" vertical-scroll-proportion="0.0" vertical-offset="1548" max-vertical-offset="3128">
               <folding />
             </state>
           </provider>
@@ -167,7 +165,7 @@
       <file leaf-file-name="NewPersistentClusterApp.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/newPersistentCluster/NewPersistentClusterApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="31" selection-start="1416" selection-end="1416" vertical-scroll-proportion="0.93793106" vertical-offset="0" max-vertical-offset="867">
+            <state line="32" column="26" selection-start="1411" selection-end="1411" vertical-scroll-proportion="0.67413795" vertical-offset="153" max-vertical-offset="867">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -278,8 +276,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2522" />
-    <option name="y" value="366" />
+    <option name="x" value="-2657" />
+    <option name="y" value="94" />
     <option name="width" value="1280" />
     <option name="height" value="1215" />
   </component>
@@ -1346,11 +1344,19 @@
       <created>1389823593178</created>
       <updated>1389823593179</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="#28 -- add a command to spin up a new cluster">
+      <created>1389825636022</created>
+      <updated>1389825636022</updated>
+    </task>
+    <task id="LOCAL-00091" summary="#28 -- don't error if we see cluster in WAITING status&#10;">
+      <created>1389826658580</created>
+      <updated>1389826658581</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2522" y="366" width="1280" height="1215" extended-state="0" />
+    <frame x="-2657" y="94" width="1280" height="1215" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1392,8 +1398,6 @@
       <TodoPanelSettings />
     </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="#92 another experiment...  it seems like we're not matching the A predicate... is this true and why?&#10;" />
-    <MESSAGE value="#92 add missing semicolon&#10;" />
     <MESSAGE value="#92 logging code says that A.equals(pt.getPredicate())...  Was there something uncontolled in environment in last run?" />
     <MESSAGE value="#92 remove logging code which could get triggered often in a real run;  hopefully the logging code isn't making this work..." />
     <MESSAGE value="add new cluster type with increased memory" />
@@ -1417,7 +1421,9 @@
     <MESSAGE value="use the OptionsParser as a getopt to support #28" />
     <MESSAGE value="include centipede shell to get conversion service configuration to support #28&#10;" />
     <MESSAGE value="#28 -- can't specify an array, must specify a list for positional options" />
-    <option name="LAST_COMMIT_MESSAGE" value="#28 -- can't specify an array, must specify a list for positional options" />
+    <MESSAGE value="#28 -- add a command to spin up a new cluster" />
+    <MESSAGE value="#28 -- don't error if we see cluster in WAITING status&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="#28 -- don't error if we see cluster in WAITING status&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1706,14 +1712,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="37" selection-start="2673" selection-end="2673" vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="3094">
+        <state line="130" column="37" selection-start="5072" selection-end="5072" vertical-scroll-proportion="0.0" vertical-offset="1548" max-vertical-offset="3128">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/newPersistentCluster/NewPersistentClusterApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="31" selection-start="1416" selection-end="1416" vertical-scroll-proportion="0.93793106" vertical-offset="0" max-vertical-offset="867">
+        <state line="32" column="26" selection-start="1411" selection-end="1411" vertical-scroll-proportion="0.67413795" vertical-offset="153" max-vertical-offset="867">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -30,7 +30,7 @@ public class NewPersistentClusterApp extends CommandLineApplication {
         }
 
         String name=((AmazonEMRCluster) cluster).createPersistentCluster("Persistent Cluster");
-        System.out.print(name);
+        System.out.println(name);
     }
 
     private NewPersistentClusterOptions extractOptions(String[] strings) throws IllegalAccessException {
