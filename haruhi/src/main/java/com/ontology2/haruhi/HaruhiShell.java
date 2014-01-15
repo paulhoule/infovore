@@ -13,6 +13,7 @@ public class HaruhiShell extends CentipedeShell {
         String $HOME=System.getProperty("user.home");
         
         List<String> that=Lists.newArrayList(
+                "com/ontology2/centipede/shell/applicationContext.xml",
                 "com/ontology2/haruhi/shell/applicationContext.xml"
         );
         
