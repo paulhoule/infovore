@@ -132,7 +132,9 @@ public class AmazonEMRCluster implements Cluster {
             logger.error("We never established communication with the cluster");
             throw ExitCodeException.create(EX_UNAVAILABLE);
         } else if(state=="COMPLETED") {
-            logger.info("AWS believes that "+jobFlowId+"successfully completed");
+            logger.info("AWS believes that "+jobFlowId+" successfully completed");
+        } else if(state=="WAITING") {
+            logger.info("The cluster at "+jobFlowId+" is waiting for job steps");
         } else if(state=="FAILED") {
             logger.error("AWS reports failure of "+jobFlowId+" ");
             throw ExitCodeException.create(EX_SOFTWARE);
