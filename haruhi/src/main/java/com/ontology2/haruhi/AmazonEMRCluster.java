@@ -45,6 +45,23 @@ public class AmazonEMRCluster implements Cluster {
         this.instances = instances;
     }
 
+    public String createPersistentCluster(String clusterName) throws Exception {
+        StepConfig[] steps = {
+                debugStep
+        };
+
+        instances.setKeepJobFlowAliveWhenNoSteps(true);
+        RunJobFlowRequest that=new RunJobFlowRequest()
+                .withName(clusterName)
+                .withSteps(steps)
+                .withLogUri(awsLogUri)
+                .withInstances(instances);
+
+        RunJobFlowResult result=emrClient.runJobFlow(that);
+        pollClusterForCompletion(result,Sets.union(doneStates,Sets.newHashSet("WAITING")));
+        return result.getJobFlowId();
+    };
+
     @Override
     public void runJob(MavenManagedJar defaultJar,List<String> jarArgs)
             throws Exception {
@@ -65,6 +82,10 @@ public class AmazonEMRCluster implements Cluster {
         pollClusterForCompletion(result);
     }
 
+    private void pollClusterForCompletion(RunJobFlowResult result) throws Exception {
+        pollClusterForCompletion(result,doneStates);
+    }
+
     String computeJobName(List<String> jarArgs) {
         String jobName = Joiner.on(" ").join(jarArgs);
         if (jobName.length()>255) {
@@ -73,8 +94,8 @@ public class AmazonEMRCluster implements Cluster {
         return jobName;
     }
 
-    private void pollClusterForCompletion(RunJobFlowResult result)
-            throws Exception, InterruptedException, ExitCodeException {
+    private void pollClusterForCompletion(RunJobFlowResult result,Set<String> completionStates)
+            throws Exception {
         String jobFlowId=result.getJobFlowId();
         logger.info("Created job flow in AWS with id "+jobFlowId);
         
@@ -98,7 +119,7 @@ public class AmazonEMRCluster implements Cluster {
             
             state=flows.get(0).getExecutionStatusDetail().getState().intern();
             
-            if(doneStates.contains(state)) {
+            if(completionStates.contains(state)) {
                 logger.info("Job flow "+jobFlowId+" ended in state "+state);
                 break;
             }
