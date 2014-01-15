@@ -5,6 +5,8 @@ import com.ontology2.centipede.parser.Option;
 import com.ontology2.centipede.parser.Positional;
 import com.ontology2.centipede.parser.Required;
 
+import java.util.List;
+
 public class JobAppOptions implements HasOptions {
     @Required
     @Option(description="Java Bean Name for cluster driver",defaultValue="")
@@ -18,5 +20,5 @@ public class JobAppOptions implements HasOptions {
     public String runningCluster;
 
     @Positional
-    public String[] remainingArguments;
+    public List<String> remainingArguments;
 }

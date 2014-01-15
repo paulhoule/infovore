@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobAppOptions.java" />
-      <change type="MOVED" beforePath="C:\Users\paul_000\Documents\GitHub\infovore\haruhi\src\main\java\com\ontology2\haruhi\JobApp.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/TestEMRCluster.java" afterPath="$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/TestEMRCluster.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/flows/TestFlowBeans.java" afterPath="$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/flows/TestFlowBeans.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/test/resources/com/ontology2/haruhi/shell/testDefaults.xml" afterPath="$PROJECT_DIR$/haruhi/src/test/resources/com/ontology2/haruhi/shell/testDefaults.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobApp.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobApp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobAppOptions.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobAppOptions.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -103,7 +100,7 @@
             <file leaf-file-name="JobApp.java" pinned="false" current="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobApp.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="56" column="16" selection-start="2295" selection-end="2295" vertical-scroll-proportion="0.5074766" vertical-offset="137" max-vertical-offset="1207">
+                  <state line="46" column="23" selection-start="1793" selection-end="1793" vertical-scroll-proportion="0.33271027" vertical-offset="154" max-vertical-offset="1224">
                     <folding />
                   </state>
                 </provider>
@@ -165,10 +162,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="HaruhiShell.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/HaruhiShell.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="71" selection-start="469" selection-end="469" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="646">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="JobAppOptions.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobAppOptions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="38" selection-start="652" selection-end="670" vertical-scroll-proportion="0.5537459" vertical-offset="0" max-vertical-offset="614">
+            <state line="22" column="23" selection-start="679" selection-end="679" vertical-scroll-proportion="0.47643313" vertical-offset="0" max-vertical-offset="785">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -267,6 +273,7 @@
         <option value="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java" />
         <option value="$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/TestEMRCluster.java" />
         <option value="$PROJECT_DIR$/haruhi/src/test/resources/com/ontology2/haruhi/shell/testDefaults.xml" />
+        <option value="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/HaruhiShell.java" />
         <option value="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobAppOptions.java" />
         <option value="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobApp.java" />
       </list>
@@ -283,8 +290,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2368" />
-    <option name="y" value="62" />
+    <option name="x" value="-2839" />
+    <option name="y" value="447" />
     <option name="width" value="1280" />
     <option name="height" value="1215" />
   </component>
@@ -1305,12 +1312,20 @@
       <created>1389126051326</created>
       <updated>1389126051326</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="use the OptionsParser as a getopt to support #28">
+      <created>1389822262194</created>
+      <updated>1389822262194</updated>
+    </task>
+    <task id="LOCAL-00088" summary="include centipede shell to get conversion service configuration to support #28&#10;">
+      <created>1389822500158</created>
+      <updated>1389822500158</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2368" y="62" width="1280" height="1215" extended-state="0" />
-    <editor active="true" />
+    <frame x="-2839" y="447" width="1280" height="1215" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1322,14 +1337,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26908752" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24909747" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24909747" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23625255" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3971519" sideWeight="0.67634857" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4034296" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3971519" sideWeight="0.67634857" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4034296" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1351,8 +1366,6 @@
       <TodoPanelSettings />
     </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="#92 another experiment that breaks the tests" />
-    <MESSAGE value="#92 another experiment that fixes the test,  it turned out we weren't using the rewindableValues after all&#10;" />
     <MESSAGE value="#92 test-breaking experiment,  why is this function getting hung up?&#10;" />
     <MESSAGE value="#92 another experiment...  it seems like we're not matching the A predicate... is this true and why?&#10;" />
     <MESSAGE value="#92 add missing semicolon&#10;" />
@@ -1376,7 +1389,9 @@
     <MESSAGE value="fix compilation problems by initializing mock context in @Before method" />
     <MESSAGE value="more work on ToolBase to support telepath work&#10;" />
     <MESSAGE value="resolve #104 with the caveat this this works,  for now,  only on an EMR cluster" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve #104 with the caveat this this works,  for now,  only on an EMR cluster" />
+    <MESSAGE value="use the OptionsParser as a getopt to support #28" />
+    <MESSAGE value="include centipede shell to get conversion service configuration to support #28&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="include centipede shell to get conversion service configuration to support #28&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1613,13 +1628,6 @@
         <state line="88" column="0" selection-start="3734" selection-end="4212" vertical-scroll-proportion="0.32704994" vertical-offset="1149" max-vertical-offset="2244" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="227" column="38" selection-start="10405" selection-end="10405" vertical-scroll-proportion="0.0" vertical-offset="3322" max-vertical-offset="4386">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/sieve3/Sieve3Tool.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="80" column="54" selection-start="3297" selection-end="3297" vertical-scroll-proportion="0.0" vertical-offset="1360" max-vertical-offset="2125">
@@ -1641,13 +1649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/HaruhiShell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="59" selection-start="601" selection-end="601" vertical-scroll-proportion="0.23567468" vertical-offset="0" max-vertical-offset="1082">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/MavenManagedJar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="88" column="19" selection-start="2322" selection-end="2322" vertical-scroll-proportion="0.0" vertical-offset="205" max-vertical-offset="1275">
@@ -1655,19 +1656,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobApp.java">
+    <entry file="file://$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="16" selection-start="2295" selection-end="2295" vertical-scroll-proportion="0.5074766" vertical-offset="137" max-vertical-offset="1207">
+        <state line="227" column="38" selection-start="10405" selection-end="10405" vertical-scroll-proportion="0.0" vertical-offset="3322" max-vertical-offset="4386">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/HaruhiShell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="71" selection-start="469" selection-end="469" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="646">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobAppOptions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="38" selection-start="652" selection-end="670" vertical-scroll-proportion="0.5537459" vertical-offset="0" max-vertical-offset="614">
+        <state line="22" column="23" selection-start="679" selection-end="679" vertical-scroll-proportion="0.47643313" vertical-offset="0" max-vertical-offset="785">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="23" selection-start="1793" selection-end="1793" vertical-scroll-proportion="0.33271027" vertical-offset="154" max-vertical-offset="1224">
+          <folding />
         </state>
       </provider>
     </entry>

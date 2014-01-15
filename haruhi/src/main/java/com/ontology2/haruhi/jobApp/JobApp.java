@@ -35,15 +35,16 @@ public class JobApp extends CommandLineApplication {
 
 
         if(jar.getFirstArgumentIsNotAPath()) {
-            if(options.remainingArguments.length<1)
+            if(options.remainingArguments.isEmpty())
                 usage();
 
-            String firstArgument=options.remainingArguments[0];
+            String firstArgument=options.remainingArguments.get(0);
+
             if (firstArgument.contains(":") || firstArgument.contains("/"))
                 usage();
         };
         List<String> jarArgs=jar.getHeadArguments();
-        Collections.addAll(jarArgs, options.remainingArguments);
+        jarArgs.addAll(options.remainingArguments);
         cluster.runJob(jar,jarArgs);
     }
 
