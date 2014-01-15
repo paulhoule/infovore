@@ -15,7 +15,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.ontology2.haruhi.JobApp;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"../shell/applicationContext.xml","../shell/testDefaults.xml"})

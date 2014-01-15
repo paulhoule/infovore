@@ -26,6 +26,7 @@ public class TestEMRCluster {
     @Autowired Flow basekbNowFlow;
     @Autowired private StepConfig debugStep;
     @Autowired Flow foreachStepFlow;
+    @Autowired Flow mostMonthsFlow;
 
     @Test
     public void testShortName() {
@@ -123,5 +124,17 @@ public class TestEMRCluster {
         assertEquals(Arrays.asList("nellyF","2001"),steps.get(4).getHadoopJarStep().getArgs());
         assertEquals(Arrays.asList("doItForYear","2002"),steps.get(5).getHadoopJarStep().getArgs());
         assertEquals(Arrays.asList("nellyF","2002"),steps.get(6).getHadoopJarStep().getArgs());
+    }
+
+    @Test
+    public void testMostMonthsFlow() {
+        List<String> flowArgs=Lists.newArrayList();
+        List<StepConfig> steps=tinyAwsCluster.createEmrSteps(
+                mostMonthsFlow,
+                flowArgs,
+                null
+        );
+
+        assertEquals(49,steps.size());
     }
 }

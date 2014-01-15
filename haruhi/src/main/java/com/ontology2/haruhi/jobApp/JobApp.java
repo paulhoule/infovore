@@ -1,20 +1,20 @@
-package com.ontology2.haruhi;
+package com.ontology2.haruhi.jobApp;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
+import com.google.common.collect.Lists;
+import com.ontology2.centipede.parser.OptionParser;
+import com.ontology2.haruhi.Cluster;
+import com.ontology2.haruhi.MavenManagedJar;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Iterators;
-import com.google.common.collect.Lists;
 import com.google.common.collect.PeekingIterator;
-import com.ontology2.centipede.shell.CentipedeShell;
 import com.ontology2.centipede.shell.CommandLineApplication;
 import org.springframework.stereotype.Component;
 
@@ -28,39 +28,33 @@ public class JobApp extends CommandLineApplication {
     
     @Override
     protected void _run(String[] arguments) throws Exception {
-        
-        PeekingIterator<String> a=Iterators.peekingIterator(Iterators.forArray(arguments));
-        if (!a.hasNext())
-            usage();
+        JobAppOptions options=extractOptions(arguments);
 
-        Cluster cluster=defaultCluster;
-        MavenManagedJar jar=defaultJar;
-        while(a.hasNext() && a.peek().startsWith("-")) {
-            String flagName=a.next().substring(1).intern();
-            if (!a.hasNext())
-                usage();
-            
-            String flagValue=a.next();
-            if (flagName=="clusterId") {
-                cluster=applicationContext.getBean(flagValue,Cluster.class);
-            } else if(flagName=="jarId") {
-                jar=applicationContext.getBean(flagValue,MavenManagedJar.class);
-            } else {
-                usage();
-            };
-        }
+        Cluster cluster=options.clusterId.isEmpty() ? defaultCluster : applicationContext.getBean(options.clusterId,Cluster.class);
+        MavenManagedJar jar=options.jarId.isEmpty() ? defaultJar : applicationContext.getBean(options.jarId,MavenManagedJar.class);
+
 
         if(jar.getFirstArgumentIsNotAPath()) {
-            if (a.hasNext()) {
-                String firstArgument=a.peek();
-                if (firstArgument.contains(":") || firstArgument.contains("/"))
-                    usage();
-            }
+            if(options.remainingArguments.length<1)
+                usage();
+
+            String firstArgument=options.remainingArguments[0];
+            if (firstArgument.contains(":") || firstArgument.contains("/"))
+                usage();
         };
         List<String> jarArgs=jar.getHeadArguments();
-        Iterators.addAll(jarArgs, a);
-        
+        Collections.addAll(jarArgs, options.remainingArguments);
         cluster.runJob(jar,jarArgs);
+    }
+
+    private JobAppOptions extractOptions(String[] strings) throws IllegalAccessException {
+        return extractOptions(Lists.newArrayList(strings));
+    }
+    private JobAppOptions extractOptions(ArrayList<String> strings) throws IllegalAccessException {
+        OptionParser parser=new OptionParser(JobAppOptions.class);
+        applicationContext.getAutowireCapableBeanFactory().autowireBean(parser);
+
+        return (JobAppOptions) parser.parse(strings);
     }
 
     private void usage() {

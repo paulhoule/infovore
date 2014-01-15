@@ -69,5 +69,59 @@
       </list>
     </constructor-arg>
   </bean>
+  <bean name="mostMonthsFlow" class="com.ontology2.haruhi.flows.SpringFlow">
+    <constructor-arg>
+      <list>
+        <bean class="com.ontology2.haruhi.flows.ForeachStep">
+          <constructor-arg value="year" />
+          <constructor-arg>
+            <list>
+              <value>2008</value>
+              <value>2009</value>
+              <value>2010</value>
+              <value>2011</value>
+            </list>
+          </constructor-arg>
+          <constructor-arg>
+            <bean class="com.ontology2.haruhi.flows.ForeachStep">
+              <constructor-arg value="month" />
+              <constructor-arg>
+                <list>
+                  <value>01</value>
+                  <value>02</value>
+                  <value>03</value>
+                  <value>04</value>
+                  <value>05</value>
+                  <value>06</value>
+                  <value>07</value>
+                  <value>08</value>
+                  <value>09</value>
+                  <value>10</value>
+                  <value>11</value>
+                  <value>12</value>
+                </list>
+              </constructor-arg>
+              <constructor-arg>
+                <bean class="com.ontology2.haruhi.flows.JobStep">
+                  <constructor-arg>
+                    <list>
+                      <value>'run'</value>
+                      <value>'project3D'</value>
+                      <value>'-R'</value>
+                      <value>'23'</value>
+                      <value>'-input'</value>
+                      <value>'s3n://wikimedia-pagecounts/'+#year+'/'+#year+'-'+#month</value>
+                      <value>'-output'</value>
+                      <value>'s3n://wikimedia-summary/monthly/'+#year+'-'+#month</value>
+                    </list>
+                  </constructor-arg>
+                </bean>
+              </constructor-arg>
+            </bean>
+          </constructor-arg>
+        </bean>
+      </list>
+    </constructor-arg>
+  </bean>
 </beans>  
      
