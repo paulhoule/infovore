@@ -2,6 +2,8 @@ package com.ontology2.haruhi;
 
 import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduce;
 import com.amazonaws.services.elasticmapreduce.model.*;
+import com.google.common.base.Predicate;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Sets;
 import com.ontology2.centipede.shell.ExitCodeException;
 import com.ontology2.haruhi.flows.Flow;
@@ -10,8 +12,11 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
+import static com.google.common.collect.Iterables.*;
 
 import static com.ontology2.centipede.shell.ExitCodeException.EX_SOFTWARE;
 import static com.ontology2.centipede.shell.ExitCodeException.EX_UNAVAILABLE;
@@ -31,15 +36,16 @@ public class PersistentCluster implements Cluster {
     public void runJob(MavenManagedJar defaultJar, List<String> jarArgs) throws Exception {
         String jarLocation=defaultJar.s3JarLocation(awsSoftwareBucket);
         count++;
+        String stepName = UUID.randomUUID().toString();
         StepConfig step =
-                new StepConfig("step "+count,new HadoopJarStepConfig(jarLocation).withArgs(jarArgs));
+                new StepConfig(stepName,new HadoopJarStepConfig(jarLocation).withArgs(jarArgs));
 
         emrClient.addJobFlowSteps(new AddJobFlowStepsRequest()
                 .withJobFlowId(runningCluster)
                 .withSteps(step));
 
         Thread.sleep(5000); // Enough time to transition out of WAITING?
-        pollClusterForCompletion(runningCluster,Sets.union(doneStates,Sets.newHashSet("WAITING")));
+        pollClusterForCompletion(runningCluster, stepName);
     }
 
     //
@@ -48,9 +54,11 @@ public class PersistentCluster implements Cluster {
 
     private final Set<String> doneStates= Sets.newHashSet("COMPLETED", "FAILED", "TERMINATED");
 
-    private void pollClusterForCompletion(String jobFlowId,Set<String> completionStates)
+    private void pollClusterForCompletion(String jobFlowId, final String stepName)
             throws Exception {
-        logger.info("Created job flow in AWS with id "+jobFlowId);
+        logger.info("Polling job flow in AWS with id "+jobFlowId);
+        StepExecutionStatusDetail stepStatus=null;
+        String stepState=null;
 
         //
         // make it synchronous with polling
@@ -70,14 +78,32 @@ public class PersistentCluster implements Cluster {
                 throw new Exception();
             }
 
-            state=flows.get(0).getExecutionStatusDetail().getState().intern();
+            JobFlowDetail flow=flows.get(0);
+            state=flow.getExecutionStatusDetail().getState().intern();
 
-            if(completionStates.contains(state)) {
+            if(doneStates.contains(state)) {
                 logger.info("Job flow "+jobFlowId+" ended in state "+state);
                 break;
             }
 
             logger.info("Job flow "+jobFlowId+" reported status "+state);
+            Iterable<StepDetail> steps=flow.getSteps();
+            StepDetail detail=getFirst(filter(steps, new Predicate<StepDetail>() {
+                @Override
+                public boolean apply(@Nullable StepDetail input) {
+                    return input.getStepConfig().getName().equals(stepName);
+                }
+            }),null);
+
+            if(detail==null) {
+                logger.info("Step [" + stepName + "] has yet to start");
+            } else {
+                stepStatus=detail.getExecutionStatusDetail();
+                stepState=stepStatus.getState().intern();
+                if (stepState!="PENDING" && stepState!="RUNNING") {
+                    break;
+                }
+            }
             Thread.sleep(checkInterval);
         }
 
@@ -88,6 +114,14 @@ public class PersistentCluster implements Cluster {
             logger.info("AWS believes that "+jobFlowId+" successfully completed");
         } else if(state=="WAITING") {
             logger.info("The cluster at "+jobFlowId+" is waiting for job steps");
+
+            if (stepState=="COMPLETED") {
+                logger.info("AWS believes that the step successfully completed");
+            } else {
+                logger.info("Step terminated in state "+stepState);
+                throw ExitCodeException.create(EX_SOFTWARE);
+            }
+
         } else if(state=="FAILED") {
             logger.error("AWS reports failure of "+jobFlowId+" ");
             throw ExitCodeException.create(EX_SOFTWARE);
