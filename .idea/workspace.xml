@@ -159,7 +159,7 @@
             <file leaf-file-name="PersistentCluster.java" pinned="false" current="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/PersistentCluster.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="121" column="60" selection-start="4825" selection-end="4825" vertical-scroll-proportion="0.8592535" vertical-offset="952" max-vertical-offset="2465">
+                  <state line="102" column="27" selection-start="3991" selection-end="3991" vertical-scroll-proportion="0.60808706" vertical-offset="952" max-vertical-offset="2482">
                     <folding>
                       <element signature="imports" expanded="true" />
                       <element signature="e#3478#3709#0" expanded="true" />
@@ -201,7 +201,7 @@
       <file leaf-file-name="MavenManagedJar.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/MavenManagedJar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="27" selection-start="1941" selection-end="1941" vertical-scroll-proportion="1.3896551" vertical-offset="44" max-vertical-offset="1275">
+            <state line="22" column="1" selection-start="507" selection-end="507" vertical-scroll-proportion="0.3637931" vertical-offset="44" max-vertical-offset="1275">
               <folding />
             </state>
           </provider>
@@ -362,8 +362,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2680" />
-    <option name="y" value="171" />
+    <option name="x" value="1045" />
+    <option name="y" value="531" />
     <option name="width" value="1024" />
     <option name="height" value="1215" />
   </component>
@@ -1496,11 +1496,15 @@
       <created>1389895241078</created>
       <updated>1389895241078</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="#28 --  implement poller for step state instead of job state">
+      <created>1389900499667</created>
+      <updated>1389900499667</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2680" y="171" width="1024" height="1215" extended-state="0" />
+    <frame x="1045" y="531" width="1024" height="1215" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1542,7 +1546,6 @@
       <TodoPanelSettings />
     </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="#92 -- call the super method for setup since we've tried everything else&#10;" />
     <MESSAGE value="#92 -- more logging code" />
     <MESSAGE value="#92 -- copy the Text objects that we're storing because I'm pretty sure now we're getting hung up because Hadoop is reusing Writables so they are not safe to store in a collection" />
     <MESSAGE value="#92 -- correct name of m1XLargeX2AwsCluster and add m1XLargeX5AwsCluster&#10;" />
@@ -1567,7 +1570,8 @@
     <MESSAGE value="#28 --  code to submit job to a PersistentCluster" />
     <MESSAGE value="#28 --  but I've got to wire up the EMR client and S3 information..." />
     <MESSAGE value="#28 --  check environment variable and hopefully delay long enough that we don't see the cluster in the initial WAITING state&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="#28 --  check environment variable and hopefully delay long enough that we don't see the cluster in the initial WAITING state&#10;" />
+    <MESSAGE value="#28 --  implement poller for step state instead of job state" />
+    <option name="LAST_COMMIT_MESSAGE" value="#28 --  implement poller for step state instead of job state" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1860,7 +1864,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/PersistentCluster.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="60" selection-start="4825" selection-end="4825" vertical-scroll-proportion="0.8592535" vertical-offset="952" max-vertical-offset="2465">
+        <state line="102" column="27" selection-start="3991" selection-end="3991" vertical-scroll-proportion="0.60808706" vertical-offset="952" max-vertical-offset="2482">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3478#3709#0" expanded="true" />
@@ -1871,7 +1875,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/MavenManagedJar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="27" selection-start="1941" selection-end="1941" vertical-scroll-proportion="1.3896551" vertical-offset="44" max-vertical-offset="1275">
+        <state line="22" column="1" selection-start="507" selection-end="507" vertical-scroll-proportion="0.3637931" vertical-offset="44" max-vertical-offset="1275">
           <folding />
         </state>
       </provider>

@@ -100,6 +100,7 @@ public class PersistentCluster implements Cluster {
             } else {
                 stepStatus=detail.getExecutionStatusDetail();
                 stepState=stepStatus.getState().intern();
+                stepStatus.
                 if (stepState!="PENDING" && stepState!="RUNNING") {
                     break;
                 }
