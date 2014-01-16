@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="#28 --  check environment variable for cluster id&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobApp.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/PersistentCluster.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/PersistentCluster.java" />
+    <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -1485,7 +1483,11 @@
       <created>1389894243854</created>
       <updated>1389894243854</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="#28 --  check environment variable and hopefully delay long enough that we don't see the cluster in the initial WAITING state&#10;">
+      <created>1389895214532</created>
+      <updated>1389895214532</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1531,7 +1533,6 @@
       <TodoPanelSettings />
     </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="#92 -- add a unit test that confirms we're correctly parsing the input paths" />
     <MESSAGE value="#92 -- call the super method for setup since we've tried everything else&#10;" />
     <MESSAGE value="#92 -- more logging code" />
     <MESSAGE value="#92 -- copy the Text objects that we're storing because I'm pretty sure now we're getting hung up because Hadoop is reusing Writables so they are not safe to store in a collection" />
@@ -1556,7 +1557,8 @@
     <MESSAGE value="#28 --  add terminate cluster command&#10;" />
     <MESSAGE value="#28 --  code to submit job to a PersistentCluster" />
     <MESSAGE value="#28 --  but I've got to wire up the EMR client and S3 information..." />
-    <option name="LAST_COMMIT_MESSAGE" value="#28 --  but I've got to wire up the EMR client and S3 information..." />
+    <MESSAGE value="#28 --  check environment variable and hopefully delay long enough that we don't see the cluster in the initial WAITING state&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="#28 --  check environment variable and hopefully delay long enough that we don't see the cluster in the initial WAITING state&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
