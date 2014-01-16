@@ -3,6 +3,7 @@ package com.ontology2.haruhi.jobApp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import com.google.common.collect.Lists;
 import com.ontology2.centipede.parser.OptionParser;
@@ -33,6 +34,13 @@ public class JobApp extends CommandLineApplication {
 
         Cluster cluster=options.clusterId.isEmpty() ? defaultCluster : applicationContext.getBean(options.clusterId,Cluster.class);
         MavenManagedJar jar=options.jarId.isEmpty() ? defaultJar : applicationContext.getBean(options.jarId,MavenManagedJar.class);
+
+        Map<String,String> env=System.getenv();
+
+        if(options.runningCluster.isEmpty() && env.containsKey("RUNNING_CLUSTER")) {
+            options.runningCluster=env.get("RUNNING_CLUSTER");
+            logger.info("Getting AWS Job Flow ID ["+options.runningCluster+"] from RUNNING_CLUSTER environment variable");
+        }
 
         if (!(options.runningCluster.isEmpty())) {
             cluster=new PersistentCluster(options.runningCluster);

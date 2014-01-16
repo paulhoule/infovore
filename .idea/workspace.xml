@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/PersistentCluster.java" />
+    <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="#28 --  check environment variable for cluster id&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobApp.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobAppOptions.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobAppOptions.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/PersistentCluster.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/PersistentCluster.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -89,6 +88,66 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/MavenManagedJar.java" line="79" class="com.ontology2.haruhi.MavenManagedJar" package="com.ontology2.haruhi">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/MavenManagedJar.java" line="82" class="com.ontology2.haruhi.MavenManagedJar" package="com.ontology2.haruhi">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/MavenManagedJar.java" line="83" class="com.ontology2.haruhi.MavenManagedJar" package="com.ontology2.haruhi">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/MavenManagedJar.java" line="81" class="com.ontology2.haruhi.MavenManagedJar" package="com.ontology2.haruhi">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
     </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
@@ -101,7 +160,7 @@
             <file leaf-file-name="PersistentCluster.java" pinned="false" current="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/PersistentCluster.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="29" column="54" selection-start="1118" selection-end="1118" vertical-scroll-proportion="0.4556377" vertical-offset="0" max-vertical-offset="1870">
+                  <state line="40" column="72" selection-start="1631" selection-end="1631" vertical-scroll-proportion="0.07465008" vertical-offset="584" max-vertical-offset="1887">
                     <folding>
                       <element signature="imports" expanded="true" />
                     </folding>
@@ -132,7 +191,16 @@
       <file leaf-file-name="JobApp.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="64" selection-start="1584" selection-end="1584" vertical-scroll-proportion="0.32132426" vertical-offset="44" max-vertical-offset="1275">
+            <state line="42" column="122" selection-start="1807" selection-end="1807" vertical-scroll-proportion="0.3972736" vertical-offset="0" max-vertical-offset="1411">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MavenManagedJar.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/MavenManagedJar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="73" column="27" selection-start="1941" selection-end="1941" vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="1275">
               <folding />
             </state>
           </provider>
@@ -150,7 +218,7 @@
       <file leaf-file-name="HaruhiShell.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/HaruhiShell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="71" selection-start="469" selection-end="469" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="714">
+            <state line="31" column="41" selection-start="902" selection-end="902" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
               <folding />
             </state>
           </provider>
@@ -274,8 +342,8 @@
         <option value="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/killPersistentCluster/KillPersistentClusterOptions.java" />
         <option value="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java" />
         <option value="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/killPersistentCluster/KillPersistentCluster.java" />
-        <option value="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/PersistentCluster.java" />
         <option value="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobAppOptions.java" />
+        <option value="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/PersistentCluster.java" />
         <option value="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobApp.java" />
       </list>
     </option>
@@ -292,7 +360,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="2560" />
-    <option name="y" value="25" />
+    <option name="y" value="11" />
     <option name="width" value="1024" />
     <option name="height" value="1215" />
   </component>
@@ -1409,11 +1477,19 @@
       <created>1389890498675</created>
       <updated>1389890498675</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="#28 --  code to submit job to a PersistentCluster">
+      <created>1389892515367</created>
+      <updated>1389892515367</updated>
+    </task>
+    <task id="LOCAL-00095" summary="#28 --  but I've got to wire up the EMR client and S3 information...">
+      <created>1389894243854</created>
+      <updated>1389894243854</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2560" y="25" width="1024" height="1215" extended-state="0" />
+    <frame x="2560" y="11" width="1024" height="1215" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1455,8 +1531,6 @@
       <TodoPanelSettings />
     </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="add new cluster type with increased memory" />
-    <MESSAGE value="#92 -- don't use guava's factory function for building lists from iterables because the one for sets seemed to cause trouble in the past" />
     <MESSAGE value="#92 -- add a unit test that confirms we're correctly parsing the input paths" />
     <MESSAGE value="#92 -- call the super method for setup since we've tried everything else&#10;" />
     <MESSAGE value="#92 -- more logging code" />
@@ -1480,7 +1554,9 @@
     <MESSAGE value="#28 -- don't error if we see cluster in WAITING status&#10;" />
     <MESSAGE value="#28 -- print() -&gt; println()&#10;" />
     <MESSAGE value="#28 --  add terminate cluster command&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="#28 --  add terminate cluster command&#10;" />
+    <MESSAGE value="#28 --  code to submit job to a PersistentCluster" />
+    <MESSAGE value="#28 --  but I've got to wire up the EMR client and S3 information..." />
+    <option name="LAST_COMMIT_MESSAGE" value="#28 --  but I've got to wire up the EMR client and S3 information..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1700,27 +1776,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/MavenManagedJar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="19" selection-start="2322" selection-end="2322" vertical-scroll-proportion="0.8411215" vertical-offset="205" max-vertical-offset="1275">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/HaruhiShell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="71" selection-start="469" selection-end="469" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="646">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="222" column="25" selection-start="10136" selection-end="10136" vertical-scroll-proportion="0.0" vertical-offset="2761" max-vertical-offset="4386">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/killPersistentCluster/KillPersistentClusterOptions.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="37" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
@@ -1739,12 +1794,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/PersistentCluster.java">
+    <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/MavenManagedJar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="54" selection-start="1118" selection-end="1118" vertical-scroll-proportion="0.4556377" vertical-offset="0" max-vertical-offset="1870">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="73" column="27" selection-start="1941" selection-end="1941" vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="1275">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="222" column="25" selection-start="10136" selection-end="10136" vertical-scroll-proportion="0.0" vertical-offset="2761" max-vertical-offset="4386">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/newPersistentCluster/NewPersistentClusterOptions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="353" selection-end="381" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobAppOptions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="50" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1764,23 +1838,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/newPersistentCluster/NewPersistentClusterOptions.java">
+    <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/HaruhiShell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="353" selection-end="381" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+        <state line="31" column="41" selection-start="902" selection-end="902" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobAppOptions.java">
+    <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/PersistentCluster.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="50" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
-          <folding />
+        <state line="40" column="72" selection-start="1631" selection-end="1631" vertical-scroll-proportion="0.07465008" vertical-offset="584" max-vertical-offset="1887">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="64" selection-start="1584" selection-end="1584" vertical-scroll-proportion="0.32132426" vertical-offset="44" max-vertical-offset="1275">
+        <state line="42" column="122" selection-start="1807" selection-end="1807" vertical-scroll-proportion="0.3972736" vertical-offset="0" max-vertical-offset="1411">
           <folding />
         </state>
       </provider>

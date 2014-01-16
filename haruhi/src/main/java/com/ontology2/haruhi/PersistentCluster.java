@@ -38,6 +38,7 @@ public class PersistentCluster implements Cluster {
                 .withJobFlowId(runningCluster)
                 .withSteps(step));
 
+        Thread.sleep(5000); // Enough time to transition out of WAITING?
         pollClusterForCompletion(runningCluster,Sets.union(doneStates,Sets.newHashSet("WAITING")));
     }
 
