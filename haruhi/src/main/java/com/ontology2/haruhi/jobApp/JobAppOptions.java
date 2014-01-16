@@ -8,7 +8,6 @@ import com.ontology2.centipede.parser.Required;
 import java.util.List;
 
 public class JobAppOptions implements HasOptions {
-    @Required
     @Option(description="Java Bean Name for cluster driver",defaultValue="")
     public String clusterId;
 
@@ -16,7 +15,7 @@ public class JobAppOptions implements HasOptions {
     @Option(description="Java Bean Name for JAR coordinates",defaultValue="")
     public String jarId;
 
-    @Option(description="Identifier for running cluster")
+    @Option(description="Identifier for running cluster",defaultValue="")
     public String runningCluster;
 
     @Positional

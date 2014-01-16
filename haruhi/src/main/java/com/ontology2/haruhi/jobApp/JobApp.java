@@ -8,6 +8,7 @@ import com.google.common.collect.Lists;
 import com.ontology2.centipede.parser.OptionParser;
 import com.ontology2.haruhi.Cluster;
 import com.ontology2.haruhi.MavenManagedJar;
+import com.ontology2.haruhi.PersistentCluster;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,9 @@ public class JobApp extends CommandLineApplication {
         Cluster cluster=options.clusterId.isEmpty() ? defaultCluster : applicationContext.getBean(options.clusterId,Cluster.class);
         MavenManagedJar jar=options.jarId.isEmpty() ? defaultJar : applicationContext.getBean(options.jarId,MavenManagedJar.class);
 
+        if (!(options.runningCluster.isEmpty())) {
+            cluster=new PersistentCluster(options.runningCluster);
+        }
 
         if(jar.getFirstArgumentIsNotAPath()) {
             if(options.remainingArguments.isEmpty())
