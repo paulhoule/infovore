@@ -19,8 +19,8 @@ import static com.ontology2.centipede.shell.ExitCodeException.EX_UNAVAILABLE;
 public class PersistentCluster implements Cluster {
     private static Log logger = LogFactory.getLog(PersistentCluster.class);
     final String runningCluster;
-    @Autowired private String awsSoftwareBucket;
-    @Autowired private AmazonElasticMapReduce emrClient;
+    @Autowired String awsSoftwareBucket;
+    @Autowired AmazonElasticMapReduce emrClient;
     int count=0;
 
     public PersistentCluster(String runningCluster) {

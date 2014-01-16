@@ -36,6 +36,7 @@ public class JobApp extends CommandLineApplication {
 
         if (!(options.runningCluster.isEmpty())) {
             cluster=new PersistentCluster(options.runningCluster);
+            applicationContext.getAutowireCapableBeanFactory().autowireBean(cluster);
         }
 
         if(jar.getFirstArgumentIsNotAPath()) {
