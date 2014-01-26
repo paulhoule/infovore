@@ -12,11 +12,11 @@ mvn clean install
 Installing
 ----------
 
-The following cantrip initializes the bash shell for the use of the
-"haruhi" program,  which can be used to run Infovore applications
+The following cantrip, run from the top level "infovore" directory, initializes the bash shell
+for the use of the "haruhi" program,  which can be used to run Infovore applications
 packaged in the Bakemono Jar.
 
-source haruhi/path.sh
+source haruhi/target/path.sh
 
 More Information
 ----------------
