@@ -20,6 +20,12 @@ abstract public class ToolBase implements Tool {
         return conf;
     }
 
+    //
+    // This code has followed us around like a puppy,  but recently I'm not sure if it actually works...
+    //
+    // I think the real issue is that this works for the old "mapred" API but not for the new "mapreduce" API
+    //
+
     protected void configureOutputCompression() {
         conf.set("mapred.compress.map.output", "true");
         conf.set("mapred.output.compression.type", "BLOCK");
