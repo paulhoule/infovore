@@ -16,7 +16,7 @@ public class FetchTriplesWithMatchingObjectsMapper extends GeneralTextJoinMapper
     private static final PrimitiveTripleCodec ptc=new PrimitiveTripleCodec();
 
     @Override
-    Map.Entry<Text, Text> splitValue(Writable value, VIntWritable tag) {
+    public Map.Entry<Text, Text> splitValue(Writable value, VIntWritable tag) {
         switch(tag.get()) {
             case 1:
                 return Maps.immutableEntry((Text) value, EMPTY);

@@ -23,6 +23,8 @@ public abstract class GeneralJoinMapper<K extends WritableComparable,V extends W
     static final Splitter commaSplitter= Splitter.on(",");
 
     Map<String,VIntWritable> mapping;
+    // overshared for testing
+    public VIntWritable currentTag;
 
     //
     // We pass in the organization of the join as
@@ -39,6 +41,9 @@ public abstract class GeneralJoinMapper<K extends WritableComparable,V extends W
     protected void setup(Context context) throws IOException, InterruptedException {
         Configuration that=context.getConfiguration();
         mapping=getPathMapping(that);
+        FileSplit split=(FileSplit) context.getInputSplit();
+        String thePath=split.getPath().toString();
+        currentTag = determineTag(mapping,thePath);
     }
 
     static Map<String,VIntWritable> getPathMapping(Configuration that) {
@@ -61,12 +66,10 @@ public abstract class GeneralJoinMapper<K extends WritableComparable,V extends W
     }
 
     @Override
-    protected void map(LongWritable key, Writable value, Context context) throws IOException, InterruptedException {
-        FileSplit split=(FileSplit) context.getInputSplit();
-        String thePath=split.getPath().toString();
-        VIntWritable currentTag = determineTag(mapping,thePath);
-
+    public void map(LongWritable key, Writable value, Context context) throws IOException, InterruptedException {
         Map.Entry<K,V> entry=splitValue(value,currentTag);
+        if(entry==null)
+            return;
 
         context.write(
                 newTaggedKey(entry.getKey(),currentTag)
@@ -83,7 +86,7 @@ public abstract class GeneralJoinMapper<K extends WritableComparable,V extends W
         return currentTag;
     }
 
-    abstract Map.Entry<K,V> splitValue(Writable value,VIntWritable tag);
-    abstract TaggedItem<K> newTaggedKey(K key,VIntWritable tag);
-    abstract TaggedItem<V> newTaggedValue(V value,VIntWritable tag);
+    abstract public Map.Entry<K,V> splitValue(Writable value,VIntWritable tag);
+    abstract protected TaggedItem<K> newTaggedKey(K key,VIntWritable tag);
+    abstract protected TaggedItem<V> newTaggedValue(V value,VIntWritable tag);
 }
