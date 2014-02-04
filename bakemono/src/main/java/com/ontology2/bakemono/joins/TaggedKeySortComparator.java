@@ -20,6 +20,7 @@ public class TaggedKeySortComparator<T extends WritableComparable> extends Writa
     public int compare(WritableComparable a,WritableComparable b) {
         TaggedItem<T> left=(TaggedItem<T>) a;
         TaggedItem<T> right=(TaggedItem<T>) b;
-        return left.getTag().compareTo(right.getTag());
+        int result=left.getKey().compareTo(right.getKey());
+        return result == 0 ? left.getTag().compareTo(right.getTag()) : result;
     }
 }
