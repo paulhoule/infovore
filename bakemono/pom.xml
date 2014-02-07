@@ -22,7 +22,7 @@
     <dependency>
        <groupId>com.ontology2</groupId>
        <artifactId>centipede</artifactId>
-       <version>99.4-SNAPSHOT</version>
+       <version>99.4</version>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>

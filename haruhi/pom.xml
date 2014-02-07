@@ -22,7 +22,7 @@
     <dependency>
       <groupId>com.ontology2</groupId>
       <artifactId>centipede</artifactId>
-      <version>99.4-SNAPSHOT</version>
+      <version>99.4</version>
       <exclusions>
         <exclusion>
             <groupId>org.apache.httpcomponents</groupId>
@@ -47,6 +47,11 @@
       <artifactId>spring-test</artifactId>
       <version>4.0.0.RELEASE</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-expression</artifactId>
+      <version>4.0.0.RELEASE</version>
     </dependency>
     <dependency>
       <groupId>com.amazonaws</groupId>
