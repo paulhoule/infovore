@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/bloom/BloomMathTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/bloom/BloomReducerTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/mapreduce/TestMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/mapreduce/TestOptions.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/mapreduce/TestReducer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/mapreduce/TestSelfAwareTool.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/mapreduce/TestTool.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/bloom/BloomMath.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/bloom/BloomReducer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapreduce/InputPath.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapreduce/SelfAwareTool.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapreduce/ShadowedParameterizedType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapreduce/SingleJobTool.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapreduce/StoreAs.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapreduce/TypeDetective.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/util/Utilities.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -161,7 +163,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bakemono/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="25" selection-start="363" selection-end="375" vertical-scroll-proportion="0.11643836" vertical-offset="0" max-vertical-offset="1853">
+            <state line="9" column="77" selection-start="468" selection-end="468" vertical-scroll-proportion="0.17465754" vertical-offset="0" max-vertical-offset="1853">
               <folding />
             </state>
           </provider>
@@ -260,7 +262,7 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1336" />
+    <option name="x" value="1069" />
     <option name="width" value="1218" />
     <option name="height" value="1400" />
   </component>
@@ -1451,11 +1453,15 @@
       <created>1391737845600</created>
       <updated>1391737845600</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="bring in the bloom filter and SelfAwareTool paraphrenalia into bakemono from telepath&#10;">
+      <created>1392650401304</created>
+      <updated>1392650401304</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1336" y="0" width="1218" height="1400" extended-state="0" />
+    <frame x="1069" y="0" width="1218" height="1400" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1497,7 +1503,6 @@
       <TodoPanelSettings />
     </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="resolve #100 -- remove old dependency&#10;" />
     <MESSAGE value="create base class for Main to make it easy to extend Main&#10;" />
     <MESSAGE value="retab" />
     <MESSAGE value="resolve #101 -- move RecyclingIterable into main package to expose it to other projects" />
@@ -1522,7 +1527,8 @@
     <MESSAGE value="changes to TaggedKey and related objects to support planned join in telepath project&#10;" />
     <MESSAGE value="make the TaggedKeySortComparator include both primary and secondary sort&#10;" />
     <MESSAGE value="sync up with centipede-99.4 PROPER&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="sync up with centipede-99.4 PROPER&#10;" />
+    <MESSAGE value="bring in the bloom filter and SelfAwareTool paraphrenalia into bakemono from telepath&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="bring in the bloom filter and SelfAwareTool paraphrenalia into bakemono from telepath&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1807,7 +1813,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="25" selection-start="363" selection-end="375" vertical-scroll-proportion="0.11643836" vertical-offset="0" max-vertical-offset="1853">
+        <state line="9" column="77" selection-start="468" selection-end="468" vertical-scroll-proportion="0.17465754" vertical-offset="0" max-vertical-offset="1853">
           <folding />
         </state>
       </provider>
