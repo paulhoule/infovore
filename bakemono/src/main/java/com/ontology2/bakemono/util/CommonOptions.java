@@ -1,0 +1,35 @@
+package com.ontology2.bakemono.util;
+
+import com.ontology2.centipede.parser.ContextualConverter;
+import com.ontology2.centipede.parser.HasOptions;
+import com.ontology2.centipede.parser.Option;
+import org.apache.hadoop.fs.Path;
+
+import java.util.List;
+
+public class CommonOptions implements HasOptions {
+    @Option(description="input and output file default directory")
+    public String dir;
+
+    @Option(description="input paths",contextualConverter=Converter.class)
+    public List<String> input;
+
+    @Option(description="output path",contextualConverter=Converter.class)
+    public String output;
+
+    public static class Converter implements ContextualConverter<String> {
+        public String convert(String value, HasOptions that) {
+            String defaultDir=getDefaultDir((CommonOptions) that);
+
+            if(defaultDir.isEmpty())
+                return value;
+
+            Path there=new Path(defaultDir,value);
+            return there.toString();
+        }
+
+        public String getDefaultDir(CommonOptions that) {
+            return that.dir;
+        }
+    }
+}
