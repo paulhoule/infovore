@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/dbpediaToBaseKB/DBpediaToBaseKBMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/dbpediaToBaseKB/DBpediaToBaseKBMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/util/StatelessIdFunctions.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/util/StatelessIdFunctions.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/dbpediaToBaseKB/TestMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/dbpediaToBaseKB/TestMapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -112,7 +109,7 @@
       <file leaf-file-name="TestMapper.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/dbpediaToBaseKB/TestMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="68" selection-start="762" selection-end="762" vertical-scroll-proportion="0.68839103" vertical-offset="155" max-vertical-offset="646">
+            <state line="29" column="68" selection-start="762" selection-end="762" vertical-scroll-proportion="0.71914893" vertical-offset="155" max-vertical-offset="646">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -268,8 +265,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="945" />
+    <option name="y" value="7" />
     <option name="width" value="978" />
-    <option name="height" value="1040" />
+    <option name="height" value="1013" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1549,11 +1547,15 @@
       <created>1393543840548</created>
       <updated>1393543840548</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="escaping rule to create DBpedia identifiers that is close to correct">
+      <created>1393602860353</created>
+      <updated>1393602860353</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="945" y="0" width="978" height="1040" extended-state="0" />
+    <frame x="945" y="7" width="978" height="1013" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1573,7 +1575,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20478171" sideWeight="0.67634857" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3969795" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.406181" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1595,7 +1597,6 @@
       <TodoPanelSettings />
     </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="resolve #101 -- move RecyclingIterable into main package to expose it to other projects" />
     <MESSAGE value="resolve #102 -- create base class for Tool(s)" />
     <MESSAGE value="fix compilation problems by initializing mock context in @Before method" />
     <MESSAGE value="more work on ToolBase to support telepath work&#10;" />
@@ -1620,7 +1621,8 @@
     <MESSAGE value="bring in the bloom filter and SelfAwareTool paraphrenalia into bakemono from telepath&#10;" />
     <MESSAGE value="oops...  add files missing from last checkin" />
     <MESSAGE value="work on Freebase to dbpedia mapping,  checked in StatelessIdFunctions from the old 1.0 branch,  currently a unit test is commented out because the mapping function is giving an IRI mapping rather than to what DBpedia usually uses." />
-    <option name="LAST_COMMIT_MESSAGE" value="work on Freebase to dbpedia mapping,  checked in StatelessIdFunctions from the old 1.0 branch,  currently a unit test is commented out because the mapping function is giving an IRI mapping rather than to what DBpedia usually uses." />
+    <MESSAGE value="escaping rule to create DBpedia identifiers that is close to correct" />
+    <option name="LAST_COMMIT_MESSAGE" value="escaping rule to create DBpedia identifiers that is close to correct" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1910,7 +1912,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/dbpediaToBaseKB/TestMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="68" selection-start="762" selection-end="762" vertical-scroll-proportion="0.68839103" vertical-offset="155" max-vertical-offset="646">
+        <state line="29" column="68" selection-start="762" selection-end="762" vertical-scroll-proportion="0.71914893" vertical-offset="155" max-vertical-offset="646">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
