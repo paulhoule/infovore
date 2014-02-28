@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/dbpediaToBaseKB/DBpediaToBaseKBReducer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/dbpediaToBaseKB/TestMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/dbpediaToBaseKB/TestMapperStatics.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/dbpediaToBaseKB/DBpediaToBaseKBMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/dbpediaToBaseKB/DBpediaToBaseKBMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapreduce/SelfAwareTool.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapreduce/SelfAwareTool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/dbpediaToBaseKB/TestMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/dbpediaToBaseKB/TestMapper.java" />
+    <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="checkin of dbpediaToBaseKB tool for integration test&#10;">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/dbpediaToBaseKB/TestMapperStatics.java" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/dbpediaToBaseKB/TestMapperStatics.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -108,10 +104,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DBpediaToBaseKBTool.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DBpediaToBaseKBTool.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/dbpediaToBaseKB/DBpediaToBaseKBTool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="19" selection-start="308" selection-end="308" vertical-scroll-proportion="0.13885647" vertical-offset="0" max-vertical-offset="857">
+            <state line="9" column="19" selection-start="308" selection-end="308" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
               <folding />
             </state>
           </provider>
@@ -126,13 +122,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestMapperStatics.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="TestMapperStatics.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/dbpediaToBaseKB/TestMapperStatics.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="30" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="2" column="12" selection-start="61" selection-end="61" vertical-scroll-proportion="0.03967328" vertical-offset="0" max-vertical-offset="857">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -269,11 +263,11 @@
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/dbpediaToBaseKB/Mapper.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/dbpediaToBaseKB/DBpediaToBaseKBTool.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/util/StatelessIdFunctions.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/dbpediaToBaseKB/TestMapperStatics.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapreduce/SelfAwareTool.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/dbpediaToBaseKB/DBpediaToBaseKBMapper.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/dbpediaToBaseKB/TestMapper.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/dbpediaToBaseKB/DBpediaToBaseKBReducer.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/dbpediaToBaseKB/TestMapperStatics.java" />
       </list>
     </option>
   </component>
@@ -1437,7 +1431,11 @@
       <created>1393609233604</created>
       <updated>1393609233604</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="checkin of dbpediaToBaseKB tool for integration test&#10;">
+      <created>1393623033152</created>
+      <updated>1393623033152</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1483,7 +1481,6 @@
       <TodoPanelSettings />
     </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="more work on ToolBase to support telepath work&#10;" />
     <MESSAGE value="resolve #104 with the caveat this this works,  for now,  only on an EMR cluster" />
     <MESSAGE value="use the OptionsParser as a getopt to support #28" />
     <MESSAGE value="include centipede shell to get conversion service configuration to support #28&#10;" />
@@ -1508,7 +1505,8 @@
     <MESSAGE value="escaping rule to create DBpedia identifiers that is close to correct" />
     <MESSAGE value="escaping rule to create DBpedia identifiers that is close to correct&#10;" />
     <MESSAGE value="set character escaping rules to match actual Dbpedia behavior (may be identifical to what we had before, but this is probably faster)&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="set character escaping rules to match actual Dbpedia behavior (may be identifical to what we had before, but this is probably faster)&#10;" />
+    <MESSAGE value="checkin of dbpediaToBaseKB tool for integration test&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="checkin of dbpediaToBaseKB tool for integration test&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1768,15 +1766,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/dbpediaToBaseKB/TestMapperStatics.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="30" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/mapreduce/TestSelfAwareTool.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="69" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="2006">
@@ -1818,7 +1807,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/dbpediaToBaseKB/DBpediaToBaseKBTool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="19" selection-start="308" selection-end="308" vertical-scroll-proportion="0.13885647" vertical-offset="0" max-vertical-offset="857">
+        <state line="9" column="19" selection-start="308" selection-end="308" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/dbpediaToBaseKB/TestMapperStatics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="12" selection-start="61" selection-end="61" vertical-scroll-proportion="0.03967328" vertical-offset="0" max-vertical-offset="857">
           <folding />
         </state>
       </provider>

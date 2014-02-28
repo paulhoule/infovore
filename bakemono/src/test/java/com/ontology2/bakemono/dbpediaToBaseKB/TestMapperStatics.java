@@ -1,6 +1,6 @@
 package com.ontology2.bakemono.dbpediaToBaseKB;
 
-import org.testng.annotations.Test;
+import org.junit.Test;
 import static com.ontology2.bakemono.dbpediaToBaseKB.DBpediaToBaseKBMapper.mapKey;
 import static junit.framework.TestCase.assertEquals;
 
