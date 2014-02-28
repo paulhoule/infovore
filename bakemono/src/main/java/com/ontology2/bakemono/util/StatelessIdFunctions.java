@@ -3,6 +3,7 @@ package com.ontology2.bakemono.util;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 
+import com.google.common.base.CharMatcher;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import com.hp.hpl.jena.graph.Node;
@@ -223,25 +224,16 @@ public class StatelessIdFunctions {
     }
 
     public static class DBpediaEscaper extends IRIEscaper {
+        // I looked at all the characters that actually appear in DBpedia 3.9 keys and removed the
+        // % escape character.  Note that this seems to be the same as what acceptChar() accepts above
+        // in the range 0..127,  which is of course what it should be
+
+        final String observedCharacters="!$&'()*+,-.0123456789:;=@ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~";
+        final CharMatcher cm=CharMatcher.anyOf(observedCharacters);
+
         protected boolean acceptChar(char[] chars,int cp) {
             if(chars.length==1) {
-                char c=chars[0];
-                if(cp>47 && cp<58)   // digit
-                    return true;
-
-                if(cp>64 && cp<91)  // uppercase letter
-                    return true;
-
-                if(cp>96 && cp<123) // lowercase letter
-                    return true;
-
-                if(c=='-' || c=='.' || c=='_' || c=='~')
-                    return true;
-
-                if(c=='!' || c=='$' || c=='&' || c=='\'' || c=='(' || c==')'
-                        || c=='*' || c=='+' || c==',' || c==';' || c=='='
-                        || c== ':' || c=='@')
-                    return true;
+                return cm.matches(chars[0]);
             }
 
             return false;
