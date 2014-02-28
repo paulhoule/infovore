@@ -38,7 +38,7 @@ public class DBpediaToBaseKBMapper extends Mapper<LongWritable,Text,Text,Text> {
     // DBpedia style
     //
     public static String mapKey(String wikiKey) {
-        return iriEscape(unescapeKey(wikiKey));
+        return dbpediaEscape(unescapeKey(wikiKey));
     }
 
 }

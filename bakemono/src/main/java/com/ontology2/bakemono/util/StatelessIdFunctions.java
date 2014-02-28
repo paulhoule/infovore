@@ -98,6 +98,10 @@ public class StatelessIdFunctions {
         return new IRIEscaper().escape(key);
     }
 
+    public static String dbpediaEscape(String key) {
+        return new DBpediaEscaper().escape(key);
+    }
+
     public static class IRIEscaper {
         StringBuffer out;
 
@@ -145,7 +149,7 @@ public class StatelessIdFunctions {
         // http://www.apps.ietf.org/rfc/rfc3987.html
         //
 
-        private boolean acceptChar(char[] chars,int cp) {
+        protected boolean acceptChar(char[] chars,int cp) {
             if(chars.length==1) {
                 char c=chars[0];
                 if(Character.isLetterOrDigit(c))
@@ -218,6 +222,31 @@ public class StatelessIdFunctions {
         }
     }
 
+    public static class DBpediaEscaper extends IRIEscaper {
+        protected boolean acceptChar(char[] chars,int cp) {
+            if(chars.length==1) {
+                char c=chars[0];
+                if(cp>47 && cp<58)   // digit
+                    return true;
+
+                if(cp>64 && cp<91)  // uppercase letter
+                    return true;
+
+                if(cp>96 && cp<123) // lowercase letter
+                    return true;
+
+                if(c=='-' || c=='.' || c=='_' || c=='~')
+                    return true;
+
+                if(c=='!' || c=='$' || c=='&' || c=='\'' || c=='(' || c==')'
+                        || c=='*' || c=='+' || c==',' || c==';' || c=='='
+                        || c== ':' || c=='@')
+                    return true;
+            }
+
+            return false;
+        }
+    }
 
     public static String unescapeKey(String key) {
         return new Unescaper().unescape(key);
