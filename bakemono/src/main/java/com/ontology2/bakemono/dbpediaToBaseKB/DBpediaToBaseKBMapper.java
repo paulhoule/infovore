@@ -17,26 +17,25 @@ public class DBpediaToBaseKBMapper extends Mapper<LongWritable,Text,Text,Text> {
         super.setup(context);
     }
 
-    //
-    // XXX -- mapper doesn't really work just yet!
-    //
-
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         PrimitiveTriple pt=codec.decode(value.toString());
         if(pt.getPredicate().equals("<http://rdf.basekb.com/ns/type.object.key>")) {
             String fbKey=pt.getObject();
-            if(fbKey.startsWith("/wikipedia/en/")) {
-                String wikiKey=fbKey.substring("/wikipedia/en".length());
-                String dbpediaURI="http://dbpedia.org/resource/"+mapKey(wikiKey);
+            if (fbKey.startsWith("\"") || fbKey.endsWith("\"")) {
+                fbKey=fbKey.substring(1,fbKey.length()-1);
+                if(fbKey.startsWith("/wikipedia/en/")) {
+                    String wikiKey=fbKey.substring("/wikipedia/en/".length());
+                    String dbpediaURI="http://dbpedia.org/resource/"+mapKey(wikiKey);
+                    context.write(
+                            new Text("<"+dbpediaURI+">"),
+                            new Text("<http://www.w3.org/2002/07/owl#sameAs>\t"+pt.getSubject()+"\t.")
+                    );
+                }
             }
         }
     }
 
-    //
-    // the purpose of this function is to take a key encoded in Freebase style and re-encode it
-    // DBpedia style
-    //
     public static String mapKey(String wikiKey) {
         return dbpediaEscape(unescapeKey(wikiKey));
     }

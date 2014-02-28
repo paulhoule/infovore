@@ -63,7 +63,7 @@ public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> imp
     @Override
     protected Class<? extends Mapper> getMapperClass()  {
         String thisClass=getClass().getName();
-        if(thisClass.endsWith("DBpediaToBaseKBTool")) {
+        if(thisClass.endsWith("Tool")) {
             thisClass=thisClass.substring(0,thisClass.length()-4);
         }
 
@@ -78,7 +78,7 @@ public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> imp
     @Override
     protected Class<? extends Reducer> getReducerClass()  {
         String thisClass=getClass().getName();
-        if(thisClass.endsWith("DBpediaToBaseKBTool")) {
+        if(thisClass.endsWith("Tool")) {
             thisClass=thisClass.substring(0,thisClass.length()-4);
         }
 
