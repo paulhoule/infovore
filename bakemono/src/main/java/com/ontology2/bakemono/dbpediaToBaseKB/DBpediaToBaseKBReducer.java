@@ -10,6 +10,5 @@ public class DBpediaToBaseKBReducer extends Reducer<Text,Text,Text,Text> {
     protected void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         for(Text value:values)
             context.write(key,value);
-        }
     }
 }
