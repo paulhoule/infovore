@@ -1,5 +1,6 @@
 package com.ontology2.bakemono.util;
 
+import com.ontology2.bakemono.mapreduce.InputPath;
 import com.ontology2.centipede.parser.ContextualConverter;
 import com.ontology2.centipede.parser.HasOptions;
 import com.ontology2.centipede.parser.Option;
@@ -12,6 +13,7 @@ public class CommonOptions implements HasOptions {
     public String dir;
 
     @Option(description="input paths",contextualConverter=Converter.class)
+    @InputPath(16)
     public List<String> input;
 
     @Option(description="output path",contextualConverter=Converter.class)
