@@ -12,7 +12,7 @@ public class RewriteSubjectReducer extends Reducer<TaggedTextItem,TaggedTextItem
     PrimitiveTripleCodec ptc=new PrimitiveTripleCodec();
 
     @Override
-    protected void reduce(TaggedTextItem key, Iterable<TaggedTextItem> values, Context context) throws IOException, InterruptedException {
+    public void reduce(TaggedTextItem key, Iterable<TaggedTextItem> values, Context context) throws IOException, InterruptedException {
         String newSubject=null;
         for(TaggedTextItem value:values) {
             int tag=value.getTag().get();
