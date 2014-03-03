@@ -205,7 +205,7 @@ public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> imp
     }
 
     @Override
-    protected Class<? extends InputFormat> getInputFormatClass() {
+    public Class<? extends InputFormat> getInputFormatClass() {
         Class inKey=getMapInputKeyClass();
         Class inValue=getMapInputValueClass();
         if ( inValue==Text.class) {
@@ -220,7 +220,7 @@ public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> imp
     }
 
     @Override
-    protected Class<? extends OutputFormat> getOutputFormatClass() {
+    public Class<? extends OutputFormat> getOutputFormatClass() {
         Class outKey=getOutputKeyClass();
         Class outValue=getOutputValueClass();
         if (outKey==Text.class) {
