@@ -3,6 +3,8 @@ package com.ontology2.bakemono.rewriteSubject;
 import com.ontology2.bakemono.joins.TaggedTextItem;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleCodec;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
@@ -10,11 +12,13 @@ import java.io.IOException;
 
 public class RewriteSubjectReducer extends Reducer<TaggedTextItem,TaggedTextItem,Text,Text> {
     PrimitiveTripleCodec ptc=new PrimitiveTripleCodec();
-
+    Log LOG= LogFactory.getLog(RewriteSubjectReducer.class);
     @Override
     public void reduce(TaggedTextItem key, Iterable<TaggedTextItem> values, Context context) throws IOException, InterruptedException {
         String newSubject=null;
+        LOG.info("Got key value ["+key.getKey()+"] with tag ["+key.getTag()+"]");
         for(TaggedTextItem value:values) {
+            LOG.info("Got value value ["+value.getKey()+"] with tag ["+value.getTag()+"]");
             int tag=value.getTag().get();
             PrimitiveTriple t=ptc.decode(value.getKey().toString());
             switch(tag) {
