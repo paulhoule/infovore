@@ -8,6 +8,6 @@ import java.util.List;
 
 public class RewriteSubjectOptions extends ReducerOptions {
     @Option(description="owl:sameAs statements that rewrite subject")
-    @InputPath(2)
+    @InputPath(1)
     public List<String> sameAs;
 }

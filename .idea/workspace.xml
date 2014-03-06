@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/util/ReducerOptions.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/util/ReducerOptions.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/rewriteSubject/RewriteSubjectReducer.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/rewriteSubject/RewriteSubjectReducer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/rewriteSubject/RewriteSubjectOptions.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/rewriteSubject/RewriteSubjectOptions.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -154,25 +153,25 @@
       <file leaf-file-name="RewriteSubjectReducer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/rewriteSubject/RewriteSubjectReducer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="63" selection-start="1426" selection-end="1426" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+            <state line="30" column="44" selection-start="1465" selection-end="1465" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GeneralTextJoinMapper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/GeneralTextJoinMapper.java">
+      <file leaf-file-name="RewriteSubjectOptions.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/rewriteSubject/RewriteSubjectOptions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="22" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="374">
+            <state line="10" column="16" selection-start="367" selection-end="367" vertical-scroll-proportion="0.17028381" vertical-offset="0" max-vertical-offset="599">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestTool.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="TestTool.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/rewriteSubjectMapper/TestTool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="28" selection-start="1147" selection-end="1291" vertical-scroll-proportion="0.7161937" vertical-offset="200" max-vertical-offset="799">
+            <state line="37" column="28" selection-start="1147" selection-end="1291" vertical-scroll-proportion="0.0" vertical-offset="200" max-vertical-offset="799">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -193,7 +192,9 @@
         <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/MainTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="11" column="13" selection-start="317" selection-end="317" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1241">
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -202,7 +203,9 @@
         <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/pse3/TestPSE3Mapper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="27" column="13" selection-start="862" selection-end="862" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="2601">
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -275,7 +278,6 @@
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/dbpediaToBaseKB/TestMapper.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/dbpediaToBaseKB/TestMapperStatics.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/dbpediaToBaseKB/DBpediaToBaseKBReducer.java" />
-        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/rewriteSubject/RewriteSubjectOptions.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/util/CommonOptions.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/rewriteSubject/RewriteSubjectMapper.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/rewriteSubjectMapper/TestMapper.java" />
@@ -286,6 +288,7 @@
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/rewriteSubjectMapper/TestTool.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/util/ReducerOptions.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/rewriteSubject/RewriteSubjectReducer.java" />
+        <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/rewriteSubject/RewriteSubjectOptions.java" />
       </list>
     </option>
   </component>
@@ -1933,7 +1936,11 @@
       <created>1393857114620</created>
       <updated>1393857114620</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="add chatty logging code to reducer so we can see why this fails on cluster">
+      <created>1394147849383</created>
+      <updated>1394147849383</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1979,7 +1986,6 @@
       <TodoPanelSettings />
     </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="#28 -- print() -&gt; println()&#10;" />
     <MESSAGE value="#28 --  add terminate cluster command&#10;" />
     <MESSAGE value="#28 --  code to submit job to a PersistentCluster" />
     <MESSAGE value="#28 --  but I've got to wire up the EMR client and S3 information..." />
@@ -2004,7 +2010,8 @@
     <MESSAGE value="preliminary version of subject rewriter that rewriters subjects with owl:sameAs&#10;" />
     <MESSAGE value="give a name to the smushing tool" />
     <MESSAGE value="hard code the input class for the RewriteSubjectTool even though ideally the SelfAwareTool should be able to figure this out by looking at the types.&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="hard code the input class for the RewriteSubjectTool even though ideally the SelfAwareTool should be able to figure this out by looking at the types.&#10;" />
+    <MESSAGE value="add chatty logging code to reducer so we can see why this fails on cluster" />
+    <option name="LAST_COMMIT_MESSAGE" value="add chatty logging code to reducer so we can see why this fails on cluster" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2234,11 +2241,6 @@
         <state line="7" column="13" selection-start="247" selection-end="247" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/rewriteSubject/RewriteSubjectOptions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="17" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/rewriteSubjectMapper/TestReducer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="21" selection-start="654" selection-end="654" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
@@ -2309,14 +2311,18 @@
     <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/MainTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="13" selection-start="317" selection-end="317" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1241">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/pse3/TestPSE3Mapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="13" selection-start="862" selection-end="862" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2601">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2327,19 +2333,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/rewriteSubjectMapper/TestTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="28" selection-start="1147" selection-end="1291" vertical-scroll-proportion="0.0" vertical-offset="200" max-vertical-offset="799">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/rewriteSubject/RewriteSubjectReducer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="63" selection-start="1426" selection-end="1426" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+        <state line="30" column="44" selection-start="1465" selection-end="1465" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/rewriteSubjectMapper/TestTool.java">
+    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/rewriteSubject/RewriteSubjectOptions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="28" selection-start="1147" selection-end="1291" vertical-scroll-proportion="0.7161937" vertical-offset="200" max-vertical-offset="799">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="10" column="16" selection-start="367" selection-end="367" vertical-scroll-proportion="0.17028381" vertical-offset="0" max-vertical-offset="599">
+          <folding />
         </state>
       </provider>
     </entry>
