@@ -16,9 +16,7 @@ public class RewriteSubjectReducer extends Reducer<TaggedTextItem,TaggedTextItem
     @Override
     public void reduce(TaggedTextItem key, Iterable<TaggedTextItem> values, Context context) throws IOException, InterruptedException {
         String newSubject=null;
-        LOG.info("Got key value ["+key.getKey()+"] with tag ["+key.getTag()+"]");
         for(TaggedTextItem value:values) {
-            LOG.info("Got value value ["+value.getKey()+"] with tag ["+value.getTag()+"]");
             int tag=value.getTag().get();
             PrimitiveTriple t=ptc.decode(value.getKey().toString());
             switch(tag) {
