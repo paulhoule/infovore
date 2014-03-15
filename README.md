@@ -2,7 +2,13 @@ Overview
 --------
 
 Infovore is an RDF processing system that uses Hadoop to process RDF data
-sets in the billion triple range and beyond
+sets in the billion triple range and beyond.  Infovore was originally designed to process
+the (old) proprietary Freebase dump into RDF,  but once Freebase came out with an official RDF
+dump,  Infovore gained the ability to clean and purify the dump,  making it not just possible
+but easy to process Freebase data with triple stores such as Virtuoso 7.
+
+Every week we run Infovore in Amazon Elastic/Map reduce in order to produce a product known as
+[:BaseKB](http://basekb.com/)
 
 Building
 --------
