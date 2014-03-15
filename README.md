@@ -15,8 +15,18 @@ and processing command-line arguments.  The [Telepath](https://github.com/paulho
 extends the Infovore project in order to process Wikipedia usage information to produce a product called
 [:SubjectiveEye3D](https://github.com/paulhoule/telepath/wiki/SubjectiveEye3D).
 
+
+Supporting
+----------
+
+It costs several hundreds of dollars per month to process and store files in connection with this work.
+Please join <a href="https://www.gittip.com/">Gittip</a> and make a <a href="https://www.gittip.com/paulhoule/">small weekly donation</a> to keep this data free.
+
+
 Building
 --------
+
+Infovore software requires JDK 7.
 
 mvn clean install
 
