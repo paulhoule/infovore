@@ -8,7 +8,12 @@ dump,  Infovore gained the ability to clean and purify the dump,  making it not 
 but easy to process Freebase data with triple stores such as Virtuoso 7.
 
 Every week we run Infovore in Amazon Elastic/Map reduce in order to produce a product known as
-[:BaseKB](http://basekb.com/)
+[:BaseKB](http://basekb.com/).
+
+Infovore depends on the [Centipede](https://github.com/paulhoule/centipede/wiki) framework for packaging
+and processing command-line arguments.  The [Telepath](https://github.com/paulhoule/telepath/wiki) project
+extends the Infovore project in order to process Wikipedia usage information to produce a product called
+[:SubjectiveEye3D](https://github.com/paulhoule/telepath/wiki/SubjectiveEye3D).
 
 Building
 --------
@@ -37,5 +42,4 @@ https://groups.google.com/forum/#!forum/infovore-basekb
 
 
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/paulhoule/infovore/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
