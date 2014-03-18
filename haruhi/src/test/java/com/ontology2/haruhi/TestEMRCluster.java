@@ -77,7 +77,7 @@ public class TestEMRCluster {
                     Arrays.asList(
                             "run"
                             ,"pse3"
-                            ,"-R"
+                            ,"-r"
                             ,"47"
                             ,"/preprocessed/1942-12-07-00-00/"
                             ,"s3n://basekb-now/1942-12-07-00-00/")
@@ -93,7 +93,7 @@ public class TestEMRCluster {
                             ,"sieve3"
                             ,"s3n://basekb-now/1942-12-07-00-00/accepted/"
                             ,"s3n://basekb-now/1942-12-07-00-00/sieved/")
-                    ,that.getArgs());
+                ,that.getArgs());
         }
         
         {

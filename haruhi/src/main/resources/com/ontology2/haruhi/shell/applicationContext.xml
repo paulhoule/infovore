@@ -106,7 +106,7 @@
               <list>
                 <value>'run'</value>
                 <value>'pse3'</value>
-                <value>'-R'</value>
+                <value>'-r'</value>
                 <value>'47'</value>
                 <value>#preprocessed</value>
                 <value>#outputRoot</value>
