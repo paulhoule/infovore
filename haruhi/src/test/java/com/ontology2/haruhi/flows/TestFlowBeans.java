@@ -62,11 +62,13 @@ public class TestFlowBeans {
             SpringStep step1=(SpringStep) steps.get(j++);
             List<String> args=step1.getStepArgs(local,flowArgs);
             
-            assertEquals(4,args.size());
+            assertEquals(6,args.size());
             
             int i=0;
             assertEquals("run",args.get(i++));
             assertEquals("pse3",args.get(i++));
+            assertEquals("-R",args.get(i++));
+            assertEquals("47",args.get(i++));
             assertEquals("/preprocessed/1942-12-07-00-00/",args.get(i++));
             assertEquals("s3n://basekb-now/1942-12-07-00-00/",args.get(i++));
         }
