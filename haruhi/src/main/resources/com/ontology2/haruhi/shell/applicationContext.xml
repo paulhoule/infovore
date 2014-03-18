@@ -106,6 +106,8 @@
               <list>
                 <value>'run'</value>
                 <value>'pse3'</value>
+                <value>'-R'</value>
+                <value>'47'</value>
                 <value>#preprocessed</value>
                 <value>#outputRoot</value>
               </list>
@@ -233,7 +235,7 @@
       <bean parent="rootInstancesDefinition">
         <property name="masterInstanceType" value="m1.large" />
         <property name="slaveInstanceType" value="c1.xlarge" />
-        <property name="instanceCount" value="25" /> <!-- 1 master + 12 slaves -->
+        <property name="instanceCount" value="25" /> <!-- 1 master + 24 slaves -->
       </bean>
     </constructor-arg>
   </bean>
