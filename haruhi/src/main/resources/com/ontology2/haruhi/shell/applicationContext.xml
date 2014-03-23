@@ -234,7 +234,7 @@
     <constructor-arg>
       <bean parent="rootInstancesDefinition">
         <property name="masterInstanceType" value="m1.large" />
-        <property name="slaveInstanceType" value="c1.xlarge" />
+        <property name="slaveInstanceType" value="c3.2xlarge" />
         <property name="instanceCount" value="25" /> <!-- 1 master + 24 slaves -->
       </bean>
     </constructor-arg>
