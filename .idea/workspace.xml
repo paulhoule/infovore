@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_3.xml" />
-      <change type="MOVED" beforePath="C:\Users\paul_000\Documents\GitHub\infovore\.idea\libraries\Maven__com_amazonaws_aws_java_sdk_1_6_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_amazonaws_aws_java_sdk_1_7_5.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/haruhi.iml" afterPath="$PROJECT_DIR$/haruhi/haruhi.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/pom.xml" afterPath="$PROJECT_DIR$/haruhi/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -135,7 +131,7 @@
       <file leaf-file-name="AmazonEMRCluster.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="42" selection-start="1457" selection-end="1457" vertical-scroll-proportion="-0.66071427" vertical-offset="1275" max-vertical-offset="3723">
+            <state line="210" column="45" selection-start="7845" selection-end="7845" vertical-scroll-proportion="0.80763793" vertical-offset="2999" max-vertical-offset="3740">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -299,10 +295,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2486" />
-    <option name="y" value="1" />
-    <option name="width" value="1280" />
-    <option name="height" value="1400" />
+    <option name="x" value="-3060" />
+    <option name="y" value="157" />
+    <option name="width" value="1665" />
+    <option name="height" value="1155" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -611,7 +607,7 @@
       <recent name="C:\Users\paul_000\Documents\GitHub\infovore\bakemono\filtered" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in haruhi">
+  <component name="RunManager" selected="Application.Run The App">
     <configuration default="false" name="TestMapper.acceptsTheRealThing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bakemono" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -709,14 +705,14 @@
     <configuration default="false" name="All in haruhi" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="haruhi" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
@@ -770,6 +766,21 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -820,7 +831,7 @@
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
+      <module name="bakemono" />
       <envs />
       <method />
     </configuration>
@@ -885,13 +896,30 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="6">
+    <configuration default="false" name="Run The App" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.ontology2.bakemono.Main" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="list" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="bakemono" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <list size="7">
       <item index="0" class="java.lang.String" itemvalue="JUnit.RunAllTests" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.TestMapper.acceptsTheRealThing" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.StaticMapperTest" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.MapperTest" />
       <item index="4" class="java.lang.String" itemvalue="JUnit.All in bakemono" />
       <item index="5" class="java.lang.String" itemvalue="JUnit.All in haruhi" />
+      <item index="6" class="java.lang.String" itemvalue="Application.Run The App" />
     </list>
     <recent_temporary>
       <list size="5">
@@ -1463,11 +1491,15 @@
       <created>1395599787731</created>
       <updated>1395599787731</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="#113 -- stage implementation for live AWS test;  Automatically tag jobs with AWS-assigned job flow id">
+      <created>1396372387193</created>
+      <updated>1396372387193</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2486" y="1" width="1280" height="1400" extended-state="0" />
+    <frame x="-3060" y="157" width="1665" height="1155" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1477,7 +1509,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39520496" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22737819" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28053436" sideWeight="0.5003032" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26908752" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2080433" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1486,8 +1518,8 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23625255" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3892405" sideWeight="0.67634857" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22737819" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29836264" sideWeight="0.67634857" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28053436" sideWeight="0.4996968" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1535,7 +1567,6 @@
       <TodoPanelSettings />
     </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="bring in the bloom filter and SelfAwareTool paraphrenalia into bakemono from telepath&#10;" />
     <MESSAGE value="oops...  add files missing from last checkin" />
     <MESSAGE value="work on Freebase to dbpedia mapping,  checked in StatelessIdFunctions from the old 1.0 branch,  currently a unit test is commented out because the mapping function is giving an IRI mapping rather than to what DBpedia usually uses." />
     <MESSAGE value="escaping rule to create DBpedia identifiers that is close to correct" />
@@ -1560,7 +1591,8 @@
     <MESSAGE value="looks like this old command takes -r instead of -R as an argument" />
     <MESSAGE value="switch to c3.2xlarge for weekly job because these *might* be more economical if I can use less of them." />
     <MESSAGE value="switch weekly back to c1.xlarge which won't run out of RAM" />
-    <option name="LAST_COMMIT_MESSAGE" value="switch weekly back to c1.xlarge which won't run out of RAM" />
+    <MESSAGE value="#113 -- stage implementation for live AWS test;  Automatically tag jobs with AWS-assigned job flow id" />
+    <option name="LAST_COMMIT_MESSAGE" value="#113 -- stage implementation for live AWS test;  Automatically tag jobs with AWS-assigned job flow id" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1858,7 +1890,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="42" selection-start="1457" selection-end="1457" vertical-scroll-proportion="-0.66071427" vertical-offset="1275" max-vertical-offset="3723">
+        <state line="210" column="45" selection-start="7845" selection-end="7845" vertical-scroll-proportion="0.80763793" vertical-offset="2999" max-vertical-offset="3740">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

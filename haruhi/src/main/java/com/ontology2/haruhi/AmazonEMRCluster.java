@@ -16,7 +16,6 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduce;
-import com.amazonaws.services.simpleworkflow.model.ExecutionStatus;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
@@ -49,7 +48,7 @@ public class AmazonEMRCluster implements Cluster {
                 .withLogUri(awsLogUri)
                 .withInstances(instances);
 
-        RunJobFlowResult result = getRunJobFlowResult(that);
+        RunJobFlowResult result = runJob(that);
 
         pollClusterForCompletion(result, Sets.union(doneStates, Sets.newHashSet("WAITING")));
         return result.getJobFlowId();
@@ -74,7 +73,7 @@ public class AmazonEMRCluster implements Cluster {
             .withLogUri(awsLogUri)
             .withInstances(instances);
 
-        RunJobFlowResult result = getRunJobFlowResult(that);
+        RunJobFlowResult result = runJob(that);
 
         pollClusterForCompletion(result);
     }
@@ -153,7 +152,7 @@ public class AmazonEMRCluster implements Cluster {
         .withLogUri(awsLogUri)
         .withInstances(instances);
 
-        RunJobFlowResult result = getRunJobFlowResult(that);
+        RunJobFlowResult result = runJob(that);
         pollClusterForCompletion(result);
     }
 
@@ -202,12 +201,14 @@ public class AmazonEMRCluster implements Cluster {
         return steps;
     }
 
-    RunJobFlowResult getRunJobFlowResult(RunJobFlowRequest that) {
+    RunJobFlowResult runJob(RunJobFlowRequest that) {
+        logger.info("about to create job flow");
         RunJobFlowResult result=emrClient.runJobFlow(that);
+        logger.info("got job flow id "+result.getJobFlowId());
         emrClient.addTags(new AddTagsRequest(result.getJobFlowId(), Lists.newArrayList(
                 new Tag("com.ontology2.jobFlowId", result.getJobFlowId())
         )));
-
+        logger.info("tags added to job flow ");
         return result;
     }
 }
