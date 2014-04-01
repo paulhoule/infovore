@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.amazonaws.services.elasticmapreduce.model.*;
 import com.google.common.base.Joiner;
 import com.ontology2.haruhi.flows.*;
 import org.apache.commons.logging.Log;
@@ -15,15 +16,6 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduce;
-import com.amazonaws.services.elasticmapreduce.model.DescribeJobFlowsRequest;
-import com.amazonaws.services.elasticmapreduce.model.DescribeJobFlowsResult;
-import com.amazonaws.services.elasticmapreduce.model.HadoopJarStepConfig;
-import com.amazonaws.services.elasticmapreduce.model.JobFlowDetail;
-import com.amazonaws.services.elasticmapreduce.model.JobFlowExecutionStatusDetail;
-import com.amazonaws.services.elasticmapreduce.model.JobFlowInstancesConfig;
-import com.amazonaws.services.elasticmapreduce.model.RunJobFlowRequest;
-import com.amazonaws.services.elasticmapreduce.model.RunJobFlowResult;
-import com.amazonaws.services.elasticmapreduce.model.StepConfig;
 import com.amazonaws.services.simpleworkflow.model.ExecutionStatus;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -57,10 +49,13 @@ public class AmazonEMRCluster implements Cluster {
                 .withLogUri(awsLogUri)
                 .withInstances(instances);
 
-        RunJobFlowResult result=emrClient.runJobFlow(that);
-        pollClusterForCompletion(result,Sets.union(doneStates,Sets.newHashSet("WAITING")));
+        RunJobFlowResult result = getRunJobFlowResult(that);
+
+        pollClusterForCompletion(result, Sets.union(doneStates, Sets.newHashSet("WAITING")));
         return result.getJobFlowId();
-    };
+    }
+
+
 
     @Override
     public void runJob(MavenManagedJar defaultJar,List<String> jarArgs)
@@ -78,7 +73,9 @@ public class AmazonEMRCluster implements Cluster {
             .withSteps(steps)
             .withLogUri(awsLogUri)
             .withInstances(instances);
-        RunJobFlowResult result=emrClient.runJobFlow(that);
+
+        RunJobFlowResult result = getRunJobFlowResult(that);
+
         pollClusterForCompletion(result);
     }
 
@@ -148,14 +145,15 @@ public class AmazonEMRCluster implements Cluster {
     public void runFlow(MavenManagedJar jar, Flow f,List<String> flowArgs) throws Exception {
         String jarLocation=jar.s3JarLocation(awsSoftwareBucket);
         List<StepConfig> steps = createEmrSteps(f, flowArgs, jarLocation);
-        
+
+        String jobName = computeJobName(flowArgs);
         RunJobFlowRequest that=new RunJobFlowRequest()
-        .withName("Haruhi submitted job")
+        .withName(jobName)
         .withSteps(steps)
         .withLogUri(awsLogUri)
         .withInstances(instances);
-        
-        RunJobFlowResult result=emrClient.runJobFlow(that);
+
+        RunJobFlowResult result = getRunJobFlowResult(that);
         pollClusterForCompletion(result);
     }
 
@@ -202,5 +200,14 @@ public class AmazonEMRCluster implements Cluster {
                 throw new RuntimeException("Could not process step of type "+that.getClass());
             }
         return steps;
+    }
+
+    RunJobFlowResult getRunJobFlowResult(RunJobFlowRequest that) {
+        RunJobFlowResult result=emrClient.runJobFlow(that);
+        emrClient.addTags(new AddTagsRequest(result.getJobFlowId(), Lists.newArrayList(
+                new Tag("com.ontology2.jobFlowId", result.getJobFlowId())
+        )));
+
+        return result;
     }
 }
