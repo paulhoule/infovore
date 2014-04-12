@@ -22,6 +22,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -36,7 +38,13 @@ public class Accountant extends CommandLineApplication {
 
     @Override
     protected void _run(String[] strings) throws Exception {
-        String yrmo = "2014-04";
+        // TODO: year-month should be selectable
+        // TODO: optional detailed report that shows all line items
+        // TODO: selectivity for a particular job
+        // TODO: cache cost-allocation report (it's less than 100 kb for me so this is no hurry)
+        // TODO: merge in data from EMR (job start time, job name) to make report more comprehensive
+
+        String yrmo = new SimpleDateFormat("yyyy-MM").format(new Date());
 
         AmazonS3Client client = new AmazonS3Client(awsCredentials);
         String reportKey = findCostAllocationReport(yrmo, client);

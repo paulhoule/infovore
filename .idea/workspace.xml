@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="Version bump XSD files for Spring">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/accountant/Accountant.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_supercsv_super_csv_2_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/haruhi.iml" afterPath="$PROJECT_DIR$/haruhi/haruhi.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/pom.xml" afterPath="$PROJECT_DIR$/haruhi/pom.xml" />
+    <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/accountant/Accountant.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/accountant/Accountant.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -143,7 +140,7 @@
       <file leaf-file-name="Accountant.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/accountant/Accountant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="53" selection-start="3116" selection-end="3116" vertical-scroll-proportion="0.7141256" vertical-offset="740" max-vertical-offset="1938">
+            <state line="44" column="100" selection-start="1740" selection-end="1740" vertical-scroll-proportion="0.23766816" vertical-offset="536" max-vertical-offset="2074">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1540,7 +1537,11 @@
       <created>1397318214013</created>
       <updated>1397318214013</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="#114 -- first draft of &quot;accountant&quot; report generator">
+      <created>1397326041922</created>
+      <updated>1397326041922</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1612,7 +1613,6 @@
       <TodoPanelSettings />
     </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="set character escaping rules to match actual Dbpedia behavior (may be identifical to what we had before, but this is probably faster)&#10;" />
     <MESSAGE value="checkin of dbpediaToBaseKB tool for integration test&#10;" />
     <MESSAGE value="fix wrong package for annotation that broke maven build&#10;" />
     <MESSAGE value="implement our own identity reducer&#10;" />
@@ -1637,7 +1637,8 @@
     <MESSAGE value="#115 -- Initial Check In of :BaseKB to DBpedia Mapping Generator and Unit Tests ready for Integration Testing." />
     <MESSAGE value="#115 -- Check in test for creation of baseKBToDBpedia bean" />
     <MESSAGE value="Version bump XSD files for Spring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version bump XSD files for Spring" />
+    <MESSAGE value="#114 -- first draft of &quot;accountant&quot; report generator" />
+    <option name="LAST_COMMIT_MESSAGE" value="#114 -- first draft of &quot;accountant&quot; report generator" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2000,7 +2001,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/accountant/Accountant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="53" selection-start="3116" selection-end="3116" vertical-scroll-proportion="0.7141256" vertical-offset="740" max-vertical-offset="1938">
+        <state line="44" column="100" selection-start="1740" selection-end="1740" vertical-scroll-proportion="0.23766816" vertical-offset="536" max-vertical-offset="2074">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
