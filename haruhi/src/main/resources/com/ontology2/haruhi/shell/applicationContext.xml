@@ -5,9 +5,9 @@
      xmlns:c="http://www.springframework.org/schema/c"
      xmlns:p="http://www.springframework.org/schema/p"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
-         http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
          http://www.springframework.org/schema/context
-         http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+         http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
   <!-- comment numbering works like ISO 9001 or a PMI book just not so deep a hierarchy the top level schema is now 1 configuration of Spring itself 2 configuration of general infovore beans 3 bean definitions for Amazon EMR -->
 
@@ -158,6 +158,10 @@
 
   <bean name="awsSoftwareBucket" class="java.lang.String">
     <constructor-arg value="s3://bakemono-public/" />
+  </bean>
+
+  <bean name="awsBillingBucket" class="java.lang.String">
+    <constructor-arg value="" />
   </bean>
   
   <!-- 3.1 definition of commonly used objects-->
