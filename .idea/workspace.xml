@@ -2,7 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87a5655c-6aba-400c-a88c-ad04aa82a448" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/accountant/Accountant.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/accountant/Accountant.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_ontology2_centipede_99_5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_0_3_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_0_3_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_0_3_RELEASE.xml" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\infovore\.idea\libraries\Maven__aopalliance_aopalliance_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\infovore\.idea\libraries\Maven__com_google_code_findbugs_jsr305_2_0_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\infovore\.idea\libraries\Maven__com_google_guava_guava_11_0_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\infovore\.idea\libraries\Maven__com_ontology2_centipede_99_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\infovore\.idea\libraries\Maven__commons_logging_commons_logging_1_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\infovore\.idea\libraries\Maven__org_springframework_spring_aop_4_0_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\infovore\.idea\libraries\Maven__org_springframework_spring_beans_4_0_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\infovore\.idea\libraries\Maven__org_springframework_spring_context_4_0_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\infovore\.idea\libraries\Maven__org_springframework_spring_core_4_0_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\infovore\.idea\libraries\Maven__org_springframework_spring_expression_4_0_0_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\paul_000\Documents\GitHub\infovore\.idea\libraries\Maven__org_springframework_spring_test_4_0_0_RELEASE.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/bakemono.iml" afterPath="$PROJECT_DIR$/bakemono/bakemono.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/haruhi.iml" afterPath="$PROJECT_DIR$/haruhi/haruhi.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/pom.xml" afterPath="$PROJECT_DIR$/bakemono/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/pom.xml" afterPath="$PROJECT_DIR$/haruhi/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -137,10 +156,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Accountant.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Accountant.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/accountant/Accountant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="100" selection-start="1740" selection-end="1740" vertical-scroll-proportion="0.23766816" vertical-offset="536" max-vertical-offset="2074">
+            <state line="44" column="100" selection-start="1740" selection-end="1740" vertical-scroll-proportion="0.0" vertical-offset="536" max-vertical-offset="2074">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -169,7 +188,16 @@
       <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/haruhi/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="57" selection-start="2394" selection-end="2394" vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="2091">
+            <state line="53" column="20" selection-start="1835" selection-end="1835" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2091">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bakemono/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="49" column="65" selection-start="1704" selection-end="1704" vertical-scroll-proportion="-0.16040955" vertical-offset="974" max-vertical-offset="1853">
               <folding />
             </state>
           </provider>
@@ -204,18 +232,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestMapper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/baseKBToDBpedia/TestMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="56" selection-start="1329" selection-end="1329" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
-              <folding>
-                <marker date="1397234292643" expanded="true" signature="543:638" placeholder="{...}" />
-                <marker date="1397234292643" expanded="true" signature="722:987" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -242,7 +258,6 @@
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedKeySortComparator.java" />
         <option value="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/flows/SpringStep.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/freebasePrefilter/FreebaseRDFMapper.java" />
-        <option value="$PROJECT_DIR$/bakemono/pom.xml" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/dbpediaToBaseKB/ToolOptions.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/dbpediaToBaseKB/Tool.java" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/dbpediaToBaseKB/Mapper.java" />
@@ -284,8 +299,9 @@
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/baseKBToDBpedia/TestMapper.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/dbpediaToBaseKB/TestTool.java" />
         <option value="$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml" />
-        <option value="$PROJECT_DIR$/haruhi/pom.xml" />
         <option value="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/accountant/Accountant.java" />
+        <option value="$PROJECT_DIR$/haruhi/pom.xml" />
+        <option value="$PROJECT_DIR$/bakemono/pom.xml" />
       </list>
     </option>
   </component>
@@ -300,8 +316,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2690" />
-    <option name="y" value="30" />
+    <option name="x" value="-2865" />
+    <option name="y" value="55" />
     <option name="width" value="1665" />
     <option name="height" value="1340" />
   </component>
@@ -588,6 +604,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="accountant" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1541,12 +1571,16 @@
       <created>1397326041922</created>
       <updated>1397326041922</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="#114 -- add some TODO comments,  also automatically compute year-month for current month">
+      <created>1397326449557</created>
+      <updated>1397326449557</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2690" y="30" width="1665" height="1340" extended-state="0" />
-    <editor active="true" />
+    <frame x="-2865" y="55" width="1665" height="1340" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1613,7 +1647,6 @@
       <TodoPanelSettings />
     </option>
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="checkin of dbpediaToBaseKB tool for integration test&#10;" />
     <MESSAGE value="fix wrong package for annotation that broke maven build&#10;" />
     <MESSAGE value="implement our own identity reducer&#10;" />
     <MESSAGE value="fix build&#10;" />
@@ -1638,7 +1671,8 @@
     <MESSAGE value="#115 -- Check in test for creation of baseKBToDBpedia bean" />
     <MESSAGE value="Version bump XSD files for Spring" />
     <MESSAGE value="#114 -- first draft of &quot;accountant&quot; report generator" />
-    <option name="LAST_COMMIT_MESSAGE" value="#114 -- first draft of &quot;accountant&quot; report generator" />
+    <MESSAGE value="#114 -- add some TODO comments,  also automatically compute year-month for current month" />
+    <option name="LAST_COMMIT_MESSAGE" value="#114 -- add some TODO comments,  also automatically compute year-month for current month" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1652,11 +1686,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/GeneralTextJoinMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="22" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/util/ReducerOptions.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="41" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238" />
@@ -1935,8 +1964,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="56" selection-start="1329" selection-end="1329" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
           <folding>
-            <marker date="1397234292643" expanded="true" signature="543:638" placeholder="{...}" />
-            <marker date="1397234292643" expanded="true" signature="722:987" placeholder="{...}" />
+            <marker date="1397234292643" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1397234292643" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1992,19 +2021,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/accountant/Accountant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="100" selection-start="1740" selection-end="1740" vertical-scroll-proportion="0.0" vertical-offset="536" max-vertical-offset="2074">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/haruhi/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="57" selection-start="2394" selection-end="2394" vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="2091">
+        <state line="53" column="20" selection-start="1835" selection-end="1835" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2091">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/accountant/Accountant.java">
+    <entry file="file://$PROJECT_DIR$/bakemono/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="100" selection-start="1740" selection-end="1740" vertical-scroll-proportion="0.23766816" vertical-offset="536" max-vertical-offset="2074">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="49" column="65" selection-start="1704" selection-end="1704" vertical-scroll-proportion="-0.16040955" vertical-offset="974" max-vertical-offset="1853">
+          <folding />
         </state>
       </provider>
     </entry>
