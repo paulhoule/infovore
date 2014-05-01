@@ -3,10 +3,18 @@ package com.ontology2.haruhi.launchInstance;
 import com.amazonaws.services.ec2.AmazonEC2Client;
 import com.amazonaws.services.ec2.model.*;
 import com.ontology2.centipede.shell.CommandLineApplication;
+import net.schmizz.sshj.SSHClient;
+import net.schmizz.sshj.common.IOUtils;
+import net.schmizz.sshj.connection.channel.direct.Session;
+import net.schmizz.sshj.transport.verification.PromiscuousVerifier;
+import net.schmizz.sshj.userauth.keyprovider.KeyProvider;
+import net.schmizz.sshj.userauth.keyprovider.OpenSSHKeyFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Component("launchInstance")
 public class LaunchInstance extends CommandLineApplication {
@@ -30,6 +38,27 @@ public class LaunchInstance extends CommandLineApplication {
         String ipAddress=findIpAddress(instanceId);
         System.out.println("instance "+instanceId+" is up and running at IP address: "+ipAddress);
 
+        Thread.sleep(2*60*1000);   // primitive, ssh will take a little while to be ready
+
+        final SSHClient ssh = new SSHClient();
+        String $HOME=System.getProperty("user.home");
+        OpenSSHKeyFile k=new OpenSSHKeyFile();
+        k.init(new File($HOME+"/.haruhi/o2key.pem"));
+        ssh.addHostKeyVerifier(new PromiscuousVerifier());
+
+        ssh.connect(ipAddress);
+        ssh.authPublickey("ubuntu",k);
+        final Session session = ssh.startSession();
+        try {
+            final Session.Command cmd = session.exec("zakasjadg");
+
+            System.out.println(IOUtils.readFully(cmd.getInputStream()).toString());
+            cmd.join(5, TimeUnit.SECONDS);
+            System.out.println("\n** exit status: " + cmd.getExitStatus());
+        } finally {
+            session.close();
+            ssh.disconnect();
+        }
     }
 
     private boolean instanceStarting(String instanceId) {
