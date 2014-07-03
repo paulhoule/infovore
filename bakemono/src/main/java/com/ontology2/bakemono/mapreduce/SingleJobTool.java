@@ -80,15 +80,10 @@ public abstract class SingleJobTool<OptionsClass> extends ToolBase {
     //
     // the assumption here is that any real instance of this will be a non-generic
     // subclass of a class that has the parameter filled in,  thus we can figure
-    // out the class from the parameter.  If this assumption isn't true you
-    // can subclass this.
+    // out the class from the parameter.
     //
     
     abstract public Class getOptionsClass();
-
-    //{
-    //    return ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0].getClass();
-    //}
 
     public int run(String[] strings) throws Exception {
         Job job = createJob(strings);

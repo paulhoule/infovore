@@ -23,7 +23,7 @@ public class LaunchInstance extends CommandLineApplication {
 
     @Override
     protected void _run(String[] strings) throws Exception {
-        RunInstancesRequest rir = getTinyRunInstancesRequest();
+        RunInstancesRequest rir = getBigRunInstancesRequest();
 
         RunInstancesResult response=ec2Client.runInstances(rir);
         Reservation r=response.getReservation();
@@ -50,7 +50,7 @@ public class LaunchInstance extends CommandLineApplication {
         ssh.authPublickey("ubuntu",k);
         final Session session = ssh.startSession();
         try {
-            final Session.Command cmd = session.exec("zakasjadg");
+            final Session.Command cmd = session.exec("ls -a");
 
             System.out.println(IOUtils.readFully(cmd.getInputStream()).toString());
             cmd.join(5, TimeUnit.SECONDS);
@@ -81,9 +81,19 @@ public class LaunchInstance extends CommandLineApplication {
     }
 
     private RunInstancesRequest getBigRunInstancesRequest() {
-        String theAmi="ami-b68660de";
+        String theAmi="ami-fccd2d94";
         return new RunInstancesRequest(theAmi,1,1)
                 .withInstanceType("r3.xlarge")
+                .withKeyName("o2key")
+                .withSecurityGroups("launch-wizard-21")
+                .withMonitoring(true)
+                .withPlacement(new Placement("us-east-1e"));
+    }
+
+    private RunInstancesRequest getEmptyVirtuosoInstancesRequest() {
+        String theAmi="ami-f0a54298";
+        return new RunInstancesRequest(theAmi,1,1)
+                .withInstanceType("r3.large")
                 .withKeyName("o2key")
                 .withSecurityGroups("launch-wizard-21")
                 .withMonitoring(true);
