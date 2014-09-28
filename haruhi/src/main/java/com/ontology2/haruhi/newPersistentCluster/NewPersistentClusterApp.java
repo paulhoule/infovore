@@ -3,7 +3,7 @@ package com.ontology2.haruhi.newPersistentCluster;
 import com.google.common.collect.Lists;
 import com.ontology2.centipede.parser.OptionParser;
 import com.ontology2.centipede.shell.CommandLineApplication;
-import com.ontology2.centipede.shell.UsageException;
+import com.ontology2.centipede.errors.UsageException;
 import com.ontology2.haruhi.AmazonEMRCluster;
 import com.ontology2.haruhi.Cluster;
 import com.ontology2.haruhi.MavenManagedJar;

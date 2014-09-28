@@ -41,7 +41,6 @@ import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
 import com.ontology2.bakemono.pse3.PSE3Tool;
 import com.ontology2.bakemono.ranSample.RanSampleTool;
 import com.ontology2.bakemono.sieve3.Sieve3Tool;
-import com.ontology2.centipede.shell.CommandLineApplication;
 import org.springframework.beans.factory.BeanNotOfRequiredTypeException;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

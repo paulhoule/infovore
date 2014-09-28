@@ -15,7 +15,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static junit.framework.Assert.*;
+import static junit.framework.TestCase.*;
 
 public class TestSelfAwareTool {
     TestTool that;

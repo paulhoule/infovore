@@ -5,7 +5,7 @@ import com.amazonaws.services.elasticmapreduce.model.*;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Sets;
-import com.ontology2.centipede.shell.ExitCodeException;
+import com.ontology2.centipede.errors.ExitCodeException;
 import com.ontology2.haruhi.flows.Flow;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -18,8 +18,9 @@ import java.util.Set;
 import java.util.UUID;
 import static com.google.common.collect.Iterables.*;
 
-import static com.ontology2.centipede.shell.ExitCodeException.EX_SOFTWARE;
-import static com.ontology2.centipede.shell.ExitCodeException.EX_UNAVAILABLE;
+import com.ontology2.centipede.errors.ExitCodeException;
+import static com.ontology2.centipede.errors.ExitCodeException.*;
+
 
 public class PersistentCluster implements Cluster {
     private static Log logger = LogFactory.getLog(PersistentCluster.class);

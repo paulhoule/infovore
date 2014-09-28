@@ -7,7 +7,7 @@ import com.hp.hpl.jena.ontology.OntTools;
 import com.ontology2.bakemono.configuration.HadoopTool;
 import com.ontology2.bakemono.joins.*;
 import com.ontology2.centipede.parser.OptionParser;
-import com.ontology2.centipede.shell.UsageException;
+import com.ontology2.centipede.errors.UsageException;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;

@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <artifactId>infovore</artifactId>
@@ -18,11 +19,33 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-framework-bom</artifactId>
+        <version>4.1.0.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   <dependencies>
     <dependency>
-       <groupId>com.ontology2</groupId>
-       <artifactId>centipede</artifactId>
-       <version>99.6</version>
+      <groupId>com.ontology2</groupId>
+      <artifactId>centipede-parser</artifactId>
+      <version>99.7-SNAPSHOT</version>
+    </dependency>
+    <!-- We still need old Guava for Hadoop compatibility in this section -->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>11.0.2</version>
+    </dependency>
+    <dependency>
+      <groupId>com.ontology2</groupId>
+      <artifactId>centipede-parser</artifactId>
+      <version>99.7-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
@@ -56,7 +79,6 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
-      <version>4.0.5.RELEASE</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

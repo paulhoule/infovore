@@ -5,7 +5,7 @@ import com.amazonaws.services.ec2.model.DescribeInstancesRequest;
 import com.amazonaws.services.ec2.model.DescribeInstancesResult;
 import com.amazonaws.services.ec2.model.Instance;
 import com.ontology2.centipede.shell.CommandLineApplication;
-import com.ontology2.centipede.shell.UsageException;
+import com.ontology2.centipede.errors.UsageException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class Ssh extends CommandLineApplication {

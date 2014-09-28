@@ -1,7 +1,6 @@
 package com.ontology2.haruhi;
 
-import static com.ontology2.centipede.shell.ExitCodeException.EX_SOFTWARE;
-import static com.ontology2.centipede.shell.ExitCodeException.EX_UNAVAILABLE;
+import static com.ontology2.centipede.errors.ExitCodeException.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -19,7 +18,7 @@ import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduce;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import com.ontology2.centipede.shell.ExitCodeException;
+import com.ontology2.centipede.errors.ExitCodeException;
 
 public class AmazonEMRCluster implements Cluster {
     private static Log logger = LogFactory.getLog(AmazonEMRCluster.class);

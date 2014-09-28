@@ -15,7 +15,7 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.io.CharStreams;
-import com.ontology2.centipede.shell.ExitCodeException;
+import com.ontology2.centipede.errors.ExitCodeException;
 import com.ontology2.haruhi.flows.AssignmentStep;
 import com.ontology2.haruhi.flows.Flow;
 import com.ontology2.haruhi.flows.FlowStep;
