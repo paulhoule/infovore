@@ -127,15 +127,16 @@ public class PSE3Tool extends SelfAwareTool<PSE3Options> {
         throw new Main.IncorrectUsageException("incorrect arguments");
     }
 
-    public Class<? extends RawComparator> getGroupingComparatorClass() {
+
+   @Override public Class<? extends RawComparator> getGroupingComparatorClass() {
         return SubjectTripleComparator.class;
     }
 
-    public Class<? extends Partitioner> getPartitionerClass() {
+    @Override public Class<? extends Partitioner> getPartitionerClass() {
         return PartitionOnSubject.class;
     }
 
-    public Class<? extends RawComparator> getSortComparatorClass() {
+    @Override public Class<? extends RawComparator> getSortComparatorClass() {
         return RawTripleComparator.class;
     }
 }
