@@ -1,5 +1,6 @@
 package com.ontology2.bakemono.pse3;
 import com.ontology2.bakemono.configuration.HadoopTool;
+import com.ontology2.bakemono.jena.*;
 import com.ontology2.bakemono.joins.TaggedItem;
 import com.ontology2.bakemono.joins.TaggedKeyPartitioner;
 import com.ontology2.bakemono.joins.TaggedTextKeyGroupComparator;
@@ -27,9 +28,6 @@ import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.reasoner.rulesys.impl.TempNodeCache.NodePair;
 import com.ontology2.bakemono.Main;
 import com.ontology2.bakemono.MainBase.IncorrectUsageException;
-import com.ontology2.bakemono.jena.SPOTripleOutputFormat;
-import com.ontology2.bakemono.jena.STripleOutputFormat;
-import com.ontology2.bakemono.jena.WritableTriple;
 import com.ontology2.bakemono.mapred.RealMultipleOutputs;
 import com.ontology2.bakemono.mapred.RealMultipleOutputsMainOutputWrapper;
 
@@ -130,29 +128,14 @@ public class PSE3Tool extends SelfAwareTool<PSE3Options> {
     }
 
     public Class<? extends RawComparator> getGroupingComparatorClass() {
-        Class mapInput=getMapOutputKeyClass();
-        if(TaggedItem.class.isAssignableFrom(mapInput)) {
-            return TaggedTextKeyGroupComparator.class;
-        }
-
-        return super.getGroupingComparatorClass();
+        return SubjectTripleComparator.class;
     }
 
     public Class<? extends Partitioner> getPartitionerClass() {
-        Class mapInput=getMapOutputKeyClass();
-        if(TaggedItem.class.isAssignableFrom(mapInput)) {
-            return TaggedKeyPartitioner.class;
-        }
-
-        return super.getPartitionerClass();
+        return PartitionOnSubject.class;
     }
 
     public Class<? extends RawComparator> getSortComparatorClass() {
-        Class mapInput=getMapOutputKeyClass();
-        if(TaggedItem.class.isAssignableFrom(mapInput)) {
-            return TaggedTextKeySortComparator.class;
-        }
-
-        return super.getGroupingComparatorClass();
+        return RawTripleComparator.class;
     }
 }

@@ -37,15 +37,15 @@ public class RawTripleComparator extends WritableComparator {
 
     }
 
-    private WritableNode subject(WritableTriple a$) {
+    protected WritableNode subject(WritableTriple a$) {
         return new WritableNode(a$.getTriple().getSubject());
     }
 
-    private WritableNode predicate(WritableTriple a$) {
+    protected WritableNode predicate(WritableTriple a$) {
         return new WritableNode(a$.getTriple().getPredicate());
     }
 
-    private WritableNode object(WritableTriple a$) {
+    protected WritableNode object(WritableTriple a$) {
         return new WritableNode(a$.getTriple().getObject());
     }
 }
