@@ -1,9 +1,15 @@
 package com.ontology2.bakemono.pse3;
 import com.ontology2.bakemono.configuration.HadoopTool;
+import com.ontology2.bakemono.joins.TaggedItem;
+import com.ontology2.bakemono.joins.TaggedKeyPartitioner;
+import com.ontology2.bakemono.joins.TaggedTextKeyGroupComparator;
+import com.ontology2.bakemono.joins.TaggedTextKeySortComparator;
+import com.ontology2.bakemono.mapreduce.SelfAwareTool;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hdfs.server.common.IncorrectVersionException;
 import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.RawComparator;
 import org.apache.hadoop.io.SequenceFile.CompressionType;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.compress.CompressionCodec;
@@ -23,13 +29,12 @@ import com.ontology2.bakemono.Main;
 import com.ontology2.bakemono.MainBase.IncorrectUsageException;
 import com.ontology2.bakemono.jena.SPOTripleOutputFormat;
 import com.ontology2.bakemono.jena.STripleOutputFormat;
-import com.ontology2.bakemono.jena.TripleComparator;
 import com.ontology2.bakemono.jena.WritableTriple;
 import com.ontology2.bakemono.mapred.RealMultipleOutputs;
 import com.ontology2.bakemono.mapred.RealMultipleOutputsMainOutputWrapper;
 
 @HadoopTool("pse3")
-public class PSE3Tool implements Tool {
+public class PSE3Tool extends SelfAwareTool<PSE3Options> {
 
     private Configuration conf;
 
@@ -122,5 +127,32 @@ public class PSE3Tool implements Tool {
     
     private static void usage() throws IncorrectUsageException {
         throw new Main.IncorrectUsageException("incorrect arguments");
-    };
+    }
+
+    public Class<? extends RawComparator> getGroupingComparatorClass() {
+        Class mapInput=getMapOutputKeyClass();
+        if(TaggedItem.class.isAssignableFrom(mapInput)) {
+            return TaggedTextKeyGroupComparator.class;
+        }
+
+        return super.getGroupingComparatorClass();
+    }
+
+    public Class<? extends Partitioner> getPartitionerClass() {
+        Class mapInput=getMapOutputKeyClass();
+        if(TaggedItem.class.isAssignableFrom(mapInput)) {
+            return TaggedKeyPartitioner.class;
+        }
+
+        return super.getPartitionerClass();
+    }
+
+    public Class<? extends RawComparator> getSortComparatorClass() {
+        Class mapInput=getMapOutputKeyClass();
+        if(TaggedItem.class.isAssignableFrom(mapInput)) {
+            return TaggedTextKeySortComparator.class;
+        }
+
+        return super.getGroupingComparatorClass();
+    }
 }

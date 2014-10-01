@@ -59,7 +59,11 @@ public class TestPSE3Mapper {
                         ,Node_URI.createURI("http://example.com/B")
                         ,Node_URI.createURI("http://example.com/C")
                  )
-                ,new LongWritable(1)
+                ,new WritableTriple(
+                        Node_URI.createURI("http://example.com/A")
+                        ,Node_URI.createURI("http://example.com/B")
+                        ,Node_URI.createURI("http://example.com/C")
+                )
                 ,mockContext);
         verifyNoMoreInteractions(pse3mapper.accepted);
         verifyNoMoreInteractions(pse3mapper.rejected);
@@ -78,7 +82,11 @@ public class TestPSE3Mapper {
                         ,Node_URI.createURI("http://rdf.basekb.com/ns/book.written_work.author")
                         ,Node_URI.createURI("http://rdf.basekb.com/ns/m.03qp7yf")
                  )
-                ,new LongWritable(1)
+                ,new WritableTriple(
+                        Node_URI.createURI("http://rdf.basekb.com/ns/m.06fm3lj")
+                        ,Node_URI.createURI("http://rdf.basekb.com/ns/book.written_work.author")
+                        ,Node_URI.createURI("http://rdf.basekb.com/ns/m.03qp7yf")
+                )
                 ,mockContext);
         verifyNoMoreInteractions(pse3mapper.accepted);
     }
@@ -96,7 +104,11 @@ public class TestPSE3Mapper {
                         ,Node_URI.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")
                         ,Node_URI.createURI("http://rdf.basekb.com/ns/film.actor")
                  )
-                ,new LongWritable(1)
+                ,new WritableTriple(
+                        Node_URI.createURI("http://rdf.basekb.com/ns/m.0tc7")
+                        ,Node_URI.createURI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")
+                        ,Node_URI.createURI("http://rdf.basekb.com/ns/film.actor")
+                )
                 ,mockContext);
         verifyNoMoreInteractions(pse3mapper.accepted);
     }
@@ -113,8 +125,12 @@ public class TestPSE3Mapper {
                         Node_URI.createURI("http://rdf.basekb.com/ns/m.06fm3lj")
                         ,Node_URI.createURI("http://rdf.basekb.com/ns/book.written_work.author")
                         ,Node_URI.createURI("http://rdf.basekb.com/ns/m.03qp7yf")
-                 )
-                ,new LongWritable(1)
+                )
+                ,new WritableTriple(
+                        Node_URI.createURI("http://rdf.basekb.com/ns/m.06fm3lj")
+                        ,Node_URI.createURI("http://rdf.basekb.com/ns/book.written_work.author")
+                        ,Node_URI.createURI("http://rdf.basekb.com/ns/m.03qp7yf")
+                )
                 ,mockContext);
         verifyNoMoreInteractions(pse3mapper.accepted);
     }
@@ -128,11 +144,15 @@ public class TestPSE3Mapper {
 
         verify(pse3mapper.accepted).write(
                 new WritableTriple(
-                    Node_URI.createURI("http://rdf.basekb.com/ns/m.0tc7")
-                    ,Node_URI.createURI("http://rdf.basekb.com/ns/common.topic.topic_equivalent_webpage")
-                    ,Node_URI.createURI("http://www.ranker.com/review/arnold-schwarzenegger/493404")
+                        Node_URI.createURI("http://rdf.basekb.com/ns/m.0tc7")
+                        ,Node_URI.createURI("http://rdf.basekb.com/ns/common.topic.topic_equivalent_webpage")
+                        ,Node_URI.createURI("http://www.ranker.com/review/arnold-schwarzenegger/493404")
                 )
-                ,new LongWritable(1)
+                ,new WritableTriple(
+                        Node_URI.createURI("http://rdf.basekb.com/ns/m.0tc7")
+                        ,Node_URI.createURI("http://rdf.basekb.com/ns/common.topic.topic_equivalent_webpage")
+                        ,Node_URI.createURI("http://www.ranker.com/review/arnold-schwarzenegger/493404")
+                )
                 ,mockContext);
         verifyNoMoreInteractions(pse3mapper.accepted);
     }
@@ -154,7 +174,7 @@ public class TestPSE3Mapper {
         verify(pse3mapper.rejected).write(
                 new Text("<http://example.com/A>")
                 ,new Text("<http://example.com/B>\t\"2001-06\"^^xsd:datetime\t.")
-                ,mockContext
+                ,null
         );
 
 

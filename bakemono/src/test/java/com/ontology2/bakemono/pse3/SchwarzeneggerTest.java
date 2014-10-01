@@ -62,12 +62,14 @@ public class SchwarzeneggerTest {
             Text value=new Text(line);
             Context context = mock(Context.class);
             pse3mapper.map(key, value, context);
-            ArgumentCaptor<WritableTriple> captor=ArgumentCaptor.forClass(WritableTriple.class);
+            ArgumentCaptor<WritableTriple> captorS=ArgumentCaptor.forClass(WritableTriple.class);
+            ArgumentCaptor<WritableTriple> captorV=ArgumentCaptor.forClass(WritableTriple.class);
             verify(pse3mapper.accepted).write(
-                    captor.capture(), 
-                    eq(new LongWritable(1)), 
+                    captorS.capture(),
+                    captorV.capture(),
                     eq(context));
-            outputs.add(captor.getValue());
+            outputs.add(captorS.getValue());
+            assertEquals(captorS.getValue(),captorV.getValue());
             count++;
         }
         

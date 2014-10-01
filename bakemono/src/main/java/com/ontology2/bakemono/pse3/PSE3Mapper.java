@@ -7,7 +7,6 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.*;
-import org.apache.hadoop.mapreduce.Mapper.Context;
 import org.apache.hadoop.mapreduce.lib.output.MultipleOutputs;
 
 import com.google.common.base.Function;
@@ -26,7 +25,7 @@ import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleCodec;
 import com.ontology2.rdf.JenaUtil;
 
-public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWritable> {
+public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,WritableTriple> {
     private static final LongWritable ONE = new LongWritable(1);
     
     private static org.apache.commons.logging.Log logger = LogFactory.getLog(PSE3Mapper.class);
@@ -41,7 +40,7 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
     //
 
     RealMultipleOutputs mos;
-    KeyValueAcceptor<WritableTriple,LongWritable> accepted;
+    KeyValueAcceptor<WritableTriple,WritableTriple> accepted;
     KeyValueAcceptor<Text,Text> rejected;
 
     
@@ -69,7 +68,8 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
             Node object=nodeParser.get(rawObject);
             
             Triple realTriple=new Triple(subject,predicate,object);
-            accepted.write(new WritableTriple(realTriple),ONE,c);
+            final WritableTriple writableTriple = new WritableTriple(realTriple);
+            accepted.write(writableTriple,writableTriple,c);
             incrementCounter(c,PSE3Counters.ACCEPTED,1);
         } catch(Throwable e) {
             logger.error("Caught exception in PSE3Mapper",e);
@@ -88,9 +88,11 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
     private void reject(Context c, PrimitiveTriple row3) throws IOException,
             InterruptedException {
         incrementCounter(c,PSE3Counters.REJECTED,1);
+        // note we pass null for a context because we don't use the context,  but the type doesn't match
+        // with the type of the data type because,  of course,  we're not using the context
         rejected.write(
                 new Text(row3.getSubject()),
-                new Text(row3.getPredicate()+"\t"+row3.getObject()+"\t."),c);
+                new Text(row3.getPredicate()+"\t"+row3.getObject()+"\t."),null);
     }
 
     //
@@ -155,5 +157,4 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,LongWrit
         
         return out.toString();
     }
-
 }

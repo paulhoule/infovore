@@ -1,6 +1,7 @@
 package com.ontology2.bakemono.joins;
 
 import com.google.common.collect.Maps;
+import com.sun.istack.internal.NotNull;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.VIntWritable;
 import org.apache.hadoop.io.WritableComparable;
@@ -22,7 +23,7 @@ public abstract class TaggedItem<T extends WritableComparable> implements Writab
     private T key;
     private VIntWritable tag;
 
-    public TaggedItem() {};
+    public TaggedItem() {}
     public TaggedItem(T key, VIntWritable tag) {
         this.key=key;
         this.tag=tag;
@@ -36,7 +37,7 @@ public abstract class TaggedItem<T extends WritableComparable> implements Writab
     }
 
     @Override
-    public void write(DataOutput d) throws IOException {
+    public void write(@NotNull DataOutput d) throws IOException {
         key.write(d);
         tag.write(d);
     }
@@ -56,14 +57,14 @@ public abstract class TaggedItem<T extends WritableComparable> implements Writab
     }
 
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(@NotNull Object o) {
         TaggedItem that=(TaggedItem) o;
         int cmp=key.compareTo(that.key);
         return cmp==0 ? tag.compareTo(that.tag) : cmp;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(@NotNull Object o) {
         TaggedItem that=(TaggedItem) o;
         return key.equals(that.key);
     }

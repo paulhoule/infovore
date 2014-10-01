@@ -15,7 +15,7 @@ import com.hp.hpl.jena.graph.Triple;
 
 public class WritableTriple implements WritableComparable {
     private Triple innerTriple;
-    private static final TripleComparator tc=new TripleComparator();
+    private static final RawTripleComparator tc=new RawTripleComparator();
 
     public WritableTriple(Triple triple) {
         innerTriple=triple;
@@ -67,7 +67,7 @@ public class WritableTriple implements WritableComparable {
 
     @Override
     public int compareTo(Object that) {
-        return tc.compare(this.getTriple(), ((WritableTriple) that).getTriple());
+        return tc.compare(this, ((WritableTriple) that));
     }
 
     @Override

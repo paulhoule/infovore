@@ -8,13 +8,21 @@ import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
 
+import java.util.Comparator;
+
 public class TestTripleComparator {
     public final Node A=Node_URI.createURI("http://example.com/A");
     public final Node B=Node_URI.createURI("http://example.com/B");
     public final Node C=Node_URI.createURI("http://example.com/C");
     
     public final Triple base=new Triple(A,B,C);
-    public final TripleComparator c=new TripleComparator();
+    public final Comparator<Triple> c=new Comparator<Triple>() {
+        private final Comparator<WritableTriple> innerComparator=new RawTripleComparator();
+        @Override
+        public int compare(Triple o1, Triple o2) {
+            return innerComparator.compare(new WritableTriple(o1),new WritableTriple(o2));
+        }
+    };
     
     @Test
     public void testABC() {
