@@ -86,6 +86,8 @@ public abstract class SingleJobTool<OptionsClass> extends ToolBase {
     abstract public Class getOptionsClass();
 
     public int run(String[] strings) throws Exception {
+        logger.warn("CHECK LOGGING LEVEL");
+        logger.info("Initializing SingleJobTool");
         Job job = createJob(strings);
         return job.waitForCompletion(true) ? 0 : 1;
     }
