@@ -84,10 +84,12 @@ public class PSE3Tool extends SelfAwareTool<PSE3Options> {
             job.setNumReduceTasks(reduceTasks);
 
             job.setMapOutputKeyClass(WritableTriple.class);
-            job.setMapOutputValueClass(LongWritable.class);
+            job.setMapOutputValueClass(WritableTriple.class);
             job.setOutputKeyClass(Triple.class);
             job.setOutputValueClass(LongWritable.class);
-
+            job.setGroupingComparatorClass(getGroupingComparatorClass());
+            job.setSortComparatorClass(getSortComparatorClass());
+            job.setPartitionerClass(getPartitionerClass());
             FileInputFormat.addInputPath(job, new Path(input));
             FileOutputFormat.setOutputPath(job, acceptedPath);
             FileOutputFormat.setCompressOutput(job, true);
