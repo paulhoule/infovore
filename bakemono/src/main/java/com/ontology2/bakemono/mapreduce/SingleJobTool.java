@@ -7,6 +7,7 @@ import com.google.common.collect.Multimap;
 import com.ontology2.bakemono.joins.GeneralJoinMapper;
 import com.ontology2.bakemono.mapred.ToolBase;
 import com.ontology2.centipede.parser.OptionParser;
+import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.RawComparator;
 import org.apache.hadoop.io.Writable;
@@ -24,16 +25,15 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public abstract class SingleJobTool<OptionsClass> extends ToolBase {
+    private static org.apache.commons.logging.Log logger = LogFactory.getLog(SingleJobTool.class);
+
     protected OptionsClass options;
     protected void validateOptions() {} ;
-    abstract protected String getName();   // can this be defaulted with Spring magic?
+    abstract protected String getName();
     protected Class<? extends InputFormat> getInputFormatClass() {
         return TextInputFormat.class;
     }
     protected abstract Class<? extends Mapper> getMapperClass();
-
-    // can the two following classes be defaulted by something that introspects
-    // the mapper?
 
     protected abstract Class<? extends Writable> getMapOutputKeyClass();
     protected abstract Class<? extends Writable> getMapOutputValueClass();
@@ -110,14 +110,17 @@ public abstract class SingleJobTool<OptionsClass> extends ToolBase {
         job.setOutputValueClass(getOutputValueClass());
 
         if(getGroupingComparatorClass()!=null) {
+            logger.info("Set grouping comparator class to "+getGroupingComparatorClass());
             job.setGroupingComparatorClass(getGroupingComparatorClass());
         }
 
         if(getPartitionerClass()!=null) {
+            logger.info("Set partitioner class to "+getPartitionerClass());
             job.setPartitionerClass(getPartitionerClass());
         }
 
-        if(getPartitionerClass()!=null) {
+        if(getSortComparatorClass()!=null) {
+            logger.info("Set sort comparator class to "+getSortComparatorClass());
             job.setSortComparatorClass(getSortComparatorClass());
         }
 
