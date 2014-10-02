@@ -14,9 +14,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: com.ontology2:centipede:99.7-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.ontology2:centipede:99.7" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:18.0" level="project" />
-    <orderEntry type="library" name="Maven: com.ontology2:centipede-parser:99.7-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.ontology2:centipede-parser:99.7" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.1.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.1.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />

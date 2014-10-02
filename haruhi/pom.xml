@@ -22,7 +22,7 @@
     <dependency>
       <groupId>com.ontology2</groupId>
       <artifactId>centipede</artifactId>
-      <version>99.7-SNAPSHOT</version>
+      <version>99.7</version>
       <exclusions>
         <exclusion>
             <groupId>org.apache.httpcomponents</groupId>
