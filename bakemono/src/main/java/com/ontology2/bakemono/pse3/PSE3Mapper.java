@@ -47,6 +47,8 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,Writable
     @Override
     public void setup(Context context) throws IOException,
     InterruptedException {
+        logger.error("Really paranoid logger debug method");
+        logger.warn("It's not just that we ignore warnings");
         mos=new RealMultipleOutputs(context);
         super.setup(context);
         accepted=new PrimaryKeyValueAcceptor(context);
