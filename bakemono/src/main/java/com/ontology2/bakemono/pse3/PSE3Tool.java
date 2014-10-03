@@ -7,6 +7,7 @@ import com.ontology2.bakemono.joins.TaggedKeyPartitioner;
 import com.ontology2.bakemono.joins.TaggedTextKeyGroupComparator;
 import com.ontology2.bakemono.joins.TaggedTextKeySortComparator;
 import com.ontology2.bakemono.mapreduce.SelfAwareTool;
+import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hdfs.server.common.IncorrectVersionException;
@@ -34,6 +35,8 @@ import com.ontology2.bakemono.mapred.RealMultipleOutputsMainOutputWrapper;
 
 @HadoopTool("pse3")
 public class PSE3Tool extends SelfAwareTool<PSE3Options> {
+    private static org.apache.commons.logging.Log logger = LogFactory.getLog(PSE3Tool.class);
+
 
     private Configuration conf;
 
@@ -49,6 +52,8 @@ public class PSE3Tool extends SelfAwareTool<PSE3Options> {
 
     @Override
     public int run(String[] arg0) throws Exception {
+        logger.warn("Entering PSE3Tool run() method");
+
         try {
             PeekingIterator<String> a = Iterators.peekingIterator(Iterators.forArray(arg0));
             Integer reduceTasks = parseRArgument(a);
@@ -89,7 +94,9 @@ public class PSE3Tool extends SelfAwareTool<PSE3Options> {
             job.setOutputValueClass(LongWritable.class);
             job.setGroupingComparatorClass(getGroupingComparatorClass());
             job.setSortComparatorClass(getSortComparatorClass());
-            job.setPartitionerClass(getPartitionerClass());
+            Class<? extends Partitioner> p=getPartitionerClass();
+            logger.warn("Creating partitioner of type "+p);
+            job.setPartitionerClass(p);
             FileInputFormat.addInputPath(job, new Path(input));
             FileOutputFormat.setOutputPath(job, acceptedPath);
             FileOutputFormat.setCompressOutput(job, true);
