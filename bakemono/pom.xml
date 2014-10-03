@@ -89,6 +89,11 @@
     <resources>
       <resource>
         <filtering>true</filtering>
+        <targetPath>..</targetPath>
+        <directory>${basedir}/src/main/scripts</directory>
+      </resource>
+      <resource>
+        <filtering>true</filtering>
         <directory>${basedir}/src/main/filtered</directory>
       </resource>
       <resource>
