@@ -57,6 +57,7 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,Writable
 
     Function<String,String> nodePreprocessor=new Unescape$();
     int myCnt=0;
+    WritableTriple writableTriple;
     @Override
     public void map(LongWritable arg0, Text arg1, Context c) throws IOException, InterruptedException {
         PrimitiveTriple row3=p3Codec.decode(arg1.toString());
@@ -70,13 +71,14 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,Writable
             Node object=nodeParser.get(rawObject);
             
             Triple realTriple=new Triple(subject,predicate,object);
-            final WritableTriple writableTriple = new WritableTriple(realTriple);
-            accepted.write(writableTriple,writableTriple,c);
-            incrementCounter(c,PSE3Counters.ACCEPTED,1);
+            writableTriple = new WritableTriple(realTriple);
         } catch(Throwable e) {
             logger.error("Caught exception in PSE3Mapper",e);
             reject(c, row3);
+            return;
         }
+        accepted.write(writableTriple,writableTriple,c);
+        incrementCounter(c,PSE3Counters.ACCEPTED,1);
     }
     
     //

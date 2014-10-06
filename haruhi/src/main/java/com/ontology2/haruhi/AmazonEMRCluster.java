@@ -23,7 +23,7 @@ import com.ontology2.centipede.errors.ExitCodeException;
 public class AmazonEMRCluster implements Cluster {
     private static Log logger = LogFactory.getLog(AmazonEMRCluster.class);
     private final JobFlowInstancesConfig instances;
-    
+
     @Autowired private String awsSoftwareBucket;
     @Autowired private AmazonElasticMapReduce emrClient;
     @Autowired private StepConfig debugStep;
