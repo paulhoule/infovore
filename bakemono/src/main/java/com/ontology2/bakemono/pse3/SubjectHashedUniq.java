@@ -9,8 +9,9 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 import java.io.IOException;
 
-public class SubjectHashedUniq extends Reducer<WritableTriple, WritableTriple, WritableTriple, LongWritable> {
+public class SubjectHashedUniq extends Reducer<WritableTriple, WritableTriple, Triple, LongWritable> {
     private static org.apache.commons.logging.Log logger = LogFactory.getLog(SubjectHashedUniq.class);
+    final LongWritable ONE = new LongWritable(1);
 
     @Override
     protected void reduce(WritableTriple key, Iterable<WritableTriple> value,
@@ -24,8 +25,8 @@ public class SubjectHashedUniq extends Reducer<WritableTriple, WritableTriple, W
                 continue;
 
             incrementCounter(context,UniqCounters.DISTINCT_KEYS,1);
-            context.write(v,new LongWritable(1));
 
+            context.write(v.getTriple(), ONE);
         };
     }
 
