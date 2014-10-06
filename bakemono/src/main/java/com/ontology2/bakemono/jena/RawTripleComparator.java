@@ -5,11 +5,7 @@ import org.apache.hadoop.io.WritableComparator;
 
 public class RawTripleComparator extends WritableComparator {
     protected RawTripleComparator() {
-        super(WritableTriple.class);
-    }
-
-    protected RawTripleComparator(boolean createInstances) {
-        super(WritableTriple.class, createInstances);
+        super(WritableTriple.class,true);
     }
 
     @Override

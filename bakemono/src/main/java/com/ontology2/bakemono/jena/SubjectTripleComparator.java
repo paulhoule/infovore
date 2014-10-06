@@ -8,10 +8,6 @@ public class SubjectTripleComparator extends RawTripleComparator {
         super();
     }
 
-    protected SubjectTripleComparator(boolean createInstances) {
-        super(createInstances);
-    }
-
     @Override
     public int compare(WritableComparable a, WritableComparable b) {
         WritableTriple a$=(WritableTriple) a;
