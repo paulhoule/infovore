@@ -81,7 +81,7 @@ public class PSE3Tool extends SelfAwareTool<PSE3Options> {
             job.setMapSpeculativeExecution(false);
             job.setJarByClass(PSE3Tool.class);
             job.setMapperClass(PSE3Mapper.class);
-            job.setReducerClass(Uniq.class);
+            job.setReducerClass(SubjectHashedUniq.class);
 
             if (reduceTasks == null) {
                 reduceTasks = 29;    // about right for AWS runs
