@@ -72,6 +72,7 @@ public class PSE3Tool extends SelfAwareTool<PSE3Options> {
             Path rejectedPath = new Path(output, "rejected");
 
             conf.set("mapred.compress.map.output", "true");
+            conf.set("mapred.map.max.attempts","1");
             conf.set("mapred.output.compression.type", "BLOCK");
             conf.set("mapred.map.output.compression.codec", "org.apache.hadoop.io.compress.GzipCodec");
 
