@@ -71,7 +71,7 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,Writable
             Triple realTriple=new Triple(subject,predicate,object);
             writableTriple = new WritableTriple(realTriple);
         } catch(Throwable e) {
-            logger.error("Caught exception in PSE3Mapper",e);
+            logger.warn("Caught exception while parsing fact",e);
             reject(c, row3);
             return;
         }
