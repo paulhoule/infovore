@@ -141,24 +141,50 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,Writable
             return input;
         }
     }
-    
-    public static String unescapeFreebaseKey(String in) {
-        StringBuilder out=new StringBuilder();
-        String [] parts=in.split("[$]");
-        out.append(parts[0]);
-        for(int i=1;i<parts.length;i++) {
-            String hexSymbols=parts[i].substring(0,4);
-            String remainder="";
-            if(parts[i].length()>4) {
-                remainder=parts[i].substring(4);
-            }
-            
-            int codePoint=Integer.parseInt(hexSymbols,16);
-            char[] character=Character.toChars(codePoint);
-            out.append(character);
-            out.append(remainder);
+
+    // would L.U.T. be faster?
+    public static int digitToHex(char digit) {
+        if(digit<='9' && digit>='0') {
+            return digit-'0';
         }
-        
+
+        if(digit<='F' && digit>='A') {
+            return digit-'A'+10;
+        }
+
+        return -1;
+    }
+
+    public static String unescapeFreebaseKey(String in) {
+        int from=0;
+        int to=in.indexOf('$');
+        if(to==-1)
+            return in;
+
+
+        StringBuilder out=new StringBuilder();
+        do {
+            out.append(in.substring(from,to));
+            if(in.length()<to+5)
+                return in;
+
+            int a=digitToHex(in.charAt(to+1));
+            int b=digitToHex(in.charAt(to+2));
+            int c=digitToHex(in.charAt(to+3));
+            int d=digitToHex(in.charAt(to+4));
+            if (a!=-1 && b!=-1 && c!=-1 && d!=-1) {
+                out.append((char) ((a << 12) + (b << 8) + (c << 4) + d));
+            } else {
+                return in;
+            }
+            from=to+5;
+            to=in.indexOf('$',to+5);
+        } while(to!=-1);
+
+        if(from<in.length()) {
+            out.append(in.substring(from));
+        }
+
         return out.toString();
     }
 }
