@@ -125,8 +125,8 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,Writable
             if(input.startsWith("<") && input.endsWith(">"))
                 return applyToNode(input);
             
-            if(input.startsWith("\""))
-                return applyToString(input);
+            if(input.startsWith("\"") && input.endsWith("\""))
+                return applyToRawString(input);
             
             return input;
         }
@@ -137,13 +137,13 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,Writable
 
         // XXX -- note that this is "not implemented",  is this what we want?
 
-        public String applyToString(String input) {
+        public String applyToRawString(String input) {
             return input;
         }
     }
     
     public static String unescapeFreebaseKey(String in) {
-        StringBuffer out=new StringBuffer();
+        StringBuilder out=new StringBuilder();
         String [] parts=in.split("[$]");
         out.append(parts[0]);
         for(int i=1;i<parts.length;i++) {
