@@ -21,4 +21,13 @@ public class TestVersionData {
         assertNotEquals("",value);
         assertTrue(CharMatcher.DIGIT.matchesAnyOf(value));
     }
+
+    @Test
+    public void iAm2Point4Snapshot() throws IOException {
+        InputStream in=getClass().getResourceAsStream("version.properties");
+        Properties p= new Properties();
+        p.load(in);
+        String value=p.getProperty("com.ontology2.haruhi.version");
+        assertEquals("2.4-SNAPSHOT",value);
+    }
 }
