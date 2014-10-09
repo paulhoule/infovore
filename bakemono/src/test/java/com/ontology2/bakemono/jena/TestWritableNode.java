@@ -1,5 +1,6 @@
 package com.ontology2.bakemono.jena;
 
+import static com.google.common.base.Strings.repeat;
 import static org.junit.Assert.*;
 
 import java.io.ByteArrayInputStream;
@@ -10,6 +11,7 @@ import java.io.DataOutput;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
+import com.google.common.base.Strings;
 import org.apache.hadoop.io.Writable;
 import org.junit.Test;
 
@@ -64,6 +66,19 @@ public class TestWritableNode {
 
         roundtrip(wn1, wn2);
         assertEquals("jjshsbn7",wn2.getNode().getLiteralValue());
+        assertEquals("", wn2.getNode().getLiteralLanguage());
+    }
+
+    @Test
+    public void serializeAndDeserialize100_000CharString() throws IOException {
+        String bigString= repeat("TEN DIGITS", 10000);
+        assertEquals((int) Math.pow(10,5),bigString.length());
+        Node n1=Node.createLiteral(bigString);
+        WritableNode wn1=new WritableNode(n1);
+        WritableNode wn2=new WritableNode(null);
+
+        roundtrip(wn1, wn2);
+        assertEquals(bigString,wn2.getNode().getLiteralValue());
         assertEquals("", wn2.getNode().getLiteralLanguage());
     }
 
