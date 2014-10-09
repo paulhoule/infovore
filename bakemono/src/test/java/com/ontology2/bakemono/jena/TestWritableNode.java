@@ -31,17 +31,6 @@ public class TestWritableNode {
         assertEquals("http://example.com/ZZZ",wn2.getNode().getURI());
         
     }
-
-    public static void roundtrip(Writable wn1, Writable wn2)
-            throws IOException {
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        DataOutput out=new DataOutputStream(bos);
-        wn1.write(out);
-        byte[] result=bos.toByteArray();
-        ByteArrayInputStream bis = new ByteArrayInputStream(result);
-        DataInput in=new DataInputStream(bis);
-        wn2.readFields(in);
-    }
     
     @Test
     public void serializeAndDeserializeInteger() throws IOException {
@@ -76,5 +65,16 @@ public class TestWritableNode {
         roundtrip(wn1, wn2);
         assertEquals("jjshsbn7",wn2.getNode().getLiteralValue());
         assertEquals("", wn2.getNode().getLiteralLanguage());
+    }
+
+    public static void roundtrip(Writable wn1, Writable wn2)
+            throws IOException {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        DataOutput out=new DataOutputStream(bos);
+        wn1.write(out);
+        byte[] result=bos.toByteArray();
+        ByteArrayInputStream bis = new ByteArrayInputStream(result);
+        DataInput in=new DataInputStream(bis);
+        wn2.readFields(in);
     }
 }

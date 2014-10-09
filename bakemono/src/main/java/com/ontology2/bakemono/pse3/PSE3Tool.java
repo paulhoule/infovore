@@ -96,7 +96,6 @@ public class PSE3Tool extends SelfAwareTool<PSE3Options> {
             job.setGroupingComparatorClass(getGroupingComparatorClass());
             job.setSortComparatorClass(getSortComparatorClass());
             Class<? extends Partitioner> p=getPartitionerClass();
-            logger.warn("Creating partitioner of type "+p);
             job.setPartitionerClass(p);
             FileInputFormat.addInputPath(job, new Path(input));
             FileOutputFormat.setOutputPath(job, acceptedPath);

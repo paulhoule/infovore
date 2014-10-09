@@ -1,8 +1,7 @@
 package com.ontology2.bakemono.jena;
-import java.io.DataInput;
-import java.io.DataOutput;
-import java.io.IOException;
+import java.io.*;
 
+import com.google.common.base.Charsets;
 import com.google.common.collect.ComparisonChain;
 import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.io.WritableComparable;
@@ -14,6 +13,7 @@ import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.sparql.util.NodeFactory;
 
+import static com.google.common.base.Charsets.UTF_8;
 import static com.google.common.collect.ComparisonChain.start;
 
 //
@@ -43,21 +43,21 @@ public class WritableNode implements WritableComparable {
     public void write(DataOutput out) throws IOException {
         if(innerNode.isURI()) {
             out.writeByte(URI);
-            out.writeUTF(innerNode.getURI());
+            writeBigUTF8(out,innerNode.getURI());
             return;
         }
         
         String dt=innerNode.getLiteralDatatypeURI();
         if(dt!=null) {
             out.writeByte(GENERAL_LITERAL);
-            out.writeUTF(innerNode.getLiteralLexicalForm());
-            out.writeUTF(dt);
+            writeBigUTF8(out,innerNode.getLiteralLexicalForm());
+            writeBigUTF8(out,dt);
             return;
         }
         
         out.writeByte(STRING);
-        out.writeUTF(innerNode.getLiteralLexicalForm());
-        out.writeUTF(innerNode.getLiteralLanguage());
+        writeBigUTF8(out,innerNode.getLiteralLexicalForm());
+        writeBigUTF8(out,innerNode.getLiteralLanguage());
         return;
     }
 
@@ -71,15 +71,15 @@ public class WritableNode implements WritableComparable {
     public void readFields(DataInput in) throws IOException {
         int type=in.readByte();
         if(type==URI) {
-            String uri=in.readUTF();
+            String uri=readBigUTF8(in);
             innerNode=Node.createURI(uri);
         } else if (type==GENERAL_LITERAL) {
-            String lexicalForm=in.readUTF();
-            String dt=in.readUTF();
+            String lexicalForm=readBigUTF8(in);
+            String dt=readBigUTF8(in);
             innerNode=Node.createLiteral(lexicalForm,typeLookup.getSafeTypeByName(dt));
         } else if (type==STRING) {
-            String lexicalForm=in.readUTF();
-            String language=in.readUTF();
+            String lexicalForm=readBigUTF8(in);
+            String language=readBigUTF8(in);
             innerNode=Node.createLiteral(lexicalForm,language,false);
         }
     }
@@ -127,4 +127,15 @@ public class WritableNode implements WritableComparable {
         }
     }
 
+    public static void writeBigUTF8(DataOutput out,String that) throws IOException {
+        byte[] utf8=that.getBytes(UTF_8);
+        out.writeInt(utf8.length);
+        out.write(utf8);
+    }
+
+    public static String readBigUTF8(DataInput in) throws IOException {
+        byte[] utf8=new byte[in.readInt()];
+        in.readFully(utf8);
+        return new String(utf8,UTF_8);
+    }
 }
