@@ -60,7 +60,7 @@ public class TestApplicationConfigurationLoader {
         List<String> flowArgs= Lists.newArrayList("s3n://freebase-dumps/", "1942-12-07-00-00", "s3n://basekb-now/");
         List<FlowStep> steps=basekbNowFlow().generateSteps(flowArgs);
         Assert.assertNotNull(steps);
-        assertEquals(6,steps.size());
+        assertEquals(5,steps.size());
 
 
         Map<String, Object> local = Maps.newHashMap();
@@ -102,7 +102,7 @@ public class TestApplicationConfigurationLoader {
             assertEquals("run",args.get(i++));
             assertEquals("pse3",args.get(i++));
             assertEquals("-r",args.get(i++));
-            assertEquals("47",args.get(i++));
+            assertEquals("210",args.get(i++));
             assertEquals("/preprocessed/1942-12-07-00-00/",args.get(i++));
             assertEquals("s3n://basekb-now/1942-12-07-00-00/",args.get(i++));
         }
@@ -116,23 +116,8 @@ public class TestApplicationConfigurationLoader {
 
             int i=0;
             assertEquals("run",args.get(i++));
-            assertEquals("sieve3",args.get(i++));
-            assertEquals("s3n://basekb-now/1942-12-07-00-00/accepted/",args.get(i++));
-            assertEquals("s3n://basekb-now/1942-12-07-00-00/sieved/",args.get(i++));
-        }
-
-        {
-            Assert.assertTrue(steps.get(j) instanceof SpringStep);
-            SpringStep step2=(SpringStep) steps.get(j++);
-            List<String> args=step2.getStepArgs(local,flowArgs);
-
-            assertEquals(5,args.size());
-
-            int i=0;
-            assertEquals("run",args.get(i++));
             assertEquals("fs",args.get(i++));
             assertEquals("-rmr",args.get(i++));
-            assertEquals("s3n://basekb-now/1942-12-07-00-00/accepted/",args.get(i++));
             assertEquals("/preprocessed/1942-12-07-00-00/",args.get(i++));
         }
     }
@@ -145,7 +130,7 @@ public class TestApplicationConfigurationLoader {
                 flowArgs,
                 null
         );
-        assertEquals(5,steps.size());
+        assertEquals(4,steps.size());
         int j=0;
         {
             StepConfig c=steps.get(j++);
@@ -171,7 +156,7 @@ public class TestApplicationConfigurationLoader {
                             "run"
                             ,"pse3"
                             ,"-r"
-                            ,"47"
+                            ,"210"
                             ,"/preprocessed/1942-12-07-00-00/"
                             ,"s3n://basekb-now/1942-12-07-00-00/")
                     ,that.getArgs());
@@ -183,21 +168,8 @@ public class TestApplicationConfigurationLoader {
             assertEquals(
                     Arrays.asList(
                             "run"
-                            ,"sieve3"
-                            ,"s3n://basekb-now/1942-12-07-00-00/accepted/"
-                            ,"s3n://basekb-now/1942-12-07-00-00/sieved/")
-                    ,that.getArgs());
-        }
-
-        {
-            StepConfig c=steps.get(j++);
-            HadoopJarStepConfig that=c.getHadoopJarStep();
-            assertEquals(
-                    Arrays.asList(
-                            "run"
                             ,"fs"
                             ,"-rmr"
-                            ,"s3n://basekb-now/1942-12-07-00-00/accepted/"
                             ,"/preprocessed/1942-12-07-00-00/")
                     ,that.getArgs());
         }
