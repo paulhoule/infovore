@@ -137,7 +137,7 @@ public class TestApplicationConfigurationLoader {
         }
     }
 
-
+    @Test
     public void checkCorrectConfigurationForBaseKBNowFlow() throws IOException {
         List<String> flowArgs=Lists.newArrayList("s3n://freebase-dumps/","1942-12-07-00-00","s3n://basekb-now/");
         List<StepConfig> steps=tinyAwsCluster.createEmrSteps(
@@ -202,4 +202,5 @@ public class TestApplicationConfigurationLoader {
                     ,that.getArgs());
         }
     }
+
 }

@@ -39,10 +39,6 @@
                 <constructor-arg><bean class="java.lang.String"><constructor-arg value="accepted" /></bean></constructor-arg>
                 <constructor-arg><bean class="java.lang.String"><constructor-arg value="#outputRoot+'accepted/'" /></bean></constructor-arg>
               </bean>
-              <bean class="com.ontology2.haruhi.flows.Assignment">
-                <constructor-arg><bean class="java.lang.String"><constructor-arg value="sieved" /></bean></constructor-arg>
-                <constructor-arg><bean class="java.lang.String"><constructor-arg value="#outputRoot+'sieved/'" /></bean></constructor-arg>
-              </bean>
             </list>
           </constructor-arg>
         </bean>
@@ -62,29 +58,19 @@
               <value>'run'</value>
               <value>'pse3'</value>
               <value>'-r'</value>
-              <value>'47'</value>
+              <value>'210'</value>
               <value>#preprocessed</value>
               <value>#outputRoot</value>
             </list>
           </constructor-arg>
         </bean>
-        <bean class="com.ontology2.haruhi.flows.JobStep">
-          <constructor-arg>
-            <list>
-              <value>'run'</value>
-              <value>'sieve3'</value>
-              <value>#accepted</value>
-              <value>#sieved</value>
-            </list>
-          </constructor-arg>
-        </bean>
+
         <bean class="com.ontology2.haruhi.flows.JobStep">
           <constructor-arg>
             <list>
               <value>'run'</value>
               <value>'fs'</value>
               <value>'-rmr'</value>
-              <value>#accepted</value>
               <value>#preprocessed</value>
             </list>
           </constructor-arg>
