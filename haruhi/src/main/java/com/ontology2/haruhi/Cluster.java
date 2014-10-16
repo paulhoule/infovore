@@ -1,6 +1,5 @@
 package com.ontology2.haruhi;
 
-import java.io.IOException;
 import java.util.List;
 
 import com.ontology2.haruhi.flows.Flow;

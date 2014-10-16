@@ -13,8 +13,6 @@ import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
 
-import com.google.common.collect.Maps;
-
 public class AssignmentStep extends FlowStep {
     private static final Log logger = LogFactory.getLog(AssignmentStep.class);
     private final List<Assignment> assignments;
@@ -38,7 +36,7 @@ public class AssignmentStep extends FlowStep {
      */
     
     public Map<String,Object> process(final Map<String,Object> local,final List<String> flowArgs) {
-        HashMap<String, Object> output = Maps.newHashMap(local);
+        HashMap<String, Object> output = new HashMap<>(local);
         SpringStepContext stepContext=new SpringStepContext(flowArgs,local);
         ExpressionParser parser = new SpelExpressionParser();
         

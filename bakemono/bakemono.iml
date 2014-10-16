@@ -6,6 +6,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/scripts" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/filtered" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
@@ -13,7 +14,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: com.ontology2:centipede-parser:99.7-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.ontology2:centipede-parser:99.7" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.1.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.1.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
@@ -71,6 +72,7 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.avro:avro:1.5.3" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.thoughtworks.paranamer:paranamer:2.3" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.xerial.snappy:snappy-java:1.0.3.2" level="project" />
+    <orderEntry type="module" module-name="haruhi-spring" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:4.1.0.RELEASE" level="project" />
   </component>
 </module>

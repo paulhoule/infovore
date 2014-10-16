@@ -77,6 +77,11 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
+      <groupId>com.ontology2</groupId>
+      <artifactId>haruhi-spring</artifactId>
+      <version>2.4-SNAPSHOT</version>
+    </dependency>
+    <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
       <scope>test</scope>
@@ -105,16 +110,6 @@
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
         <version>2.4</version>
-        <configuration>
-          <descriptors>
-            <descriptor>src/main/assembly/hadoop-job.xml</descriptor>
-          </descriptors>
-          <archive>
-            <manifest>
-              <mainClass>com.ontology2.bakemono.Main</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
         <executions>
           <execution>
             <id>make-assembly</id>
@@ -122,6 +117,28 @@
             <goals>
               <goal>single</goal>
             </goals>
+            <configuration>
+              <descriptors>
+                <descriptor>src/main/assembly/hadoop-job.xml</descriptor>
+              </descriptors>
+              <archive>
+                <manifest>
+                  <mainClass>com.ontology2.bakemono.Main</mainClass>
+                </manifest>
+              </archive>
+            </configuration>
+          </execution>
+          <execution>
+            <id>make-metadata</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <descriptors>
+                <descriptor>src/main/assembly/metadata.xml</descriptor>
+              </descriptors>
+            </configuration>
           </execution>
         </executions>
       </plugin>

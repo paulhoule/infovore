@@ -1,13 +1,7 @@
 package com.ontology2.haruhi.flows;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-import static com.google.common.collect.Lists.*;
-
-import com.google.common.collect.Lists;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.expression.EvaluationContext;
@@ -27,7 +21,7 @@ public abstract class SpringStep extends FlowStep {
     public List<String> getStepArgs(Map<String,Object> local,List<String> flowArgs) {
         SpringStepContext stepContext=new SpringStepContext(flowArgs,local);
         ExpressionParser parser = new SpelExpressionParser();
-        List<String> stepArgs=newArrayList();
+        List<String> stepArgs=new ArrayList<>();
         
         for(String that:argDefinitions) {
             Expression e=parser.parseExpression(that);

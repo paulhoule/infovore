@@ -42,6 +42,7 @@
   <modules>
     <module>bakemono</module>
     <module>haruhi</module>
+    <module>haruhi-spring</module>
   </modules>
   <build>
     <plugins>

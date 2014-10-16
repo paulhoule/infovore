@@ -3,7 +3,6 @@ package com.ontology2.haruhi;
 import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduce;
 import com.amazonaws.services.elasticmapreduce.model.*;
 import com.google.common.base.Predicate;
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Sets;
 import com.ontology2.centipede.errors.ExitCodeException;
 import com.ontology2.haruhi.flows.Flow;
@@ -18,7 +17,6 @@ import java.util.Set;
 import java.util.UUID;
 import static com.google.common.collect.Iterables.*;
 
-import com.ontology2.centipede.errors.ExitCodeException;
 import static com.ontology2.centipede.errors.ExitCodeException.*;
 
 

@@ -1,6 +1,5 @@
 package com.ontology2.haruhi;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,13 +13,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.amazonaws.services.elasticmapreduce.model.HadoopJarStepConfig;
 import com.amazonaws.services.elasticmapreduce.model.StepConfig;
 import com.google.common.collect.Lists;
-import com.ontology2.haruhi.AmazonEMRCluster;
 import com.ontology2.haruhi.flows.Flow;
 
 import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"shell/applicationContext.xml","shell/testDefaults.xml"})
+@ContextConfiguration({"shell/applicationContext.xml","classpath:com/ontology2/bakemono/metadataContext.xml"})
 public class TestEMRCluster {
     @Autowired AmazonEMRCluster tinyAwsCluster;
     @Autowired Flow basekbNowFlow;

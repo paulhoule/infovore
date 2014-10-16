@@ -2,8 +2,6 @@ package com.ontology2.haruhi;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.lang.ProcessBuilder.Redirect;
 import java.util.List;
 import java.util.Map;
@@ -14,7 +12,6 @@ import org.apache.commons.logging.LogFactory;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.google.common.io.CharStreams;
 import com.ontology2.centipede.errors.ExitCodeException;
 import com.ontology2.haruhi.flows.AssignmentStep;
 import com.ontology2.haruhi.flows.Flow;

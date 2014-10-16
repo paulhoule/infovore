@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/bakemono/bakemono.iml" filepath="$PROJECT_DIR$/bakemono/bakemono.iml" />
       <module fileurl="file://$PROJECT_DIR$/haruhi/haruhi.iml" filepath="$PROJECT_DIR$/haruhi/haruhi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/haruhi-spring/haruhi-spring.iml" filepath="$PROJECT_DIR$/haruhi-spring/haruhi-spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/infovore.iml" filepath="$PROJECT_DIR$/infovore.iml" />
     </modules>
   </component>

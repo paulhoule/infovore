@@ -1,0 +1,14 @@
+<!-- thanks : http://blog.mafr.de/2010/07/24/maven-hadoop-job/ -->
+<assembly>
+  <id>metadata</id>
+  <formats>
+    <format>jar</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <outputDirectory>/</outputDirectory>
+      <directory>src/metadata/resources/</directory>
+    </fileSet>
+  </fileSets>
+</assembly>

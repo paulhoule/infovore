@@ -1,10 +1,8 @@
 package com.ontology2.haruhi.flows;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import com.google.common.collect.Lists;
-import com.ontology2.haruhi.MavenManagedJar;
 
 /**
  * A SpringFlow processes creates a series of SpringSteps,  for each SpringStep
@@ -32,7 +30,7 @@ public class SpringFlow extends Flow {
 
     @Override
     public List<FlowStep> generateSteps(List<String> flowArgs) {
-        List <FlowStep> result=Lists.newArrayList();
+        List <FlowStep> result=new ArrayList<>();
         result.addAll(springSteps);
         return result;
     }

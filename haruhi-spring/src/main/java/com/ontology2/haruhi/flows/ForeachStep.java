@@ -3,11 +3,9 @@ package com.ontology2.haruhi.flows;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class ForeachStep extends FlowStep {
-    private static final Log logger = LogFactory.getLog(AssignmentStep.class);
     private final List<FlowStep> flowSteps;
     private final String loopVar;
     private final List<Object> values;

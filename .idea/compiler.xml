@@ -24,11 +24,13 @@
         <processorPath useClasspath="true" />
         <module name="bakemono" />
         <module name="haruhi" />
+        <module name="haruhi-spring" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="bakemono" target="1.7" />
       <module name="haruhi" target="1.7" />
+      <module name="haruhi-spring" target="1.7" />
       <module name="infovore" target="1.7" />
     </bytecodeTargetLevel>
   </component>
