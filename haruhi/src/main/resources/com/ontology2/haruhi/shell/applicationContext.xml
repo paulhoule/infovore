@@ -90,6 +90,10 @@
     <constructor-arg ref="awsCredentials"/>
   </bean>
 
+  <bean name="ec2Client" class="com.amazonaws.services.ec2.AmazonEC2Client">
+    <constructor-arg ref="awsCredentials"/>
+  </bean>
+
   <bean name="s3Client" class="com.amazonaws.services.s3.AmazonS3Client">
     <constructor-arg ref="awsCredentials"/>
   </bean>
