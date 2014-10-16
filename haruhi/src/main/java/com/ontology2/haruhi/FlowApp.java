@@ -45,11 +45,18 @@ public class FlowApp extends CommandLineApplication {
             };
         }
 
+        //
+        // Note one way or another we have to know what the JAR is in order to do
+        // this
+        //
+
+        ApplicationConfigurationFetcher fetcher=new ApplicationConfigurationFetcher(applicationContext);
+        ApplicationContext enrichedContext=fetcher.enrichedContext();
         if (!a.hasNext())
             usage();
         
         String flowId=a.next();
-        Flow f=applicationContext.getBean(flowId,Flow.class);
+        Flow f=enrichedContext.getBean(flowId,Flow.class);
         
         List<String> flowArgs=Lists.newArrayList();
         Iterators.addAll(flowArgs, a);
