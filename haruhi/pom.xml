@@ -9,7 +9,7 @@
   <groupId>com.ontology2</groupId>
   <artifactId>haruhi</artifactId>
   <version>2.4-SNAPSHOT</version>
-  <name>Haruhi -- job control unit for Infovore y</name>
+  <name>Haruhi -- job control unit for Infovore</name>
   <url>https://github.com/paulhoule/infovore/wiki/Haruhi</url>
   <licenses>
     <license>
