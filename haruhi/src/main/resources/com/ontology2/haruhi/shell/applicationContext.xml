@@ -98,15 +98,13 @@
     <constructor-arg ref="awsCredentials"/>
   </bean>
 
-  <bean name="transferManager" class="com.amazonaws.services.s3.transfer.TransferManager">
+  <bean name="transferManager" class="com.amazonaws.services.s3.transfer.TransferManager" destroy-method="shutdownNow">
     <constructor-arg ref="s3Client"/>
-    <!--
     <constructor-arg>
       <bean class="java.util.concurrent.Executors" factory-method="newFixedThreadPool">
         <constructor-arg value="25" />
       </bean>
     </constructor-arg>
-    -->
   </bean>
   
   <bean name="stepFactory" class="com.amazonaws.services.elasticmapreduce.util.StepFactory" />

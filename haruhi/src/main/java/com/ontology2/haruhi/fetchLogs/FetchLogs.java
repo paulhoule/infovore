@@ -43,19 +43,6 @@ public class FetchLogs extends CommandLineApplication {
         logger.info("Beginning download of "+jobId);
         String bucketName= getLast(on("/").omitEmptyStrings().split(awsLogUri));
         Transfer that=transferManager.downloadDirectory(bucketName, jobId, new File(localLogTarget));
-        that.addProgressListener(new ProgressListener() {
-            @Override
-            public void progressChanged(ProgressEvent progressEvent) {
-                long bytes=progressEvent.getBytesTransferred();
-                logger.info("Transferred {} bytes in download",bytes);
-            }
-        });
-
-        while(!that.isDone()) {
-            logger.info("Transferred {} % of download",that.getProgress().getPercentTransferred());
-            sleep(5000);
-        }
-
         that.waitForCompletion();
     }
 }
