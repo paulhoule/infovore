@@ -47,11 +47,12 @@ public class FetchLogs extends CommandLineApplication {
             @Override
             public void progressChanged(ProgressEvent progressEvent) {
                 long bytes=progressEvent.getBytesTransferred();
-                logger.info("Transferred %s bytes in download",bytes);
+                logger.info("Transferred {} bytes in download",bytes);
             }
         });
+
         while(!that.isDone()) {
-            logger.info("Transferred %s % of download",that.getProgress().getPercentTransferred());
+            logger.info("Transferred {} % of download",that.getProgress().getPercentTransferred());
             sleep(5000);
         }
 
