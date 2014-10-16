@@ -101,16 +101,8 @@
   <bean name="transferManager" class="com.amazonaws.services.s3.transfer.TransferManager">
     <constructor-arg ref="s3Client"/>
     <constructor-arg>
-      <bean class="java.util.concurrent.ThreadPoolExecutor">
-        <constructor-arg value="1" />
-        <constructor-arg value="20" />
-        <constructor-arg value="10" />
-        <constructor-arg value="SECONDS" type="java.util.concurrent.TimeUnit"/>
-        <constructor-arg>
-          <bean class="java.util.concurrent.ArrayBlockingQueue">
-            <constructor-arg value="10000000"/>
-          </bean>
-        </constructor-arg>
+      <bean class="java.util.concurrent.Executors" factory-method="newFixedThreadPool">
+        <constructor-arg value="25" />
       </bean>
     </constructor-arg>
   </bean>
