@@ -27,7 +27,7 @@ import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"shell/applicationContext.xml"})
+@ContextConfiguration({"shell/applicationContext.xml","shell/testDefaults.xml"})
 public class TestApplicationConfigurationLoader {
     // We are building this,  so the JAR ought to be in the m2 repository
 

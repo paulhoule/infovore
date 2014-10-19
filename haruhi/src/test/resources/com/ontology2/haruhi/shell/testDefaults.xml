@@ -3,7 +3,7 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns:context="http://www.springframework.org/schema/context" 
+         xmlns:context="http://www.springframework.org/schema/context"
          xmlns:c="http://www.springframework.org/schema/c"
          xmlns:p="http://www.springframework.org/schema/p"
          xsi:schemaLocation="http://www.springframework.org/schema/beans
@@ -16,6 +16,9 @@
   </bean>
   <bean name="awsSoftwareBucket" class="java.lang.String">
     <constructor-arg value="s3://bakemono/" />
+  </bean>
+  <bean name="sqsQueueUrl" class="java.lang.String">
+    <constructor-arg value="DOESNT_NEED_TO_WORK" />
   </bean>
   <bean name="assignmentStep1" class="com.ontology2.haruhi.flows.AssignmentStep">
     <constructor-arg>
