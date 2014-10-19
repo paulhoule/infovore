@@ -2,6 +2,7 @@ package com.ontology2.haruhi;
 
 import java.util.List;
 
+import com.ontology2.haruhi.alert.AlertService;
 import com.ontology2.haruhi.fetchLogs.FetchLogs;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

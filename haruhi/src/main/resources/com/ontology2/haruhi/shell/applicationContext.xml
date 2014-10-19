@@ -63,9 +63,10 @@
   <!-- we're not going to reference this from inside Spring because we don't want to force you to set -->
   <!-- AWS credentials if you are not using AWS -->
 
-  <bean name="awsCredentials" class="com.amazonaws.auth.BasicAWSCredentials">
-    <constructor-arg value="redacted" />
-    <constructor-arg value="redacted" />
+  <bean name="awsCredentials" class="com.amazonaws.auth.AWSCredentials" abstract="true" />
+  <bean name="sqsQueueUrl" class="java.lang.String" abstract="true" />
+  <bean name="sqsClient" class="com.amazonaws.services.sqs.AmazonSQSClient" destroy-method="shutdown">
+    <constructor-arg ref="awsCredentials" />
   </bean>
 
   <bean name="awsLogUri" class="java.lang.String">

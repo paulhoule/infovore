@@ -9,6 +9,7 @@ import java.util.Set;
 
 import com.amazonaws.services.elasticmapreduce.model.*;
 import com.google.common.base.Joiner;
+import com.ontology2.haruhi.alert.AlertService;
 import com.ontology2.haruhi.fetchLogs.FetchLogs;
 import com.ontology2.haruhi.flows.*;
 import org.apache.commons.logging.Log;
@@ -141,6 +142,7 @@ public class AmazonEMRCluster implements Cluster {
     }
 
     @Autowired private FetchLogs fetchLogs;
+    @Autowired private AlertService alertService;
 
     @Override
     public void runFlow(MavenManagedJar jar, Flow f,List<String> flowArgs) throws Exception {
@@ -158,6 +160,8 @@ public class AmazonEMRCluster implements Cluster {
         String jobFlowId=result.getJobFlowId();
         pollClusterForCompletion(result);
         fetchLogs.run(new String[] {jobFlowId});
+        alertService.alert("Cluster execution complete:\n"+jobName);
+
     }
 
     List<StepConfig> createEmrSteps(
