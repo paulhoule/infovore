@@ -1,3 +1,3 @@
 #!/bin/bash
 
-s3cmd put bakemono/target/bakemono-2.4-SNAPSHOT-job.jar s3://bakemono/
+s3cmd put bakemono/target/${project.version}-job.jar s3://bakemono/
