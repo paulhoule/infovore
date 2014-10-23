@@ -1,6 +1,7 @@
 package com.ontology2.bakemono.ranSample;
 
 import com.ontology2.bakemono.configuration.HadoopTool;
+import com.ontology2.bakemono.pse3.PSE3Tool;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.compress.GzipCodec;
@@ -14,9 +15,6 @@ import com.google.common.collect.Iterators;
 import com.google.common.collect.PeekingIterator;
 import com.ontology2.bakemono.Main;
 import com.ontology2.bakemono.MainBase.IncorrectUsageException;
-import com.ontology2.bakemono.pse3.PSE3Tool;
-import com.ontology2.bakemono.sieve3.Sieve3Mapper;
-import com.ontology2.bakemono.sieve3.Sieve3Tool;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -60,7 +58,7 @@ public class RanSampleTool implements Tool{
             conf.set("mapred.map.output.compression.codec", "org.apache.hadoop.io.compress.GzipCodec");
 
             conf.set(RanSampleMapper.NULL_VALUE, Boolean.toString((reduceTasks==null || reduceTasks==0)));
-            Job job=new Job(conf,"sieve3");
+            Job job=new Job(conf,"ranSample");
             FileInputFormat.addInputPath(job, input);
             
             job.setJarByClass(RanSampleTool.class);

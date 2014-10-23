@@ -1,29 +1,19 @@
 package com.ontology2.bakemono.pse3;
 
-import static org.junit.Assert.*;
-
-import java.io.IOException;
-
+import com.hp.hpl.jena.graph.Node_URI;
+import com.ontology2.bakemono.abstractions.KeyValueAcceptor;
+import com.ontology2.bakemono.jena.WritableTriple;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Mapper.Context;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import java.io.IOException;
 
 import static org.mockito.Mockito.*;
-
-import org.apache.hadoop.io.LongWritable;
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapreduce.lib.output.MultipleOutputs;
-import org.apache.hadoop.mapreduce.Mapper.Context;
-
-import com.hp.hpl.jena.graph.Node_URI;
-import com.hp.hpl.jena.graph.Triple;
-import com.ontology2.bakemono.abstractions.KeyValueAcceptor;
-import com.ontology2.bakemono.jena.NodePair;
-import com.ontology2.bakemono.jena.WritableTriple;
-import com.ontology2.bakemono.mapred.RealMultipleOutputs;
-import com.ontology2.bakemono.pse3.PSE3Mapper;
 
 public class TestPSE3Mapper {
 
@@ -33,16 +23,13 @@ public class TestPSE3Mapper {
     @Before
     public void setup() {
         pse3mapper=new PSE3Mapper();
-        pse3mapper.mos=mock(RealMultipleOutputs.class);
         pse3mapper.accepted=mock(KeyValueAcceptor.class);
-        pse3mapper.rejected=mock(KeyValueAcceptor.class);
         mockContext=mock(Mapper.Context.class);
     }
 
     @Test
     public void touchlessAtInitalization() {
         verifyNoMoreInteractions(pse3mapper.accepted);
-        verifyNoMoreInteractions(pse3mapper.rejected);
     }
 
 
@@ -66,7 +53,6 @@ public class TestPSE3Mapper {
                 )
                 ,mockContext);
         verifyNoMoreInteractions(pse3mapper.accepted);
-        verifyNoMoreInteractions(pse3mapper.rejected);
     }
 
     @Test
@@ -160,8 +146,6 @@ public class TestPSE3Mapper {
     @Test
     public void closesMosOnShutdown() throws IOException, InterruptedException {
         pse3mapper.cleanup(mock(Context.class));
-        verify(pse3mapper.mos).close();
-        verifyNoMoreInteractions(pse3mapper.mos);
     }
 
     @Test
@@ -171,16 +155,7 @@ public class TestPSE3Mapper {
                 new Text("<http://example.com/A>\t<http://example.com/B>\t\"2001-06\"^^xsd:datetime."),
                 mockContext);
 
-        verify(pse3mapper.rejected).write(
-                new Text("<http://example.com/A>")
-                ,new Text("<http://example.com/B>\t\"2001-06\"^^xsd:datetime\t.")
-                ,null
-        );
-
-
         verifyNoMoreInteractions(pse3mapper.accepted);
-        verifyNoMoreInteractions(pse3mapper.rejected);
-
     }
 
     @After

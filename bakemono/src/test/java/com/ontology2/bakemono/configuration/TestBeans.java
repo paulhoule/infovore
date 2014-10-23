@@ -6,7 +6,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
-import com.ontology2.bakemono.sieve3.Sieve3Tool;
 
 public class TestBeans {
     @Test

@@ -5,7 +5,6 @@ import com.google.common.base.Charsets;
 import com.google.common.collect.ComparisonChain;
 import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.io.WritableComparable;
-import org.apache.jasper.tagplugins.jstl.core.If;
 
 import com.hp.hpl.jena.datatypes.RDFDatatype;
 import com.hp.hpl.jena.datatypes.TypeMapper;

@@ -1,37 +1,23 @@
 package com.ontology2.bakemono.pse3;
 
+import com.google.common.collect.Iterators;
+import com.google.common.collect.PeekingIterator;
+import com.hp.hpl.jena.graph.Triple;
+import com.ontology2.bakemono.Main;
+import com.ontology2.bakemono.MainBase.IncorrectUsageException;
 import com.ontology2.bakemono.configuration.HadoopTool;
 import com.ontology2.bakemono.jena.*;
-import com.ontology2.bakemono.joins.TaggedItem;
-import com.ontology2.bakemono.joins.TaggedKeyPartitioner;
-import com.ontology2.bakemono.joins.TaggedTextKeyGroupComparator;
-import com.ontology2.bakemono.joins.TaggedTextKeySortComparator;
 import com.ontology2.bakemono.mapreduce.SelfAwareTool;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.hdfs.server.common.IncorrectVersionException;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.RawComparator;
-import org.apache.hadoop.io.SequenceFile.CompressionType;
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.io.compress.CompressionCodec;
 import org.apache.hadoop.io.compress.GzipCodec;
-import org.apache.hadoop.mapreduce.*;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Partitioner;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
-import org.apache.hadoop.util.Tool;
-
-import com.google.common.collect.Iterators;
-import com.google.common.collect.PeekingIterator;
-import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.graph.Triple;
-import com.hp.hpl.jena.reasoner.rulesys.impl.TempNodeCache.NodePair;
-import com.ontology2.bakemono.Main;
-import com.ontology2.bakemono.MainBase.IncorrectUsageException;
-import com.ontology2.bakemono.mapred.RealMultipleOutputs;
-import com.ontology2.bakemono.mapred.RealMultipleOutputsMainOutputWrapper;
 
 @HadoopTool("pse3")
 public class PSE3Tool extends SelfAwareTool<PSE3Options> {
@@ -101,13 +87,11 @@ public class PSE3Tool extends SelfAwareTool<PSE3Options> {
             FileOutputFormat.setOutputPath(job, acceptedPath);
             FileOutputFormat.setCompressOutput(job, true);
             FileOutputFormat.setOutputCompressorClass(job, GzipCodec.class);
-            RealMultipleOutputs.addNamedOutput(job, "rejected", rejectedPath, TextOutputFormat.class, Text.class, Text.class);
 
             // Gotcha -- this has to run before the definitions above associated with the output format because
             // this is going to be configured against the job as it stands a moment from now
 
-            job.setOutputFormatClass(RealMultipleOutputsMainOutputWrapper.class);
-            RealMultipleOutputsMainOutputWrapper.setRootOutputFormat(job, SPOTripleOutputFormat.class);
+            job.setOutputFormatClass(SPOTripleOutputFormat.class);
 
             return job.waitForCompletion(true) ? 0 : 1;
         } catch (Main.IncorrectUsageException iue) {

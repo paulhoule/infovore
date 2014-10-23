@@ -6,30 +6,9 @@ import org.springframework.context.annotation.Configuration;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
-import com.ontology2.bakemono.sieve3.Sieve3Configuration;
-import com.ontology2.bakemono.sieve3.Sieve3Configuration.Rule;
 
 @Configuration
 public class Beans {
-    
-  @Bean
-  public Sieve3Configuration sieve3Default() {
-  return new Sieve3Configuration(
-          new Rule("a", matchesA()),
-          new Rule("label", matchesLabel()),
-          new Rule("name", matchesTypeObjectName()),
-          new Rule("keyNs", inKeyNamespace()),
-          new Rule("key", matchesTypeObjectKey()),
-          new Rule("notableForPredicate",matchesNotableForPredicate()),
-          new Rule("description",matchesDescription()),
-          new Rule("text",matchesText()),
-          new Rule("webpages",matchesWebPage()),
-          new Rule("notability",isAboutNotability()),
-          new Rule("dotdot",hasDoubleDotPredicate()),
-          new Rule("links",isLinkRelationship()),
-          new Rule("literals",Predicates.not(isLinkRelationship()))
-  );
-}
 
 private static Predicate<PrimitiveTriple> matchesPredicate(final String that) {
   return new Predicate<PrimitiveTriple>() {

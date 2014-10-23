@@ -13,6 +13,7 @@ import java.util.Set;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Mapper.Context;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +27,6 @@ import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
 import com.ontology2.bakemono.abstractions.KeyValueAcceptor;
 import com.ontology2.bakemono.jena.WritableTriple;
-import com.ontology2.bakemono.mapred.RealMultipleOutputs;
 
 public class SchwarzeneggerTest {
     PSE3Mapper pse3mapper;
@@ -35,9 +35,7 @@ public class SchwarzeneggerTest {
     @Before
     public void setup() {
         pse3mapper=new PSE3Mapper();
-        pse3mapper.mos=mock(RealMultipleOutputs.class);
         pse3mapper.accepted=mock(KeyValueAcceptor.class);
-        pse3mapper.rejected=mock(KeyValueAcceptor.class);
         InputStream input=getClass().getResourceAsStream("arnold-10.nt");
         reader = new BufferedReader(new InputStreamReader(input,Charsets.UTF_8));
     }
@@ -60,7 +58,7 @@ public class SchwarzeneggerTest {
         while((line=reader.readLine())!=null) {
             LongWritable key=new LongWritable(count);
             Text value=new Text(line);
-            Context context = mock(Context.class);
+            Mapper.Context context = mock(Context.class);
             pse3mapper.map(key, value, context);
             ArgumentCaptor<WritableTriple> captorS=ArgumentCaptor.forClass(WritableTriple.class);
             ArgumentCaptor<WritableTriple> captorV=ArgumentCaptor.forClass(WritableTriple.class);
@@ -107,9 +105,5 @@ public class SchwarzeneggerTest {
             hashValues.add(that.hashCode());
         
         assertEquals(10,hashValues.size());
-        //
-        // nothing got rejected
-        //
-        verifyNoMoreInteractions(pse3mapper.rejected);
     }
 }

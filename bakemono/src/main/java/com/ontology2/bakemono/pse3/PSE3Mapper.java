@@ -7,7 +7,6 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.*;
-import org.apache.hadoop.mapreduce.lib.output.MultipleOutputs;
 
 import com.google.common.base.Function;
 import com.google.common.base.Splitter;
@@ -16,11 +15,9 @@ import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
 import com.ontology2.bakemono.abstractions.KeyValueAcceptor;
-import com.ontology2.bakemono.abstractions.NamedKeyValueAcceptor;
 import com.ontology2.bakemono.abstractions.PrimaryKeyValueAcceptor;
 import com.ontology2.bakemono.jena.NodePair;
 import com.ontology2.bakemono.jena.WritableTriple;
-import com.ontology2.bakemono.mapred.RealMultipleOutputs;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleCodec;
 import com.ontology2.rdf.JenaUtil;
@@ -39,18 +36,13 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,Writable
     // can mess with them
     //
 
-    RealMultipleOutputs mos;
     KeyValueAcceptor<WritableTriple,WritableTriple> accepted;
-    KeyValueAcceptor<Text,Text> rejected;
-
     
     @Override
     public void setup(Context context) throws IOException,
     InterruptedException {
-        mos=new RealMultipleOutputs(context);
         super.setup(context);
         accepted=new PrimaryKeyValueAcceptor(context);
-        rejected=new NamedKeyValueAcceptor(mos,"rejected");
     }
 
     Function<String,String> nodePreprocessor=new Unescape$();
@@ -71,7 +63,8 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,Writable
             Triple realTriple=new Triple(subject,predicate,object);
             writableTriple = new WritableTriple(realTriple);
         } catch(Throwable e) {
-            logger.warn("Caught exception while parsing fact",e);
+            String factString=row3.getSubject()+"\t"+row3.getPredicate()+"\t"+row3.getSubject()+"\t.";
+            logger.warn("Caught exception while parsing fact ["+factString+"]",e);
             reject(c, row3);
             return;
         }
@@ -90,11 +83,6 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,Writable
     private void reject(Context c, PrimitiveTriple row3) throws IOException,
             InterruptedException {
         incrementCounter(c,PSE3Counters.REJECTED,1);
-        // note we pass null for a context because we don't use the context,  but the type doesn't match
-        // with the type of the data type because,  of course,  we're not using the context
-        rejected.write(
-                new Text(row3.getSubject()),
-                new Text(row3.getPredicate()+"\t"+row3.getObject()+"\t."),null);
     }
 
     //
@@ -115,7 +103,6 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,Writable
     protected void cleanup(org.apache.hadoop.mapreduce.Mapper.Context context)
             throws IOException, InterruptedException {
         super.cleanup(context);
-        mos.close();
     }
     
     public class Unescape$ implements Function<String,String>{
