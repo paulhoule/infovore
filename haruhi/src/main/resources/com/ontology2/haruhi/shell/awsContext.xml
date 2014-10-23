@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+  <bean name="emrClient" class="com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduceClient">
+    <constructor-arg ref="awsCredentials"/>
+  </bean>
+
+  <bean name="ec2Client" class="com.amazonaws.services.ec2.AmazonEC2Client">
+    <constructor-arg ref="awsCredentials"/>
+  </bean>
+
+  <bean name="s3Client" class="com.amazonaws.services.s3.AmazonS3Client">
+    <constructor-arg ref="awsCredentials"/>
+  </bean>
+
+  <bean name="transferManager" class="com.amazonaws.services.s3.transfer.TransferManager" destroy-method="shutdownNow">
+    <constructor-arg ref="s3Client"/>
+    <constructor-arg>
+      <bean class="java.util.concurrent.Executors" factory-method="newFixedThreadPool">
+        <constructor-arg value="25" />
+      </bean>
+    </constructor-arg>
+  </bean>
+
+  <bean name="stepFactory" class="com.amazonaws.services.elasticmapreduce.util.StepFactory" />
+
+  <bean name="debugStep" scope="prototype" class="com.amazonaws.services.elasticmapreduce.model.StepConfig">
+    <property name="name" value="Enable Debugging" />
+    <property name="actionOnFailure" value="TERMINATE_JOB_FLOW" />
+    <property name="hadoopJarStep">
+      <bean factory-bean="stepFactory" factory-method="newEnableDebuggingStep" />
+    </property>
+  </bean>
+
+  <bean name="rootInstancesDefinition" class="com.amazonaws.services.elasticmapreduce.model.JobFlowInstancesConfig" abstract="true">
+    <property name="hadoopVersion" value="1.0.3" />
+    <property name="masterInstanceType" value="m1.small" />
+    <property name="slaveInstanceType" value="c1.medium" />
+    <property name="keepJobFlowAliveWhenNoSteps" value="false" />
+    <property name="instanceCount" value="2" /> <!--  the master + 1 slave = 1 -->
+  </bean>
+</beans>
