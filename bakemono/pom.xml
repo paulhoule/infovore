@@ -70,12 +70,6 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.apache.pig</groupId>
-      <artifactId>pig</artifactId>
-      <version>0.11.1</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
       <groupId>com.ontology2</groupId>
       <artifactId>haruhi-spring</artifactId>
       <version>2.5-SNAPSHOT</version>
