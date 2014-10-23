@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.ontology2.haruhi.flows.ForeachStep;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import com.ontology2.haruhi.flows.Flow;
 
 import static org.junit.Assert.*;
 
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"shell/applicationContext.xml","shell/testDefaults.xml"})
 public class TestEMRCluster {
