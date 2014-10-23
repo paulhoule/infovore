@@ -9,7 +9,7 @@
 
   <bean name="rootInstancesDefinition" class="com.amazonaws.services.elasticmapreduce.model.JobFlowInstancesConfig" abstract="true">
     <property name="hadoopVersion" value="2.4.0" />
-    <property name="masterInstanceType" value="m1.small" />
+    <property name="masterInstanceType" value="m1.medium" />
     <property name="slaveInstanceType" value="c1.medium" />
     <property name="keepJobFlowAliveWhenNoSteps" value="false" />
     <property name="instanceCount" value="2" /> <!--  the master + 1 slave = 1 -->
