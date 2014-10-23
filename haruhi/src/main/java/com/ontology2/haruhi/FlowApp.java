@@ -22,7 +22,8 @@ public class FlowApp extends CommandLineApplication {
     @Autowired private ApplicationContext applicationContext;
     @Autowired private MavenManagedJar defaultJar;
     @Autowired private Cluster defaultCluster;
-    
+    @Autowired private ApplicationConfigurationFetcher fetcher;
+
     @Override
     protected void _run(String[] arguments) throws Exception {
         PeekingIterator<String> a=Iterators.peekingIterator(Iterators.forArray(arguments));
@@ -51,7 +52,6 @@ public class FlowApp extends CommandLineApplication {
         // this
         //
 
-        ApplicationConfigurationFetcher fetcher=new ApplicationConfigurationFetcher(applicationContext);
         ApplicationContext enrichedContext=fetcher.enrichedContext();
         if (!a.hasNext())
             usage();

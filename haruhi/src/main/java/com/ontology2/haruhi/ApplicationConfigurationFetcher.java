@@ -1,39 +1,44 @@
 package com.ontology2.haruhi;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
-import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
+import java.util.zip.ZipInputStream;
 
+@Component
 public class ApplicationConfigurationFetcher {
-    private final ApplicationContext applicationContext;
+    @Autowired
+    private ApplicationContext applicationContext;
 
-    File localPath=new File(System.getProperty("user.home"),".m2/repository/com/ontology2/bakemono/2.4-SNAPSHOT/bakemono-2.4-SNAPSHOT-metadata.jar");
-
-    public ApplicationConfigurationFetcher(ApplicationContext applicationContext) {
-        this.applicationContext=applicationContext;
-    }
+    @Autowired
+    private Resource metadataJarPath;
 
     public boolean testJarExists() {
-        return localPath.exists();
+        return metadataJarPath.exists();
     }
 
     public InputStream getContextXml() throws IOException {
-        ZipFile zipFile = new ZipFile(localPath);
-        Enumeration<? extends ZipEntry> entries = zipFile.entries();
-        while(entries.hasMoreElements()) {
-            ZipEntry entry=entries.nextElement();
+        ZipInputStream zipFile = new ZipInputStream(metadataJarPath.getInputStream());
+        ZipEntry entry=zipFile.getNextEntry();
+        while(entry!=null) {
             if(entry.getName().endsWith("/metadataContext.xml"))
-                return zipFile.getInputStream(entry);
+                return zipFile;
+
+            zipFile.closeEntry();
+            entry=zipFile.getNextEntry();
         }
+
         return null;
     }
 

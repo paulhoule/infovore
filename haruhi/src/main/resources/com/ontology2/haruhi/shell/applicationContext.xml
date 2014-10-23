@@ -28,6 +28,7 @@
     <constructor-arg value="s3://bakemono-public/" />
   </bean>
 
+
   <bean name="localCmdCluster defaultCluster" class="com.ontology2.haruhi.LocalCmdCluster">
     <property name="mavenRepoPath">
       <value>${user.home}/.m2/repository</value>
@@ -49,9 +50,6 @@
       </list>
     </property>
   </bean>
-  
-
-  
 
 
   <bean name="t20130902" parent="bakemonoJar">

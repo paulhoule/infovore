@@ -18,7 +18,6 @@ import com.ontology2.haruhi.flows.Flow;
 
 import static org.junit.Assert.*;
 
-@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"shell/applicationContext.xml","shell/testDefaults.xml"})
 public class TestEMRCluster {

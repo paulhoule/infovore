@@ -36,6 +36,11 @@
         </list>
     </constructor-arg>
   </bean>
+
+  <bean name="metadataJarPath" class="org.springframework.core.io.ClassPathResource">
+    <constructor-arg value="/com/ontology2/bakemono/bakemono-2.5-SNAPSHOT-metadata.jar" />
+  </bean>
+
   <bean name="foreachStepFlow" class="com.ontology2.haruhi.flows.SpringFlow">
     <constructor-arg>
       <list>

@@ -33,7 +33,8 @@ public class TestApplicationConfigurationLoader {
 
     @Autowired
     ApplicationContext applicationContext;
-    private ApplicationConfigurationFetcher fetcher=new ApplicationConfigurationFetcher(applicationContext);
+    @Autowired
+    private ApplicationConfigurationFetcher fetcher;
     @Autowired AmazonEMRCluster tinyAwsCluster;
     @Resource
     StepConfig debugStep;
