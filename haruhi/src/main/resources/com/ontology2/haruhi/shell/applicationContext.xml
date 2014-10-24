@@ -56,36 +56,10 @@
     <property name="version" value="t20130902" />
   </bean>
   
-  <!-- 3.0 Bean Definitions For Amazon EMR that the user almost certainly needs to change -->
-  <!-- note that this all depends on a "awsCredentials" object being defined in your .haruhi/applicationContext.xml -->
-  <!-- we're not going to reference this from inside Spring because we don't want to force you to set -->
-  <!-- AWS credentials if you are not using AWS -->
-
-  <bean name="awsCredentials" class="com.amazonaws.auth.AWSCredentials" abstract="true" />
-  <bean name="sqsQueueUrl" class="java.lang.String" abstract="true" />
-  <bean name="sqsClient" class="com.amazonaws.services.sqs.AmazonSQSClient" destroy-method="shutdown">
-    <constructor-arg ref="awsCredentials" />
-  </bean>
-
-  <bean name="awsLogUri" class="java.lang.String">
-    <constructor-arg value="s3://bakemono-logs/" />
-  </bean>
-
-  <bean name="localLogTarget" class="java.lang.String">
-    <constructor-arg value="/freebase/logs/" />
-  </bean>
-
-  <bean name="awsSoftwareBucket" class="java.lang.String">
-    <constructor-arg value="s3://bakemono-public/" />
-  </bean>
-
-  <bean name="awsBillingBucket" class="java.lang.String">
-    <constructor-arg value="" />
-  </bean>
-  
-  <!-- 3.1 definition of commonly used objects-->
+  <!-- 3.1 definition of AWS Specific Objects -->
   
   <import resource="awsContext.xml"/>
+
   <!--  3.2 here we define specific clusters that you might want to use -->
 
   <import resource="awsClustersContext.xml"/>
