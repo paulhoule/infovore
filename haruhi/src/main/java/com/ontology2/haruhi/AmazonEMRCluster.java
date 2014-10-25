@@ -79,6 +79,7 @@ public class AmazonEMRCluster implements Cluster {
         RunJobFlowResult result = runJob(that);
 
         pollClusterForCompletion(result);
+        fetchLogs.run(new String[] {result.getJobFlowId()});
     }
 
     private void pollClusterForCompletion(RunJobFlowResult result) throws Exception {
