@@ -1,17 +1,18 @@
 package com.ontology2.haruhi;
 
+import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.collect.Maps.newHashMap;
 import static com.ontology2.centipede.errors.ExitCodeException.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import com.amazonaws.services.elasticmapreduce.model.*;
+import com.amazonaws.services.elasticmapreduce.util.BootstrapActions;
 import com.google.common.base.Joiner;
 import com.ontology2.haruhi.alert.AlertService;
 import com.ontology2.haruhi.fetchLogs.FetchLogs;
 import com.ontology2.haruhi.flows.*;
+import com.ontology2.haruhi.ssh.HadoopConfigurationVariable;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -152,6 +153,7 @@ public class AmazonEMRCluster implements Cluster {
         String jobName = computeJobName(flowArgs);
         RunJobFlowRequest that=new RunJobFlowRequest()
         .withName(jobName)
+        .withBootstrapActions(bootstrapActions())
         .withSteps(steps)
         .withLogUri(awsLogUri)
         .withInstances(instances);
@@ -164,11 +166,33 @@ public class AmazonEMRCluster implements Cluster {
 
     }
 
+    private Collection<BootstrapActionConfig> bootstrapActions() {
+        Map<HadoopConfigurationVariable, String> params = getHadoopConfigurationVariableStringMap();
+        BootstrapActions.ConfigureHadoop a=
+                new BootstrapActions().newConfigureHadoop();
+        for(Map.Entry<HadoopConfigurationVariable,String> that:params.entrySet())
+            a.withKeyValue(
+                    that.getKey().getConfigFile(),
+                    that.getKey().getKey(),
+                    that.getValue());
+
+        return newArrayList(
+            a.build()
+        );
+    }
+
+    private Map<HadoopConfigurationVariable, String> getHadoopConfigurationVariableStringMap() {
+        Map<HadoopConfigurationVariable,String> out=newHashMap();
+        out.put(new HadoopConfigurationVariable("mapreduce.tasktracker.map.tasks.maximum"),"6");
+        out.put(new HadoopConfigurationVariable("mapreduce.tasktracker.reduce.tasks.maximum"),"6");
+        return out;
+    }
+
     List<StepConfig> createEmrSteps(
             Flow f,
             List<String> flowArgs,
             String jarLocation) {
-        List<StepConfig> steps=Lists.newArrayList(debugStep);
+        List<StepConfig> steps= newArrayList(debugStep);
         steps.addAll(createEmrSteps(
                 f.generateSteps(flowArgs),
                 flowArgs,
@@ -183,8 +207,8 @@ public class AmazonEMRCluster implements Cluster {
             String jarLocation,
             Map<String,Object> upperScopeVariables
     ) {
-        List<StepConfig> steps=Lists.newArrayList();
-        Map<String,Object> local=Maps.newHashMap(upperScopeVariables);
+        List<StepConfig> steps= newArrayList();
+        Map<String,Object> local= newHashMap(upperScopeVariables);
         for(FlowStep that:innerSteps)
             if(that instanceof JobStep) {
                 JobStep j=(JobStep) that;
