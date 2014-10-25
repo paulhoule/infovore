@@ -71,6 +71,7 @@ public class AmazonEMRCluster implements Cluster {
 
         RunJobFlowRequest that=new RunJobFlowRequest()
             .withName(jobName)
+            .withBootstrapActions(bootstrapActions())
             .withSteps(steps)
             .withLogUri(awsLogUri)
             .withInstances(instances);
