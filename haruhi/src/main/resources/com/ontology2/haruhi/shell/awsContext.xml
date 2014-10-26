@@ -39,6 +39,10 @@
     <constructor-arg ref="awsCredentials"/>
   </bean>
 
+  <bean name="keyPairName" class="java.lang.String">
+    <constructor-arg value="o2key" />
+  </bean>
+
   <!-- Wiring for internal objects -->
 
   <bean name="ec2Client" class="com.amazonaws.services.ec2.AmazonEC2Client">

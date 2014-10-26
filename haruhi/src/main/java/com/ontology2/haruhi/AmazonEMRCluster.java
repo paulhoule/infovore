@@ -24,6 +24,7 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.ontology2.centipede.errors.ExitCodeException;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 public class AmazonEMRCluster implements Cluster {
@@ -39,6 +40,12 @@ public class AmazonEMRCluster implements Cluster {
     
     public AmazonEMRCluster(JobFlowInstancesConfig instances) {
         this.instances = instances;
+    }
+
+    @PostConstruct
+    public void init() {
+        if(this.keyPairName!=null && !this.keyPairName.isEmpty())
+            instances.setEc2KeyName(keyPairName);
     }
 
     public String createPersistentCluster(String clusterName) throws Exception {
@@ -188,6 +195,8 @@ public class AmazonEMRCluster implements Cluster {
 
     @Resource
     private Map<String,NodeType> awsInstanceMap;
+    @Resource
+    private String keyPairName;
 
     private Map<HadoopConfigurationVariable, String> getHadoopConfigurationVariableStringMap() throws Exception {
         Map<HadoopConfigurationVariable,String> out=newHashMap();
