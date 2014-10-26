@@ -59,7 +59,7 @@
   <!-- 3.1 definition of AWS Specific Objects -->
   
   <import resource="awsContext.xml"/>
-
+  <import resource="awsInstanceContext.xml"/>
   <!--  3.2 here we define specific clusters that you might want to use -->
 
   <import resource="awsClustersContext.xml"/>

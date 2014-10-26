@@ -10,6 +10,7 @@ import com.amazonaws.services.elasticmapreduce.model.*;
 import com.amazonaws.services.elasticmapreduce.util.BootstrapActions;
 import com.google.common.base.Joiner;
 import com.ontology2.haruhi.alert.AlertService;
+import com.ontology2.haruhi.emr.NodeType;
 import com.ontology2.haruhi.fetchLogs.FetchLogs;
 import com.ontology2.haruhi.flows.*;
 import com.ontology2.haruhi.ssh.HadoopConfigurationVariable;
@@ -22,6 +23,8 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.ontology2.centipede.errors.ExitCodeException;
+
+import javax.annotation.Resource;
 
 public class AmazonEMRCluster implements Cluster {
     private static Log logger = LogFactory.getLog(AmazonEMRCluster.class);
@@ -168,7 +171,7 @@ public class AmazonEMRCluster implements Cluster {
 
     }
 
-    private Collection<BootstrapActionConfig> bootstrapActions() {
+    private Collection<BootstrapActionConfig> bootstrapActions() throws Exception {
         Map<HadoopConfigurationVariable, String> params = getHadoopConfigurationVariableStringMap();
         BootstrapActions.ConfigureHadoop a=
                 new BootstrapActions().newConfigureHadoop();
@@ -183,10 +186,24 @@ public class AmazonEMRCluster implements Cluster {
         );
     }
 
-    private Map<HadoopConfigurationVariable, String> getHadoopConfigurationVariableStringMap() {
+    @Resource
+    private Map<String,NodeType> awsInstanceMap;
+
+    private Map<HadoopConfigurationVariable, String> getHadoopConfigurationVariableStringMap() throws Exception {
         Map<HadoopConfigurationVariable,String> out=newHashMap();
-        out.put(new HadoopConfigurationVariable("mapreduce.tasktracker.map.tasks.maximum"),"6");
-        out.put(new HadoopConfigurationVariable("mapreduce.tasktracker.reduce.tasks.maximum"),"6");
+        List<InstanceGroupConfig> groups = instances.getInstanceGroups();
+
+        if(groups.size()!=1)
+            throw new Exception("Current system supports just one instance group");
+
+        String instanceType=groups.get(0).getInstanceType();
+        if(!awsInstanceMap.containsKey(instanceType))
+            throw new Exception("I don't know how to configure AWS instance type ["+instanceType+"]");
+
+        Map<String,String> that=awsInstanceMap.get(instanceType).getHadoopParameters();
+        for(Map.Entry<String,String> item:that.entrySet())
+            out.put(new HadoopConfigurationVariable(item.getKey()),item.getValue());
+
         return out;
     }
 
