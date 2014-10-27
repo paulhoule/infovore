@@ -8,15 +8,29 @@ import com.amazonaws.services.elasticmapreduce.model.DescribeClusterRequest;
 import com.amazonaws.services.elasticmapreduce.model.DescribeClusterResult;
 import com.ontology2.centipede.shell.CommandLineApplication;
 import com.ontology2.centipede.errors.UsageException;
+import com.ontology2.haruhi.AmazonEMRCluster;
+import net.schmizz.sshj.SSHClient;
+import net.schmizz.sshj.common.StreamCopier;
+import net.schmizz.sshj.connection.channel.direct.Session;
+import net.schmizz.sshj.transport.verification.PromiscuousVerifier;
+import net.schmizz.sshj.userauth.keyprovider.OpenSSHKeyFile;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.Resource;
 
+import java.io.*;
 import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import static java.lang.System.*;
 
 public class Ssh extends CommandLineApplication {
+    private static Log logger = LogFactory.getLog(Ssh.class);
     @Resource
     AmazonEC2Client ec2Client;
 
@@ -70,6 +84,75 @@ public class Ssh extends CommandLineApplication {
         return instances.get(0).getInstances().get(0).getInstanceId();
     }
 
-    private void logIntoInstance(String instanceId) {
+    private void logIntoInstance(String instanceId) throws Exception {
+        logIntoIp(lookupIpOfInstance(instanceId));
+    }
+
+    private String lookupIpOfInstance(String instanceId) throws Exception {
+        DescribeInstancesResult r=ec2Client.describeInstances(
+                new DescribeInstancesRequest().withInstanceIds(instanceId)
+        );
+
+        List<Reservation> instances=r.getReservations();
+        if(instances.size() != 1)
+            throw new Exception("Could not find instance ["+instanceId+"]");
+
+        return instances.get(0).getInstances().get(0).getPublicIpAddress();
+    }
+
+    private void logIntoIp(String ipAddress) throws IOException, InterruptedException {
+        final SSHClient ssh = new SSHClient();
+        OpenSSHKeyFile k = new OpenSSHKeyFile();
+        k.init(new File(dotHaruhi, keyPairName + ".pem"));
+        ssh.addHostKeyVerifier(new PromiscuousVerifier());
+
+        ssh.connect(ipAddress);
+        try {
+            ssh.authPublickey(clusterUsername, k);
+            Session that = ssh.startSession();
+            try {
+                that.allocateDefaultPTY();
+                Session.Shell shell = that.startShell();
+
+                new StreamCopier(shell.getInputStream(), System.out)
+                        .bufSize(shell.getLocalMaxPacketSize())
+                        .spawn("stdout");
+
+                new StreamCopier(shell.getErrorStream(), System.err)
+                        .bufSize(shell.getLocalMaxPacketSize())
+                        .spawn("stderr");
+
+                new StreamCopier(System.in, shell.getOutputStream())
+                        .bufSize(shell.getRemoteMaxPacketSize())
+                        .copy();
+            } finally {
+                that.close();
+            }
+        } finally {
+            ssh.close();
+        }
+    }
+
+    private Runnable redirect(final InputStream inputStream, final OutputStream outputStream) {
+        return new Runnable() {
+
+            @Override
+            public void run() {
+                logger.info("In copy thread "+Thread.currentThread());
+                try {
+                    while(true) {
+                        int b=inputStream.read();
+                        if (b==-1)
+                            return;
+
+                        outputStream.write((int) b);
+                    }
+                } catch(IOException ioEx) {
+
+                } finally {
+                    logger.info("Exiting copy thread " + Thread.currentThread());
+                }
+            }
+        };
     }
 }
