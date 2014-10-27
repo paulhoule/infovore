@@ -43,7 +43,7 @@
     <module>bakemono</module>
     <module>haruhi</module>
     <module>haruhi-spring</module>
-    <module>infovore-maven-plugin</module>
+<!--    <module>infovore-maven-plugin</module> -->
   </modules>
   <build>
     <plugins>

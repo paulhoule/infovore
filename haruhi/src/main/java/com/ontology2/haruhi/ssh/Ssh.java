@@ -8,9 +8,22 @@ import com.ontology2.centipede.shell.CommandLineApplication;
 import com.ontology2.centipede.errors.UsageException;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.Resource;
+
+import static java.lang.System.*;
+
 public class Ssh extends CommandLineApplication {
-    @Autowired
+    @Resource
     AmazonEC2Client ec2Client;
+
+//    @Resource
+//    private String clusterHeadUserName;
+
+    @Resource
+    private String dotHaruhi;
+
+//    @Resource
+//    private String keyPairName;
 
     @Override
     protected void _run(String[] strings) throws Exception {
@@ -19,12 +32,12 @@ public class Ssh extends CommandLineApplication {
 
         String instanceId=strings[0];
         String username="ubuntu";   // how do we know this for sure?
-        String keyFileLocation="C:\\Users\\paul_000\\AMZN Keys";
+        String keyFileLocation= getProperty("user.home")+"/.haruhi";
 
         DescribeInstancesResult r=ec2Client.describeInstances(new DescribeInstancesRequest().withInstanceIds(instanceId));
         Instance i=r.getReservations().get(0).getInstances().get(0);
         String ipAddress=i.getPublicIpAddress();
         String keyName=i.getKeyName();
-        System.out.println("ssh -i \""+keyFileLocation+'/'+keyName+".pem\""+" "+username+"@"+ipAddress);
+        out.println("ssh -i \""+keyFileLocation+'/'+keyName+".pem\""+" "+username+"@"+ipAddress);
     }
 }

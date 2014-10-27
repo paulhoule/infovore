@@ -180,6 +180,10 @@ public class AmazonEMRCluster implements Cluster {
 
     private Collection<BootstrapActionConfig> bootstrapActions() throws Exception {
         Map<HadoopConfigurationVariable, String> params = getHadoopConfigurationVariableStringMap();
+        if(params.isEmpty()) {
+            return newArrayList();
+        }
+
         BootstrapActions.ConfigureHadoop a=
                 new BootstrapActions().newConfigureHadoop();
         for(Map.Entry<HadoopConfigurationVariable,String> that:params.entrySet())
@@ -191,6 +195,7 @@ public class AmazonEMRCluster implements Cluster {
         return newArrayList(
             a.build()
         );
+
     }
 
     @Resource
@@ -198,16 +203,15 @@ public class AmazonEMRCluster implements Cluster {
     @Resource
     private String keyPairName;
 
-    private Map<HadoopConfigurationVariable, String> getHadoopConfigurationVariableStringMap() throws Exception {
+    Map<HadoopConfigurationVariable, String> getHadoopConfigurationVariableStringMap() throws Exception {
         Map<HadoopConfigurationVariable,String> out=newHashMap();
-        List<InstanceGroupConfig> groups = instances.getInstanceGroups();
 
-        if(groups.size()!=1)
-            throw new Exception("Current system supports just one instance group");
+        String instanceType=instances.getSlaveInstanceType();
 
-        String instanceType=groups.get(0).getInstanceType();
-        if(!awsInstanceMap.containsKey(instanceType))
-            throw new Exception("I don't know how to configure AWS instance type ["+instanceType+"]");
+        if(!awsInstanceMap.containsKey(instanceType)) {
+            logger.warn("I don't have hadoop configuration settings for ["+instanceType+"] using AWS defaults");
+            return out;
+        }
 
         Map<String,String> that=awsInstanceMap.get(instanceType).getHadoopParameters();
         for(Map.Entry<String,String> item:that.entrySet())

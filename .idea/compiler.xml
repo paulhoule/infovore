@@ -25,6 +25,7 @@
         <module name="bakemono" />
         <module name="haruhi" />
         <module name="haruhi-spring" />
+        <module name="infovore-maven-plugin" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

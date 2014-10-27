@@ -28,6 +28,14 @@
     <constructor-arg value="s3://bakemono-public/" />
   </bean>
 
+  <bean name="dotHaruhi" class="java.lang.String">
+    <constructor-arg value="${user.home}/.haruhi" />
+  </bean>
+
+  <bean name="clustedHeadUserName" class="java.lang.String">
+    <constructor-arg value="hadoop" />
+  </bean>
+
 
   <bean name="localCmdCluster defaultCluster" class="com.ontology2.haruhi.LocalCmdCluster">
     <property name="mavenRepoPath">
