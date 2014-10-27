@@ -16,14 +16,14 @@ public class Ssh extends CommandLineApplication {
     @Resource
     AmazonEC2Client ec2Client;
 
-//    @Resource
-//    private String clusterHeadUserName;
+    @Resource
+    private String clusterUsername;
 
     @Resource
     private String dotHaruhi;
 
-//    @Resource
-//    private String keyPairName;
+    @Resource
+    private String keyPairName;
 
     @Override
     protected void _run(String[] strings) throws Exception {

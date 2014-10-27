@@ -32,10 +32,9 @@
     <constructor-arg value="${user.home}/.haruhi" />
   </bean>
 
-  <bean name="clustedHeadUserName" class="java.lang.String">
+  <bean name="clusterUsername" class="java.lang.String">
     <constructor-arg value="hadoop" />
   </bean>
-
 
   <bean name="localCmdCluster defaultCluster" class="com.ontology2.haruhi.LocalCmdCluster">
     <property name="mavenRepoPath">
