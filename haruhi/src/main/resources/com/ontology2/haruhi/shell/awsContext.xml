@@ -71,4 +71,7 @@
       <bean factory-bean="stepFactory" factory-method="newEnableDebuggingStep" />
     </property>
   </bean>
+
+  <import resource="awsInstanceContext.xml"/>
+  <import resource="awsClustersContext.xml"/>
 </beans>

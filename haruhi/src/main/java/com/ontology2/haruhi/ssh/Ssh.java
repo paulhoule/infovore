@@ -11,7 +11,9 @@ import com.ontology2.centipede.errors.UsageException;
 import com.ontology2.haruhi.AmazonEMRCluster;
 import net.schmizz.sshj.SSHClient;
 import net.schmizz.sshj.common.StreamCopier;
+import net.schmizz.sshj.connection.channel.direct.LocalPortForwarder;
 import net.schmizz.sshj.connection.channel.direct.Session;
+import net.schmizz.sshj.connection.channel.forwarded.RemotePortForwarder;
 import net.schmizz.sshj.transport.verification.PromiscuousVerifier;
 import net.schmizz.sshj.userauth.keyprovider.OpenSSHKeyFile;
 import org.apache.commons.logging.Log;
@@ -21,6 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.annotation.Resource;
 
 import java.io.*;
+import java.net.ServerSocket;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
@@ -125,6 +128,7 @@ public class Ssh extends CommandLineApplication {
                 new StreamCopier(System.in, shell.getOutputStream())
                         .bufSize(shell.getRemoteMaxPacketSize())
                         .copy();
+
             } finally {
                 that.close();
             }
