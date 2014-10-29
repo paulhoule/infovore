@@ -29,14 +29,15 @@
   </constructor-arg>
 </bean>
 
-  <!-- this cluster is suitable for small runs with real data-->
+  <!-- this cluster is suitable for small runs with real data: it is big enough that HDFS
+       has three copies of everything-->
 
-<bean name="c1LargeX2AwsCluster smallAwsCluster" class="com.ontology2.haruhi.AmazonEMRCluster">
+<bean name="c3Large2X3AwsCluster smallAwsCluster" class="com.ontology2.haruhi.AmazonEMRCluster">
 <constructor-arg>
   <bean parent="rootInstancesDefinition">
     <property name="masterInstanceType" value="m1.medium" />
-    <property name="slaveInstanceType" value="c1.xlarge" />
-    <property name="instanceCount" value="3" /> <!-- 1 master + 2 slaves -->
+    <property name="slaveInstanceType" value="c3.2xlarge" />
+    <property name="instanceCount" value="4" /> <!-- 1 master + 3 slaves -->
   </bean>
 </constructor-arg>
 </bean>

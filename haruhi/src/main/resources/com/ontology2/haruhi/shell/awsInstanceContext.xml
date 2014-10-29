@@ -14,11 +14,21 @@
   <!-- configuration parameters for EMR -->
   <util:map id="awsInstanceMap">
     <entry key="c1.xlarge">
+    <bean class="com.ontology2.haruhi.emr.NodeType">
+      <constructor-arg>
+        <map>
+          <entry key="mapreduce.tasktracker.map.tasks.maximum" value="6" />
+          <entry key="mapreduce.tasktracker.map.reduce.maximum" value="2" />
+        </map>
+      </constructor-arg>
+    </bean>
+  </entry>
+    <entry key="c3.2xlarge">
       <bean class="com.ontology2.haruhi.emr.NodeType">
         <constructor-arg>
           <map>
-            <entry key="mapreduce.tasktracker.map.tasks.maximum" value="6" />
-            <entry key="mapreduce.tasktracker.map.reduce.maximum" value="2" />
+            <entry key="mapreduce.tasktracker.map.tasks.maximum" value="8" />
+            <entry key="mapreduce.tasktracker.map.reduce.maximum" value="8" />
           </map>
         </constructor-arg>
       </bean>

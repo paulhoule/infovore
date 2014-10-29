@@ -54,8 +54,7 @@ public class PSE3Tool extends SelfAwareTool<PSE3Options> {
 
             String output = a.next();
 
-            Path acceptedPath = new Path(output, "accepted");
-            Path rejectedPath = new Path(output, "rejected");
+            Path acceptedPath = new Path(output, "accepted");           ;
 
             conf.set("mapred.compress.map.output", "true");
             conf.set("mapred.map.max.attempts","1");

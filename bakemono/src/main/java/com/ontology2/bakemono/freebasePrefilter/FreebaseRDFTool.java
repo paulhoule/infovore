@@ -48,7 +48,7 @@ public class FreebaseRDFTool implements Tool {
         job.setOutputKeyClass(Text.class);  
         job.setOutputValueClass(Text.class);  
 
-        job.setNumReduceTasks(0);
+        job.setNumReduceTasks(420);
         job.setInputFormatClass(TextInputFormat.class);  
         job.setOutputFormatClass(TextOutputFormat.class);
 
