@@ -289,12 +289,17 @@ public class AmazonEMRCluster implements Cluster {
 
     RunJobFlowResult runJob(RunJobFlowRequest that) {
         logger.info("about to create job flow");
+
         RunJobFlowResult result=emrClient.runJobFlow(that);
+        alertService.alert("Cluster execution starting:\n for job"+that.getName()+" with jon flow Id"+result.getJobFlowId());
         logger.info("got job flow id "+result.getJobFlowId());
+
+        alertService.alert("Cluster execution ending:\n for job"+that.getName()+" with job flow Id"+result.getJobFlowId());
+
 //        emrClient.addTags(new AddTagsRequest(result.getJobFlowId(), Lists.newArrayList(
 //                new Tag("com.ontology2.jobFlowId", result.getJobFlowId())
 //        )));
-        logger.info("tags added to job flow ");
+//        logger.info("tags added to job flow ");
         return result;
     }
 }

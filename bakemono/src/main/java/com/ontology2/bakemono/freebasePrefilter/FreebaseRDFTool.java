@@ -7,6 +7,7 @@ import org.apache.hadoop.fs.FsShell;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.SequenceFile.CompressionType;
+import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.io.compress.GzipCodec;
 import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapreduce.*;
@@ -20,5 +21,13 @@ import com.ontology2.bakemono.Main;
 
 @HadoopTool("freebaseRDFPrefilter")
 public class FreebaseRDFTool extends SelfAwareTool<FreebaseRDFToolOptions> {
+    @Override
+    public Class<? extends Writable> getOutputKeyClass() {
+        return Text.class;
+    }
 
+    @Override
+    public Class<? extends Writable> getOutputValueClass() {
+        return Text.class;
+    }
 }
