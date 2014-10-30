@@ -6,6 +6,8 @@ import static com.ontology2.centipede.errors.ExitCodeException.*;
 
 import java.util.*;
 
+import com.amazonaws.services.ec2.AmazonEC2Client;
+import com.amazonaws.services.ec2.model.*;
 import com.amazonaws.services.elasticmapreduce.model.*;
 import com.amazonaws.services.elasticmapreduce.util.BootstrapActions;
 import com.google.common.base.Joiner;
@@ -31,6 +33,7 @@ public class AmazonEMRCluster implements Cluster {
     private static Log logger = LogFactory.getLog(AmazonEMRCluster.class);
     private final JobFlowInstancesConfig instances;
 
+    @Autowired private AmazonEC2Client ec2Client;
     @Autowired private String awsSoftwareBucket;
     @Autowired private AmazonElasticMapReduce emrClient;
     @Autowired private StepConfig debugStep;
@@ -115,6 +118,7 @@ public class AmazonEMRCluster implements Cluster {
         
         final long checkInterval=60*1000;
         String state="";  // always interned!
+        boolean tagged=false;
         while(true) {
             List<JobFlowDetail> flows=emrClient
                     .describeJobFlows(
@@ -133,7 +137,10 @@ public class AmazonEMRCluster implements Cluster {
                 logger.info("Job flow "+jobFlowId+" ended in state "+state);
                 break;
             }
-            
+
+            if(state.equals("RUNNING") && !tagged) {
+                tagInstancesForJob(jobFlowId);
+            }
             logger.info("Job flow "+jobFlowId+" reported status "+state);
             Thread.sleep(checkInterval);
         }
@@ -153,6 +160,21 @@ public class AmazonEMRCluster implements Cluster {
             throw ExitCodeException.create(EX_SOFTWARE);
         }
     }
+
+    private void tagInstancesForJob(String jobFlowId) {
+        DescribeInstancesResult r=ec2Client.describeInstances(
+                new DescribeInstancesRequest().withFilters(
+                        new Filter().withName("tag:aws:elasticmapreduce:job-flow-id").withValues(jobFlowId)
+                )
+        );
+
+        List<String> clusterInstances=newArrayList();
+        for(Reservation that:r.getReservations())  {
+            clusterInstances.add(that.getInstances().get(0).getInstanceId());
+        }
+
+        ec2Client.monitorInstances(new MonitorInstancesRequest(clusterInstances));
+    };
 
     @Autowired private FetchLogs fetchLogs;
     @Autowired private AlertService alertService;
