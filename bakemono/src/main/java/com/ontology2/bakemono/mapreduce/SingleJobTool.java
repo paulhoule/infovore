@@ -86,10 +86,18 @@ public abstract class SingleJobTool<OptionsClass> extends ToolBase {
     abstract public Class getOptionsClass();
 
     public int run(String[] strings) throws Exception {
-        logger.warn("CHECK LOGGING LEVEL");
         logger.info("Initializing SingleJobTool");
         Job job = createJob(strings);
-        return job.waitForCompletion(true) ? 0 : 1;
+        if(job.waitForCompletion(true))
+            return 0;
+
+        if(getErrorSleepTime()<1)
+            return 1;
+
+        logger.info("Waiting for ["+getErrorSleepTime()+"] seconds for logs to synchronize");
+        Thread.sleep(1000*getErrorSleepTime());
+
+        return 1;
     }
 
     //
@@ -179,5 +187,7 @@ public abstract class SingleJobTool<OptionsClass> extends ToolBase {
     }
 
 
-
+    public int getErrorSleepTime() {
+        return 600; // ten minutes,  since AWS log syncs up every 5 minutes
+    }
 }
