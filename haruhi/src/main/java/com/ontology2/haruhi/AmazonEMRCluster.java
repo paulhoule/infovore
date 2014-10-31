@@ -4,12 +4,16 @@ import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
 import static com.ontology2.centipede.errors.ExitCodeException.*;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.*;
 
 import com.amazonaws.services.ec2.AmazonEC2Client;
 import com.amazonaws.services.ec2.model.*;
 import com.amazonaws.services.elasticmapreduce.model.*;
 import com.amazonaws.services.elasticmapreduce.util.BootstrapActions;
+import com.amazonaws.services.s3.AmazonS3Client;
+import com.amazonaws.services.s3.model.ListObjectsRequest;
 import com.google.common.base.Joiner;
 import com.ontology2.bakemono.pse3.PSE3Options;
 import com.ontology2.bakemono.util.CommonOptions;
@@ -39,6 +43,7 @@ public class AmazonEMRCluster implements Cluster {
     private final JobFlowInstancesConfig instances;
 
     @Autowired private AmazonEC2Client ec2Client;
+    @Autowired private AmazonS3Client s3Client;
     @Autowired private String awsSoftwareBucket;
     @Autowired private AmazonElasticMapReduce emrClient;
     @Autowired private StepConfig debugStep;
@@ -105,7 +110,7 @@ public class AmazonEMRCluster implements Cluster {
         fetchLogs.run(new String[] {result.getJobFlowId()});
     }
 
-    boolean validateJarArgs(List<String> jarArgs) throws IllegalAccessException {
+    boolean validateJarArgs(List<String> jarArgs) throws IllegalAccessException, URISyntaxException {
         HasOptions options=extractOptions(jarArgs);
         if(options instanceof CommonOptions) {
             return validateCommonOptions((CommonOptions) options);
@@ -113,8 +118,62 @@ public class AmazonEMRCluster implements Cluster {
         return true;  // don't know how to validate anything else
     }
 
-    private boolean validateCommonOptions(CommonOptions options) {
+    private boolean validateCommonOptions(CommonOptions options) throws URISyntaxException {
+        if(options.input.isEmpty()) {
+            logger.fatal("No input paths given to jar");
+            return false;
+        }
+        for(String inputPath:options.input) {
+            if(!validateInputPath(inputPath)) {
+                logger.fatal("Could not resolve input path:"+inputPath);
+                return false;
+            }
+        }
+
+        if(!validateOutputPath(options.output)) {
+            logger.fatal("Could not resolve output path:"+options.output);
+            return false;
+        }
+
         return true;
+    }
+
+    private boolean validateOutputPath(String output) throws URISyntaxException {
+        if(!output.startsWith("s3n:")) {
+            logger.warn("Cannot validate input path not in S3: ["+output+"]");
+            return true;
+        }
+
+        return validateS3NOutputPath(output);
+    }
+
+    private boolean validateInputPath(String inputPath) throws URISyntaxException {
+        if(!inputPath.startsWith("s3n:")) {
+            logger.warn("Cannot validate input path not in S3: ["+inputPath+"]");
+            return true;
+        }
+
+        return validateS3NInputPath(inputPath);
+    }
+
+    private boolean validateS3NInputPath(String inputPath) throws URISyntaxException {
+        URI uri=new URI(inputPath);
+        String bucketName=uri.getHost();
+        String path=uri.getPath();
+        return !s3Client.listObjects(new ListObjectsRequest()
+                .withBucketName(bucketName)
+                .withPrefix(path)
+                .withMaxKeys(1)).getObjectSummaries().isEmpty();
+    }
+
+    private boolean validateS3NOutputPath(String inputPath) throws URISyntaxException {
+        URI uri=new URI(inputPath);
+        String bucketName=uri.getHost();
+        String path=uri.getPath();
+        return s3Client.listObjects(new ListObjectsRequest()
+                .withBucketName(bucketName)
+                .withPrefix(path)
+                .withMaxKeys(1)).getObjectSummaries().isEmpty();
     }
 
     @Autowired

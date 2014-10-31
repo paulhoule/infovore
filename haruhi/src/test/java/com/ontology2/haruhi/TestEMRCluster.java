@@ -1,14 +1,26 @@
 package com.ontology2.haruhi;
 
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.amazonaws.services.s3.AmazonS3Client;
+import com.amazonaws.services.s3.model.ListBucketsRequest;
+import com.amazonaws.services.s3.model.ListObjectsRequest;
+import com.amazonaws.services.s3.model.ObjectListing;
+import com.amazonaws.services.s3.model.S3ObjectSummary;
 import com.ontology2.haruhi.flows.ForeachStep;
 import junit.framework.TestCase;
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -19,6 +31,8 @@ import com.google.common.collect.Lists;
 import com.ontology2.haruhi.flows.Flow;
 
 import static org.junit.Assert.*;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.when;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({
@@ -26,10 +40,19 @@ import static org.junit.Assert.*;
         "shell/applicationContext.xml",
         "shell/testDefaults.xml"})
 public class TestEMRCluster {
+    @InjectMocks
     @Autowired AmazonEMRCluster tinyAwsCluster;
+    @Mock
+    private AmazonS3Client s3Client;
+
     @Autowired private StepConfig debugStep;
     @Autowired Flow foreachStepFlow;
     @Autowired Flow mostMonthsFlow;
+
+    @Before
+    public void init() {
+        MockitoAnnotations.initMocks(this);
+    }
 
     @Test
     public void testShortName() {
@@ -80,7 +103,80 @@ public class TestEMRCluster {
     }
 
     @Test
-    public void validateOptions() throws IllegalAccessException {
-        TestCase.assertTrue(tinyAwsCluster.validateJarArgs(new ArrayList<String>()));
+    public void failsWithNoOptions() throws IllegalAccessException, URISyntaxException {
+        assertFalse(tinyAwsCluster.validateJarArgs(new ArrayList<String>()));
+    }
+
+    @Test
+    public void suceedsWithGoodPaths() throws IllegalAccessException, URISyntaxException {
+        mockS3Client();
+
+        assertTrue(tinyAwsCluster.validateJarArgs(new ArrayList<String>() {{
+            add("-input");
+            add("s3n://foo-bar/pathoDromic");
+            add("-output");
+            add("s3n://foo-bar/way-out/");
+        }}));
+    }
+
+    @Test
+    public void failsWithBadInput() throws IllegalAccessException, URISyntaxException {
+        mockS3Client();
+
+        assertFalse(tinyAwsCluster.validateJarArgs(new ArrayList<String>() {{
+            add("-input");
+            add("s3n://foo-bar/way-out/");
+            add("-output");
+            add("s3n://foo-bar/way-out/");
+        }}));
+    }
+
+    @Test
+    public void failsWithBadOutput() throws IllegalAccessException, URISyntaxException {
+        mockS3Client();
+
+        assertFalse(tinyAwsCluster.validateJarArgs(new ArrayList<String>() {{
+            add("-input");
+            add("s3n://foo-bar/pathoDromic");
+            add("-output");
+            add("s3n://foo-bar/pathoDromic");
+        }}));
+    }
+
+    private void mockS3Client() {
+        when(s3Client.listObjects(any(ListObjectsRequest.class))).thenAnswer(new Answer() {
+
+            @Override
+            public Object answer(InvocationOnMock invocationOnMock) throws Throwable {
+                Object[] args=invocationOnMock.getArguments();
+                ListObjectsRequest r=(ListObjectsRequest) args[0];
+                if(!"foo-bar".equals(r.getBucketName()))
+                    throw new Exception("Bucket name was not correctly specified");
+                if(!(1==r.getMaxKeys()))
+                    throw new Exception("More than one result was asked for");
+
+                boolean ok=false;
+                final List<S3ObjectSummary> out= Lists.newArrayList();
+
+                if("/pathoDromic".equals(r.getPrefix())) {
+                    out.add(new S3ObjectSummary());
+                    ok=true;
+                }
+
+                if("/way-out/".equals(r.getPrefix())) {
+                    ok=true;
+                }
+                if(ok) {
+                    return new ObjectListing() {
+                        @Override
+                        public List<S3ObjectSummary> getObjectSummaries() {
+                            return out;
+                        }
+
+                    };
+                }
+                throw new Exception("An unrecognized path was given");
+            }
+        });
     }
 }
