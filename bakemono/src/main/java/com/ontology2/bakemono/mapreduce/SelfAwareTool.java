@@ -267,7 +267,8 @@ public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> imp
     // the inheritence stack,  but this will get the app working for now
     //
 
-    public Class<? extends RawComparator> getGroupingComparatorClass() {
+    @Override
+    protected Class<? extends RawComparator> getGroupingComparatorClass() {
         Class mapInput=getMapOutputKeyClass();
         if(TaggedItem.class.isAssignableFrom(mapInput)) {
             return TaggedTextKeyGroupComparator.class;
@@ -276,7 +277,8 @@ public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> imp
         return super.getGroupingComparatorClass();
     }
 
-    public Class<? extends Partitioner> getPartitionerClass() {
+    @Override
+    protected Class<? extends Partitioner> getPartitionerClass() {
         Class mapInput=getMapOutputKeyClass();
         if(TaggedItem.class.isAssignableFrom(mapInput)) {
             return TaggedKeyPartitioner.class;
@@ -285,7 +287,8 @@ public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> imp
         return super.getPartitionerClass();
     }
 
-    public Class<? extends RawComparator> getSortComparatorClass() {
+    @Override
+    protected Class<? extends RawComparator> getSortComparatorClass() {
         Class mapInput=getMapOutputKeyClass();
         if(TaggedItem.class.isAssignableFrom(mapInput)) {
             return TaggedTextKeySortComparator.class;

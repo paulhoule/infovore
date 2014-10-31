@@ -21,6 +21,25 @@ import org.apache.hadoop.io.Text;
 
 @HadoopTool("ranSample")
 public class RanSampleTool implements Tool{
+    public static Integer parseRArgument(PeekingIterator<String> a)
+            throws IncorrectUsageException {
+        Integer reduceTasks = null;
+        while (a.hasNext() && a.peek().startsWith("-")) {
+            String flagName = a.next().substring(1).intern();
+            if (!a.hasNext())
+                usage();
+
+            String flagValue = a.next();
+            if (flagName == "r") {
+                reduceTasks = Integer.parseInt(flagValue);
+            } else {
+                usage();
+            }
+            ;
+        }
+        return reduceTasks;
+    }
+
     private Configuration conf;
     
     @Override
@@ -38,7 +57,7 @@ public class RanSampleTool implements Tool{
         try {
             PeekingIterator<String> a=Iterators.peekingIterator(Iterators.forArray(args)); 
             
-            Integer reduceTasks = PSE3Tool.parseRArgument(a);
+            Integer reduceTasks = parseRArgument(a);
             
             if (!a.hasNext())
                 usage();
