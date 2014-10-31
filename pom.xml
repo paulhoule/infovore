@@ -44,6 +44,7 @@
     <module>haruhi</module>
     <module>haruhi-spring</module>
 <!--    <module>infovore-maven-plugin</module> -->
+    <module>bakemono-options</module>
   </modules>
   <build>
     <plugins>
