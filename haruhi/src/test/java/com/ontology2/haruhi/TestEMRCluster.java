@@ -1,9 +1,11 @@
 package com.ontology2.haruhi;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import com.ontology2.haruhi.flows.ForeachStep;
+import junit.framework.TestCase;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +21,10 @@ import com.ontology2.haruhi.flows.Flow;
 import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"shell/applicationContext.xml","shell/testDefaults.xml"})
+@ContextConfiguration({
+        "classpath:com/ontology2/centipede/shell/applicationContext.xml",
+        "shell/applicationContext.xml",
+        "shell/testDefaults.xml"})
 public class TestEMRCluster {
     @Autowired AmazonEMRCluster tinyAwsCluster;
     @Autowired private StepConfig debugStep;
@@ -72,5 +77,10 @@ public class TestEMRCluster {
         );
 
         assertEquals(49,steps.size());
+    }
+
+    @Test
+    public void validateOptions() throws IllegalAccessException {
+        TestCase.assertTrue(tinyAwsCluster.validateJarArgs(new ArrayList<String>()));
     }
 }

@@ -11,6 +11,10 @@ import com.amazonaws.services.ec2.model.*;
 import com.amazonaws.services.elasticmapreduce.model.*;
 import com.amazonaws.services.elasticmapreduce.util.BootstrapActions;
 import com.google.common.base.Joiner;
+import com.ontology2.bakemono.pse3.PSE3Options;
+import com.ontology2.bakemono.util.CommonOptions;
+import com.ontology2.centipede.parser.HasOptions;
+import com.ontology2.centipede.parser.OptionParser;
 import com.ontology2.haruhi.alert.AlertService;
 import com.ontology2.haruhi.emr.NodeType;
 import com.ontology2.haruhi.fetchLogs.FetchLogs;
@@ -25,6 +29,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.ontology2.centipede.errors.ExitCodeException;
+import org.springframework.context.ApplicationContext;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -75,6 +80,10 @@ public class AmazonEMRCluster implements Cluster {
     public void runJob(MavenManagedJar defaultJar,List<String> jarArgs)
             throws Exception {
         String jarLocation=defaultJar.s3JarLocation(awsSoftwareBucket);
+        if(!validateJarArgs(jarArgs)) {
+            throw new Exception("Arguments to JAR were not valid");
+        }
+
         StepConfig[] steps = {
                 debugStep,
                 new StepConfig("main",new HadoopJarStepConfig(jarLocation).withArgs(jarArgs))
@@ -94,6 +103,38 @@ public class AmazonEMRCluster implements Cluster {
         pollClusterForCompletion(result);
         alertService.alert("Cluster execution ending\n for job"+that.getName()+" with job flow Id"+result.getJobFlowId());
         fetchLogs.run(new String[] {result.getJobFlowId()});
+    }
+
+    boolean validateJarArgs(List<String> jarArgs) throws IllegalAccessException {
+        HasOptions options=extractOptions(jarArgs);
+        if(options instanceof CommonOptions) {
+            return validateCommonOptions((CommonOptions) options);
+        }
+        return true;  // don't know how to validate anything else
+    }
+
+    private boolean validateCommonOptions(CommonOptions options) {
+        return true;
+    }
+
+    @Autowired
+    private ApplicationContext applicationContext;
+    private HasOptions extractOptions(List<String> strings) throws IllegalAccessException {
+        return createOptionParser(getOptionsClass()).parse(strings);
+    }
+
+    //
+    // TODO: Export factory out to Spring
+    //
+
+    private OptionParser createOptionParser(Class optionsClass) {
+        OptionParser parser=new OptionParser(optionsClass);
+        applicationContext.getAutowireCapableBeanFactory().autowireBean(parser);
+        return parser;
+    }
+
+    private Class getOptionsClass() {
+        return PSE3Options.class;
     }
 
     private void pollClusterForCompletion(RunJobFlowResult result) throws Exception {
