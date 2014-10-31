@@ -4,7 +4,6 @@ import com.ontology2.bakemono.mapreduce.InputPath;
 import com.ontology2.centipede.parser.ContextualConverter;
 import com.ontology2.centipede.parser.HasOptions;
 import com.ontology2.centipede.parser.Option;
-import org.apache.hadoop.fs.Path;
 
 import java.util.List;
 
@@ -26,7 +25,11 @@ public class CommonOptions implements HasOptions {
             if(defaultDir.isEmpty())
                 return value;
 
-            Path there=new Path(defaultDir,value);
+            StringBuilder there=new StringBuilder();
+            there.append(defaultDir);
+            if(!defaultDir.endsWith("/"))
+                there.append("/");
+            there.append(value);
             return there.toString();
         }
 
