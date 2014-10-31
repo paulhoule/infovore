@@ -1,5 +1,6 @@
 package com.ontology2.haruhi;
 
+import static com.google.common.collect.Iterables.*;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
 import static com.ontology2.centipede.errors.ExitCodeException.*;
@@ -15,6 +16,7 @@ import com.amazonaws.services.elasticmapreduce.util.BootstrapActions;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.ListObjectsRequest;
 import com.google.common.base.Joiner;
+import com.google.common.collect.Iterables;
 import com.ontology2.bakemono.pse3.PSE3Options;
 import com.ontology2.bakemono.util.CommonOptions;
 import com.ontology2.centipede.parser.HasOptions;
@@ -111,7 +113,8 @@ public class AmazonEMRCluster implements Cluster {
     }
 
     boolean validateJarArgs(List<String> jarArgs) throws IllegalAccessException, URISyntaxException {
-        HasOptions options=extractOptions(jarArgs);
+        List<String> innerArgs=newArrayList(skip(jarArgs, 2));
+        HasOptions options=extractOptions(innerArgs);
         if(options instanceof CommonOptions) {
             return validateCommonOptions((CommonOptions) options);
         }
@@ -160,19 +163,20 @@ public class AmazonEMRCluster implements Cluster {
         URI uri=new URI(inputPath);
         String bucketName=uri.getHost();
         String path=uri.getPath();
-        return !s3Client.listObjects(new ListObjectsRequest()
-                .withBucketName(bucketName)
-                .withPrefix(path)
-                .withMaxKeys(1)).getObjectSummaries().isEmpty();
+        return !fileExistsinS3(bucketName, path);
     }
 
     private boolean validateS3NOutputPath(String inputPath) throws URISyntaxException {
         URI uri=new URI(inputPath);
         String bucketName=uri.getHost();
         String path=uri.getPath();
+        return fileExistsinS3(bucketName, path);
+    }
+
+    private boolean fileExistsinS3(String bucketName, String path) {
         return s3Client.listObjects(new ListObjectsRequest()
                 .withBucketName(bucketName)
-                .withPrefix(path)
+                .withPrefix(path.substring(1))
                 .withMaxKeys(1)).getObjectSummaries().isEmpty();
     }
 
