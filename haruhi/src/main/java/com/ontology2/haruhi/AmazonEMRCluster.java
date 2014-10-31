@@ -90,8 +90,9 @@ public class AmazonEMRCluster implements Cluster {
             .withInstances(instances);
 
         RunJobFlowResult result = runJob(that);
-
+        alertService.alert("Cluster execution starting:\n for job"+that.getName()+" with job flow Id"+result.getJobFlowId());
         pollClusterForCompletion(result);
+        alertService.alert("Cluster execution ending\n for job"+that.getName()+" with job flow Id"+result.getJobFlowId());
         fetchLogs.run(new String[] {result.getJobFlowId()});
     }
 
@@ -291,10 +292,9 @@ public class AmazonEMRCluster implements Cluster {
         logger.info("about to create job flow");
 
         RunJobFlowResult result=emrClient.runJobFlow(that);
-        alertService.alert("Cluster execution starting:\n for job"+that.getName()+" with jon flow Id"+result.getJobFlowId());
-        logger.info("got job flow id "+result.getJobFlowId());
 
-        alertService.alert("Cluster execution ending:\n for job"+that.getName()+" with job flow Id"+result.getJobFlowId());
+
+        logger.info("got job flow id "+result.getJobFlowId());
 
 //        emrClient.addTags(new AddTagsRequest(result.getJobFlowId(), Lists.newArrayList(
 //                new Tag("com.ontology2.jobFlowId", result.getJobFlowId())
