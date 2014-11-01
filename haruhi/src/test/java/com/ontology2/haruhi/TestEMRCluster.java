@@ -158,12 +158,12 @@ public class TestEMRCluster {
                 boolean ok=false;
                 final List<S3ObjectSummary> out= Lists.newArrayList();
 
-                if("/pathoDromic".equals(r.getPrefix())) {
+                if("pathoDromic".equals(r.getPrefix())) {
                     out.add(new S3ObjectSummary());
                     ok=true;
                 }
 
-                if("/way-out/".equals(r.getPrefix())) {
+                if("way-out/".equals(r.getPrefix())) {
                     ok=true;
                 }
                 if(ok) {
@@ -175,7 +175,7 @@ public class TestEMRCluster {
 
                     };
                 }
-                throw new Exception("An unrecognized path was given");
+                throw new Exception("An unrecognized path ["+r.getPrefix()+"] was given");
             }
         });
     }

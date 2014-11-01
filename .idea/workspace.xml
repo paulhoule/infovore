@@ -9,7 +9,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
     </list>
-    <list default="true" id="7f38132e-3aea-4038-aca1-03191a595276" name="New changelist" comment="validation system now passes a test and might work.  right now pse3 is baked in as the class that gets validated.">
+    <list default="true" id="7f38132e-3aea-4038-aca1-03191a595276" name="New changelist" comment="update IDE metafile">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/TestEMRCluster.java" afterPath="$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/TestEMRCluster.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -78,21 +80,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TestEMRCluster.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="TestEMRCluster.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/TestEMRCluster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.285714" vertical-offset="1877" max-vertical-offset="3196">
-              <caret line="129" column="50" selection-start-line="129" selection-start-column="42" selection-end-line="129" selection-end-column="42" />
+            <state vertical-scroll-proportion="2.8010335" vertical-offset="637" max-vertical-offset="3196">
+              <caret line="165" column="20" selection-start-line="165" selection-start-column="20" selection-end-line="165" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1830#1831#0" expanded="true" />
                 <element signature="e#1880#1881#0" expanded="true" />
                 <element signature="e#3638#3639#0" expanded="true" />
                 <element signature="e#3722#3723#0" expanded="true" />
-                <element signature="e#4937#6208#0" expanded="true" />
-                <element signature="e#5874#6094#0" expanded="true" />
-                <element signature="e#6070#6071#0" expanded="true" />
-                <element signature="e#6197#6198#0" expanded="true" />
+                <element signature="e#4937#6226#0" expanded="true" />
+                <element signature="e#5872#6092#0" expanded="true" />
+                <element signature="e#6068#6069#0" expanded="true" />
+                <element signature="e#6215#6216#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -121,8 +123,8 @@
       <file leaf-file-name="AmazonEMRCluster.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="4051" max-vertical-offset="6307">
-              <caret line="168" column="39" selection-start-line="168" selection-start-column="39" selection-end-line="168" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="4135" max-vertical-offset="6290">
+              <caret line="327" column="47" selection-start-line="327" selection-start-column="33" selection-end-line="327" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -168,10 +170,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.2718204" vertical-offset="1020" max-vertical-offset="1972">
+            <state vertical-scroll-proportion="0.0" vertical-offset="912" max-vertical-offset="1972">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -249,9 +251,9 @@
         <option value="$PROJECT_DIR$/haruhi/pom.xml" />
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapreduce/SingleJobTool.java" />
         <option value="$PROJECT_DIR$/haruhi/src/test/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/TestEMRCluster.java" />
         <option value="$PROJECT_DIR$/bakemono-options/src/main/java/com/ontology2/bakemono/pse3/PSE3Options.java" />
         <option value="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java" />
+        <option value="$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/TestEMRCluster.java" />
       </list>
     </option>
   </component>
@@ -316,6 +318,62 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="haruhi-spring" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="haruhi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono-options" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="infovore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bakemono" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -365,7 +423,7 @@
       <recent name="com.ontology2.bakemono.util" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PSE3 Test">
+  <component name="RunManager" selected="JUnit.TestEMRCluster.suceedsWithGoodPaths">
     <configuration default="false" name="TestEMRCluster" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="haruhi" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -416,32 +474,6 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="TestApplicationConfigurationLoader.checkEnrichedContext" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="haruhi" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="PACKAGE_NAME" value="com.ontology2.haruhi" />
-      <option name="MAIN_CLASS_NAME" value="com.ontology2.haruhi.TestApplicationConfigurationLoader" />
-      <option name="METHOD_NAME" value="checkEnrichedContext" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <ConfigurationWrapper RunnerId="Debug" />
-      <method />
-    </configuration>
     <configuration default="false" name="AssignmentStepTest.step1FailsIfZappaAlreadyExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="haruhi" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -483,6 +515,34 @@
       <envs />
       <patterns />
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="TestEMRCluster.suceedsWithGoodPaths" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="haruhi" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="com.ontology2.haruhi" />
+      <option name="MAIN_CLASS_NAME" value="com.ontology2.haruhi.TestEMRCluster" />
+      <option name="METHOD_NAME" value="suceedsWithGoodPaths" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -807,17 +867,17 @@
       <item index="8" class="java.lang.String" itemvalue="JUnit.haruhi tests" />
       <item index="9" class="java.lang.String" itemvalue="JUnit.TestEMRCluster" />
       <item index="10" class="java.lang.String" itemvalue="JUnit.TestApplicationConfigurationLoader" />
-      <item index="11" class="java.lang.String" itemvalue="JUnit.TestApplicationConfigurationLoader.checkEnrichedContext" />
-      <item index="12" class="java.lang.String" itemvalue="JUnit.AssignmentStepTest.step1FailsIfZappaAlreadyExists" />
-      <item index="13" class="java.lang.String" itemvalue="JUnit.TestGetopt" />
+      <item index="11" class="java.lang.String" itemvalue="JUnit.AssignmentStepTest.step1FailsIfZappaAlreadyExists" />
+      <item index="12" class="java.lang.String" itemvalue="JUnit.TestGetopt" />
+      <item index="13" class="java.lang.String" itemvalue="JUnit.TestEMRCluster.suceedsWithGoodPaths" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.TestEMRCluster" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.TestGetopt" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.AssignmentStepTest.step1FailsIfZappaAlreadyExists" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.TestApplicationConfigurationLoader" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.TestApplicationConfigurationLoader.checkEnrichedContext" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.TestEMRCluster.suceedsWithGoodPaths" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.TestEMRCluster" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.TestGetopt" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.AssignmentStepTest.step1FailsIfZappaAlreadyExists" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.TestApplicationConfigurationLoader" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -1176,7 +1236,11 @@
       <created>1414791311598</created>
       <updated>1414791311598</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="update IDE metafile">
+      <created>1414795906169</created>
+      <updated>1414795906169</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1220,7 +1284,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37695312" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22493461" sideWeight="0.6829533" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22493461" sideWeight="0.6829533" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4228422" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1271,7 +1335,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="push even more AWS stuff into the aws-specific config file" />
     <MESSAGE value="configure a flow with 6 running maps and 6 running reducers," />
     <MESSAGE value="add configuration change to single job flow codeline" />
     <MESSAGE value="also put fetchLogs into runJob codeline" />
@@ -1296,7 +1359,8 @@
     <MESSAGE value="get bakemono-options in dependencies so we can test the arguments (it is insane to wait 8 min to find out that the file is not there)" />
     <MESSAGE value="make way for validation system,  it doesn't really work,  but the test does." />
     <MESSAGE value="validation system now passes a test and might work.  right now pse3 is baked in as the class that gets validated." />
-    <option name="LAST_COMMIT_MESSAGE" value="validation system now passes a test and might work.  right now pse3 is baked in as the class that gets validated." />
+    <MESSAGE value="update IDE metafile" />
+    <option name="LAST_COMMIT_MESSAGE" value="update IDE metafile" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1320,7 +1384,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java</url>
-          <line>334</line>
+          <line>333</line>
           <properties />
           <option name="timeStamp" value="20" />
         </line-breakpoint>
@@ -1332,18 +1396,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java</url>
-          <line>165</line>
+          <line>164</line>
           <properties />
           <option name="timeStamp" value="23" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java</url>
-          <line>129</line>
-          <properties />
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="26" />
+      <option name="time" value="27" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1698,44 +1756,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/TestEMRCluster.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.285714" vertical-offset="1877" max-vertical-offset="3196">
-          <caret line="129" column="50" selection-start-line="129" selection-start-column="42" selection-end-line="129" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1830#1831#0" expanded="true" />
-            <element signature="e#1880#1881#0" expanded="true" />
-            <element signature="e#3638#3639#0" expanded="true" />
-            <element signature="e#3722#3723#0" expanded="true" />
-            <element signature="e#4937#6208#0" expanded="true" />
-            <element signature="e#5874#6094#0" expanded="true" />
-            <element signature="e#6070#6071#0" expanded="true" />
-            <element signature="e#6197#6198#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk/1.6.6/aws-java-sdk-1.6.6.jar!/com/amazonaws/AmazonWebServiceRequest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.48" vertical-offset="0" max-vertical-offset="544">
-          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk/1.6.6/aws-java-sdk-1.6.6.jar!/com/amazonaws/services/s3/model/ListObjectsRequest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.0" vertical-offset="4" max-vertical-offset="867">
-          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4051" max-vertical-offset="6307">
-          <caret line="168" column="39" selection-start-line="168" selection-start-column="39" selection-end-line="168" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="912" max-vertical-offset="1972">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1756,11 +1780,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk/1.6.6/aws-java-sdk-1.6.6.jar!/com/amazonaws/services/s3/model/ListObjectsRequest.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2718204" vertical-offset="1020" max-vertical-offset="1972">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-8.0" vertical-offset="4" max-vertical-offset="867">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk/1.6.6/aws-java-sdk-1.6.6.jar!/com/amazonaws/AmazonWebServiceRequest.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.48" vertical-offset="0" max-vertical-offset="544">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1942" max-vertical-offset="6290">
+          <caret line="327" column="47" selection-start-line="327" selection-start-column="33" selection-end-line="327" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/TestEMRCluster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.8010335" vertical-offset="637" max-vertical-offset="3196">
+          <caret line="165" column="20" selection-start-line="165" selection-start-column="20" selection-end-line="165" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1830#1831#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#3638#3639#0" expanded="true" />
+            <element signature="e#3722#3723#0" expanded="true" />
+            <element signature="e#4937#6226#0" expanded="true" />
+            <element signature="e#5872#6092#0" expanded="true" />
+            <element signature="e#6068#6069#0" expanded="true" />
+            <element signature="e#6215#6216#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

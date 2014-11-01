@@ -113,8 +113,7 @@ public class AmazonEMRCluster implements Cluster {
     }
 
     boolean validateJarArgs(List<String> jarArgs) throws IllegalAccessException, URISyntaxException {
-        List<String> innerArgs=newArrayList(skip(jarArgs, 2));
-        HasOptions options=extractOptions(innerArgs);
+        HasOptions options=extractOptions(jarArgs);
         if(options instanceof CommonOptions) {
             return validateCommonOptions((CommonOptions) options);
         }
