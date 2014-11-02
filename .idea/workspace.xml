@@ -9,7 +9,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
     </list>
-    <list default="true" id="7f38132e-3aea-4038-aca1-03191a595276" name="New changelist" comment="tweak processing of paths to correct fault">
+    <list default="true" id="7f38132e-3aea-4038-aca1-03191a595276" name="New changelist" comment="shave off first two arguments (that select application from the jar) and put the others through the option parser.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -122,9 +122,12 @@
       <file leaf-file-name="AmazonEMRCluster.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33291772" vertical-offset="1042" max-vertical-offset="6307">
-              <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.47494033" vertical-offset="2645" max-vertical-offset="6392">
+              <caret line="221" column="47" selection-start-line="221" selection-start-column="43" selection-end-line="221" selection-end-column="43" />
+              <folding>
+                <element signature="e#7234#7235#0" expanded="true" />
+                <element signature="e#7293#7294#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1313,7 +1316,11 @@
       <created>1414800380852</created>
       <updated>1414800380852</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="shave off first two arguments (that select application from the jar) and put the others through the option parser.">
+      <created>1414888505920</created>
+      <updated>1414888505920</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1356,7 +1363,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.123046875" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37695312" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37695312" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22493461" sideWeight="0.6829533" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1408,7 +1415,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="add configuration change to single job flow codeline" />
     <MESSAGE value="also put fetchLogs into runJob codeline" />
     <MESSAGE value="put instance-type specific configuration (stuff that goes into the Hadoop SITE configuration file) in a separate file" />
     <MESSAGE value="adjustments to configuration of ssh" />
@@ -1433,7 +1439,8 @@
     <MESSAGE value="validation system now passes a test and might work.  right now pse3 is baked in as the class that gets validated." />
     <MESSAGE value="update IDE metafile" />
     <MESSAGE value="tweak processing of paths to correct fault" />
-    <option name="LAST_COMMIT_MESSAGE" value="tweak processing of paths to correct fault" />
+    <MESSAGE value="shave off first two arguments (that select application from the jar) and put the others through the option parser." />
+    <option name="LAST_COMMIT_MESSAGE" value="shave off first two arguments (that select application from the jar) and put the others through the option parser." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1457,7 +1464,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java</url>
-          <line>334</line>
+          <line>337</line>
           <properties />
           <option name="timeStamp" value="20" />
         </line-breakpoint>
@@ -1906,9 +1913,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33291772" vertical-offset="1042" max-vertical-offset="6307">
-          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.47494033" vertical-offset="2645" max-vertical-offset="6392">
+          <caret line="221" column="47" selection-start-line="221" selection-start-column="43" selection-end-line="221" selection-end-column="43" />
+          <folding>
+            <element signature="e#7234#7235#0" expanded="true" />
+            <element signature="e#7293#7294#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

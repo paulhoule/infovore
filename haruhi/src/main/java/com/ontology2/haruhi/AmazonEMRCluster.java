@@ -107,9 +107,9 @@ public class AmazonEMRCluster implements Cluster {
             .withInstances(instances);
 
         RunJobFlowResult result = runJob(that);
-        alertService.alert("Cluster execution starting:\n for job"+that.getName()+" with job flow Id"+result.getJobFlowId());
+
         pollClusterForCompletion(result);
-        alertService.alert("Cluster execution ending\n for job"+that.getName()+" with job flow Id"+result.getJobFlowId());
+
         fetchLogs.run(new String[] {result.getJobFlowId()});
     }
 
@@ -216,6 +216,7 @@ public class AmazonEMRCluster implements Cluster {
             throws Exception {
         String jobFlowId=result.getJobFlowId();
         logger.info("Created job flow in AWS with id "+jobFlowId);
+        alertService.alert("Cluster execution starting:\n for job flow Id"+result.getJobFlowId());
         
         //
         // make it synchronous with polling
@@ -249,7 +250,9 @@ public class AmazonEMRCluster implements Cluster {
             logger.info("Job flow "+jobFlowId+" reported status "+state);
             Thread.sleep(checkInterval);
         }
-        
+
+        alertService.alert("Cluster execution ending for job flow Id"+result.getJobFlowId());
+
         if(state=="") {
             logger.error("We never established communication with the cluster");
             throw ExitCodeException.create(EX_UNAVAILABLE);
