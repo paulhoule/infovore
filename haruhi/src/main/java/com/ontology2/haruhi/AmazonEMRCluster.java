@@ -87,7 +87,8 @@ public class AmazonEMRCluster implements Cluster {
     public void runJob(MavenManagedJar defaultJar,List<String> jarArgs)
             throws Exception {
         String jarLocation=defaultJar.s3JarLocation(awsSoftwareBucket);
-        if(!validateJarArgs(jarArgs)) {
+        List<String> appArgs=newArrayList(skip(jarArgs,2));
+        if(!validateJarArgs(appArgs)) {
             throw new Exception("Arguments to JAR were not valid");
         }
 
