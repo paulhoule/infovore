@@ -30,22 +30,16 @@
             </list>
           </constructor-arg>
         </bean>
-        <bean class="com.ontology2.haruhi.flows.AssignmentStep">
-          <constructor-arg>
-            <list>
-              <bean class="com.ontology2.haruhi.flows.Assignment">
-                <constructor-arg><bean class="java.lang.String"><constructor-arg value="accepted" /></bean></constructor-arg>
-                <constructor-arg><bean class="java.lang.String"><constructor-arg value="#outputRoot+'accepted/'" /></bean></constructor-arg>
-              </bean>
-            </list>
-          </constructor-arg>
-        </bean>
         <bean class="com.ontology2.haruhi.flows.JobStep">
           <constructor-arg>
             <list>
               <value>'run'</value>
               <value>'freebaseRDFPrefilter'</value>
+              <value>'-R'</value>
+              <value>'420'</value>
+              <value>'-input'</value>
               <value>#input</value>
+              <value>'-output'</value>
               <value>#preprocessed</value>
             </list>
           </constructor-arg>
@@ -55,9 +49,11 @@
             <list>
               <value>'run'</value>
               <value>'pse3'</value>
-              <value>'-r'</value>
+              <value>'-R'</value>
               <value>'210'</value>
+              <value>'-input'</value>
               <value>#preprocessed</value>
+              <value>'-output'</value>
               <value>#outputRoot</value>
             </list>
           </constructor-arg>

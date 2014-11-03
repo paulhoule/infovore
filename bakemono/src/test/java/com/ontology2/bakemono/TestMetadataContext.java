@@ -41,6 +41,6 @@ public class TestMetadataContext {
     @Test
     public void testBaseKBNowFlow() {
         assertFalse(null==basekbNowFlow);
-        assertEquals(5, basekbNowFlow.generateSteps("a", "b", "c").size());
+        assertEquals(4, basekbNowFlow.generateSteps("a", "b", "c").size());
     }
 }
