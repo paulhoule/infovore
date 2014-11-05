@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.ontology2:centipede-parser:99.8">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ontology2/centipede-parser/99.8/centipede-parser-99.8.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ontology2/centipede-parser/99.8/centipede-parser-99.8-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ontology2/centipede-parser/99.8/centipede-parser-99.8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

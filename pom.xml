@@ -46,11 +46,33 @@
 <!--    <module>infovore-maven-plugin</module> -->
     <module>bakemono-options</module>
   </modules>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-framework-bom</artifactId>
+        <version>4.1.1.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.ontology2</groupId>
+        <artifactId>centipede-parser</artifactId>
+        <version>99.8</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ontology2</groupId>
+        <artifactId>centipede</artifactId>
+        <version>99.8</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   <build>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.2</version>
         <configuration>
           <source>1.7</source>
           <target>1.7</target>

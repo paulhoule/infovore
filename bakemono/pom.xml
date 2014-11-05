@@ -33,7 +33,7 @@
     <dependency>
       <groupId>com.ontology2</groupId>
       <artifactId>centipede-parser</artifactId>
-      <version>99.7</version>
+      <version>99.8</version>
     </dependency>
     <!-- We still need old Guava for Hadoop compatibility in this section -->
     <dependency>
