@@ -4,11 +4,11 @@
   <parent>
     <artifactId>infovore</artifactId>
     <groupId>com.ontology2</groupId>
-    <version>3.0</version>
+    <version>3.1-SNAPSHOT</version>
   </parent>
   <groupId>com.ontology2</groupId>
   <artifactId>bakemono</artifactId>
-  <version>3.0</version>
+  <version>3.1-SNAPSHOT</version>
   <name>Bakemono -- Hadoop applications for the Infovore Framework</name>
   <url>https://github.com/paulhoule/infovore/wiki/bakemono</url>
   <licenses>
@@ -45,7 +45,7 @@
     <dependency>
       <groupId>com.ontology2</groupId>
       <artifactId>bakemono-options</artifactId>
-      <version>3.0</version>
+      <version>3.1-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
@@ -73,7 +73,7 @@
     <dependency>
       <groupId>com.ontology2</groupId>
       <artifactId>haruhi-spring</artifactId>
-      <version>3.0</version>
+      <version>3.1-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>

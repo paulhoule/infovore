@@ -4,11 +4,11 @@
   <parent>
     <artifactId>infovore</artifactId>
     <groupId>com.ontology2</groupId>
-    <version>3.0</version>
+    <version>3.1-SNAPSHOT</version>
   </parent>
   <groupId>com.ontology2</groupId>
   <artifactId>haruhi</artifactId>
-  <version>3.0</version>
+  <version>3.1-SNAPSHOT</version>
   <name>Haruhi -- job control unit for Infovore</name>
   <url>https://github.com/paulhoule/infovore/wiki/Haruhi</url>
   <licenses>
@@ -32,12 +32,12 @@
     <dependency>
       <groupId>com.ontology2</groupId>
       <artifactId>haruhi-spring</artifactId>
-      <version>3.0</version>
+      <version>3.1-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.ontology2</groupId>
       <artifactId>bakemono</artifactId>
-      <version>3.0</version>
+      <version>3.1-SNAPSHOT</version>
       <classifier>metadata</classifier>
       <exclusions>
         <exclusion>
@@ -91,7 +91,7 @@
     <dependency>
       <groupId>com.ontology2</groupId>
       <artifactId>bakemono-options</artifactId>
-      <version>3.0</version>
+      <version>3.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
   <properties>
