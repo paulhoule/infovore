@@ -18,7 +18,7 @@ public class HaruhiConfiguration {
         return loader.getResource("file:"
             + new File(
                 System.getProperty("user.home"),
-                ".m2/repository/com/ontology2/bakemono/2.5-SNAPSHOT/bakemono-2.5-SNAPSHOT-metadata.jar"
+                ".m2/repository/com/ontology2/bakemono/3.1-SNAPSHOT/bakemono-3.1-SNAPSHOT-metadata.jar"
             ).toString());
     };
 }
