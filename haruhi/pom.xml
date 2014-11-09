@@ -130,16 +130,6 @@
           </execution>
         </executions>
       </plugin>
-<!--      <plugin>
-        <groupId>com.bazaarvoice.maven.plugins</groupId>
-        <artifactId>s3-upload-maven-plugin</artifactId>
-        <version>1.2</version>
-        <configuration>
-          <bucketName>bakemono</bucketName>
-          <source>target/bakemono-2.4-SNAPSHOT-job.jar</source>
-          <destination>/</destination>
-        </configuration>
-      </plugin> -->
     </plugins>
   </build>
 </project>
