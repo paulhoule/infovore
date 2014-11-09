@@ -6,7 +6,6 @@ import com.google.common.collect.Lists;
 import com.ontology2.centipede.parser.OptionParser;
 import com.ontology2.centipede.shell.CommandLineApplication;
 import com.ontology2.haruhi.Cluster;
-import com.ontology2.haruhi.newPersistentCluster.NewPersistentClusterOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;

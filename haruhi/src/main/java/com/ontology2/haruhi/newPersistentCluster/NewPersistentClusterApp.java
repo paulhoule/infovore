@@ -1,13 +1,11 @@
 package com.ontology2.haruhi.newPersistentCluster;
 
 import com.google.common.collect.Lists;
+import com.ontology2.centipede.errors.UsageException;
 import com.ontology2.centipede.parser.OptionParser;
 import com.ontology2.centipede.shell.CommandLineApplication;
-import com.ontology2.centipede.errors.UsageException;
 import com.ontology2.haruhi.AmazonEMRCluster;
 import com.ontology2.haruhi.Cluster;
-import com.ontology2.haruhi.MavenManagedJar;
-import com.ontology2.haruhi.jobApp.JobAppOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;

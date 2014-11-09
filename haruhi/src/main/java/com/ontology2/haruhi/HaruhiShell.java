@@ -1,10 +1,10 @@
 package com.ontology2.haruhi;
 
-import java.io.File;
-import java.util.List;
-
 import com.google.common.collect.Lists;
 import com.ontology2.centipede.shell.CentipedeShell;
+
+import java.io.File;
+import java.util.List;
 
 public class HaruhiShell extends CentipedeShell {
 

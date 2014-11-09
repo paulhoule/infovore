@@ -1,9 +1,9 @@
 package com.ontology2.haruhi;
 
-import java.util.List;
-
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
+
+import java.util.List;
 
 public class MavenManagedJar {
     private String groupId;

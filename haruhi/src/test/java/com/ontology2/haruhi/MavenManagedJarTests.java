@@ -1,11 +1,9 @@
 package com.ontology2.haruhi;
 
-import static org.junit.Assert.*;
-
-import java.net.MalformedURLException;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class MavenManagedJarTests {
     private MavenManagedJar that;

@@ -15,9 +15,11 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
-import static com.google.common.collect.Iterables.*;
 
-import static com.ontology2.centipede.errors.ExitCodeException.*;
+import static com.google.common.collect.Iterables.filter;
+import static com.google.common.collect.Iterables.getFirst;
+import static com.ontology2.centipede.errors.ExitCodeException.EX_SOFTWARE;
+import static com.ontology2.centipede.errors.ExitCodeException.EX_UNAVAILABLE;
 
 
 public class PersistentCluster implements Cluster {

@@ -1,12 +1,8 @@
 package com.ontology2.haruhi.jobApp;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-
 import com.google.common.collect.Lists;
 import com.ontology2.centipede.parser.OptionParser;
+import com.ontology2.centipede.shell.CommandLineApplication;
 import com.ontology2.haruhi.Cluster;
 import com.ontology2.haruhi.MavenManagedJar;
 import com.ontology2.haruhi.PersistentCluster;
@@ -14,11 +10,11 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-
-import com.google.common.collect.Iterators;
-import com.google.common.collect.PeekingIterator;
-import com.ontology2.centipede.shell.CommandLineApplication;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @Component("job")
 public class JobApp extends CommandLineApplication {

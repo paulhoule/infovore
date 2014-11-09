@@ -1,20 +1,17 @@
 package com.ontology2.haruhi;
 
-import java.util.List;
-
-import com.ontology2.haruhi.alert.AlertService;
-import com.ontology2.haruhi.fetchLogs.FetchLogs;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.google.common.collect.PeekingIterator;
 import com.ontology2.centipede.shell.CommandLineApplication;
 import com.ontology2.haruhi.flows.Flow;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component("flow")
 public class FlowApp extends CommandLineApplication {

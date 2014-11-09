@@ -1,24 +1,17 @@
 package com.ontology2.haruhi;
 
-import static com.google.common.collect.Iterables.*;
-import static com.google.common.collect.Lists.newArrayList;
-import static com.google.common.collect.Maps.newHashMap;
-import static com.ontology2.centipede.errors.ExitCodeException.*;
-
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.*;
-
 import com.amazonaws.services.ec2.AmazonEC2Client;
 import com.amazonaws.services.ec2.model.*;
+import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduce;
 import com.amazonaws.services.elasticmapreduce.model.*;
 import com.amazonaws.services.elasticmapreduce.util.BootstrapActions;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.ListObjectsRequest;
 import com.google.common.base.Joiner;
-import com.google.common.collect.Iterables;
+import com.google.common.collect.Sets;
 import com.ontology2.bakemono.pse3.PSE3Options;
 import com.ontology2.bakemono.util.CommonOptions;
+import com.ontology2.centipede.errors.ExitCodeException;
 import com.ontology2.centipede.parser.HasOptions;
 import com.ontology2.centipede.parser.OptionParser;
 import com.ontology2.haruhi.alert.AlertService;
@@ -29,16 +22,19 @@ import com.ontology2.haruhi.ssh.HadoopConfigurationVariable;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduce;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
-import com.ontology2.centipede.errors.ExitCodeException;
 import org.springframework.context.ApplicationContext;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.*;
+
+import static com.google.common.collect.Iterables.skip;
+import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.collect.Maps.newHashMap;
+import static com.ontology2.centipede.errors.ExitCodeException.EX_SOFTWARE;
+import static com.ontology2.centipede.errors.ExitCodeException.EX_UNAVAILABLE;
 
 public class AmazonEMRCluster implements Cluster {
     private static Log logger = LogFactory.getLog(AmazonEMRCluster.class);

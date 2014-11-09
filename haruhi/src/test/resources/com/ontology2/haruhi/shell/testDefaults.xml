@@ -2,14 +2,10 @@
 <!-- this file defines default values for properties that normally are set in the user's home directory; we need these so tests can properly test initialization of the applicationContext.xml and bogus values are OK because we can't touch AWS in a unit test -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns:context="http://www.springframework.org/schema/context"
-         xmlns:c="http://www.springframework.org/schema/c"
-         xmlns:p="http://www.springframework.org/schema/p"
-         xsi:schemaLocation="http://www.springframework.org/schema/beans
-         http://www.springframework.org/schema/beans/spring-beans.xsd
-         http://www.springframework.org/schema/context
-         http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd">
   <bean name="awsCredentials" class="com.amazonaws.auth.BasicAWSCredentials">
     <constructor-arg value="mick" />
     <constructor-arg value="jagger" />

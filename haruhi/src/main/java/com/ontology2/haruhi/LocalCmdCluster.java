@@ -1,14 +1,5 @@
 package com.ontology2.haruhi;
 
-import java.io.File;
-import java.io.IOException;
-import java.lang.ProcessBuilder.Redirect;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -17,6 +8,14 @@ import com.ontology2.haruhi.flows.AssignmentStep;
 import com.ontology2.haruhi.flows.Flow;
 import com.ontology2.haruhi.flows.FlowStep;
 import com.ontology2.haruhi.flows.JobStep;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import java.io.File;
+import java.io.IOException;
+import java.lang.ProcessBuilder.Redirect;
+import java.util.List;
+import java.util.Map;
 
 public class LocalCmdCluster implements Cluster {
     private static Log logger = LogFactory.getLog(LocalCmdCluster.class);

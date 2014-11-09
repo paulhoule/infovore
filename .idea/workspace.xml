@@ -9,91 +9,31 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
     </list>
-    <list default="true" id="7f38132e-3aea-4038-aca1-03191a595276" name="New changelist" comment="update dependencies,  particularly centipede,  used dependencyManagement to centralize version management,  other improvements in POMs.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_3_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_3_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_3_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jsonld_java_jsonld_java_0_5_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_ontology2_centipede_99_8.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_csv_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_2_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_cache_4_2_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_2_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_jena_jena_arq_2_12_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_jena_jena_core_2_12_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_jena_jena_iri_1_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_thrift_libthrift_0_9_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xerces_xercesImpl_2_11_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/AcceptWithMatchingKeyReducer.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/AcceptWithMatchingKeyReducer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/configuration/Beans.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/configuration/Beans.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/rdf/CacheEconomizer.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/rdf/CacheEconomizer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/dbpediaToBaseKB/DBpediaToBaseKBMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/dbpediaToBaseKB/DBpediaToBaseKBMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/diffFacts/DiffFactReducer.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/diffFacts/DiffFactReducer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/diffFacts/DiffFactsTool.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/diffFacts/DiffFactsTool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityCentricMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/EntityCentricMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsATool.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsATool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsTool.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/FetchTriplesWithMatchingObjectsTool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/freebasePrefilter/FreebaseRDFMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/freebasePrefilter/FreebaseRDFMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/freebasePrefilter/FreebaseRDFTool.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/freebasePrefilter/FreebaseRDFTool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/GeneralJoinMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/GeneralJoinMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/jena/JenaNodeTester.java" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/jena/JenaNodeTester.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/rdf/JenaUtil.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/rdf/JenaUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/abstractions/KeyValueAcceptor.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/abstractions/KeyValueAcceptor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/LineProcessingRecordReader.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/LineProcessingRecordReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/MapMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/MapMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/rdf/parser/NodeParser.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/rdf/parser/NodeParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/rdf/parser/NodeParserTokenManager.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/rdf/parser/NodeParserTokenManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/pse3/PSE3Mapper.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/pse3/PSE3Mapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/pse3/PSE3Tool.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/pse3/PSE3Tool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/jena/PartitionOnSubject.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/jena/PartitionOnSubject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/ranSample/PassthroughReducer.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/ranSample/PassthroughReducer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/abstractions/PrimaryKeyValueAcceptor.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/abstractions/PrimaryKeyValueAcceptor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/PrimitiveTripleCodec.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/PrimitiveTripleCodec.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/PrimitiveTripleInputFormat.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/PrimitiveTripleInputFormat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/PrimitiveTripleOutputFormat.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/PrimitiveTripleOutputFormat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/PrimitiveTriplePredicateRewriter.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/PrimitiveTriplePredicateRewriter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/PrimitiveTripleReverser.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/PrimitiveTripleReverser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/ranSample/RanSampleMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/ranSample/RanSampleMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/ranSample/RanSampleTool.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/ranSample/RanSampleTool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/jena/RawNodeComparator.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/jena/RawNodeComparator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/RecyclingIterable.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/RecyclingIterable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/rewriteSubject/RewriteSubjectTool.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/rewriteSubject/RewriteSubjectTool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/jena/SPOTripleOutputFormat.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/jena/SPOTripleOutputFormat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/jena/STripleOutputFormat.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/jena/STripleOutputFormat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapreduce/SelfAwareTool.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapreduce/SelfAwareTool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetDifferenceReducer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetJoinMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/SetJoinMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapreduce/SingleJobTool.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapreduce/SingleJobTool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/abstractions/Spring.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/abstractions/Spring.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/util/StatelessIdFunctions.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/util/StatelessIdFunctions.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/jena/SubjectTripleComparator.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/jena/SubjectTripleComparator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedItem.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/joins/TaggedItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/jena/TestPartitionerOnSubject.java" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/jena/TestPartitionerOnSubject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/jena/TestTripleComparator.java" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/jena/TestTripleComparator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/jena/TestWritableNode.java" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/jena/TestWritableNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/jena/TestWritableTriple.java" afterPath="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/jena/TestWritableTriple.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/jena/TripleOutputFormat.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/jena/TripleOutputFormat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/pse3/Uniq.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/pse3/Uniq.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqURIObjectTool.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqURIObjectTool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueInternalURIObjectMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueInternalURIObjectMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURIObjectMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURIObjectMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURIPredicateMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURIPredicateMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURISubjectMapper.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/mapmap/UniqueURISubjectMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/jena/WritableNode.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/jena/WritableNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/jena/WritableTriple.java" afterPath="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/jena/WritableTriple.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono-options/bakemono-options.iml" afterPath="$PROJECT_DIR$/bakemono-options/bakemono-options.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/bakemono.iml" afterPath="$PROJECT_DIR$/bakemono/bakemono.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi-spring/haruhi-spring.iml" afterPath="$PROJECT_DIR$/haruhi-spring/haruhi-spring.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/haruhi.iml" afterPath="$PROJECT_DIR$/haruhi/haruhi.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/infovore.iml" afterPath="$PROJECT_DIR$/infovore.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bakemono/pom.xml" afterPath="$PROJECT_DIR$/bakemono/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/pom.xml" afterPath="$PROJECT_DIR$/haruhi/pom.xml" />
+    <list default="true" id="7f38132e-3aea-4038-aca1-03191a595276" name="New changelist" comment="Update Jena Version,  Switch to N-TRIPLES output,  also optimize imports in bakemono">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/alert/Alert.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/alert/Alert.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/ApplicationConfigurationFetcher.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/ApplicationConfigurationFetcher.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/flows/AssignmentStepTest.java" afterPath="$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/flows/AssignmentStepTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/Cluster.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/Cluster.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/fetchLogs/FetchLogs.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/fetchLogs/FetchLogs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/FlowApp.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/FlowApp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/ssh/HadoopConfigurationVariable.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/ssh/HadoopConfigurationVariable.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/HaruhiShell.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/HaruhiShell.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobApp.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/jobApp/JobApp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/killPersistentCluster/KillPersistentCluster.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/killPersistentCluster/KillPersistentCluster.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/launchInstance/LaunchInstance.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/launchInstance/LaunchInstance.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/LocalCmdCluster.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/LocalCmdCluster.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/MavenManagedJar.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/MavenManagedJar.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/MavenManagedJarTests.java" afterPath="$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/MavenManagedJarTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/newPersistentCluster/NewPersistentClusterApp.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/newPersistentCluster/NewPersistentClusterApp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/PersistentCluster.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/PersistentCluster.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/flows/SpringStepTest.java" afterPath="$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/flows/SpringStepTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/ssh/Ssh.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/ssh/Ssh.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/TestEMRCluster.java" afterPath="$PROJECT_DIR$/haruhi/src/test/java/com/ontology2/haruhi/TestEMRCluster.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/awsClustersContext.xml" afterPath="$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/awsClustersContext.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/awsContext.xml" afterPath="$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/awsContext.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/awsInstanceContext.xml" afterPath="$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/awsInstanceContext.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/test/resources/com/ontology2/haruhi/shell/testDefaults.xml" afterPath="$PROJECT_DIR$/haruhi/src/test/resources/com/ontology2/haruhi/shell/testDefaults.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -191,7 +131,7 @@
       <file leaf-file-name="TripleOutputFormat.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/jena/TripleOutputFormat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1377">
+            <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="1122">
               <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
               <folding />
             </state>
@@ -201,7 +141,7 @@
       <file leaf-file-name="STripleOutputFormat.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/jena/STripleOutputFormat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+            <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="340">
               <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
               <folding />
             </state>
@@ -221,8 +161,8 @@
       <file leaf-file-name="TestWritableNode.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/jena/TestWritableNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1581">
-              <caret line="27" column="60" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1428">
+              <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -231,28 +171,28 @@
       <file leaf-file-name="TestWritableTriple.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/jena/TestWritableTriple.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
+            <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="884">
               <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.4611187" vertical-offset="1377" max-vertical-offset="2346">
-              <caret line="18" column="50" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1377" max-vertical-offset="2346">
+              <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/haruhi-spring/pom.xml">
+      <file leaf-file-name="testDefaults.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/haruhi/src/test/resources/com/ontology2/haruhi/shell/testDefaults.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-              <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.78186595" vertical-offset="0" max-vertical-offset="2312">
+              <caret line="35" column="48" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -261,7 +201,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/haruhi/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.107143" vertical-offset="531" max-vertical-offset="2567">
+            <state vertical-scroll-proportion="0.0" vertical-offset="531" max-vertical-offset="2567">
               <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
               <folding />
             </state>
@@ -289,6 +229,8 @@
         <option value="$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/primitiveTriples/PrimitiveTripleOutputFormat.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/jena/TestWritableNode.java" />
         <option value="$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/jena/TestWritableTriple.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/haruhi/src/test/resources/com/ontology2/haruhi/shell/testDefaults.xml" />
       </list>
     </option>
   </component>
@@ -303,9 +245,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-11" />
-    <option name="y" value="56" />
-    <option name="width" value="1027" />
+    <option name="x" value="-4" />
+    <option name="y" value="109" />
+    <option name="width" value="1024" />
     <option name="height" value="1092" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -334,6 +276,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -467,7 +410,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1574,7 +1516,13 @@
       <option name="project" value="LOCAL" />
       <updated>1415225624753</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="Update Jena Version,  Switch to N-TRIPLES output,  also optimize imports in bakemono">
+      <created>1415500760576</created>
+      <option name="number" value="00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1415500760576</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1598,33 +1546,33 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="56" width="1027" height="1092" extended-state="0" />
+    <frame x="-4" y="109" width="1024" height="1092" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32955536" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1841302" sideWeight="0.4915925" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1841302" sideWeight="0.50840753" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1841302" sideWeight="0.50793654" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.06495547" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32868353" sideWeight="0.6312127" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31841302" sideWeight="0.6829533" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34718102" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3482143" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24929444" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37925023" sideWeight="0.64746094" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1841302" sideWeight="0.49107143" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31841302" sideWeight="0.6829533" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14355469" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4228422" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37925023" sideWeight="0.64746094" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1670,7 +1618,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="ssh script gets required configuration" />
     <MESSAGE value="ssh script now looks up instance id of emr cluster head" />
     <MESSAGE value="ssh script can log into the cluster head,  but the pseudo-tty involves really sucks (if you hit ^C, you kill the Java program).  This ought to be split out into different implementations." />
     <MESSAGE value="partition config files better" />
@@ -1695,7 +1642,8 @@
     <MESSAGE value="move notification code into the polling loop function" />
     <MESSAGE value="fix R argument for second stage" />
     <MESSAGE value="update dependencies,  particularly centipede,  used dependencyManagement to centralize version management,  other improvements in POMs." />
-    <option name="LAST_COMMIT_MESSAGE" value="update dependencies,  particularly centipede,  used dependencyManagement to centralize version management,  other improvements in POMs." />
+    <MESSAGE value="Update Jena Version,  Switch to N-TRIPLES output,  also optimize imports in bakemono" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Jena Version,  Switch to N-TRIPLES output,  also optimize imports in bakemono" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1719,31 +1667,31 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java</url>
-          <line>337</line>
+          <line>333</line>
           <properties />
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/ssh/Ssh.java</url>
-          <line>83</line>
+          <line>74</line>
           <properties />
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java</url>
-          <line>165</line>
+          <line>161</line>
           <properties />
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java</url>
-          <line>117</line>
+          <line>113</line>
           <properties />
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java</url>
-          <line>101</line>
+          <line>97</line>
           <properties />
           <option name="timeStamp" value="28" />
         </line-breakpoint>
@@ -1757,13 +1705,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/entityCentric/ExtractIsATool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
-          <caret line="60" column="35" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/main/java/com/ontology2/bakemono/rewriteSubject/RewriteSubjectTool.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
@@ -2036,7 +1977,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="22" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2057,7 +1997,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/haruhi/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.107143" vertical-offset="531" max-vertical-offset="2567">
+        <state vertical-scroll-proportion="0.0" vertical-offset="531" max-vertical-offset="2567">
           <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
           <folding />
         </state>
@@ -2105,8 +2045,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bakemono/src/test/java/com/ontology2/bakemono/jena/TestWritableNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1581">
-          <caret line="27" column="60" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1428">
+          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -2121,8 +2061,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.4611187" vertical-offset="1377" max-vertical-offset="2346">
-          <caret line="18" column="50" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1377" max-vertical-offset="2346">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haruhi/src/test/resources/com/ontology2/haruhi/shell/testDefaults.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.78186595" vertical-offset="0" max-vertical-offset="2312">
+          <caret line="35" column="48" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
           <folding />
         </state>
       </provider>

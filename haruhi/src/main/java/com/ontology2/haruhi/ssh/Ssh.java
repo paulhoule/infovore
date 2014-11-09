@@ -1,36 +1,27 @@
 package com.ontology2.haruhi.ssh;
 
 import com.amazonaws.services.ec2.AmazonEC2Client;
-import com.amazonaws.services.ec2.model.*;
+import com.amazonaws.services.ec2.model.DescribeInstancesRequest;
+import com.amazonaws.services.ec2.model.DescribeInstancesResult;
+import com.amazonaws.services.ec2.model.Filter;
+import com.amazonaws.services.ec2.model.Reservation;
 import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduceClient;
-import com.amazonaws.services.elasticmapreduce.model.Cluster;
-import com.amazonaws.services.elasticmapreduce.model.DescribeClusterRequest;
-import com.amazonaws.services.elasticmapreduce.model.DescribeClusterResult;
-import com.ontology2.centipede.shell.CommandLineApplication;
 import com.ontology2.centipede.errors.UsageException;
-import com.ontology2.haruhi.AmazonEMRCluster;
+import com.ontology2.centipede.shell.CommandLineApplication;
 import net.schmizz.sshj.SSHClient;
 import net.schmizz.sshj.common.StreamCopier;
-import net.schmizz.sshj.connection.channel.direct.LocalPortForwarder;
 import net.schmizz.sshj.connection.channel.direct.Session;
-import net.schmizz.sshj.connection.channel.forwarded.RemotePortForwarder;
 import net.schmizz.sshj.transport.verification.PromiscuousVerifier;
 import net.schmizz.sshj.userauth.keyprovider.OpenSSHKeyFile;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.Resource;
-
-import java.io.*;
-import java.net.ServerSocket;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-
-import static java.lang.System.*;
 
 public class Ssh extends CommandLineApplication {
     private static Log logger = LogFactory.getLog(Ssh.class);

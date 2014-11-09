@@ -2,8 +2,6 @@ package com.ontology2.haruhi.ssh;
 
 import com.amazonaws.services.elasticmapreduce.util.BootstrapActions;
 
-import java.util.Objects;
-
 import static java.util.Objects.hash;
 
 public class HadoopConfigurationVariable {
