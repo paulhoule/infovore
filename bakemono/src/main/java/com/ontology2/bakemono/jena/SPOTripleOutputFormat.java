@@ -1,8 +1,7 @@
 package com.ontology2.bakemono.jena;
 
-import org.apache.hadoop.io.LongWritable;
-
 import com.hp.hpl.jena.graph.Triple;
+import org.apache.hadoop.io.LongWritable;
 
 public class SPOTripleOutputFormat extends TripleOutputFormat<Triple,LongWritable> {
 

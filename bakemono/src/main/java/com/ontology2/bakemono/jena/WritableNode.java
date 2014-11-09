@@ -1,16 +1,12 @@
 package com.ontology2.bakemono.jena;
-import java.io.*;
 
-import com.google.common.base.Charsets;
-import com.google.common.collect.ComparisonChain;
-import org.apache.hadoop.io.Writable;
+import com.hp.hpl.jena.datatypes.TypeMapper;
+import com.hp.hpl.jena.graph.Node;
 import org.apache.hadoop.io.WritableComparable;
 
-import com.hp.hpl.jena.datatypes.RDFDatatype;
-import com.hp.hpl.jena.datatypes.TypeMapper;
-import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
-import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.sparql.util.NodeFactory;
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
 
 import static com.google.common.base.Charsets.UTF_8;
 import static com.google.common.collect.ComparisonChain.start;

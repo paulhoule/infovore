@@ -1,31 +1,21 @@
 package com.ontology2.rdf;
 
-import java.io.StringReader;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.graph.Node_URI;
-import com.hp.hpl.jena.query.Dataset;
-import com.hp.hpl.jena.query.Query;
-import com.hp.hpl.jena.query.QueryExecution;
-import com.hp.hpl.jena.query.QueryExecutionFactory;
-import com.hp.hpl.jena.query.QueryFactory;
-import com.hp.hpl.jena.query.QuerySolution;
-import com.hp.hpl.jena.query.QuerySolutionMap;
-import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.query.ResultSetFormatter;
+import com.hp.hpl.jena.query.*;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.Resource;
 import com.ontology2.rdf.parser.NodeParser;
 import com.ontology2.rdf.parser.ParseException;
+
+import java.io.StringReader;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class JenaUtil {
 

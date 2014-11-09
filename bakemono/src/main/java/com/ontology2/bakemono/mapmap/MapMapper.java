@@ -1,7 +1,6 @@
 package com.ontology2.bakemono.mapmap;
 
 import com.google.common.base.Function;
-import com.google.common.base.Predicate;
 import com.ontology2.bakemono.abstractions.Codec;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;

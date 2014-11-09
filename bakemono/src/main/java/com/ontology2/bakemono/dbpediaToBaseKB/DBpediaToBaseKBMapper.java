@@ -7,7 +7,9 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
-import static com.ontology2.bakemono.util.StatelessIdFunctions.*;
+
+import static com.ontology2.bakemono.util.StatelessIdFunctions.dbpediaEscape;
+import static com.ontology2.bakemono.util.StatelessIdFunctions.unescapeKey;
 
 public class DBpediaToBaseKBMapper extends Mapper<LongWritable,Text,Text,Text> {
     final PrimitiveTripleCodec codec=new PrimitiveTripleCodec();

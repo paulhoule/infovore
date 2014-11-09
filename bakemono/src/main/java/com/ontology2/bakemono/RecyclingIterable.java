@@ -4,7 +4,6 @@ import com.google.common.collect.Lists;
 import org.apache.hadoop.io.Writable;
 
 import java.io.*;
-import java.lang.reflect.ParameterizedType;
 import java.util.Iterator;
 
 /**

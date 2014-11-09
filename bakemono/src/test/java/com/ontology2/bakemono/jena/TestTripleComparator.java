@@ -1,14 +1,14 @@
 package com.ontology2.bakemono.jena;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
+import org.junit.Test;
 
 import java.util.Comparator;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TestTripleComparator {
     public final Node A=Node_URI.createURI("http://example.com/A");

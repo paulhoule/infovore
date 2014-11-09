@@ -1,7 +1,6 @@
 package com.ontology2.bakemono.primitiveTriples;
 
 import com.google.common.base.Function;
-import com.hp.hpl.jena.rdf.model.Model;
 
 
 public class PrimitiveTripleReverser implements Function<PrimitiveTriple,PrimitiveTriple> {

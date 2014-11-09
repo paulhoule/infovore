@@ -1,21 +1,21 @@
 package com.ontology2.bakemono.jena;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-
+import com.hp.hpl.jena.graph.Triple;
 import org.apache.hadoop.fs.FSDataOutputStream;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.compress.CompressionCodec;
 import org.apache.hadoop.io.compress.GzipCodec;
-import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.RecordWriter;
 import org.apache.hadoop.mapreduce.TaskAttemptContext;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.ReflectionUtils;
-import org.openjena.riot.out.SinkTripleOutput;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.system.StreamRDF;
+import org.apache.jena.riot.system.StreamRDFWriter;
 
-import com.hp.hpl.jena.graph.Node_URI;
-import com.hp.hpl.jena.graph.Triple;
+import java.io.DataOutputStream;
+import java.io.IOException;
 
 
 abstract public class TripleOutputFormat<K,V> extends FileOutputFormat<K, V> {
@@ -23,15 +23,15 @@ abstract public class TripleOutputFormat<K,V> extends FileOutputFormat<K, V> {
     public class TripleRecordWriter extends RecordWriter<K, V> {
 
         private final DataOutputStream innerOutput;
-        private final SinkTripleOutput innerSink;
+        private final StreamRDF innerSink;
 
         public TripleRecordWriter(DataOutputStream innerOutput) {
             this.innerOutput=innerOutput;
-            this.innerSink = new SinkTripleOutput(innerOutput);
+            this.innerSink = StreamRDFWriter.getWriterStream(innerOutput, Lang.NTRIPLES);
         }
         @Override
         public void write(K key, V value) throws IOException {
-            this.innerSink.send((makeTriple(key,value)));
+            this.innerSink.triple((makeTriple(key, value)));
         }
 
 
@@ -39,7 +39,7 @@ abstract public class TripleOutputFormat<K,V> extends FileOutputFormat<K, V> {
         @Override
         public void close(TaskAttemptContext context) throws IOException,
         InterruptedException {
-            innerSink.close();
+            innerSink.finish();
             innerOutput.close();
         }
 

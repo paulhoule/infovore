@@ -1,10 +1,6 @@
 package com.ontology2.bakemono.mapreduce;
 
 import com.google.common.base.Function;
-import static com.google.common.collect.Iterables.*;
-import static com.google.common.collect.Lists.newArrayList;
-import static com.google.common.collect.Maps.newHashMap;
-
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.ontology2.bakemono.joins.*;
@@ -26,6 +22,10 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
+
+import static com.google.common.collect.Iterables.transform;
+import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.collect.Maps.newHashMap;
 
 public class SelfAwareTool<OptionsClass> extends SingleJobTool<OptionsClass> implements BeanNameAware {
     Log LOG= LogFactory.getLog(SelfAwareTool.class);

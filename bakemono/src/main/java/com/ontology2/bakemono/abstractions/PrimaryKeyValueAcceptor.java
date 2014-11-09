@@ -1,9 +1,8 @@
 package com.ontology2.bakemono.abstractions;
 
-import java.io.IOException;
-
 import org.apache.hadoop.mapreduce.Mapper;
-import org.apache.hadoop.mapreduce.Mapper.Context;
+
+import java.io.IOException;
 
 
 public class PrimaryKeyValueAcceptor<K,V> implements KeyValueAcceptor<K,V> {

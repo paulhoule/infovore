@@ -2,7 +2,7 @@ package com.ontology2.bakemono.jena;
 
 import org.apache.hadoop.mapreduce.Partitioner;
 
-import static java.lang.Math.*;
+import static java.lang.Math.abs;
 
 public class PartitionOnSubject extends Partitioner<WritableTriple,WritableTriple> {
 

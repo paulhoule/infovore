@@ -7,8 +7,8 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.VIntWritable;
 import org.apache.hadoop.io.WritableComparable;
-import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;

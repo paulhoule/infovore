@@ -1,6 +1,5 @@
 package com.ontology2.bakemono.joins;
 
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Sets;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.VIntWritable;

@@ -1,23 +1,15 @@
 package com.ontology2.bakemono.jena;
 
-import static com.google.common.base.Strings.repeat;
-import static org.junit.Assert.*;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.DataInput;
-import java.io.DataInputStream;
-import java.io.DataOutput;
-import java.io.DataOutputStream;
-import java.io.IOException;
-
-import com.google.common.base.Strings;
+import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
+import com.hp.hpl.jena.graph.Node;
+import com.hp.hpl.jena.graph.NodeFactory;
 import org.apache.hadoop.io.Writable;
 import org.junit.Test;
 
-import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
-import com.hp.hpl.jena.graph.Node;
-import com.hp.hpl.jena.sparql.util.NodeFactory;
+import java.io.*;
+
+import static com.google.common.base.Strings.repeat;
+import static org.junit.Assert.assertEquals;
 
 public class TestWritableNode {
     @Test
@@ -36,7 +28,7 @@ public class TestWritableNode {
     
     @Test
     public void serializeAndDeserializeInteger() throws IOException {
-        Node n1=NodeFactory.intToNode(77641);
+        Node n1= NodeFactory.createLiteral("77641",XSDDatatype.XSDinteger);
         assertEquals(XSDDatatype.XSDinteger,n1.getLiteralDatatype());
         WritableNode wn1=new WritableNode(n1);
         WritableNode wn2=new WritableNode(null);

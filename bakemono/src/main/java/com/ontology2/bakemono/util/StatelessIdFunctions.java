@@ -1,12 +1,10 @@
 package com.ontology2.bakemono.util;
 
-import java.io.UnsupportedEncodingException;
-import java.nio.ByteBuffer;
-
 import com.google.common.base.CharMatcher;
 import org.apache.commons.codec.digest.DigestUtils;
 
-import com.hp.hpl.jena.graph.Node;
+import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
 
 
 

@@ -1,10 +1,5 @@
 package com.ontology2.bakemono.primitiveTriples;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-
 import org.apache.hadoop.fs.FSDataOutputStream;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
@@ -14,9 +9,10 @@ import org.apache.hadoop.mapreduce.RecordWriter;
 import org.apache.hadoop.mapreduce.TaskAttemptContext;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.ReflectionUtils;
-import org.openjena.riot.out.SinkTripleOutput;
 
-import com.ontology2.bakemono.jena.TripleOutputFormat.TripleRecordWriter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 
 abstract public class PrimitiveTripleOutputFormat<K,V> extends FileOutputFormat<K, V> {
 

@@ -1,11 +1,8 @@
 package com.ontology2.bakemono.abstractions;
 
-import java.util.List;
-
+import org.apache.hadoop.conf.Configuration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.apache.hadoop.conf.Configuration;
-import com.google.common.collect.Lists;
 
 public class Spring {
     

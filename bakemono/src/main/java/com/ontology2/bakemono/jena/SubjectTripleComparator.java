@@ -1,7 +1,6 @@
 package com.ontology2.bakemono.jena;
 
 import org.apache.hadoop.io.WritableComparable;
-import org.apache.hadoop.io.WritableComparator;
 
 public class SubjectTripleComparator extends RawTripleComparator {
     protected SubjectTripleComparator() {

@@ -1,9 +1,8 @@
 package com.ontology2.bakemono.abstractions;
 
-import java.io.IOException;
-
 import org.apache.hadoop.mapreduce.Mapper;
-import org.apache.hadoop.mapreduce.Mapper.Context;
+
+import java.io.IOException;
 
 public interface KeyValueAcceptor<K,V> {
     public void write(K k,V v,Mapper<?,?,K,V>.Context c) throws IOException,InterruptedException;

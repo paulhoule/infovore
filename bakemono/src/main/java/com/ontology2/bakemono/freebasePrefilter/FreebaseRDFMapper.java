@@ -1,31 +1,20 @@
 package com.ontology2.bakemono.freebasePrefilter;
 
-import java.io.IOException;
-import java.util.List;
-
+import com.google.common.base.*;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Lists;
 import com.ontology2.bakemono.abstractions.Codec;
+import com.ontology2.bakemono.primitiveTriples.*;
+import com.ontology2.rdf.InvalidNodeException;
+import com.ontology2.rdf.InvalidPrefixException;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapreduce.*;
+import org.apache.hadoop.mapreduce.Counter;
+import org.apache.hadoop.mapreduce.Mapper;
 
-import com.google.common.base.CharMatcher;
-import com.google.common.base.Function;
-import com.google.common.base.Functions;
-import com.google.common.base.Predicate;
-import com.google.common.base.Predicates;
-import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Lists;
-import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
-import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleCodec;
-import com.ontology2.bakemono.primitiveTriples.PrimitiveTriplePredicateRewriter;
-import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleReverser;
-import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleTypeRewriter;
-import com.ontology2.rdf.InvalidNodeException;
-import com.ontology2.rdf.InvalidPrefixException;
-
-import org.apache.commons.logging.Log;
+import java.io.IOException;
+import java.util.List;
 
 public class FreebaseRDFMapper extends Mapper<LongWritable,Text,Text,Text> {
     private static org.apache.commons.logging.Log logger = LogFactory.getLog(FreebaseRDFMapper.class);

@@ -1,7 +1,6 @@
 package com.ontology2.bakemono.joins;
 
 import com.google.common.collect.Maps;
-import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.VIntWritable;
 import org.apache.hadoop.io.WritableComparable;
 

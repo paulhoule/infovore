@@ -1,9 +1,7 @@
 package com.ontology2.bakemono.diffFacts;
 
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Sets;
 import com.ontology2.bakemono.joins.TaggedItem;
-import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.VIntWritable;
 import org.apache.hadoop.io.WritableComparable;

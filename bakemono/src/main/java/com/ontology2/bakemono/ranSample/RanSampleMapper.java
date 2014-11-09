@@ -1,12 +1,11 @@
 package com.ontology2.bakemono.ranSample;
 
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+
 import java.io.IOException;
 import java.util.Random;
-
-import org.apache.hadoop.io.LongWritable;
-import org.apache.hadoop.mapreduce.Mapper;
-import org.apache.hadoop.mapreduce.Mapper.Context;
-import org.apache.hadoop.io.Text;
 
 
 public class RanSampleMapper extends Mapper <LongWritable,Text,Text,LongWritable> {

@@ -18,8 +18,6 @@
  */
 
 package com.ontology2.rdf.parser;
-import com.hp.hpl.jena.n3.turtle.ParserBase ;
-import com.hp.hpl.jena.graph.* ;
 
 /** Token Manager. */
 public class NodeParserTokenManager implements NodeParserConstants

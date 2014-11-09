@@ -3,11 +3,11 @@ package com.ontology2.bakemono.jena;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
-import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import static junit.framework.TestCase.*;
+import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertFalse;
 
 public class TestPartitionerOnSubject {
     public final Node A= Node_URI.createURI("http://example.com/A");

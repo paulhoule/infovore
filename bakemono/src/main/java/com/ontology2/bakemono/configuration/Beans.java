@@ -1,11 +1,9 @@
 package com.ontology2.bakemono.configuration;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
+import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class Beans {

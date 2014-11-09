@@ -1,24 +1,15 @@
 package com.ontology2.bakemono.jena;
 
-import static org.junit.Assert.*;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.DataInput;
-import java.io.DataInputStream;
-import java.io.DataOutput;
-import java.io.DataOutputStream;
-import java.io.IOException;
-
-import org.junit.Test;
-
-import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
-import com.hp.hpl.jena.sparql.util.NodeFactory;
+import org.junit.Test;
+
+import java.io.IOException;
 
 import static com.ontology2.bakemono.jena.TestWritableNode.roundtrip;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class TestWritableTriple {
     @Test

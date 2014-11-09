@@ -6,7 +6,6 @@ import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleCodec;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.VIntWritable;
 import org.apache.hadoop.io.Writable;
-import org.apache.hadoop.mapreduce.Mapper;
 
 import java.util.Map;
 

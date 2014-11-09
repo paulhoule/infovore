@@ -1,11 +1,8 @@
 package com.ontology2.bakemono.ranSample;
-import java.io.IOException;
 
-import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.mapreduce.Reducer;
-import org.apache.hadoop.mapreduce.Reducer.Context;
 
-import com.ontology2.bakemono.jena.WritableTriple;
+import java.io.IOException;
 
 public class PassthroughReducer<K,V> extends Reducer<K,V,K,V> {
     

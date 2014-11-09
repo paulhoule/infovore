@@ -19,8 +19,8 @@
 
 package com.ontology2.rdf.parser;
 
-import com.hp.hpl.jena.n3.turtle.ParserBase ;
-import com.hp.hpl.jena.graph.* ;
+import com.hp.hpl.jena.graph.Node;
+import com.hp.hpl.jena.n3.turtle.ParserBase;
 
 
 

@@ -1,23 +1,20 @@
 package com.ontology2.bakemono.ranSample;
 
+import com.google.common.collect.Iterators;
+import com.google.common.collect.PeekingIterator;
+import com.ontology2.bakemono.Main;
+import com.ontology2.bakemono.MainBase.IncorrectUsageException;
 import com.ontology2.bakemono.configuration.HadoopTool;
-import com.ontology2.bakemono.pse3.PSE3Tool;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.compress.GzipCodec;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
-
-import com.google.common.collect.Iterators;
-import com.google.common.collect.PeekingIterator;
-import com.ontology2.bakemono.Main;
-import com.ontology2.bakemono.MainBase.IncorrectUsageException;
-
-import org.apache.hadoop.io.LongWritable;
-import org.apache.hadoop.io.Text;
 
 @HadoopTool("ranSample")
 public class RanSampleTool implements Tool{

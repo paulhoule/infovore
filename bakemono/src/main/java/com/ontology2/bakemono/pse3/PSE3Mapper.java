@@ -1,26 +1,24 @@
 package com.ontology2.bakemono.pse3;
 
-import java.io.IOException;
-import java.util.regex.Pattern;
-
-import org.apache.commons.logging.LogFactory;
-import org.apache.hadoop.io.LongWritable;
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapreduce.*;
-
 import com.google.common.base.Function;
-import com.google.common.base.Splitter;
 import com.google.common.cache.LoadingCache;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
 import com.ontology2.bakemono.abstractions.KeyValueAcceptor;
 import com.ontology2.bakemono.abstractions.PrimaryKeyValueAcceptor;
-import com.ontology2.bakemono.jena.NodePair;
 import com.ontology2.bakemono.jena.WritableTriple;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleCodec;
 import com.ontology2.rdf.JenaUtil;
+import org.apache.commons.logging.LogFactory;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Counter;
+import org.apache.hadoop.mapreduce.Mapper;
+
+import java.io.IOException;
+import java.util.regex.Pattern;
 
 public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,WritableTriple> {
     private static final LongWritable ONE = new LongWritable(1);

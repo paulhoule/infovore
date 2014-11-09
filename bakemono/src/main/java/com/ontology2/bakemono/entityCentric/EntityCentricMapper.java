@@ -2,12 +2,9 @@ package com.ontology2.bakemono.entityCentric;
 
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleCodec;
-import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 
 import java.io.IOException;
 

@@ -1,14 +1,11 @@
 package com.ontology2.bakemono.entityCentric;
 
 import com.google.common.base.Joiner;
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.ontology2.bakemono.configuration.HadoopTool;
-import com.ontology2.bakemono.diffFacts.DiffFactsOptions;
 import com.ontology2.bakemono.mapred.ToolBase;
-import com.ontology2.centipede.parser.OptionParser;
 import com.ontology2.centipede.errors.UsageException;
-import org.apache.hadoop.conf.Configuration;
+import com.ontology2.centipede.parser.OptionParser;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
@@ -17,9 +14,6 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
-import org.apache.hadoop.util.Tool;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 
 import java.util.List;
 

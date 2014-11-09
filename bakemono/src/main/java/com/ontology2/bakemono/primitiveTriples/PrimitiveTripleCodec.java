@@ -1,10 +1,10 @@
 package com.ontology2.bakemono.primitiveTriples;
 
-import java.util.Iterator;
-
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
 import com.ontology2.bakemono.abstractions.Codec;
+
+import java.util.Iterator;
 
 public class PrimitiveTripleCodec implements Codec<PrimitiveTriple> {
     final Splitter tripleSplitter=Splitter.on(CharMatcher.WHITESPACE).omitEmptyStrings().limit(3);

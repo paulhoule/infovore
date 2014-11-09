@@ -1,10 +1,10 @@
 package com.ontology2.rdf;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 
 public class CacheEconomizer<T> implements Economizer<T> {
 
