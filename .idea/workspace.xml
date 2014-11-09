@@ -9,10 +9,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
     </list>
-    <list default="true" id="7f38132e-3aea-4038-aca1-03191a595276" name="New changelist" comment="fix wrong error message">
+    <list default="true" id="7f38132e-3aea-4038-aca1-03191a595276" name="New changelist" comment="correct location of one-jar">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/scripts/path.ps1" afterPath="$PROJECT_DIR$/haruhi/src/main/scripts/path.ps1" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/scripts/path.sh" afterPath="$PROJECT_DIR$/haruhi/src/main/scripts/path.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/pom.xml" afterPath="$PROJECT_DIR$/haruhi/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -97,21 +96,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="path.sh" pinned="false" current-in-tab="false">
+      <file leaf-file-name="path.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/haruhi/src/main/scripts/path.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
-              <caret line="4" column="61" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.042875156" vertical-offset="0" max-vertical-offset="793">
+              <caret line="2" column="114" selection-start-line="2" selection-start-column="114" selection-end-line="2" selection-end-column="114" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="path.ps1" pinned="false" current-in-tab="true">
+      <file leaf-file-name="path.ps1" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/haruhi/src/main/scripts/path.ps1">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.042875156" vertical-offset="0" max-vertical-offset="793">
-              <caret line="2" column="115" selection-start-line="2" selection-start-column="115" selection-end-line="2" selection-end-column="115" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
+              <caret line="2" column="114" selection-start-line="2" selection-start-column="114" selection-end-line="2" selection-end-column="114" />
               <folding />
             </state>
           </provider>
@@ -142,8 +141,8 @@
         <option value="$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/awsClustersContext.xml" />
         <option value="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java" />
         <option value="$PROJECT_DIR$/haruhi/pom.xml" />
-        <option value="$PROJECT_DIR$/haruhi/src/main/scripts/path.sh" />
         <option value="$PROJECT_DIR$/haruhi/src/main/scripts/path.ps1" />
+        <option value="$PROJECT_DIR$/haruhi/src/main/scripts/path.sh" />
       </list>
     </option>
   </component>
@@ -1619,7 +1618,13 @@
       <option name="project" value="LOCAL" />
       <updated>1415564091455</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="correct location of one-jar">
+      <created>1415574594708</created>
+      <option name="number" value="00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1415574594708</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1715,7 +1720,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="add reduction phase to prefilter to spread out the triples into even blocks.   For now we don't care how they are hashed and grouped,  but something aligned with the next stage could help." />
     <MESSAGE value="enable detailed monitoring on the instances once the cluster is running" />
     <MESSAGE value="convert the freebase prefilter into a &quot;self aware&quot; tool and add logic to the self aware tool to wait 10 minutes after a failed job." />
     <MESSAGE value="add types that can't be introspected by the tool and log events to sqs when starting and ending job cluster" />
@@ -1740,7 +1744,8 @@
     <MESSAGE value="use &quot;Organize Imports&quot; feature to clean up imports" />
     <MESSAGE value="upgrade cpu for larger clusters;  also drop names that repeat the machine definitions because those are a road to hell." />
     <MESSAGE value="fix wrong error message" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix wrong error message" />
+    <MESSAGE value="correct location of one-jar" />
+    <option name="LAST_COMMIT_MESSAGE" value="correct location of one-jar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2176,18 +2181,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haruhi/src/main/scripts/path.sh">
+    <entry file="file://$PROJECT_DIR$/haruhi/src/main/scripts/path.ps1">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
-          <caret line="4" column="61" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
+          <caret line="2" column="114" selection-start-line="2" selection-start-column="114" selection-end-line="2" selection-end-column="114" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haruhi/src/main/scripts/path.ps1">
+    <entry file="file://$PROJECT_DIR$/haruhi/src/main/scripts/path.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.042875156" vertical-offset="0" max-vertical-offset="793">
-          <caret line="2" column="115" selection-start-line="2" selection-start-column="115" selection-end-line="2" selection-end-column="115" />
+          <caret line="2" column="114" selection-start-line="2" selection-start-column="114" selection-end-line="2" selection-end-column="114" />
           <folding />
         </state>
       </provider>
