@@ -124,13 +124,13 @@ public class AmazonEMRCluster implements Cluster {
         }
         for(String inputPath:options.input) {
             if(!validateInputPath(inputPath)) {
-                logger.fatal("Could not resolve input path:"+inputPath);
+                logger.fatal("Could not resolve input path: "+inputPath);
                 return false;
             }
         }
 
         if(!validateOutputPath(options.output)) {
-            logger.fatal("Could not resolve output path:"+options.output);
+            logger.fatal("Something already exists at the output path: "+options.output);
             return false;
         }
 
@@ -139,7 +139,7 @@ public class AmazonEMRCluster implements Cluster {
 
     private boolean validateOutputPath(String output) throws URISyntaxException {
         if(!output.startsWith("s3n:")) {
-            logger.warn("Cannot validate input path not in S3: ["+output+"]");
+            logger.warn("Cannot validate input path not in S3,  continuing anyway: ["+output+"]");
             return true;
         }
 
