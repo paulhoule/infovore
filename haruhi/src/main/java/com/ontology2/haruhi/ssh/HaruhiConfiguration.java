@@ -13,12 +13,21 @@ public class HaruhiConfiguration {
     @Autowired
     ResourceLoader loader;
 
+    @javax.annotation.Resource
+    String haruhiVersion;
+
+    //
+    //
+    // this is bad.  we have a way for finding the jar and we should just use convention
+    // over configuration,  that is,  jar X has an X-metadata jar
+    //
+
     @Bean
     public Resource metadataJarPath() {
         return loader.getResource("file:"
             + new File(
                 System.getProperty("user.home"),
-                ".m2/repository/com/ontology2/bakemono/3.1-SNAPSHOT/bakemono-3.1-SNAPSHOT-metadata.jar"
+                ".m2/repository/com/ontology2/bakemono/"+haruhiVersion+"/bakemono-"+haruhiVersion+"-metadata.jar"
             ).toString());
     };
 }

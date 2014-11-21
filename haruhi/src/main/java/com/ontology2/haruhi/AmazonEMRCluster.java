@@ -2,6 +2,7 @@ package com.ontology2.haruhi;
 
 import com.amazonaws.services.ec2.AmazonEC2Client;
 import com.amazonaws.services.ec2.model.*;
+import com.amazonaws.services.ec2.model.Instance;
 import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduce;
 import com.amazonaws.services.elasticmapreduce.model.*;
 import com.amazonaws.services.elasticmapreduce.util.BootstrapActions;
@@ -274,7 +275,10 @@ public class AmazonEMRCluster implements Cluster {
 
         List<String> clusterInstances=newArrayList();
         for(Reservation that:r.getReservations())  {
-            clusterInstances.add(that.getInstances().get(0).getInstanceId());
+            for(Instance i:that.getInstances()) {
+                logger.info("Adding monitoring for instance " + i.getInstanceId());
+                clusterInstances.add(i.getInstanceId());
+            }
         }
 
         ec2Client.monitorInstances(new MonitorInstancesRequest(clusterInstances));

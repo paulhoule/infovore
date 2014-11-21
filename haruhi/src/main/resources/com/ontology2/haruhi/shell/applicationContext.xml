@@ -58,6 +58,9 @@
     </property>
   </bean>
 
+  <bean name="haruhiVersion" class="java.lang.String">
+       <constructor-arg value="${com.ontology2.haruhi.version}"/>
+  </bean>
 
   <bean name="t20130902" parent="bakemonoJar">
     <property name="version" value="t20130902" />
