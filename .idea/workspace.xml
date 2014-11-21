@@ -9,11 +9,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
     </list>
-    <list default="true" id="7f38132e-3aea-4038-aca1-03191a595276" name="New changelist" comment="fix search for wrong JAR (band aid to run through next test)">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/AmazonEMRCluster.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/ssh/HaruhiConfiguration.java" afterPath="$PROJECT_DIR$/haruhi/src/main/java/com/ontology2/haruhi/ssh/HaruhiConfiguration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml" afterPath="$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/awsInstanceContext.xml" afterPath="$PROJECT_DIR$/haruhi/src/main/resources/com/ontology2/haruhi/shell/awsInstanceContext.xml" />
+    <list default="true" id="7f38132e-3aea-4038-aca1-03191a595276" name="New changelist" comment="slightly less hackish way to configure path to the bakemono-metadata JAR">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="infovore.iws" />
@@ -1523,7 +1519,13 @@
       <option name="project" value="LOCAL" />
       <updated>1415576643371</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="slightly less hackish way to configure path to the bakemono-metadata JAR">
+      <created>1416586108913</created>
+      <option name="number" value="00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1416586108913</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1553,6 +1555,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32955536" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18390805" sideWeight="0.49107143" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32820514" sideWeight="0.3686747" order="8" side_tool="true" content_ui="tabs" />
@@ -1568,7 +1571,6 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18390805" sideWeight="0.49107143" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27232537" sideWeight="0.8544367" order="2" side_tool="false" content_ui="tabs" />
@@ -1619,7 +1621,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="move RewriteSubjectOptions" />
     <MESSAGE value="move more options into the options package" />
     <MESSAGE value="another round of options moved" />
     <MESSAGE value="move ps3options (I think the last)" />
@@ -1644,7 +1645,8 @@
     <MESSAGE value="fix wrong jar path" />
     <MESSAGE value="fix really wrong jar path" />
     <MESSAGE value="fix search for wrong JAR (band aid to run through next test)" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix search for wrong JAR (band aid to run through next test)" />
+    <MESSAGE value="slightly less hackish way to configure path to the bakemono-metadata JAR" />
+    <option name="LAST_COMMIT_MESSAGE" value="slightly less hackish way to configure path to the bakemono-metadata JAR" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
