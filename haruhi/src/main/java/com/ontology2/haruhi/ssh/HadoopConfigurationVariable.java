@@ -18,7 +18,7 @@ public class HadoopConfigurationVariable {
     final String key;
 
     public HadoopConfigurationVariable(String key) {
-        this(BootstrapActions.ConfigFile.Site,key);
+        this(BootstrapActions.ConfigFile.Mapred,key);
     }
     public HadoopConfigurationVariable(BootstrapActions.ConfigFile configFile, String key) {
         this.configFile = configFile;

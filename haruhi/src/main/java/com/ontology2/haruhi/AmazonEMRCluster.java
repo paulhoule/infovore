@@ -243,6 +243,7 @@ public class AmazonEMRCluster implements Cluster {
 
             if(state.equals("RUNNING") && !tagged) {
                 tagInstancesForJob(jobFlowId);
+                tagged=true;
             }
             logger.info("Job flow "+jobFlowId+" reported status "+state);
             Thread.sleep(checkInterval);
