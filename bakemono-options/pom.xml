@@ -4,11 +4,11 @@
   <parent>
     <groupId>com.ontology2</groupId>
     <artifactId>infovore</artifactId>
-    <version>3.2-SNAPSHOT</version>
+    <version>3.2</version>
   </parent>
   <groupId>com.ontology2</groupId>
   <artifactId>bakemono-options</artifactId>
-  <version>3.2-SNAPSHOT</version>
+  <version>3.2</version>
   <name>bakemono-options</name>
   <url>http://maven.apache.org</url>
   <properties>
