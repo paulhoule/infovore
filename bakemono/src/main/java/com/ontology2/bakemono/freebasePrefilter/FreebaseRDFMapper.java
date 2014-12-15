@@ -16,6 +16,8 @@ import org.apache.hadoop.mapreduce.Mapper;
 import java.io.IOException;
 import java.util.List;
 
+import static com.google.common.base.Functions.*;
+
 public class FreebaseRDFMapper extends Mapper<LongWritable,Text,Text,Text> {
     private static org.apache.commons.logging.Log logger = LogFactory.getLog(FreebaseRDFMapper.class);
     ImmutableMap.Builder<String,String> prefixBuilder=new ImmutableMap.Builder<String,String>();
@@ -201,20 +203,17 @@ public class FreebaseRDFMapper extends Mapper<LongWritable,Text,Text,Text> {
 
 
     public static Function<PrimitiveTriple, PrimitiveTriple> tripleRewritingFunction() {
-        return Functions.compose(Functions.compose(Functions.compose(
+        return compose(compose(
                 new PrimitiveTripleReverser(
                         "<http://rdf.basekb.com/ns/type.permission.controls>"
-                        ,"<http://rdf.basekb.com/ns/m.0j2r9sk>")
-                ,new PrimitiveTripleReverser(
+                        , "<http://rdf.basekb.com/ns/m.0j2r9sk>")
+                , new PrimitiveTripleReverser(
                         "<http://rdf.basekb.com/ns/dataworld.gardening_hint.replaced_by>"
-                        ,"<http://rdf.basekb.com/ns/m.0j2r8t8>"))
-                ,new PrimitiveTriplePredicateRewriter(
-                        "<http://rdf.basekb.com/ns/type.object.type>",
-                        "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>"))
-                ,new PrimitiveTripleTypeRewriter(
-                        "xsd:datetime",
-                        "<http://rdf.ontology2.com/freebaseDate>"
-                        ));
+                        , "<http://rdf.basekb.com/ns/m.0j2r8t8>"))
+                , new PrimitiveTriplePredicateRewriter(
+                "<http://rdf.basekb.com/ns/type.object.type>",
+                "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>"));
+
     }
 
 }
