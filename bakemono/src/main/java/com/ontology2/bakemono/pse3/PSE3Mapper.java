@@ -74,15 +74,22 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,Writable
     }
 
     private Node postprocessObject(Node object) throws InvalidNodeException {
-        if(object.isLiteral() && object.getLiteralDatatype()== XSDDatatype.XSDdateTime) {
-            String value=object.getLiteralLexicalForm();
-            if(!PSE3Util.dateTimePattern().matcher(value).matches()) {
-                throw new InvalidNodeException(value+" is not a valid xsd:dateTime");
-            };
+        if(object.isLiteral()) {
+            String value = object.getLiteralLexicalForm();
+            if (object.getLiteralDatatype() == XSDDatatype.XSDdateTime) {
+;
+                if (!PSE3Util.dateTimePattern().matcher(value).matches()) {
+                    throw new InvalidNodeException(value + " is not a valid xsd:dateTime");
+                }
+            }
+            if (object.getLiteralLexicalForm().length() > MAX_STRING_LENGTH)
+                throw new InvalidNodeException(value + " exceedes the maximum string length of " + MAX_STRING_LENGTH);
         }
 
         return object;
     }
+
+    public static final int MAX_STRING_LENGTH=63999;
 
     //
     // Barf on $xxxx escape sequences in any data type

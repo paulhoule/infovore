@@ -1,5 +1,6 @@
 package com.ontology2.bakemono.pse3;
 
+import com.google.common.base.Strings;
 import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.graph.Node_URI;
 import com.ontology2.bakemono.abstractions.KeyValueAcceptor;
@@ -14,9 +15,12 @@ import org.junit.Test;
 
 import java.io.IOException;
 
+import static com.google.common.base.Strings.*;
 import static org.mockito.Mockito.*;
 
 public class TestPSE3Mapper {
+
+    static final int MAX_STRING_LENGTH=63999;
 
     PSE3Mapper pse3mapper;
     Mapper.Context mockContext;
@@ -160,10 +164,20 @@ public class TestPSE3Mapper {
     }
 
     @Test
-    public void rejectsABadDate() throws IOException, InterruptedException {
+         public void rejectsABadDate() throws IOException, InterruptedException {
         pse3mapper.map(
                 new LongWritable(24562L),
                 new Text("<http://example.com/A>\t<http://example.com/B>\t\"2001-06\"^^<http://www.w3.org/2001/XMLSchema#dateTime>."),
+                mockContext);
+
+        verifyNoMoreInteractions(pse3mapper.accepted);
+    }
+
+    @Test
+    public void rejectsOversizedStrings() throws IOException, InterruptedException {
+        pse3mapper.map(
+                new LongWritable(24562L),
+                new Text("<http://example.com/A>\t<http://example.com/B>\t\""+ repeat("x", 70000)+"\"@en."),
                 mockContext);
 
         verifyNoMoreInteractions(pse3mapper.accepted);
