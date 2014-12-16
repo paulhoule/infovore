@@ -2,6 +2,7 @@ package com.ontology2.bakemono.pse3;
 
 import com.google.common.base.Function;
 import com.google.common.cache.LoadingCache;
+import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Node_URI;
 import com.hp.hpl.jena.graph.Triple;
@@ -10,6 +11,7 @@ import com.ontology2.bakemono.abstractions.PrimaryKeyValueAcceptor;
 import com.ontology2.bakemono.jena.WritableTriple;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTriple;
 import com.ontology2.bakemono.primitiveTriples.PrimitiveTripleCodec;
+import com.ontology2.rdf.InvalidNodeException;
 import com.ontology2.rdf.JenaUtil;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.io.LongWritable;
@@ -57,8 +59,9 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,Writable
             Node_URI subject=(Node_URI) nodeParser.get(rawSubject);
             Node_URI predicate=(Node_URI) nodeParser.get(rawPredicate);
             Node object=nodeParser.get(rawObject);
-            
+            object=postprocessObject(object);
             Triple realTriple=new Triple(subject,predicate,object);
+
             writableTriple = new WritableTriple(realTriple);
         } catch(Throwable e) {
             String factString=row3.getSubject()+"\t"+row3.getPredicate()+"\t"+row3.getSubject()+"\t.";
@@ -69,7 +72,18 @@ public class PSE3Mapper extends Mapper<LongWritable,Text,WritableTriple,Writable
         accepted.write(writableTriple,writableTriple,c);
         incrementCounter(c,PSE3Counters.ACCEPTED,1);
     }
-    
+
+    private Node postprocessObject(Node object) throws InvalidNodeException {
+        if(object.isLiteral() && object.getLiteralDatatype()== XSDDatatype.XSDdateTime) {
+            String value=object.getLiteralLexicalForm();
+            if(!PSE3Util.dateTimePattern().matcher(value).matches()) {
+                throw new InvalidNodeException(value+" is not a valid xsd:dateTime");
+            };
+        }
+
+        return object;
+    }
+
     //
     // Barf on $xxxx escape sequences in any data type
     //
