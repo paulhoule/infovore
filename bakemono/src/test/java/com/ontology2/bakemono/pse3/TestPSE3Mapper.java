@@ -1,5 +1,6 @@
 package com.ontology2.bakemono.pse3;
 
+import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.graph.Node_URI;
 import com.ontology2.bakemono.abstractions.KeyValueAcceptor;
 import com.ontology2.bakemono.jena.WritableTriple;
@@ -156,6 +157,37 @@ public class TestPSE3Mapper {
                 mockContext);
 
         verifyNoMoreInteractions(pse3mapper.accepted);
+    }
+
+    @Test
+    public void rejectsABadDate() throws IOException, InterruptedException {
+        pse3mapper.map(
+                new LongWritable(24562L),
+                new Text("<http://example.com/A>\t<http://example.com/B>\t\"2001-06\"^^<http://www.w3.org/2001/XMLSchema#dateTime>."),
+                mockContext);
+
+        verifyNoMoreInteractions(pse3mapper.accepted);
+    }
+
+    @Test
+    public void acceptsAGoodDateTime() throws IOException, InterruptedException {
+        pse3mapper.map(
+                new LongWritable(24562L),
+                new Text("<http://example.com/A>\t<http://example.com/B>\t\"2001-06-01T13:11:12Z\"^^<http://www.w3.org/2001/XMLSchema#dateTime>."),
+                mockContext);
+
+        verify(pse3mapper.accepted).write(
+                new WritableTriple(
+                        Node_URI.createURI("http://example.com/A")
+                        , Node_URI.createURI("http://example.com/B")
+                        , Node_URI.createLiteral("2001-06-01T13:11:12Z", XSDDatatype.XSDdateTime)
+                )
+                , new WritableTriple(
+                        Node_URI.createURI("http://example.com/A")
+                        , Node_URI.createURI("http://example.com/B")
+                        , Node_URI.createLiteral("2001-06-01T13:11:12Z", XSDDatatype.XSDdateTime)
+                )
+                , mockContext);
     }
 
     @After

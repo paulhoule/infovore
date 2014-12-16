@@ -3,8 +3,6 @@ package com.ontology2.bakemono.pse3;
 
 import org.junit.Test;
 
-import java.util.function.Predicate;
-
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
