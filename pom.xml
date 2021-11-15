@@ -6,6 +6,10 @@
   <version>3.3-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Infovore master project</name>
+  <properties>
+  	<closeTestReports>true</closeTestReports>
+  </properties>
+
   <url>https://github.com/paulhoule/infovore/wiki</url>
   <parent>
     <groupId>org.sonatype.oss</groupId>
@@ -97,6 +101,8 @@
         <configuration>
           <forkCount>2C</forkCount>
           <reuseForks>true</reuseForks>
+        	<parallel>classes</parallel>        	<useUnlimitedThreads>true</useUnlimitedThreads>
+        	<disableXmlReport>${closeTestReports}</disableXmlReport>
         </configuration>
       </plugin>
     </plugins>
